@@ -11,7 +11,7 @@ async function readNativeMenuExpanded(page) {
   return nodes.find(node => node.role?.value === 'button').properties.find(property => property.name === 'expanded').value.value;
 }
 
-test('Home contém somente o Hero, com textos exatos e um CTA configurável', async ({ page }) => {
+test('Home preserva os textos e a cena do Hero sem CTA ou indicador', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle('Conscientiza Queimadas');
   const favicon = page.locator('link[rel="icon"]');
@@ -22,16 +22,17 @@ test('Home contém somente o Hero, com textos exatos e um CTA configurável', as
   await expect(page.locator('.brand__name')).toHaveText('Conscientiza Queimadas');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(headline);
   await expect(page.locator('.hero__description')).toHaveText(description);
-  await expect(page.locator('main section')).toHaveCount(1);
+  await expect(page.locator('main > section')).toHaveCount(2);
   await expect(page.locator('footer')).toHaveCount(0);
-  await expect(page.locator('main a')).toHaveCount(1);
-  await expect(page.getByRole('link', { name: 'Entenda os impactos' })).toHaveAttribute('href', './dados-e-impactos');
-  await expect(page.locator('.hero__cta')).toHaveText('Entenda os impactos');
+  await expect(page.locator('main a, main button')).toHaveCount(0);
+  await expect(page.locator('.hero__cta, .hero__continuity')).toHaveCount(0);
+  await expect(page.getByText('Continue', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.hero__scroll-cue')).toHaveCount(0);
   await expect(page.locator('.hero__landscape')).toHaveAttribute('aria-hidden', 'true');
   await expect(page.locator('.hero__landscape text')).toHaveCount(0);
 });
 
-for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768], [1440, 900], [1920, 1080], [844, 390]]) {
+for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768], [1280, 500], [1440, 900], [1920, 1080], [844, 390], [1920, 420]]) {
   test(`conteúdo legível e sem overflow em ${width}×${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height });
     await page.goto('/');
@@ -44,7 +45,7 @@ for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768],
         client: document.documentElement.clientWidth,
         scroll: document.documentElement.scrollWidth,
         heading: bounds('h1'),
-        cta: bounds('.hero__cta'),
+        description: bounds('.hero__description'),
         hero: bounds('.hero'),
         nav: bounds('.site-header'),
       };
@@ -53,16 +54,24 @@ for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768],
     expect(layout.heading.left).toBeGreaterThanOrEqual(16);
     expect(layout.heading.right).toBeLessThanOrEqual(width - 16);
     expect(layout.heading.top).toBeGreaterThanOrEqual(layout.nav.bottom);
-    expect(layout.cta.bottom).toBeLessThan(layout.hero.bottom);
+    expect(layout.description.bottom).toBeLessThan(layout.hero.bottom);
+    expect(layout.hero.bottom).toBeLessThanOrEqual(height + 1);
+    expect(layout.hero.bottom).toBeGreaterThanOrEqual(height - 1);
+    const eyebrow = await page.locator('.impacts__eyebrow').boundingBox();
+    expect(eyebrow.y).toBeGreaterThanOrEqual(height);
+    if (width < 960) {
+      const scene = await page.locator('.landscape--mobile').boundingBox();
+      expect(layout.description.bottom).toBeLessThanOrEqual(scene.y + scene.height * .3);
+    }
     expect(await page.locator('.brand__name').evaluate(el => {
       const range = document.createRange();
       range.selectNodeContents(el);
       return range.getClientRects().length;
     })).toBe(1);
-    const cta = page.getByRole('link', { name: 'Entenda os impactos' });
-    await cta.focus();
-    await expect(cta).toBeInViewport();
-    expect(await cta.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('solid');
+    const brand = page.getByRole('link', { name: 'Conscientiza Queimadas — Início' });
+    await brand.focus();
+    await expect(brand).toBeInViewport();
+    expect(await brand.evaluate(el => getComputedStyle(el).outlineStyle)).toBe('solid');
   });
 }
 
@@ -92,8 +101,26 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(nav).toBeHidden();
   await page.keyboard.press('Enter');
   for (let index = 0; index < 5; index += 1) await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Entenda os impactos' })).toBeFocused();
+  await expect(page.locator('.site-nav a[href="./sobre"]')).not.toBeFocused();
   await expect(nav).toBeHidden();
+});
+
+test('paisagem mobile se adapta à altura da tela e reserva espaço para leitura', async ({ page }) => {
+  const sceneHeights = [];
+  for (const height of [568, 844, 1024]) {
+    await page.setViewportSize({ width: 390, height });
+    await page.goto('/');
+    const scene = await page.locator('.landscape--mobile').boundingBox();
+    const description = await page.locator('.hero__description').boundingBox();
+    const hero = await page.locator('.hero').boundingBox();
+    sceneHeights.push(scene.height);
+    expect(description.y + description.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
+    expect(hero.y + hero.height).toBeLessThanOrEqual(height + 1);
+    const eyebrow = await page.locator('.impacts__eyebrow').boundingBox();
+    expect(eyebrow.y).toBeGreaterThanOrEqual(height);
+  }
+  expect(sceneHeights[1]).toBeGreaterThan(sceneHeights[0]);
+  expect(sceneHeights[2]).toBeGreaterThan(sceneHeights[1]);
 });
 
 test('mouse ilumina a arte, reage na chama próxima e reseta ao sair', async ({ page }) => {
@@ -137,7 +164,7 @@ test('touch mantém a paisagem estática mesmo em largura desktop', async ({ bro
   await page.goto('http://127.0.0.1:4173/');
   await page.mouse.move(1150, 740);
   await expect(page.locator('.cursor-glow')).toHaveCSS('opacity', '0');
-  expect(await page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length)).toBe(0);
+  expect(await page.locator('.hero__landscape').evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
   expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.endsWith('/smoke.svg')))).toBe(false);
   await context.close();
 });
@@ -228,7 +255,8 @@ test('menu fecha ao clicar fora e se adapta ao mudar para desktop', async ({ pag
   await page.goto('/');
   const toggle = page.locator('.menu-toggle');
   await toggle.click();
-  await page.locator('.hero__description').click();
+  const hero = await page.locator('.hero').boundingBox();
+  await page.mouse.click(hero.x + hero.width / 2, hero.y + hero.height - 12);
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await toggle.click();
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -282,13 +310,33 @@ test('texto ampliado a 200% em 320 px continua legível e sem overflow', async (
   await page.goto('/');
   await page.evaluate(() => document.documentElement.style.fontSize = '200%');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  const cta = page.getByRole('link', { name: 'Entenda os impactos' });
-  await cta.focus();
-  await expect(cta).toBeInViewport();
+  const description = page.locator('.hero__description');
+  await description.scrollIntoViewIfNeeded();
+  await expect(description).toBeInViewport();
+  const scene = await page.locator('.landscape--mobile').boundingBox();
+  const reading = await description.boundingBox();
+  expect(reading.y + reading.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
   await page.getByRole('button', { name: 'Abrir menu' }).click();
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeVisible();
   await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Sobre', exact: true }).focus();
   await expect(page.getByRole('link', { name: 'Sobre', exact: true })).toBeInViewport();
+});
+
+test('texto a 200% preserva o espaço da paisagem em telas estreitas e horizontais', async ({ page }) => {
+  for (const [width, height] of [[320, 568], [844, 390], [1024, 500], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    await page.evaluate(() => document.documentElement.style.fontSize = '200%');
+    const description = await page.locator('.hero__description').boundingBox();
+    const hero = await page.locator('.hero').boundingBox();
+    expect(description.y + description.height).toBeLessThan(hero.y + hero.height);
+    expect(hero.y + hero.height).toBeGreaterThanOrEqual(height);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    if (width < 960) {
+      const scene = await page.locator('.landscape--mobile').boundingBox();
+      expect(description.y + description.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
+    }
+  }
 });
 
 test('carregamento lento do script não desloca o conteúdo e recursos são locais e leves', async ({ page }) => {

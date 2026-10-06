@@ -1,6 +1,6 @@
 # Conscientiza Queimadas
 
-Site educativo da Atividade Extensionista III de Engenharia de Software da UNINTER. Esta entrega contém **exclusivamente o Hero da Home e a navbar**.
+Site educativo da Atividade Extensionista III de Engenharia de Software da UNINTER. A Home contém a navbar, o Hero e a seção **Impactos das queimadas**, disponível diretamente abaixo dele.
 
 ## Executar
 
@@ -23,9 +23,11 @@ Abrir http://127.0.0.1:4173. O servidor é local e destinado ao desenvolvimento.
 - `src/favicon.svg`: símbolo autoral da marca sobre fundo verde escuro, registrado como ícone da aba.
 - `scripts/dev-server.mjs`: servidor local com módulos nativos do Node.
 - `tests/hero.spec.js`: verificação funcional no Chromium.
+- `tests/impacts.spec.js`: semântica, layout responsivo, rolagem natural, texto ampliado, contraste e movimento reduzido da transição e dos impactos.
 - `docs/hero-design.md`: decisões e escopo.
 - `docs/recursos-e-licencas.md`: autoria e registro de recursos.
 - `docs/verificacao-hero.md`: verificações realizadas e limites.
+- `docs/verificacao-impactos.md`: decisões e verificações da transição para os impactos.
 
 ## Destinos futuros
 
@@ -34,15 +36,19 @@ Os `href` do HTML são o ponto de configuração, funcionam sem JavaScript e sã
 | Elemento | Destino preparado |
 | --- | --- |
 | Marca / Início | `./` |
-| CTA / Dados e impactos | `./dados-e-impactos` |
+| Dados e impactos na navbar | `./dados-e-impactos` |
 | Prevenção | `./prevencao` |
 | Sobre | `./sobre` |
 
-As três páginas futuras ainda não foram criadas. Seus links retornarão 404 no servidor local até que essas rotas sejam implementadas; ao mudar o destino de Dados e impactos, atualizar tanto o CTA quanto a navbar. Não há placeholders de páginas ou seções abaixo do Hero.
+As três páginas futuras ainda não foram criadas. Seus links retornarão 404 no servidor local até que essas rotas sejam implementadas. A síntese dos impactos já está disponível na própria Home, sem interação adicional.
 
-O menu usa `popover`/`popovertarget` nativos do HTML: abre pelo botão, fecha com Esc ou clique fora mesmo com JavaScript desativado ou com falha de carregamento. Em navegadores sem suporte a `:popover-open`, o CSS expõe os links no fluxo como alternativa. O script melhora os rótulos, sincroniza `aria-expanded` e fecha o painel ao sair com Tab. O painel aberto se sobrepõe temporariamente ao conteúdo; ao mover o foco para fora, ele fecha antes de encobrir o CTA focado.
+A seção de impactos fica abaixo da primeira tela, sem prévia parcial ou indicador adicional no Hero. Ao rolar naturalmente, o recorte estático de terreno prolonga a cor do chão sobre o fundo areia: seu `clip-path` tem altura fluida entre 16 e 40 px, com 1 px adicional para evitar frestas. A seção usa texto verde escuro, numeração terracota e divisórias finas. Os três eixos ficam em uma coluna abaixo de 960 px e em três colunas a partir dessa largura. Sua altura acompanha o conteúdo, sem cards, imagens ou animações.
 
-A marca e o título da aba usam **Conscientiza Queimadas**. O CTA mantém seu destino e apresenta somente **Entenda os impactos**, sem seta, com cantos de 10 px e tipografia fluida de 17–18 px no tamanho padrão do navegador. A paisagem autoral tem labaredas de contornos variados e fumaça em camadas; somente no desktop com mouse e sem preferência de movimento reduzido há animações e resposta ao cursor. Ao sair da arte, rolar, redimensionar ou mudar a preferência, a interação é removida. Touch e telas estreitas exibem a cena estática. Não há dependências de produção nem recursos externos.
+O Hero ocupa no mínimo `100svh` menos a navbar, com fallback em `vh`, e cresce naturalmente quando conteúdo ou zoom exigem. Tipografia e espaçamento consideram largura e altura da viewport, com limites em `rem` para leitura. No mobile, uma medida compartilhada controla a paisagem e seu espaço reservado abaixo do texto. A reserva continua válida em orientação horizontal com texto ampliado. Nos impactos, títulos, textos e espaçamentos crescem e diminuem conforme a largura e a altura úteis da janela, por CSS, sem JavaScript ou recarregamento. A introdução permanece abaixo do título em todos os tamanhos. No desktop, uma medida tipográfica compartilhada varia entre 14 e 22 px e mantém as proporções do corpo, títulos dos eixos, números e introdução; o título principal varia entre 28 e 72 px. No mobile, o corpo mantém 16 px. As medidas usam limites em `rem` para respeitar a ampliação do texto. A seção cresce naturalmente quando necessário, sem altura fixa ou conteúdo escondido.
+
+O menu usa `popover`/`popovertarget` nativos do HTML: abre pelo botão, fecha com Esc ou clique fora mesmo com JavaScript desativado ou com falha de carregamento. Em navegadores sem suporte a `:popover-open`, o CSS expõe os links no fluxo como alternativa. O script melhora os rótulos, sincroniza `aria-expanded` e fecha o painel ao sair com Tab.
+
+A marca e o título da aba usam **Conscientiza Queimadas**. O Hero mantém headline e subtítulo, sem CTA. A paisagem autoral tem labaredas de contornos variados e fumaça em camadas; somente no desktop com mouse e sem preferência de movimento reduzido há animações e resposta ao cursor. Ao sair da arte, rolar, redimensionar ou mudar a preferência, a interação é removida. Touch e telas estreitas exibem a cena estática. Não há dependências de produção nem recursos externos.
 
 A fumaça usa um SVG local separado para que o navegador reutilize sua renderização durante o movimento. O filtro fica dentro desse arquivo e seus parâmetros permanecem fixos. A versão simples em SVG inline fica visível durante o carregamento, em caso de falha, sem JavaScript, em touch/mobile ou com movimento reduzido. A textura não é solicitada inicialmente nesses últimos três modos.
 
