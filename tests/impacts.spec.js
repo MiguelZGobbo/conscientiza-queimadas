@@ -3,6 +3,73 @@ import { test, expect } from '@playwright/test';
 const sectionTitle = 'O fogo deixa marcas além da paisagem.';
 const axes = ['Meio ambiente', 'Saúde', 'Sociedade'];
 
+for (const [width, height] of [[390, 844], [1350, 626], [1920, 1080]]) {
+  for (const [javaScriptEnabled, reducedMotion] of [[true, 'no-preference'], [false, 'no-preference'], [false, 'reduce']]) {
+    test(`atalho nativo leva aos impactos com clique e Enter em ${width}px, JS ${javaScriptEnabled}, movimento ${reducedMotion}`, async ({ browser }) => {
+      const context = await browser.newContext({ javaScriptEnabled, reducedMotion, viewport: { width, height } });
+      try {
+        const page = await context.newPage();
+        for (const action of ['click', 'Enter']) {
+          await page.goto('http://127.0.0.1:4173/');
+          const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
+          await expect(shortcut).toBeVisible();
+          if (action === 'click') await shortcut.click();
+          else {
+            await shortcut.focus();
+            expect(await shortcut.evaluate(element => getComputedStyle(element).outlineStyle)).toBe('solid');
+            await page.keyboard.press('Enter');
+          }
+          await expect(page).toHaveURL(/#impactos$/);
+          const section = page.getByRole('region', { name: sectionTitle });
+          await expect(section).toBeFocused();
+          await expect(section).toHaveAttribute('tabindex', '-1');
+          await expect.poll(async () => Math.abs((await section.boundingBox()).y)).toBeLessThanOrEqual(1);
+          expect((await page.locator('.hero').boundingBox()).y + (await page.locator('.hero').boundingBox()).height).toBeLessThanOrEqual(1);
+          await expect(section.getByRole('heading', { level: 2 })).toBeInViewport();
+          if (action === 'Enter') {
+            expect(await section.evaluate(element => getComputedStyle(element).outlineStyle)).toBe('solid');
+            expect(await section.evaluate(element => getComputedStyle(element).outlineColor)).toBe('rgb(31, 43, 36)');
+          }
+        }
+      } finally {
+        await context.close();
+      }
+    });
+  }
+}
+
+test('o atalho tem chegada gradual e fica instantâneo com movimento reduzido', async ({ page }) => {
+  await page.setViewportSize({ width: 1350, height: 626 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const samples = await page.evaluate(async () => {
+    const section = document.querySelector('#impactos');
+    const start = section.getBoundingClientRect().top;
+    const positions = [];
+    document.querySelector('.hero__impacts-link').click();
+    await new Promise(resolve => {
+      const started = performance.now();
+      function sample() {
+        positions.push(section.getBoundingClientRect().top);
+        if (Math.abs(positions.at(-1)) <= 1 || performance.now() - started > 2000) resolve();
+        else requestAnimationFrame(sample);
+      }
+      requestAnimationFrame(sample);
+    });
+    return { start, positions };
+  });
+  expect(samples.positions.some(top => top > 1 && top < samples.start - 1)).toBe(true);
+  expect(Math.abs(samples.positions.at(-1))).toBeLessThanOrEqual(1);
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const arrival = await page.evaluate(() => {
+    document.querySelector('.hero__impacts-link').click();
+    return document.querySelector('#impactos').getBoundingClientRect().top;
+  });
+  expect(Math.abs(arrival)).toBeLessThanOrEqual(1);
+});
+
 test('impactos são uma região da Home com três eixos disponíveis sem interação', async ({ page }) => {
   await page.goto('/');
   const section = page.getByRole('region', { name: sectionTitle });
@@ -27,6 +94,7 @@ for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [768, 1024
         client: document.documentElement.clientWidth,
         scroll: document.documentElement.scrollWidth,
         sectionBottom: section.bottom,
+        sectionHeight: section.height,
         heroBottom: document.querySelector('.hero').getBoundingClientRect().bottom,
         sectionTop: section.top,
         sceneBottom: document.querySelector('.hero__landscape').getBoundingClientRect().bottom,
@@ -35,6 +103,7 @@ for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [768, 1024
       };
     });
     expect(layout.scroll).toBeLessThanOrEqual(layout.client);
+    expect(layout.sectionHeight).toBeGreaterThanOrEqual(height);
     expect(layout.sectionTop).toBe(layout.heroBottom);
     expect(layout.sceneBottom).toBe(layout.heroBottom);
     expect(layout.paragraphs.every(paragraph => !paragraph.clipped)).toBe(true);
@@ -51,6 +120,8 @@ for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [768, 1024
       expect(layout.blocks[1].top).toBeGreaterThan(layout.blocks[0].bottom);
       expect(layout.blocks[2].top).toBeGreaterThan(layout.blocks[1].bottom);
     }
+    await page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true }).click();
+    await expect.poll(async () => Math.abs((await page.locator('.impacts').boundingBox()).y)).toBeLessThanOrEqual(1);
     await blocks.last().scrollIntoViewIfNeeded();
     await expect(blocks.last().getByRole('heading', { name: 'Sociedade' })).toBeInViewport();
   });
@@ -150,6 +221,7 @@ test('impactos e transição continuam disponíveis com movimento reduzido e sem
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4173/');
     await expect(page.locator('.hero__cta, .hero__continuity')).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeVisible();
     expect(await page.locator('.impacts').evaluate(element => getComputedStyle(element, '::before').clipPath)).toContain('polygon(');
     await expect(page.getByRole('region', { name: sectionTitle }).getByRole('heading', { level: 3 })).toHaveText(axes);
     expect(await page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length)).toBe(0);
@@ -164,10 +236,14 @@ test('texto a 200% e reflow a 320 px preservam todo o conteúdo', async ({ page 
     await page.evaluate(() => document.documentElement.style.fontSize = '200%');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const content = page.locator('.impacts');
+    expect((await content.boundingBox()).height).toBeGreaterThanOrEqual(height);
+    if (width === 320) expect((await content.boundingBox()).height).toBeGreaterThan(height);
     expect(await content.locator('h2, h3, p').evaluateAll(elements => elements.every(element => {
       const style = getComputedStyle(element);
       return element.scrollWidth <= element.clientWidth && (element.scrollHeight <= element.clientHeight || style.overflowY === 'visible');
     }))).toBe(true);
+    await page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true }).click();
+    await expect.poll(async () => Math.abs((await content.boundingBox()).y)).toBeLessThanOrEqual(1);
     const lastParagraph = content.locator('.impacts__axis p').last();
     await lastParagraph.scrollIntoViewIfNeeded();
     await expect(lastParagraph).toBeInViewport();
@@ -185,10 +261,15 @@ test('todas as cores de texto da seção atingem contraste AA no fundo renderiza
       return channels[0] * .2126 + channels[1] * .7152 + channels[2] * .0722;
     };
     const background = luminance(getComputedStyle(section).backgroundColor);
-    return [...section.querySelectorAll('h2, h3, p, .impacts__number')].map(element => {
+    const pairs = [...section.querySelectorAll('h2, h3, p, .impacts__number')].map(element => {
       const foreground = luminance(getComputedStyle(element).color);
       return { text: element.textContent.trim().slice(0, 35), ratio: (Math.max(background, foreground) + .05) / (Math.min(background, foreground) + .05) };
     });
+    const shortcut = document.querySelector('.hero__impacts-link');
+    const shortcutForeground = luminance(getComputedStyle(shortcut).color);
+    const heroBackground = luminance(getComputedStyle(document.body).backgroundColor);
+    pairs.push({ text: shortcut.textContent.trim(), ratio: (Math.max(shortcutForeground, heroBackground) + .05) / (Math.min(shortcutForeground, heroBackground) + .05) });
+    return pairs;
   });
   expect(contrasts.length).toBeGreaterThan(0);
   for (const { text, ratio } of contrasts) expect(ratio, text).toBeGreaterThanOrEqual(4.5);

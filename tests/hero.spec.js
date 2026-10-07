@@ -11,7 +11,7 @@ async function readNativeMenuExpanded(page) {
   return nodes.find(node => node.role?.value === 'button').properties.find(property => property.name === 'expanded').value.value;
 }
 
-test('Home preserva os textos e a cena do Hero sem CTA ou indicador', async ({ page }) => {
+test('Home preserva os textos e a cena do Hero com atalho nativo para os impactos', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle('Conscientiza Queimadas');
   const favicon = page.locator('link[rel="icon"]');
@@ -24,7 +24,11 @@ test('Home preserva os textos e a cena do Hero sem CTA ou indicador', async ({ p
   await expect(page.locator('.hero__description')).toHaveText(description);
   await expect(page.locator('main > section')).toHaveCount(2);
   await expect(page.locator('footer')).toHaveCount(0);
-  await expect(page.locator('main a, main button')).toHaveCount(0);
+  await expect(page.locator('main a')).toHaveCount(1);
+  await expect(page.locator('main button')).toHaveCount(0);
+  const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
+  await expect(shortcut).toHaveAttribute('href', '#impactos');
+  await expect(shortcut.locator('[aria-hidden="true"]')).toHaveText('↓');
   await expect(page.locator('.hero__cta, .hero__continuity')).toHaveCount(0);
   await expect(page.getByText('Continue', { exact: true })).toHaveCount(0);
   await expect(page.locator('.hero__scroll-cue')).toHaveCount(0);
@@ -46,6 +50,7 @@ for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768],
         scroll: document.documentElement.scrollWidth,
         heading: bounds('h1'),
         description: bounds('.hero__description'),
+        shortcut: bounds('.hero__impacts-link'),
         hero: bounds('.hero'),
         nav: bounds('.site-header'),
       };
@@ -55,13 +60,18 @@ for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768],
     expect(layout.heading.right).toBeLessThanOrEqual(width - 16);
     expect(layout.heading.top).toBeGreaterThanOrEqual(layout.nav.bottom);
     expect(layout.description.bottom).toBeLessThan(layout.hero.bottom);
-    expect(layout.hero.bottom).toBeLessThanOrEqual(height + 1);
+    expect(layout.shortcut.top).toBeGreaterThanOrEqual(layout.description.bottom);
+    expect(layout.shortcut.bottom).toBeLessThan(layout.hero.bottom);
+    expect(layout.shortcut.bottom - layout.shortcut.top).toBeGreaterThanOrEqual(44);
+    expect(layout.shortcut.left).toBeGreaterThanOrEqual(16);
+    expect(layout.shortcut.right).toBeLessThanOrEqual(width - 16);
     expect(layout.hero.bottom).toBeGreaterThanOrEqual(height - 1);
+    expect(layout.hero.bottom).toBeLessThanOrEqual(height + 1);
     const eyebrow = await page.locator('.impacts__eyebrow').boundingBox();
     expect(eyebrow.y).toBeGreaterThanOrEqual(height);
     if (width < 960) {
       const scene = await page.locator('.landscape--mobile').boundingBox();
-      expect(layout.description.bottom).toBeLessThanOrEqual(scene.y + scene.height * .3);
+      expect(layout.shortcut.bottom).toBeLessThanOrEqual(scene.y + scene.height * .3);
     }
     expect(await page.locator('.brand__name').evaluate(el => {
       const range = document.createRange();
@@ -101,7 +111,7 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(nav).toBeHidden();
   await page.keyboard.press('Enter');
   for (let index = 0; index < 5; index += 1) await page.keyboard.press('Tab');
-  await expect(page.locator('.site-nav a[href="./sobre"]')).not.toBeFocused();
+  await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeFocused();
   await expect(nav).toBeHidden();
 });
 
@@ -111,10 +121,10 @@ test('paisagem mobile se adapta à altura da tela e reserva espaço para leitura
     await page.setViewportSize({ width: 390, height });
     await page.goto('/');
     const scene = await page.locator('.landscape--mobile').boundingBox();
-    const description = await page.locator('.hero__description').boundingBox();
+    const shortcut = await page.locator('.hero__impacts-link').boundingBox();
     const hero = await page.locator('.hero').boundingBox();
     sceneHeights.push(scene.height);
-    expect(description.y + description.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
+    expect(shortcut.y + shortcut.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
     expect(hero.y + hero.height).toBeLessThanOrEqual(height + 1);
     const eyebrow = await page.locator('.impacts__eyebrow').boundingBox();
     expect(eyebrow.y).toBeGreaterThanOrEqual(height);
@@ -313,8 +323,11 @@ test('texto ampliado a 200% em 320 px continua legível e sem overflow', async (
   const description = page.locator('.hero__description');
   await description.scrollIntoViewIfNeeded();
   await expect(description).toBeInViewport();
+  const shortcut = page.locator('.hero__impacts-link');
+  await shortcut.scrollIntoViewIfNeeded();
+  await expect(shortcut).toBeInViewport();
   const scene = await page.locator('.landscape--mobile').boundingBox();
-  const reading = await description.boundingBox();
+  const reading = await shortcut.boundingBox();
   expect(reading.y + reading.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
   await page.getByRole('button', { name: 'Abrir menu' }).click();
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeVisible();
@@ -327,14 +340,14 @@ test('texto a 200% preserva o espaço da paisagem em telas estreitas e horizonta
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.documentElement.style.fontSize = '200%');
-    const description = await page.locator('.hero__description').boundingBox();
+    const shortcut = await page.locator('.hero__impacts-link').boundingBox();
     const hero = await page.locator('.hero').boundingBox();
-    expect(description.y + description.height).toBeLessThan(hero.y + hero.height);
+    expect(shortcut.y + shortcut.height).toBeLessThan(hero.y + hero.height);
     expect(hero.y + hero.height).toBeGreaterThanOrEqual(height);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     if (width < 960) {
       const scene = await page.locator('.landscape--mobile').boundingBox();
-      expect(description.y + description.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
+      expect(shortcut.y + shortcut.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
     }
   }
 });
