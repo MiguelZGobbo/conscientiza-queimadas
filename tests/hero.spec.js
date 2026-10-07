@@ -23,7 +23,7 @@ test('Home preserva os textos e a cena do Hero com atalho nativo para os impacto
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(headline);
   await expect(page.locator('.hero__description')).toHaveText(description);
   await expect(page.locator('main > section')).toHaveCount(2);
-  await expect(page.locator('footer')).toHaveCount(0);
+  await expect(page.getByRole('contentinfo')).toHaveCount(1);
   await expect(page.locator('main a')).toHaveCount(1);
   await expect(page.locator('main button')).toHaveCount(0);
   const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
@@ -309,7 +309,7 @@ test('menu continua operável quando o arquivo JavaScript falha', async ({ page 
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeVisible();
   expect(await readNativeMenuExpanded(page)).toBe(true);
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Início', exact: true })).toBeFocused();
+  await expect(page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Início', exact: true })).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(toggle).toBeFocused();
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeHidden();
@@ -373,5 +373,18 @@ test('carregamento lento do script não desloca o conteúdo e recursos são loca
   }));
   expect(metrics.shift).toBeLessThan(0.01);
   expect(metrics.resources.every(resource => new URL(resource.name).origin === 'http://127.0.0.1:4173')).toBe(true);
-  expect(metrics.resources.reduce((size, resource) => size + resource.size, metrics.htmlSize)).toBeLessThan(40000);
+  const [html, css] = await Promise.all([
+    page.request.get('/').then(response => response.text()),
+    page.request.get('/src/styles.css').then(response => response.text()),
+  ]);
+  // Mantém o orçamento anterior e limita separadamente o novo conteúdo da Home.
+  const footerHtml = html.match(/\n[ \t]*<footer\b[\s\S]*?<\/footer>\r?\n/)[0];
+  const footerCss = css.match(/\/\* Rodapé da Home \*\/[\s\S]*?\/\* Fim do rodapé \*\//)[0];
+  const footerSize = Buffer.byteLength(footerHtml + footerCss);
+  const totalSize = metrics.resources.reduce((size, resource) => size + resource.size, metrics.htmlSize);
+  // O HTML/CSS e a imagem decorativa do rodapé têm orçamentos próprios.
+  const backgroundSize = metrics.resources.find(resource => new URL(resource.name).pathname === '/src/footer-background.webp').size;
+  expect(footerSize).toBeLessThan(7000);
+  expect(backgroundSize).toBeLessThan(200000);
+  expect(totalSize - footerSize - backgroundSize).toBeLessThan(40000);
 });

@@ -42,6 +42,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .skip-link:focus { transform: translateY(0); }
 .site-header { position: relative; z-index: 3; }
+.site-header:focus-visible { outline-offset: -4px; }
 .site-header__inner {
   position: relative;
   min-height: var(--header-height);
@@ -212,6 +213,50 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .impacts__number { color: var(--impacts-accent); font-size: clamp(1rem, 2.8svh, 1.25rem); line-height: 1.5; font-variant-numeric: tabular-nums; }
 .impacts h3 { margin: .5rem 0 .75rem; font-size: 1.375rem; font-weight: 650; line-height: 1.3; letter-spacing: -.025em; }
 .impacts__axis p { max-width: 38ch; margin: 0; color: var(--impacts-muted); font-size: 1rem; line-height: 1.65; text-wrap: pretty; }
+
+/* Rodapé da Home */
+.site-footer { position: relative; isolation: isolate; padding-top: clamp(2.5rem, 4vw, 4rem); background: var(--background); color: var(--foreground); text-align: left; overflow-wrap: anywhere; }
+.site-footer__layout { display: grid; grid-template-areas: "groups" "landscape" "bottom"; gap: 1.5rem; }
+.site-footer__groups { grid-area: groups; display: grid; gap: 2rem; }
+.site-footer__groups > * { min-width: 0; }
+.site-footer__identity { display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: .75rem; align-content: start; }
+.site-footer__mark { color: var(--accent); }
+.site-footer h2 { margin: 0 0 .75rem; font-size: clamp(1.25rem, 1.65vw, 1.5rem); font-weight: 650; line-height: 1.35; letter-spacing: -.025em; }
+.site-footer h2 span { display: block; }
+.site-footer__identity p { grid-column: 2; }
+.site-footer h3 { margin: 0 0 .75rem; font-size: .75rem; font-weight: 600; line-height: 1.5; letter-spacing: .1em; text-transform: uppercase; }
+.site-footer p { margin: 0; max-width: 34ch; color: var(--muted); font-size: .9375rem; line-height: 1.65; text-wrap: pretty; }
+.site-footer ul { display: grid; gap: .5rem; padding: 0; margin: 0; list-style: none; font-size: 1rem; line-height: 1.65; }
+.site-footer a { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.site-footer a:hover, .site-footer a:focus-visible { color: var(--accent); }
+.site-footer .site-footer__availability { margin-top: 1rem; max-width: 24ch; font-size: .875rem; }
+.site-footer .site-footer__location { display: flex; align-items: flex-start; gap: .375rem; margin-top: 1rem; font-size: .875rem; }
+.site-footer__location-mark { flex-shrink: 0; width: 1.15em; height: 1.15em; margin-top: .25em; color: var(--accent); }
+.site-footer__landscape { grid-area: landscape; height: 180px; margin-inline: calc(-1 * var(--page-gutter)); overflow: hidden; pointer-events: none; }
+.site-footer__landscape img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.site-footer__bottom { grid-area: bottom; padding-block: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--muted) 20%, transparent); }
+.site-footer__bottom p { max-width: none; font-size: .875rem; }
+
+@media (min-width: 600px) {
+  .site-footer__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .site-footer__layout { container-type: inline-size; grid-template-columns: minmax(0, .8fr) minmax(0, 3.2fr); grid-template-areas: ". groups" "bottom bottom"; gap: 2rem; }
+  .site-footer__groups { grid-template-columns: minmax(0, 1.25fr) minmax(0, .7fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; align-self: center; }
+  .site-footer__groups > :not(:first-child) { padding-left: 1.5rem; border-left: 1px solid color-mix(in srgb, var(--muted) 20%, transparent); }
+  .site-footer__landscape { grid-area: auto; position: absolute; inset: 0; height: 100%; margin: 0; z-index: -1; }
+  .site-footer__landscape img { height: auto; mask-image: linear-gradient(to bottom, #000 80%, transparent); }
+  @container (max-width: 64rem) {
+    .site-footer__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .site-footer__groups > :not(:first-child) { padding-left: 0; border-left: 0; }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-footer a { transition: color 160ms ease; }
+}
+/* Fim do rodapé */
 
 .flame, .flame__shape { transform-box: fill-box; transform-origin: center bottom; }
 .flame { opacity: .87; }

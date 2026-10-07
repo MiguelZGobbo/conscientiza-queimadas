@@ -6,7 +6,8 @@ Registro em 06/10/2026. A Home não carrega imagens, fontes, scripts, CSS ou bib
 | --- | --- | --- |
 | Paisagem SVG, árvores abstratas, vegetação, terreno, fogo e fumaça | Criados nesta implementação em `index.html`, diretamente no código do projeto | Sem recurso de terceiro incorporado. Não é necessária atribuição a terceiros. Este registro não define a licença geral do projeto. |
 | Textura de fumaça: duas plumas e filtro SVG de ruído, deformação e suavidade | Criados diretamente em `src/smoke.svg`, com primitivas nativas do SVG, sem imagem de referência incorporada | Recurso local autoral, sem asset ou biblioteca de terceiro; nenhuma atribuição externa. |
-| Marca vetorial e linhas do botão de menu | Desenhos originais em `index.html` | Sem recurso de terceiro incorporado; nenhuma atribuição externa. |
+| Marca vetorial e linhas do botão de menu | Desenhos originais em `index.html`; o rodapé reutiliza a mesma logo do cabeçalho | Sem recurso de terceiro incorporado; nenhuma atribuição externa. |
+| Marcador de localização do rodapé | SVG autoral em `index.html`, desenhado diretamente com contorno e círculo | Sem recurso ou banco de ícones de terceiro; nenhuma atribuição externa. |
 | Favicon SVG | Traços da marca autoral adaptados em `src/favicon.svg`, com fundo verde escuro, margens e espessura para tamanhos pequenos | Recurso local criado no projeto; nenhuma atribuição externa. A imagem enviada orienta a aparência, sem ser incorporada como asset. |
 | Animações e interação decorativa | Keyframes originais em `src/styles.css` e JavaScript nativo em `src/hero-interaction.js` | Sem animação pronta ou biblioteca visual externa; nenhuma atribuição externa. |
 | Tipografia | `system-ui, sans-serif`, fornecida pelo sistema do visitante | Nenhum arquivo de fonte é incluído, baixado ou redistribuído pelo projeto. Autoria/licença da fonte efetiva dependem do sistema do visitante; não há atribuição adicional no site. |
@@ -14,7 +15,15 @@ Registro em 06/10/2026. A Home não carrega imagens, fontes, scripts, CSS ou bib
 
 Os binários de navegador instalados pelo Playwright ficam no ambiente de testes, fora do conteúdo publicado. Seus avisos e licenças próprios acompanham a instalação; não são assets da Home.
 
-Não são utilizadas fotografias, texturas, vídeos, CDN, fontes web, SVGs de bancos de ícones ou imagens geradas externas. Nenhum logotipo oficial da UNINTER é incorporado. As silhuetas são uma representação artística de vegetação e não afirmam espécies ou uma paisagem local documentada.
+Não são utilizados vídeos, CDN, fontes web ou SVGs de bancos de ícones. Nenhum logotipo oficial da UNINTER é incorporado. As paisagens são representações artísticas de vegetação e não afirmam espécies ou um local documentado. O fundo raster do rodapé foi solicitado pelo usuário para substituir a ilustração vetorial anterior; sua origem e preparação estão registradas abaixo.
+
+## Fundo raster do rodapé
+
+Atualizado em 07/10/2026. A instrução do usuário foi utilizar o fundo do exemplo 3 que ele anexou. O ImageGen preparou uma versão limpa a partir dessa referência, removendo textos, folha, ícones e divisórias do mockup. O arquivo resultante foi codificado em WebP, sem alteração da composição, com a ferramenta Sharp disponível no ambiente do Codex; nenhuma dependência foi adicionada ao projeto. O PNG de edição permanece no diretório de imagens geradas do Codex. O arquivo publicado é local, tem 2172 × 724 px e 21.556 bytes.
+
+| Recurso | Fonte | Autor/Órgão | Licença | Link | Forma de atribuição |
+| --- | --- | --- | --- | --- | --- |
+| Fundo de entardecer do rodapé, preparado a partir do exemplo 3 | Anexo do usuário `codex-clipboard-5969be05-e1e8-4827-b24a-009089c15854.png`; edição assistida pelo ImageGen | Autoria do anexo não informada; preparação para o projeto via ImageGen | Licença original do anexo não informada; utilização dessa referência solicitada explicitamente pelo usuário nesta conversa. Não é atribuída uma licença nova ao material de origem | [Arquivo usado no site](../src/footer-background.webp) | Registro da origem e da preparação neste documento; nenhum texto de atribuição obrigatório foi informado para o anexo |
 
 ## Referências editoriais — Impactos das queimadas
 

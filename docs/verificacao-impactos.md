@@ -7,7 +7,7 @@ Atualizada em 07/10/2026 após ajustar a chegada ao destino e suavizar a navega�
 - Removidos o CTA “Entenda os impactos”, seu comentário e estilos, além de “Continue ↓” e seus estilos. Headline, subtítulo, paleta, desenhos SVG, animações e interação da cena foram preservados.
 - A primeira tela contém o Hero completo. A seção de impactos começa após ele, sem rótulo ou título aparecendo parcialmente na abertura.
 - O marcador foi removido por completo, incluindo elemento HTML, estilos, animação e reservas exclusivas de espaço. O novo atalho é o link textual “Ver impactos das queimadas ↓”, sublinhado e abaixo da descrição, com cor de destaque existente, fonte fluida de 16–18 px e área de toque de pelo menos 44 px de altura. A seta é estática e tem `aria-hidden="true"`. O hover altera somente a cor, e o foco reutiliza o contorno existente.
-- O link aponta para `#impactos` e a seção recebe `tabindex="-1"`. O navegador desloca a página e transfere foco nativamente, sem adicionar a seção à sequência de Tab. Seu foco usa verde escuro sobre areia, com contorno para dentro da seção. A navegação por fragmento usa `scroll-behavior: smooth` no elemento raiz somente com `prefers-reduced-motion: no-preference`. Com movimento reduzido, a chegada é instantânea. A duração e a curva são controladas pelo navegador; não há interceptação do clique nem novo JavaScript. A rolagem manual continua nativa.
+- O link aponta para `#impactos` e a seção recebe `tabindex="-1"`. O navegador desloca a página e transfere foco nativamente, sem adicionar a seção à sequência de Tab. Seu foco usa verde escuro sobre areia, com contorno para dentro da seção. A navegação por fragmento usa `scroll-behavior: smooth` no elemento raiz somente com `prefers-reduced-motion: no-preference`. Com movimento reduzido, a chegada é instantânea. A duração e a curva são controladas pelo navegador; a navegação não depende de JavaScript. A rolagem manual continua nativa.
 - A altura mínima do Hero usa `svh` e fallback `vh`, descontando apenas o cabeçalho. Não tem altura fixa: cresce quando leitura ou zoom exigem. Em orientação horizontal com tela baixa, cabeçalho, tipografia, espaço de cena e respiro se ajustam juntos.
 - No mobile, uma medida compartilhada `clamp(12rem, min(90vw, 32svh), 24rem)` dimensiona a cena e seu espaço reservado. O padding inclui 70% dessa altura e um respiro; os 30% superiores correspondem à faixa difusa já existente na cena. Tipografia e espaços também consideram a altura e a largura da viewport, com limites legíveis em `rem`.
 - Em telas horizontais, a reserva da paisagem continua válida e permite crescimento do Hero quando o texto é ampliado.
@@ -18,6 +18,16 @@ Atualizada em 07/10/2026 após ajustar a chegada ao destino e suavizar a navega�
 - Links e comportamento da navbar não foram alterados. As páginas futuras ainda retornam 404 no servidor local; a síntese dos impactos está na própria Home.
 
 ## Evidência de verificação
+
+### Conteúdo estático — 07/10/2026
+
+A pedido do usuário, a animação de revelação foi removida. A introdução e os três eixos permanecem visíveis e estáticos. Foram retirados o módulo JavaScript, sua inclusão no HTML, os keyframes, os estilos e os testes específicos do efeito.
+
+A navegação por âncora do Hero e do rodapé continua suave, sem recarregar a página, e funciona sem JavaScript. Com movimento reduzido, a chegada é instantânea. Os textos, o layout e a navegação por teclado foram preservados.
+
+Verificação após a remoção: `npm test` aprovou os 65 testes restantes em 41,7 s; `npm run check` e `git diff --check` passaram. Na página local da porta 5500, os quatro grupos foram confirmados com opacidade 1, sem transformação e sem animação em 390 e 1440 px após ativar o atalho.
+
+### Registros anteriores da transição
 
 - `npm test`: **49 testes aprovados**, incluindo 25 do Hero/navegação e 24 da seção/transição. Os testes exigem redução em janela baixa e crescimento em monitor grande, além de manter a introdução abaixo do título. Antes deste ajuste, o teste de chegada reproduziu 122 px de Hero ainda visível em 1350×626; depois, o topo da seção ficou em 0 px.
 - Atalho ativado por clique e Enter em 390×844, 1350×626 e 1920×1080, com JavaScript habilitado, desabilitado e desabilitado com movimento reduzido: fragmento `#impactos`, foco nativo na seção, título visível e Hero fora da área de leitura. Amostragem por frames confirma posições intermediárias durante a chegada suave; com movimento reduzido, a posição final é atingida imediatamente.

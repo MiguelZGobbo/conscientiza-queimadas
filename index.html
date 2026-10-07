@@ -14,7 +14,7 @@
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <div class="home-opening">
-      <header class="site-header">
+      <header class="site-header" id="inicio" tabindex="-1">
         <div class="site-header__inner container">
           <a class="brand" href="./" aria-label="Conscientiza Queimadas — Início">
             <svg class="brand__mark" width="34" height="40" viewBox="0 0 34 40" fill="none" aria-hidden="true" focusable="false">
@@ -269,5 +269,57 @@
         </section>
       </main>
     </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__layout container">
+        <div class="site-footer__groups">
+          <div class="site-footer__identity">
+            <svg class="site-footer__mark" width="34" height="40" viewBox="0 0 34 40" fill="none" aria-hidden="true" focusable="false">
+              <path d="M17 3C18 12 29 15 29 25a12 12 0 0 1-24 0c0-5 3-9 6-12 0 5 2 7 4 8 3-5 4-11 2-18Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M17 34V23m0 6-5-4m5 1 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <h2>Conscientiza <span>Queimadas</span></h2>
+            <p>Informação e prevenção para uma relação mais consciente com o fogo.</p>
+          </div>
+
+          <nav aria-labelledby="footer-navigation-title">
+            <h3 id="footer-navigation-title">Navegação</h3>
+            <ul>
+              <li><a href="#inicio" aria-current="page">Início</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__institutional">
+            <h3>Institucional</h3>
+            <ul>
+              <li>Sobre o projeto</li>
+              <li>Fontes e créditos</li>
+              <li>Feedback</li>
+            </ul>
+            <p class="site-footer__availability">Conteúdos ainda não disponíveis.</p>
+          </div>
+
+          <div class="site-footer__academic">
+            <h3>Atividade acadêmica</h3>
+            <p>Projeto desenvolvido como parte da Atividade Extensionista III da UNINTER.</p>
+            <p class="site-footer__location">
+              <svg class="site-footer__location-mark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="2.5"/>
+              </svg>
+              <span>Itaguaçu — Espírito Santo</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="site-footer__landscape" aria-hidden="true">
+          <img src="./src/footer-background.webp" width="2172" height="724" alt="" decoding="async" fetchpriority="low">
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Conscientiza Queimadas</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

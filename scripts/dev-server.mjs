@@ -3,14 +3,14 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const root = new URL('../', import.meta.url);
-const contentTypes = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml' };
+const contentTypes = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp' };
 const port = Number(process.env.PORT || 4173);
 
 createServer(async (request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname;
   const relativePath = pathname === '/' ? 'index.html' : pathname.slice(1);
   const extension = relativePath.slice(relativePath.lastIndexOf('.'));
-  const allowed = relativePath === 'index.html' || /^src\/[\w/-]+\.(css|js|svg)$/.test(relativePath);
+  const allowed = relativePath === 'index.html' || /^src\/[\w/-]+\.(css|js|svg|webp)$/.test(relativePath);
 
   if (!allowed || !['GET', 'HEAD'].includes(request.method)) {
     response.writeHead(404).end('Página não encontrada.');
