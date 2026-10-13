@@ -101,6 +101,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .site-nav a[aria-current="page"] { color: var(--foreground); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .55rem; }
 .site-nav a:hover { color: var(--foreground); background: #ffffff08; }
+.site-nav__pending {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 48px;
+  padding: .75rem;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.site-nav__pending small { font-size: .75rem; }
 
 .hero {
   --hero-scene-height: clamp(12rem, min(90vw, 32vh), 24rem);
@@ -300,6 +311,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   }
   .site-nav ul { flex-direction: row; gap: clamp(.75rem, 2vw, 2.25rem); }
   .site-nav a { padding: .5rem .25rem; font-size: .875rem; }
+  .site-nav__pending { flex-direction: column; align-items: flex-start; gap: 0; padding: .5rem .25rem; font-size: .875rem; }
   .hero {
     --hero-scene-space: 0px;
     display: flex;

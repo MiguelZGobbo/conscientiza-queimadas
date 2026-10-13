@@ -14,7 +14,7 @@ test('rodapé encerra a Home com identidade, contexto acadêmico e apenas um des
   await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
   await expect(footer.getByText('© 2026 Conscientiza Queimadas', { exact: true })).toBeVisible();
   await expect(footer.getByRole('link')).toHaveCount(1);
-  await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Início', exact: true })).toHaveAttribute('href', '#inicio');
+  await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Voltar ao topo', exact: true })).toHaveAttribute('href', '#inicio');
   for (const name of institutionalItems) {
     const item = footer.getByText(name, { exact: true });
     await expect(item).toBeVisible();
@@ -106,11 +106,11 @@ for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [600, 900,
 }
 
 for (const width of [390, 1440]) {
-  test(`Início no rodapé é acessível por Tab, Shift+Tab e Enter em ${width}px`, async ({ page }) => {
+  test(`Voltar ao topo no rodapé é acessível por Tab, Shift+Tab e Enter em ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
     const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
-    const home = page.getByRole('contentinfo').getByRole('link', { name: 'Início', exact: true });
+    const home = page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true });
     await shortcut.focus();
     await page.keyboard.press('Tab');
     await expect(home).toBeFocused();
@@ -135,14 +135,14 @@ for (const width of [390, 1440]) {
 }
 
 for (const width of [390, 1440]) {
-  test(`Início retorna suavemente sem recarregar, inclusive sem JavaScript, em ${width}px`, async ({ browser }) => {
+  test(`Voltar ao topo retorna suavemente sem recarregar, inclusive sem JavaScript, em ${width}px`, async ({ browser }) => {
     for (const javaScriptEnabled of [true, false]) {
       for (const reducedMotion of ['no-preference', 'reduce']) {
         const context = await browser.newContext({ javaScriptEnabled, reducedMotion, viewport: { width, height: 900 } });
         try {
           const page = await context.newPage();
           await page.goto('http://127.0.0.1:4173/');
-          const home = page.getByRole('contentinfo').getByRole('link', { name: 'Início', exact: true });
+          const home = page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true });
           await home.scrollIntoViewIfNeeded();
           const start = await page.evaluate(() => scrollY);
           const positions = [];
@@ -170,7 +170,7 @@ test('todos os textos e estados do link atingem contraste AA no fundo do rodapé
     await page.setViewportSize({ width, height: 1080 });
     await page.goto('/');
     const footer = page.getByRole('contentinfo');
-    const home = footer.getByRole('link', { name: 'Início', exact: true });
+    const home = footer.getByRole('link', { name: 'Voltar ao topo', exact: true });
     for (const fontSize of ['100%', '200%']) {
       await page.evaluate(size => document.documentElement.style.fontSize = size, fontSize);
       await page.mouse.move(0, 0);
@@ -238,7 +238,7 @@ test('rodapé funciona sem JavaScript e respeita movimento reduzido', async ({ b
     await page.goto('http://127.0.0.1:4173/');
     const footer = page.getByRole('contentinfo');
     await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
-    const home = footer.getByRole('link', { name: 'Início', exact: true });
+    const home = footer.getByRole('link', { name: 'Voltar ao topo', exact: true });
     expect(await home.evaluate(element => getComputedStyle(element).transitionDuration)).toBe('0s');
     expect(await footer.evaluate(element => element.getAnimations({ subtree: true }).length)).toBe(0);
     await home.click();

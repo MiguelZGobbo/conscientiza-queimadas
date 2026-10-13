@@ -1,0 +1,76 @@
+/* Página educativa: escala fluida e coluna de leitura compartilhada. */
+.queimadas-page main {
+  --reading-type-unit: clamp(1rem, min(1.15vw, 2.3svh), 1.25rem);
+  --reading-gap: clamp(1rem, min(2vw, 3svh), 2rem);
+  --reading-space: clamp(2.5rem, min(6vw, 9svh), 5rem);
+  color-scheme: light;
+  background: var(--impacts-background);
+  color: var(--impacts-foreground);
+  font-size: var(--reading-type-unit);
+  line-height: 1.75;
+}
+.queimadas-page main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
+.queimadas-page main :focus-visible { outline-color: var(--impacts-accent); }
+.queimadas-page main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
+.queimadas-page main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
+.reading-column { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
+.reading-intro { padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem); background: var(--background); color: var(--foreground); }
+.reading-intro h1 { margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; letter-spacing: -.04em; }
+.reading-intro h1 span { color: var(--accent); }
+.reading-intro p { margin: clamp(1rem, min(1.5vw, 3svh), 1.5rem) 0 0; color: var(--muted); }
+.reading-contents { padding-block: var(--reading-gap); }
+.reading-contents__title { margin: 0 0 .5rem; font-weight: 650; }
+.reading-contents ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.reading-contents li { min-width: 0; }
+.reading-contents a { display: inline-flex; align-items: center; min-height: 44px; padding-block: .5rem; line-height: 1.5; text-underline-offset: .25em; }
+.reading-contents a:hover { color: var(--impacts-accent); }
+.reading-section { padding-block: var(--reading-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
+.reading-section:focus-visible { outline-offset: -4px; }
+.reading-section__layout { display: grid; gap: var(--reading-gap); }
+.reading-section__heading, .reading-section__body { min-width: 0; }
+.reading-section h2, .reading-next h2 { max-width: 24ch; margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
+.reading-section__body p { margin: 0 0 var(--reading-gap); }
+.reading-section__body > :last-child { margin-bottom: 0; }
+.reading-section h3 { margin: calc(var(--reading-space) * .6) 0 var(--reading-gap); font-size: calc(var(--reading-type-unit) * 1.25); line-height: 1.4; }
+.reading-section__body ul { margin: var(--reading-gap) 0; padding-left: 1.25rem; }
+.reading-section__body li { margin-block: calc(var(--reading-gap) * .65); padding-left: .25rem; }
+.reading-definitions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28ch), 1fr)); gap: var(--reading-gap); margin-block: var(--reading-space); }
+.reading-definitions > div { min-width: 0; padding-top: var(--reading-gap); border-top: 1px solid var(--impacts-divider); }
+.reading-definitions h3 { margin-top: 0; }
+.reading-definitions p:last-child { margin-bottom: 0; }
+.fire-triangle { margin: var(--reading-space) 0; }
+.fire-triangle__drawing {
+  --triangle-symbol-size: clamp(3.25rem, min(6vw, 10svh), 4.5rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: var(--reading-space);
+  width: clamp(18rem, min(40vw, 60svh), 28rem);
+  max-width: 100%;
+  margin-inline: auto;
+}
+/* As conexões unem os centros dos símbolos sem depender da altura dos rótulos inferiores. */
+.fire-triangle__connections {
+  position: absolute;
+  top: calc(1.5em + .75rem + var(--triangle-symbol-size) * .5);
+  left: 0;
+  width: 100%;
+  height: calc(var(--triangle-symbol-size) + var(--reading-space));
+  color: var(--impacts-accent);
+}
+.fire-triangle__element { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.fire-triangle__element--heat { grid-column: 1 / -1; }
+.fire-triangle__symbol { display: block; width: var(--triangle-symbol-size); max-width: 100%; height: auto; }
+.fire-triangle__element span { max-width: 100%; padding: .375rem .5rem; background: transparent; font-weight: 600; line-height: 1.5; text-align: center; overflow-wrap: anywhere; }
+.fire-triangle__element--heat span { order: -1; }
+.fire-triangle__symbol--heat { color: var(--impacts-accent); }
+.fire-triangle__symbol--fuel, .fire-triangle__symbol--air { color: var(--impacts-foreground); }
+.fire-triangle__symbol--heat .fire-triangle__disc { fill: color-mix(in srgb, var(--impacts-accent) 12%, var(--impacts-background)); }
+.fire-triangle__symbol--fuel .fire-triangle__disc, .fire-triangle__symbol--air .fire-triangle__disc { fill: color-mix(in srgb, var(--impacts-foreground) 8%, var(--impacts-background)); }
+.fire-triangle figcaption { margin-top: var(--reading-gap); color: var(--impacts-muted); font-size: calc(var(--reading-type-unit) * .875); line-height: 1.5; text-align: center; }
+.reading-note { margin-top: var(--reading-space) !important; padding-left: var(--reading-gap); border-left: 3px solid var(--impacts-accent); }
+.reading-next { padding-block: var(--reading-space); }
+.reading-next h2 { margin-bottom: var(--reading-gap); }
+.reading-next p { margin: 0 0 var(--reading-gap); }
+.reading-next__pending { color: var(--impacts-accent); font-weight: 650; }
+.reading-next .reading-next__availability { margin-top: .75rem; margin-bottom: 0; font-size: calc(var(--reading-type-unit) * .875); color: var(--impacts-muted); }

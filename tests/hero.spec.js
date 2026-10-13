@@ -101,8 +101,8 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect(nav).toBeVisible();
   await expect(nav.getByRole('link', { name: 'Início', exact: true })).toBeInViewport();
-  await expect(nav.getByRole('link', { name: 'Sobre', exact: true })).toBeInViewport();
-  for (const name of ['Início', 'Dados e impactos', 'Prevenção', 'Sobre']) {
+  await expect(nav.getByText('Prevenção', { exact: true })).toBeInViewport();
+  for (const name of ['Início', 'Queimadas']) {
     await page.keyboard.press('Tab');
     await expect(nav.getByRole('link', { name, exact: true })).toBeFocused();
   }
@@ -110,7 +110,7 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(toggle).toBeFocused();
   await expect(nav).toBeHidden();
   await page.keyboard.press('Enter');
-  for (let index = 0; index < 5; index += 1) await page.keyboard.press('Tab');
+  for (let index = 0; index < 3; index += 1) await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeFocused();
   await expect(nav).toBeHidden();
 });
@@ -331,8 +331,8 @@ test('texto ampliado a 200% em 320 px continua legível e sem overflow', async (
   expect(reading.y + reading.height).toBeLessThanOrEqual(scene.y + scene.height * .3);
   await page.getByRole('button', { name: 'Abrir menu' }).click();
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeVisible();
-  await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Sobre', exact: true }).focus();
-  await expect(page.getByRole('link', { name: 'Sobre', exact: true })).toBeInViewport();
+  await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Queimadas', exact: true }).focus();
+  await expect(page.getByRole('link', { name: 'Queimadas', exact: true })).toBeInViewport();
 });
 
 test('texto a 200% preserva o espaço da paisagem em telas estreitas e horizontais', async ({ page }) => {
