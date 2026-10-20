@@ -120,3 +120,7 @@ Esta revisão substitui o RAF2025 e a média 1985–2025 na interface Dados. Os 
 ## Refinamento interativo dos gráficos — 19/10/2026
 
 A revisão usa apenas HTML, CSS, SVG e JavaScript do projeto. Nenhuma biblioteca, fonte, imagem ou dependência nova. Todos os dados, recortes, atribuições e licenças anteriores permanecem. Os três módulos de dados mantiveram seus hashes. A adaptação acrescenta destaque interativo acessível, posicionamento próximo dos rótulos com verificação de segmentos e nomes diretos das séries. A média histórica e os valores de 2026 compartilham eixo mensal sem atribuir o ano corrente à série de referência. Metodologia e direitos da imagem do rodapé continuam pendentes das etapas já registradas; nenhuma publicação.
+
+## Revisão editorial e contornos do mapa — 20/10/2026
+
+Encerrada a pendência editorial da metodologia com quatro respostas sobre área, focos, médias e limitações, sem alterar dados ou períodos. A conferência usa as fontes oficiais já registradas: RAF2025, Monitor do Fogo e FAQ do INPE. O SVG passa a reutilizar a geometria selecionada e a focada em duas camadas decorativas acima dos territórios, preservando integralmente os 27 limites originais e os créditos IBGE. Código nativo, sem novos recursos externos ou dependências. A autorização da imagem do rodapé e as demais condições de uso continuam as registradas; nenhuma publicação nesta etapa.

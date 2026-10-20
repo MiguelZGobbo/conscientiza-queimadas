@@ -99,7 +99,10 @@ test('27 estados não exibem retângulo e distinguem foco geométrico de seleç�
   for (const state of await states.all()) {
     await state.focus();
     await state.press('Enter');
-    const focus = await state.evaluate(element => ({
+    expect(await state.evaluate(element => getComputedStyle(element).outlineStyle)).toBe('none');
+    const contour = page.locator('[data-map-outline="focus"]');
+    await expect(contour).toBeVisible();
+    const focus = await contour.evaluate(element => ({
       outline: getComputedStyle(element).outlineStyle,
       dashes: getComputedStyle(element).strokeDasharray,
       width: parseFloat(getComputedStyle(element).strokeWidth),
@@ -118,7 +121,7 @@ test('27 estados não exibem retângulo e distinguem foco geométrico de seleç�
   const acre = page.getByRole('button', { name: 'Acre', exact: true });
   await acre.hover();
   await acre.press('Enter');
-  expect(await acre.evaluate(element => parseFloat(getComputedStyle(element).strokeWidth))).toBeGreaterThanOrEqual(3);
+  expect(await page.locator('[data-map-outline="focus"]').evaluate(element => parseFloat(getComputedStyle(element).strokeWidth))).toBeGreaterThanOrEqual(3);
 });
 
 test('panorama separa anos completos e acompanhamento acumulado de 2026', async ({ page }) => {

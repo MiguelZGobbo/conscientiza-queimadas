@@ -32,10 +32,14 @@ const paths = features.sort((a, b) => a.properties.NM_UF.localeCompare(b.propert
   const d = polygons.flatMap(polygon => polygon.map(ring => `M${ring.map(coordinate).join('L')}Z`)).join('');
   return `          <path data-uf="${feature.properties.SIGLA_UF}" aria-label="${feature.properties.NM_UF}" d="${d}"/>`;
 });
-const svg = `<svg class="brazil-map" viewBox="0 0 800 ${height}" role="group" aria-labelledby="map-title map-description" xmlns="http://www.w3.org/2000/svg">
+const svg = `<svg class="brazil-map" viewBox="0 0 800 ${height}" role="group" tabindex="-1" focusable="false" aria-labelledby="map-title map-description" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Unidades federativas do Brasil</title>
           <desc id="map-description">Mapa para seleção de uma unidade federativa. A mesma consulta está disponível no seletor textual.</desc>
 ${paths.join('\n')}
+          <g class="map-outlines" aria-hidden="true" focusable="false">
+            <path data-map-outline="selection" d="" focusable="false"/>
+            <path data-map-outline="focus" d="" focusable="false"/>
+          </g>
         </svg>`;
 const page = new URL('../dados.html', import.meta.url);
 const html = readFileSync(page, 'utf8');

@@ -2,6 +2,26 @@
 
 Data: 19/10/2026. Referência editorial: handoff “Implementação da página Dados” fornecido pelo usuário e plano aprovado nesta conversa. Implementação em `feat/pagina-dados`, sem publicação externa.
 
+## Revisão atual — textos finais e contornos uniformes — 20/10/2026
+
+Trabalho realizado na `main`, conforme o plano aprovado. Encerrada a pendência editorial da seção **Entenda os dados**: quatro perguntas, respostas de dois parágrafos curtos e uma nota sobre a edição estática. São 319 palavras incluindo títulos e nota. O texto distingue território atingido uma vez em 1985–2025 de soma mensal estadual em out/2025–set/2026, contagem de detecções de quantidade de incêndios, média de área dos anos civis 2019–2024 de média dos acumulados mensais nos 23 anos de 2003–2025. Mantida a definição de hectare; retirados os cinco períodos outubro–setembro e a média antiga. As lacunas de detecção são referidas sem repetir as datas já apresentadas junto ao gráfico. Nenhum total dos gráficos foi repetido.
+
+### Fontes e contornos
+
+- A revisão editorial usa os mesmos indicadores e bases, conferidos com a [Tabela 3 do RAF2025](https://raf.ia.mapbiomas.org/raf2025/publication-web-resources/html/publication-20.html), o [Monitor do Fogo](https://brasil.mapbiomas.org/iniciativas-e-produtos/fogo/monitor-do-fogo/) e a [FAQ do INPE](https://data.inpe.br/queimadas/faq/). Sem atualização dos dados, novos períodos ou novas interpretações causais.
+- A borda irregular era causada pela ordem de pintura do SVG: estados posteriores recobriam parte do traço selecionado nas divisas. Duas camadas decorativas no fim do mapa reutilizam somente o `d` do território: seleção contínua de **2 px** e foco tracejado de **4 px**, ambas sem preenchimento, com `non-scaling-stroke` e sem receber eventos. Não há nova geometria, nome acessível ou opção interativa.
+- Seleção, troca e limpeza atualizam o contorno selecionado; entrada e saída do foco atualizam o tracejado. O contorno de foco só aparece quando o território tem `:focus-visible`, inclusive ao alternar mouse e teclado. Os 27 caminhos originais permanecem na ordem alfabética, sem mover nós no DOM.
+- Um teste detectou uma parada extra de Tab no SVG após adicionar os eventos de foco. O contêiner agora tem `tabindex="-1"` e `focusable="false"`; as 27 UFs conservam suas entradas, e as camadas decorativas ficam fora da árvore acessível. O gerador do mapa mantém essa estrutura.
+
+### Verificação e reprodução
+
+- Os cinco testes novos falharam antes da implementação, por textos antigos e ausência das camadas. Após a correção, passaram conteúdo, limites de dois parágrafos, sincronização dos contornos nas 27 UFs, seleção e foco independentes, Tab/Enter/Espaço, dimensões e alternativa sem JavaScript. A expectativa antiga que exigia a metodologia obsoleta foi substituída pela referência civil correta.
+- Reprodução usando `BR_UF_2025.shp` original já disponível localmente: mapa e painéis produziram o mesmo HTML, preservando a metodologia. SHA-256 do HTML: **aa17dbd1650bbb90bc01d9c76caba5cfe8a36b26c826fd0c4ed2a335bfd4b132**. SHA-256 das 27 geometrias: **cd601d31626eb6c6bbc9807e46964aa935692f375289cbf0a606d8a8ff18caca**, igual à referência anterior. As três bases não foram alteradas.
+- Capturas em `%TEMP%/contorno-final-*.png` e `%TEMP%/metodologia-final-*.png`: Mato Grosso, Distrito Federal, Espírito Santo e Acre; seleção de MT simultânea ao foco de AC; metodologia em 390 e 1440 px e texto a 200%. A matriz automatizada inclui 320, 390, 768, 960, 1440 e 1920 px, janela de 420 px de altura e texto ampliado.
+- **`npm test -- --reporter=dot`: 165 testes aprovados em 1,4 min**, incluindo axe, cliques nas 27 geometrias, seleção sincronizada, teclado/toque, matriz responsiva, dados indisponíveis, zeros, alternativa sem JavaScript e igualdade dos rodapés. **`npm run check` aprovado**, incluindo os **21 testes Python**; os erros impressos nos cenários de importação inválida são esperados e verificados. A primeira suíte encontrou somente a expectativa editorial antiga; após atualizá-la, a suíte completa passou. Conferência de espaços com `git diff --check` considerando CRLF como fim de linha: sem erros.
+
+Mapa, seletor, gráficos, períodos, rodapé, Home e Queimadas mantêm seus dados e comportamento, com exceção da correção dos contornos descrita. Não houve teste com leitor de tela real ou aparelho físico; não se declara conformidade integral. A autorização da imagem do rodapé e as demais condições de uso continuam pendentes conforme os registros. Nenhuma publicação do site nesta revisão. Commit e push foram autorizados posteriormente pelo usuário para a `main`, com mensagem em inglês.
+
 ## Conferência para commit e push
 
 - Suíte completa reexecutada após a correção da comparação estadual: **160 testes Playwright aprovados em 1,5 min**. `npm run check` aprovado, incluindo **21 testes Python**. Foram preservadas as mensagens esperadas dos cenários de importação inválida.
@@ -11,7 +31,7 @@ Data: 19/10/2026. Referência editorial: handoff “Implementação da página D
 
 
 
-## Revisão atual — hover prioritário e destaque dos biomas
+## Revisão anterior — hover prioritário e destaque dos biomas
 
 **Correção complementar — comparação estadual de área:** o realce dos biomas agora é compartilhado com a comparação estadual: sem sublinhado nas categorias e `brightness(.9)` apenas na barra ativa. A omissão foi reproduzida pelo teste ampliado antes da correção. Os **19 testes de interação passaram**, mais **uma verificação axe A/AA**, após a alteração de duas regras CSS. O teste percorre todas as barras dos dois gráficos em 1440 px, 390 px e texto a 200%, preservando cor-base, largura e altura. Captura de Mato Grosso inspecionada em `%TEMP%/comparacao-estadual-destaque-MT.png`. O registro da suíte completa abaixo refere-se à revisão imediatamente anterior; não foi repetida para esta correção localizada. Dados, geometria e comportamento de hover não mudaram.
 

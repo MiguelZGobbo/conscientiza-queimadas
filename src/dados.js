@@ -13,6 +13,8 @@ const { states = {}, metadata: areaMetadata } = areaModule;
 const select = document.querySelector('#state-select');
 const map = document.querySelector('.brazil-map');
 const territories = [...map.querySelectorAll('[data-uf]')];
+const selectionOutline = map.querySelector('[data-map-outline="selection"]');
+const focusOutline = map.querySelector('[data-map-outline="focus"]');
 const results = document.querySelector('#state-results');
 const comparison = document.querySelector('#state-comparison');
 const unavailable = document.querySelector('#state-unavailable');
@@ -25,6 +27,14 @@ const validArea = value => Number.isFinite(value) && value >= 0;
 observeChartLabels();
 let syncControl = () => {};
 
+function setMapOutline(outline, territory) {
+  if (outline) outline.setAttribute('d', territory?.getAttribute('d') || '');
+}
+
+function updateMapFocus() {
+  setMapOutline(focusOutline, map.querySelector('[data-uf]:focus-visible'));
+}
+
 function selectState(uf) {
   document.dispatchEvent(new Event('chartselectionchange'));
   const state = states[uf];
@@ -33,6 +43,7 @@ function selectState(uf) {
   for (const territory of territories) {
     territory.setAttribute('aria-pressed', String(territory.dataset.uf === uf));
   }
+  setMapOutline(selectionOutline, territories.find(territory => territory.dataset.uf === uf));
   results.hidden = !uf;
   focusSection.hidden = !uf;
   const matchingPeriod = areaMetadata?.period?.start === comparison.dataset.periodStart
@@ -78,7 +89,11 @@ map.addEventListener('keydown', event => {
     event.preventDefault();
     selectState(territory.dataset.uf);
   }
+  requestAnimationFrame(updateMapFocus);
 });
+map.addEventListener('focusin', updateMapFocus);
+map.addEventListener('focusout', () => setMapOutline(focusOutline, null));
+map.addEventListener('pointerdown', () => requestAnimationFrame(updateMapFocus));
 
 for (const territory of territories) {
   territory.setAttribute('role', 'button');

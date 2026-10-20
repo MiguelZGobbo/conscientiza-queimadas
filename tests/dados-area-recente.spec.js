@@ -3,13 +3,15 @@ import { chooseState } from './helpers/dados.js';
 import { states, metadata, biomes, national } from '../src/dados-base.js';
 import { readFileSync } from 'node:fs';
 
-test('estados usam recorte recente e referência civil; metodologia aguarda outra revisão', async ({ page }) => {
+test('estados e metodologia identificam o recorte recente e a referência civil', async ({ page }) => {
   await page.goto('/dados.html');
   await chooseState(page, 'AM');
   await expect(page.locator('#state-comparison-title')).toContainText('últimos 12 meses');
   await expect(page.locator('#state-comparison')).toContainText('Média anual — 2019–2024');
   await expect(page.getByRole('status', { name: 'Consulta estadual' })).toContainText('out/2025–set/2026');
-  await expect(page.locator('#metodologia')).toContainText('out/2019–set/2025');
+  await expect(page.locator('#metodologia')).toContainText('janeiro a dezembro de 2019 a 2024');
+  await expect(page.locator('#metodologia')).toContainText('outubro de 2025 a setembro de 2026');
+  await expect(page.locator('#metodologia')).not.toContainText('out/2019–set/2025');
 });
 
 test('agregados correspondem aos meses oficiais e os textos calculados ao mesmo recorte', async ({ page }) => {

@@ -7,15 +7,15 @@
     "O Cerrado concentrou 43,5% desse território e a Amazônia, 42,5%. Juntos, responderam por 86% da área atingida no período.",
     "Selecione um estado ou o Distrito Federal no mapa ou na lista para consultar a área queimada e os focos recentes, com referências históricas identificadas em cada gráfico.",
     "Selecione uma unidade federativa",
-    "A área queimada corresponde à extensão da superfície onde foram identificadas marcas da passagem do fogo, conhecidas como cicatrizes de queimada.",
-    "O Monitor do Fogo, do MapBiomas, mapeia cicatrizes mensalmente com imagens de satélite. Nesta página, o acumulado de área queimada é a soma das áreas mensais publicadas entre out/2025 e set/2026. Uma mesma área pode contribuir em mais de um mês; esse acumulado difere da extensão territorial atingida pelo menos uma vez.",
-    "Os resultados são apresentados em hectares. Um hectare equivale a 10 mil metros quadrados, a área de um terreno quadrado de 100 metros de lado.",
-    "A área queimada representa a extensão territorial identificada como atingida pelo fogo. Já um foco de fogo é uma detecção de fogo ativo realizada por sensores de satélite, como aqueles utilizados pelo Programa Queimadas do INPE.",
-    "Um incêndio pode produzir diversas detecções. Por isso, a quantidade de focos não equivale à quantidade de incêndios nem permite calcular hectares queimados. Nesta página, o MapBiomas informa áreas em hectares, enquanto o INPE informa contagens de detecções.",
-    "Não necessariamente. A cobertura de nuvens, a resolução das imagens, as características das marcas do fogo e os métodos utilizados podem limitar a identificação de áreas queimadas. Os resultados estão sujeitos a essas limitações e não representam um registro completo de todas as ocorrências.",
-    "A média anual de referência usa seis períodos completos de outubro a setembro: de out/2019–set/2020 até out/2024–set/2025. Os seis acumulados são somados e divididos por seis. O intervalo de referência é out/2019–set/2025 e exclui os 12 meses recentes.",
-    "Diferenças entre anos ou em relação à média não explicam, por si só, as causas das queimadas nem demonstram uma tendência permanente. A extensão territorial, as características ecológicas e a recorrência do fogo também precisam ser consideradas; totais absolutos não constituem uma classificação de risco ou de gravidade ambiental.",
-    "Recorte principal: out/2025–set/2026. Dados preparados localmente, sem atualização em tempo real."
+    "No panorama nacional e nos biomas, o MapBiomas Fogo mostra o território atingido ao menos uma vez entre 1985 e 2025. Cada local é contado uma única vez, mesmo que tenha queimado em vários anos.",
+    "Na consulta estadual, o Monitor do Fogo fornece as áreas mensais somadas de outubro de 2025 a setembro de 2026. Uma mesma área pode contribuir em mais de um mês. Os valores são apresentados em hectares (ha); um hectare equivale a 10 mil metros quadrados.",
+    "Focos de fogo ativo são detecções feitas por satélite. Um incêndio pode gerar vários focos; a contagem não equivale ao número de incêndios nem pode ser convertida diretamente em hectares queimados.",
+    "As comparações usam o satélite de referência AQUA_M-T. O histórico reúne anos completos de 2003 a 2025. O acompanhamento de 2026 mostra o acumulado de janeiro até cada mês, até setembro, sem estimar o restante do ano.",
+    "Na comparação estadual de área, a média anual corresponde à soma dos seis totais de janeiro a dezembro de 2019 a 2024, dividida por seis. O valor recente reúne outubro de 2025 a setembro de 2026; ambos têm 12 meses, com limites de calendário diferentes.",
+    "Nos focos nacionais, a média histórica de cada mês usa os acumulados de janeiro até aquele mês nos 23 anos de 2003 a 2025.",
+    "Nuvens, resolução das imagens e métodos de identificação podem limitar a observação por satélite. Os resultados não representam todas as ocorrências. As lacunas conhecidas nas detecções de 2026 estão indicadas junto ao gráfico de acompanhamento.",
+    "Variações entre períodos, isoladamente, não explicam as causas das queimadas nem medem a gravidade dos danos.",
+    "Edição estática: meses recentes até setembro de 2026, com os períodos históricos identificados em cada gráfico. Os dados não são atualizados em tempo real."
   ],
   "states": [
     [
@@ -208,10 +208,10 @@
     ]
   ],
   "methodologyHeadings": [
-    "O que significa área queimada?",
-    "Área queimada é o mesmo que foco de fogo?",
-    "Os satélites identificam todas as áreas queimadas?",
-    "Por que comparar com uma média anual?"
+    "Como interpretar a área queimada?",
+    "O que os focos de fogo ativo representam?",
+    "Como são calculadas as médias?",
+    "Quais são os limites desses dados?"
   ],
   "mapGeometrySha256": "cd601d31626eb6c6bbc9807e46964aa935692f375289cbf0a606d8a8ff18caca"
 }

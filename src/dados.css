@@ -80,12 +80,16 @@
 .state-results h3 { margin: var(--data-gap) 0 0; }
 .state-layout .state-map { min-width: 0; margin: 0; }
 .brazil-map { display: block; width: min(100%, 40rem, calc(65svh * 800 / 810)); height: auto; margin-inline: auto; overflow: visible; }
-.brazil-map path { fill: #d8d5c8; stroke: var(--impacts-muted); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.brazil-map path[data-uf] { fill: #d8d5c8; stroke: var(--impacts-muted); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .brazil-map path[role='button'] { cursor: pointer; scroll-margin-block: .75rem; }
 .brazil-map path[role='button']:hover { fill: #bbc3b5; }
-.brazil-map path[aria-pressed='true'], .brazil-map path[aria-pressed='true']:hover { fill: var(--impacts-accent); stroke: var(--impacts-foreground); stroke-width: 2; }
-.brazil-map path:focus { outline: none; }
-.brazil-map path[data-uf]:focus-visible { outline: none; stroke: var(--impacts-foreground); stroke-width: 4; stroke-dasharray: 5 3; }
+.brazil-map path[aria-pressed='true'], .brazil-map path[aria-pressed='true']:hover { fill: var(--impacts-accent); }
+.brazil-map path[data-uf]:focus { outline: none; }
+.brazil-map .map-outlines { pointer-events: none; }
+.brazil-map [data-map-outline] { fill: none; stroke: var(--impacts-foreground); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; pointer-events: none; }
+.brazil-map [data-map-outline][d=''] { display: none; }
+.brazil-map [data-map-outline='focus'] { display: none; stroke-width: 4; stroke-dasharray: 5 3; }
+.brazil-map:has([data-uf]:focus-visible) [data-map-outline='focus']:not([d='']) { display: inline; }
 .state-layout .state-comparison { min-width: 0; margin: 0; padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
 .comparison-row { margin-top: var(--data-gap); }
 .comparison-row p { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin-bottom: .375rem; line-height: 1.5; }
