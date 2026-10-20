@@ -2,6 +2,10 @@
 
 Data: 13/10/2026. Escopo: documento educativo separado e integração com a Home, conforme o handoff do usuário. Não foram criadas páginas Dados, Prevenção ou institucionais.
 
+## Atualização de 19/10/2026 — repetições
+
+A revisão autorizada pelo usuário removeu o parágrafo de recapitulação do exemplo da propagação, a conclusão que repetia a permanência dos impactos e as chamadas redundantes de prevenção. O encerramento mantém uma mensagem e o aviso de indisponibilidade. O exemplo, o triângulo, a navegação e o rodapé foram preservados. A referência editorial de teste foi ajustada para essa nova redação; o registro original abaixo descreve a entrega anterior. Ver resultados atuais em [verificacao-dados.md](./verificacao-dados.md).
+
 ## Arquivos e responsabilidades
 
 | Arquivo | Alteração |

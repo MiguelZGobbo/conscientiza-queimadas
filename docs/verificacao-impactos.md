@@ -2,7 +2,11 @@
 
 Atualizada em 07/10/2026 após ajustar a chegada ao destino e suavizar a navegação por fragmento. Verificações no Chromium do Playwright 1.63.0 em Windows local. Os registros anteriores do Hero em outros documentos descrevem entregas históricas.
 
-## Implementação atual
+## Atualização de 19/10/2026 — introdução dos impactos
+
+A revisão autorizada removeu o parágrafo introdutório que repetia a mensagem do Hero. O título e os três eixos foram preservados, com os estilos e verificações ajustados para a passagem direta do título aos eixos. Os relatos abaixo descrevem a entrega anterior; os resultados atuais estão em [verificacao-dados.md](./verificacao-dados.md).
+
+## Implementação anterior
 
 - Removidos o CTA “Entenda os impactos”, seu comentário e estilos, além de “Continue ↓” e seus estilos. Headline, subtítulo, paleta, desenhos SVG, animações e interação da cena foram preservados.
 - A primeira tela contém o Hero completo. A seção de impactos começa após ele, sem rótulo ou título aparecendo parcialmente na abertura.
