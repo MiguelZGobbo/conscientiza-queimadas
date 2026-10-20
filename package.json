@@ -7,9 +7,11 @@
     "dev": "node scripts/dev-server.mjs",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "check": "node --check src/navigation.js && node --check src/hero-interaction.js && node --check scripts/dev-server.mjs"
+    "check": "node --check src/navigation.js && node --check src/hero-interaction.js && node --check scripts/dev-server.mjs && node --check src/dados-base.js && node --check src/area-historica.js && node --check src/dados.js && node --check scripts/gerar-mapa.mjs && node --check scripts/medir-dados.mjs && node --check src/focos-base.js && node --check src/focos.js && node --check src/graficos.js && node --check src/graficos-interacao.js && node --check scripts/gerar-paineis-focos.mjs && node --check src/seletor-estados.js && python -m unittest discover -s tests -p \"test_*.py\""
   },
   "devDependencies": {
-    "@playwright/test": "1.63.0"
+    "@playwright/test": "1.63.0",
+    "axe-core": "4.14.0",
+    "mapshaper": "0.7.90"
   }
 }

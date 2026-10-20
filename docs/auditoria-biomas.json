@@ -1,0 +1,408 @@
+{
+  "source": "MapBiomas Fogo — RAF2025",
+  "collection": 5,
+  "table": 4,
+  "startYear": 1985,
+  "endYear": 2025,
+  "unit": "ha/ano",
+  "license": "CC BY 4.0",
+  "verifiedAt": "2026-10-19",
+  "sources": [
+    {
+      "url": "https://raf.ia.mapbiomas.org/raf2025/publication-web-resources/html/publication-22.html",
+      "sha256": "d55c5c9b70a90067e2cc79c4a38267464bd72cc3fa7e93e559944cb5867e33e5"
+    },
+    {
+      "url": "https://raf.ia.mapbiomas.org/raf2025/publication-web-resources/html/publication-23.html",
+      "sha256": "5a46e5a91e80b60f4d53f3338e4f0e20c890616c9db3cbc61077042b2f761bc7"
+    }
+  ],
+  "annual": {
+    "1985": {
+      "Amazônia": 5064449,
+      "Caatinga": 183648,
+      "Cerrado": 13876176,
+      "Mata Atlântica": 309642,
+      "Pampa": 19246,
+      "Pantanal": 677696,
+      "Brasil": 20130661
+    },
+    "1986": {
+      "Amazônia": 4659197,
+      "Caatinga": 783094,
+      "Cerrado": 11724873,
+      "Mata Atlântica": 498250,
+      "Pampa": 15709,
+      "Pantanal": 1034484,
+      "Brasil": 18715303
+    },
+    "1987": {
+      "Amazônia": 8897329,
+      "Caatinga": 820906,
+      "Cerrado": 15709625,
+      "Mata Atlântica": 279044,
+      "Pampa": 19929,
+      "Pantanal": 501051,
+      "Brasil": 26226931
+    },
+    "1988": {
+      "Amazônia": 7819461,
+      "Caatinga": 335741,
+      "Cerrado": 16395814,
+      "Mata Atlântica": 405133,
+      "Pampa": 20722,
+      "Pantanal": 1129508,
+      "Brasil": 26105892
+    },
+    "1989": {
+      "Amazônia": 3231021,
+      "Caatinga": 361958,
+      "Cerrado": 5869118,
+      "Mata Atlântica": 161585,
+      "Pampa": 18142,
+      "Pantanal": 187303,
+      "Brasil": 9828958
+    },
+    "1990": {
+      "Amazônia": 4471648,
+      "Caatinga": 434619,
+      "Cerrado": 8130962,
+      "Mata Atlântica": 224230,
+      "Pampa": 18603,
+      "Pantanal": 503798,
+      "Brasil": 13783356
+    },
+    "1991": {
+      "Amazônia": 6134415,
+      "Caatinga": 211436,
+      "Cerrado": 6996097,
+      "Mata Atlântica": 158908,
+      "Pampa": 17601,
+      "Pantanal": 937574,
+      "Brasil": 14455500
+    },
+    "1992": {
+      "Amazônia": 6213021,
+      "Caatinga": 535662,
+      "Cerrado": 6201073,
+      "Mata Atlântica": 86319,
+      "Pampa": 7668,
+      "Pantanal": 253430,
+      "Brasil": 13296059
+    },
+    "1993": {
+      "Amazônia": 5244484,
+      "Caatinga": 562132,
+      "Cerrado": 9302289,
+      "Mata Atlântica": 626890,
+      "Pampa": 23581,
+      "Pantanal": 1625741,
+      "Brasil": 17384725
+    },
+    "1994": {
+      "Amazônia": 5038080,
+      "Caatinga": 403379,
+      "Cerrado": 10512757,
+      "Mata Atlântica": 385714,
+      "Pampa": 8489,
+      "Pantanal": 585270,
+      "Brasil": 16933131
+    },
+    "1995": {
+      "Amazônia": 5985701,
+      "Caatinga": 322588,
+      "Cerrado": 6962702,
+      "Mata Atlântica": 255357,
+      "Pampa": 20606,
+      "Pantanal": 928235,
+      "Brasil": 14474474
+    },
+    "1996": {
+      "Amazônia": 6363472,
+      "Caatinga": 327531,
+      "Cerrado": 9751530,
+      "Mata Atlântica": 259122,
+      "Pampa": 24290,
+      "Pantanal": 727071,
+      "Brasil": 17452219
+    },
+    "1997": {
+      "Amazônia": 7820355,
+      "Caatinga": 452328,
+      "Cerrado": 7782390,
+      "Mata Atlântica": 412078,
+      "Pampa": 17459,
+      "Pantanal": 300909,
+      "Brasil": 16784791
+    },
+    "1998": {
+      "Amazônia": 8977534,
+      "Caatinga": 564947,
+      "Cerrado": 15038005,
+      "Mata Atlântica": 185982,
+      "Pampa": 7718,
+      "Pantanal": 393453,
+      "Brasil": 25166824
+    },
+    "1999": {
+      "Amazônia": 8698794,
+      "Caatinga": 422232,
+      "Cerrado": 9872733,
+      "Mata Atlântica": 615295,
+      "Pampa": 21315,
+      "Pantanal": 2727941,
+      "Brasil": 22358006
+    },
+    "2000": {
+      "Amazônia": 6631920,
+      "Caatinga": 589196,
+      "Cerrado": 8450561,
+      "Mata Atlântica": 336089,
+      "Pampa": 28007,
+      "Pantanal": 526698,
+      "Brasil": 16561924
+    },
+    "2001": {
+      "Amazônia": 8844936,
+      "Caatinga": 656385,
+      "Cerrado": 10745759,
+      "Mata Atlântica": 437086,
+      "Pampa": 20880,
+      "Pantanal": 1466064,
+      "Brasil": 22170483
+    },
+    "2002": {
+      "Amazônia": 8587281,
+      "Caatinga": 467309,
+      "Cerrado": 9711270,
+      "Mata Atlântica": 278740,
+      "Pampa": 18296,
+      "Pantanal": 1491529,
+      "Brasil": 20553794
+    },
+    "2003": {
+      "Amazônia": 7861251,
+      "Caatinga": 618928,
+      "Cerrado": 7284876,
+      "Mata Atlântica": 695877,
+      "Pampa": 33260,
+      "Pantanal": 396126,
+      "Brasil": 16890018
+    },
+    "2004": {
+      "Amazônia": 9804948,
+      "Caatinga": 560177,
+      "Cerrado": 10205347,
+      "Mata Atlântica": 253693,
+      "Pampa": 27815,
+      "Pantanal": 803466,
+      "Brasil": 21654605
+    },
+    "2005": {
+      "Amazônia": 10911684,
+      "Caatinga": 664998,
+      "Cerrado": 9479207,
+      "Mata Atlântica": 242734,
+      "Pampa": 23247,
+      "Pantanal": 1591170,
+      "Brasil": 22912643
+    },
+    "2006": {
+      "Amazônia": 6861942,
+      "Caatinga": 303574,
+      "Cerrado": 5692108,
+      "Mata Atlântica": 286785,
+      "Pampa": 13645,
+      "Pantanal": 316300,
+      "Brasil": 13473681
+    },
+    "2007": {
+      "Amazônia": 10949521,
+      "Caatinga": 732044,
+      "Cerrado": 17690505,
+      "Mata Atlântica": 362117,
+      "Pampa": 13059,
+      "Pantanal": 997529,
+      "Brasil": 30744624
+    },
+    "2008": {
+      "Amazônia": 6828928,
+      "Caatinga": 576844,
+      "Cerrado": 7577487,
+      "Mata Atlântica": 280080,
+      "Pampa": 15527,
+      "Pantanal": 538217,
+      "Brasil": 15816791
+    },
+    "2009": {
+      "Amazônia": 4978855,
+      "Caatinga": 255394,
+      "Cerrado": 3905591,
+      "Mata Atlântica": 185442,
+      "Pampa": 13050,
+      "Pantanal": 629679,
+      "Brasil": 9967243
+    },
+    "2010": {
+      "Amazônia": 9118847,
+      "Caatinga": 519337,
+      "Cerrado": 17610285,
+      "Mata Atlântica": 281703,
+      "Pampa": 14603,
+      "Pantanal": 824574,
+      "Brasil": 28369176
+    },
+    "2011": {
+      "Amazônia": 3524231,
+      "Caatinga": 211674,
+      "Cerrado": 6761985,
+      "Mata Atlântica": 334509,
+      "Pampa": 10089,
+      "Pantanal": 309237,
+      "Brasil": 11151518
+    },
+    "2012": {
+      "Amazônia": 4268395,
+      "Caatinga": 450501,
+      "Cerrado": 12522196,
+      "Mata Atlântica": 149463,
+      "Pampa": 16593,
+      "Pantanal": 816819,
+      "Brasil": 18223609
+    },
+    "2013": {
+      "Amazônia": 3645515,
+      "Caatinga": 217783,
+      "Cerrado": 6368344,
+      "Mata Atlântica": 181926,
+      "Pampa": 8717,
+      "Pantanal": 395782,
+      "Brasil": 10817856
+    },
+    "2014": {
+      "Amazônia": 6625869,
+      "Caatinga": 190691,
+      "Cerrado": 10069833,
+      "Mata Atlântica": 330863,
+      "Pampa": 7195,
+      "Pantanal": 132729,
+      "Brasil": 17356608
+    },
+    "2015": {
+      "Amazônia": 10101703,
+      "Caatinga": 804662,
+      "Cerrado": 10475327,
+      "Mata Atlântica": 292576,
+      "Pampa": 8559,
+      "Pantanal": 454122,
+      "Brasil": 22136274
+    },
+    "2016": {
+      "Amazônia": 9535287,
+      "Caatinga": 331957,
+      "Cerrado": 9245719,
+      "Mata Atlântica": 369307,
+      "Pampa": 13561,
+      "Pantanal": 772064,
+      "Brasil": 20267637
+    },
+    "2017": {
+      "Amazônia": 9678173,
+      "Caatinga": 208242,
+      "Cerrado": 10635051,
+      "Mata Atlântica": 321014,
+      "Pampa": 18602,
+      "Pantanal": 555653,
+      "Brasil": 21416090
+    },
+    "2018": {
+      "Amazônia": 5024818,
+      "Caatinga": 342610,
+      "Cerrado": 5478999,
+      "Mata Atlântica": 205303,
+      "Pampa": 8806,
+      "Pantanal": 170412,
+      "Brasil": 11230742
+    },
+    "2019": {
+      "Amazônia": 7474863,
+      "Caatinga": 628532,
+      "Cerrado": 9365273,
+      "Mata Atlântica": 401872,
+      "Pampa": 20310,
+      "Pantanal": 1442964,
+      "Brasil": 19333139
+    },
+    "2020": {
+      "Amazônia": 8121221,
+      "Caatinga": 553049,
+      "Cerrado": 8928857,
+      "Mata Atlântica": 291673,
+      "Pampa": 22742,
+      "Pantanal": 2580058,
+      "Brasil": 20496937
+    },
+    "2021": {
+      "Amazônia": 4183141,
+      "Caatinga": 899830,
+      "Cerrado": 7167192,
+      "Mata Atlântica": 316925,
+      "Pampa": 10843,
+      "Pantanal": 1631513,
+      "Brasil": 14208881
+    },
+    "2022": {
+      "Amazônia": 7803992,
+      "Caatinga": 591096,
+      "Cerrado": 8120295,
+      "Mata Atlântica": 253891,
+      "Pampa": 38094,
+      "Pantanal": 248631,
+      "Brasil": 17055651
+    },
+    "2023": {
+      "Amazônia": 8474786,
+      "Caatinga": 669380,
+      "Cerrado": 6042922,
+      "Mata Atlântica": 210082,
+      "Pampa": 8900,
+      "Pantanal": 625528,
+      "Brasil": 16030842
+    },
+    "2024": {
+      "Amazônia": 15826224,
+      "Caatinga": 402797,
+      "Cerrado": 10846549,
+      "Mata Atlântica": 945650,
+      "Pampa": 4671,
+      "Pantanal": 2198352,
+      "Brasil": 30222945
+    },
+    "2025": {
+      "Amazônia": 3141528,
+      "Caatinga": 504754,
+      "Cerrado": 8709873,
+      "Mata Atlântica": 216863,
+      "Pampa": 9977,
+      "Pantanal": 121177,
+      "Brasil": 12703585
+    }
+  },
+  "totals": {
+    "Cerrado": 393217555,
+    "Amazônia": 293428820,
+    "Caatinga": 19673945,
+    "Mata Atlântica": 13325812,
+    "Pantanal": 34549857,
+    "Pampa": 690126
+  },
+  "averages": {
+    "Cerrado": 9590672.07317073,
+    "Amazônia": 7156800.4878048785,
+    "Caatinga": 479852.31707317074,
+    "Mata Atlântica": 325019.8048780488,
+    "Pantanal": 842679.4390243902,
+    "Pampa": 16832.341463414636
+  },
+  "calculation": "Soma dos 41 valores anuais publicados / 41. Arredondamento apenas na apresentação, para hectares inteiros. Diferenças entre somas dos biomas e total nacional publicado são preservadas."
+}

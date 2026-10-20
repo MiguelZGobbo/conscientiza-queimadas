@@ -78,6 +78,7 @@ test('impactos são uma região da Home com três eixos disponíveis sem intera�
   await expect(section.getByRole('heading', { level: 2 })).toHaveText(sectionTitle);
   await expect(section.getByRole('heading', { level: 3 })).toHaveText(axes);
   await expect(section.locator('.impacts__axis p')).toHaveCount(3);
+  await expect(section.locator('.impacts__description')).toHaveCount(0);
   await expect(section.locator('a, button, details, img, svg')).toHaveCount(0);
   expect(await page.locator('main').evaluate(element => [...element.querySelectorAll('h1, h2, h3')].map(heading => heading.tagName))).toEqual(['H1', 'H2', 'H3', 'H3', 'H3']);
 });
@@ -139,8 +140,8 @@ test('impactos se ajustam a janelas desktop baixas sem reduzir a legibilidade', 
       return parseFloat(style.fontSize) >= 14 && parseFloat(style.lineHeight) / parseFloat(style.fontSize) >= 1.5;
     }))).toBe(true);
     const heading = await section.locator('h2').boundingBox();
-    const introduction = await section.locator('.impacts__description').boundingBox();
-    expect(introduction.y).toBeGreaterThanOrEqual(heading.y + heading.height);
+    const axes = await section.locator('.impacts__axes').boundingBox();
+    expect(axes.y).toBeGreaterThan(heading.y + heading.height);
     typography.push(await section.evaluate(element => ({
       heading: parseFloat(getComputedStyle(element.querySelector('h2')).fontSize),
       body: parseFloat(getComputedStyle(element.querySelector('.impacts__axis p')).fontSize),
@@ -174,8 +175,8 @@ test('impactos crescem proporcionalmente em monitores grandes e voltam à escala
     }));
     expect(sizes.at(-1).height).toBeLessThanOrEqual(height);
     const heading = await section.locator('h2').boundingBox();
-    const introduction = await section.locator('.impacts__description').boundingBox();
-    expect(introduction.y).toBeGreaterThanOrEqual(heading.y + heading.height);
+    const axes = await section.locator('.impacts__axes').boundingBox();
+    expect(axes.y).toBeGreaterThan(heading.y + heading.height);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   expect(sizes[1].heading).toBeGreaterThanOrEqual(56);

@@ -65,8 +65,6 @@ Imagine uma área de pastagem com capim seco após várias semanas sem chuva. Um
 
 Se as condições forem favoráveis à propagação, o fogo poderá alcançar grandes extensões antes de ser controlado.
 
-O exemplo mostra por que um incêndio não depende apenas da intensidade da chama inicial. A vegetação, o clima e as características do terreno também determinam seu comportamento.
-
 **É importante lembrar:** calor e seca favorecem incêndios, mas não são, por si só, fontes de ignição. Para o fogo começar, é necessário que exista energia suficiente para iniciar a combustão.
 
 ---
@@ -133,18 +131,10 @@ A recuperação depende de fatores como a intensidade do fogo, a extensão ating
 
 Em algumas áreas, a vegetação pode se regenerar naturalmente. Em outras, os danos ao solo e aos habitats podem persistir por anos, tornando necessárias ações de recuperação ambiental.
 
-Por isso, compreender as queimadas significa reconhecer que seus efeitos não terminam quando o fogo é apagado.
-
 ---
 
 ## ENCERRAMENTO — Entendeu o problema? Saiba como prevenir.
 
-Agora que você conhece as causas, os fatores de propagação e as consequências das queimadas, o próximo passo é entender como reduzir esses riscos.
-
-A prevenção depende de informação, responsabilidade e atitudes que evitem o início de novos incêndios.
-
 **Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.**
-
-**Saiba como prevenir →**
 
 ---

@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-// Cópia independente do conteúdo obrigatório do handoff, fornecido pelo usuário.
+// Referência editorial independente, revisada com autorização para remover repetições.
 const approved = readFileSync(new URL('./fixtures/queimadas-aprovado.md', import.meta.url), 'utf8');
 const blocks = approved.split(/\r?\n\s*\r?\n/).map(block => block.trim()).filter(block => block && block !== '---');
 const plainText = text => text.replace(/^## (?:SEÇÃO \d+|ENCERRAMENTO) — /, '').replace(/\*\*/g, '').replace(/\*/g, '');
 
-test('publica integralmente o conteúdo aprovado, visível e na sequência original', async ({ page }) => {
+test('publica o conteúdo revisado, visível e na sequência aprovada', async ({ page }) => {
   const response = await page.goto('/queimadas.html');
   expect(response.status()).toBe(200);
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
@@ -25,6 +25,9 @@ test('publica integralmente o conteúdo aprovado, visível e na sequência origi
   await expect(main.locator('details')).toHaveCount(0);
   await expect(main.locator('li').filter({ hasText: 'Atividades rurais:' })).toHaveCount(1);
   await expect(main.getByRole('link', { name: /Saiba como prevenir/ })).toHaveCount(0);
+  await expect(main.locator('.reading-next p')).toHaveCount(2);
+  await expect(main).not.toContainText('O exemplo mostra por que um incêndio');
+  await expect(main).not.toContainText('Por isso, compreender as queimadas significa');
   await expect(main.getByText('Página Prevenção em desenvolvimento.', { exact: true })).toBeVisible();
   await expect(main.getByRole('heading', { name: 'Fontes consultadas' })).toHaveCount(0);
   await expect(main.getByRole('link', { name: /Ibama/ })).toHaveCount(0);
@@ -41,7 +44,7 @@ test('conecta documentos com caminhos relativos e preserva o rodapé', async ({ 
   await expect(page).toHaveURL(/\/queimadas\.html$/);
   await expect(nav.getByRole('link', { name: 'Queimadas', exact: true })).toHaveAttribute('aria-current', 'page');
   expect(await page.getByRole('contentinfo').innerHTML()).toBe(homeFooter);
-  for (const name of ['Dados', 'Prevenção']) {
+  for (const name of ['Prevenção']) {
     await expect(nav.getByRole('link', { name, exact: true })).toHaveCount(0);
     await expect(nav.getByText(name, { exact: true })).toBeVisible();
   }
@@ -227,7 +230,7 @@ test('conexões do triângulo ficam livres dos rótulos transparentes, inclusive
 
 test('prevenção pendente aparece como texto, sem aparência ou interação de botão', async ({ page }) => {
   await page.goto('/queimadas.html');
-  const invitation = page.getByText('Saiba como prevenir →', { exact: true });
+  const invitation = page.getByText('Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.', { exact: true });
   await expect(invitation).toBeVisible();
   const presentation = await invitation.evaluate(element => {
     const style = getComputedStyle(element);

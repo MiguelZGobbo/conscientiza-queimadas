@@ -1,0 +1,217 @@
+{
+  "paragraphs": [
+    "Conheça o alcance histórico das queimadas no Brasil, acompanhe os focos de 2026 e consulte os dados recentes de cada estado.",
+    "O alcance das queimadas no Brasil",
+    "Entre 1985 e 2025, 208.441.608 hectares do território brasileiro foram atingidos pelo fogo ao menos uma vez, segundo o MapBiomas Fogo. Isso corresponde a aproximadamente 24% do país. Cada local é contado uma única vez, mesmo quando queimou em vários anos.",
+    "Onde o fogo se concentrou nesse período?",
+    "O Cerrado concentrou 43,5% desse território e a Amazônia, 42,5%. Juntos, responderam por 86% da área atingida no período.",
+    "Selecione um estado ou o Distrito Federal no mapa ou na lista para consultar a área queimada e os focos recentes, com referências históricas identificadas em cada gráfico.",
+    "Selecione uma unidade federativa",
+    "A área queimada corresponde à extensão da superfície onde foram identificadas marcas da passagem do fogo, conhecidas como cicatrizes de queimada.",
+    "O Monitor do Fogo, do MapBiomas, mapeia cicatrizes mensalmente com imagens de satélite. Nesta página, o acumulado de área queimada é a soma das áreas mensais publicadas entre out/2025 e set/2026. Uma mesma área pode contribuir em mais de um mês; esse acumulado difere da extensão territorial atingida pelo menos uma vez.",
+    "Os resultados são apresentados em hectares. Um hectare equivale a 10 mil metros quadrados, a área de um terreno quadrado de 100 metros de lado.",
+    "A área queimada representa a extensão territorial identificada como atingida pelo fogo. Já um foco de fogo é uma detecção de fogo ativo realizada por sensores de satélite, como aqueles utilizados pelo Programa Queimadas do INPE.",
+    "Um incêndio pode produzir diversas detecções. Por isso, a quantidade de focos não equivale à quantidade de incêndios nem permite calcular hectares queimados. Nesta página, o MapBiomas informa áreas em hectares, enquanto o INPE informa contagens de detecções.",
+    "Não necessariamente. A cobertura de nuvens, a resolução das imagens, as características das marcas do fogo e os métodos utilizados podem limitar a identificação de áreas queimadas. Os resultados estão sujeitos a essas limitações e não representam um registro completo de todas as ocorrências.",
+    "A média anual de referência usa seis períodos completos de outubro a setembro: de out/2019–set/2020 até out/2024–set/2025. Os seis acumulados são somados e divididos por seis. O intervalo de referência é out/2019–set/2025 e exclui os 12 meses recentes.",
+    "Diferenças entre anos ou em relação à média não explicam, por si só, as causas das queimadas nem demonstram uma tendência permanente. A extensão territorial, as características ecológicas e a recorrência do fogo também precisam ser consideradas; totais absolutos não constituem uma classificação de risco ou de gravidade ambiental.",
+    "Recorte principal: out/2025–set/2026. Dados preparados localmente, sem atualização em tempo real."
+  ],
+  "states": [
+    [
+      "AC",
+      "Acre",
+      122523.97,
+      268449.83166666667
+    ],
+    [
+      "AL",
+      "Alagoas",
+      6298.89,
+      3610.66
+    ],
+    [
+      "AP",
+      "Amapá",
+      286637.54,
+      281885.5833333333
+    ],
+    [
+      "AM",
+      "Amazonas",
+      504051.41,
+      1105728.5083333333
+    ],
+    [
+      "BA",
+      "Bahia",
+      567942.9,
+      560279.5083333333
+    ],
+    [
+      "CE",
+      "Ceará",
+      84467.51,
+      89461.08833333333
+    ],
+    [
+      "DF",
+      "Distrito Federal",
+      10983.85,
+      16160.423333333334
+    ],
+    [
+      "ES",
+      "Espírito Santo",
+      5151.24,
+      6094.236666666667
+    ],
+    [
+      "GO",
+      "Goiás",
+      444258.9,
+      458850.475
+    ],
+    [
+      "MA",
+      "Maranhão",
+      1232011.49,
+      1656926.3083333333
+    ],
+    [
+      "MT",
+      "Mato Grosso",
+      2040677.82,
+      4213282.18
+    ],
+    [
+      "MS",
+      "Mato Grosso do Sul",
+      248100.65,
+      949148.045
+    ],
+    [
+      "MG",
+      "Minas Gerais",
+      217893.73,
+      301972.455
+    ],
+    [
+      "PA",
+      "Pará",
+      1275712.26,
+      3416589.5766666667
+    ],
+    [
+      "PB",
+      "Paraíba",
+      10386.16,
+      27369.955
+    ],
+    [
+      "PR",
+      "Paraná",
+      35086.79,
+      39718.575
+    ],
+    [
+      "PE",
+      "Pernambuco",
+      16498.86,
+      16023.765
+    ],
+    [
+      "PI",
+      "Piauí",
+      885098.83,
+      1127391.9616666667
+    ],
+    [
+      "RJ",
+      "Rio de Janeiro",
+      16680.58,
+      23588.82
+    ],
+    [
+      "RN",
+      "Rio Grande do Norte",
+      7762.37,
+      12320.583333333334
+    ],
+    [
+      "RS",
+      "Rio Grande do Sul",
+      19134.95,
+      42707.706666666665
+    ],
+    [
+      "RO",
+      "Rondônia",
+      104370.09,
+      835644.8933333333
+    ],
+    [
+      "RR",
+      "Roraima",
+      1111748.04,
+      1310507.2283333333
+    ],
+    [
+      "SC",
+      "Santa Catarina",
+      8724.9,
+      20393.47
+    ],
+    [
+      "SP",
+      "São Paulo",
+      126469.8,
+      154455.33166666667
+    ],
+    [
+      "SE",
+      "Sergipe",
+      2744.57,
+      2286.741666666667
+    ],
+    [
+      "TO",
+      "Tocantins",
+      1978940.12,
+      2087228.0483333333
+    ]
+  ],
+  "biomes": [
+    [
+      "Cerrado",
+      90710292
+    ],
+    [
+      "Amazônia",
+      88608526
+    ],
+    [
+      "Caatinga",
+      11305981
+    ],
+    [
+      "Mata Atlântica",
+      8005006
+    ],
+    [
+      "Pantanal",
+      9270523
+    ],
+    [
+      "Pampa",
+      541280
+    ]
+  ],
+  "methodologyHeadings": [
+    "O que significa área queimada?",
+    "Área queimada é o mesmo que foco de fogo?",
+    "Os satélites identificam todas as áreas queimadas?",
+    "Por que comparar com uma média anual?"
+  ],
+  "mapGeometrySha256": "cd601d31626eb6c6bbc9807e46964aa935692f375289cbf0a606d8a8ff18caca"
+}

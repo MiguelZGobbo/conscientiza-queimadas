@@ -102,7 +102,8 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(nav).toBeVisible();
   await expect(nav.getByRole('link', { name: 'Início', exact: true })).toBeInViewport();
   await expect(nav.getByText('Prevenção', { exact: true })).toBeInViewport();
-  for (const name of ['Início', 'Queimadas']) {
+  const destinations = ['Início', 'Queimadas', 'Dados'];
+  for (const name of destinations) {
     await page.keyboard.press('Tab');
     await expect(nav.getByRole('link', { name, exact: true })).toBeFocused();
   }
@@ -110,7 +111,11 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(toggle).toBeFocused();
   await expect(nav).toBeHidden();
   await page.keyboard.press('Enter');
-  for (let index = 0; index < 3; index += 1) await page.keyboard.press('Tab');
+  for (const name of destinations) {
+    await page.keyboard.press('Tab');
+    await expect(nav.getByRole('link', { name, exact: true })).toBeFocused();
+  }
+  await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeFocused();
   await expect(nav).toBeHidden();
 });

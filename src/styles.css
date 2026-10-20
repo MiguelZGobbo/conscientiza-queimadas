@@ -211,14 +211,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-wrap: balance;
   overflow-wrap: anywhere;
 }
-.impacts__description {
-  max-width: 72ch;
-  margin: clamp(1rem, 2.5svh, 1.5rem) 0 0;
-  color: var(--impacts-muted);
-  font-size: clamp(1.0625rem, min(1.8vw, 2.8svh), 1.1875rem);
-  line-height: 1.65;
-  text-wrap: pretty;
-}
 .impacts__axes { display: grid; gap: 2rem; margin-top: clamp(1.5rem, 5svh, 4rem); }
 .impacts__axis { min-width: 0; padding-top: clamp(1rem, 3svh, 1.5rem); border-top: 1px solid var(--impacts-divider); }
 .impacts__number { color: var(--impacts-accent); font-size: clamp(1rem, 2.8svh, 1.25rem); line-height: 1.5; font-variant-numeric: tabular-nums; }
@@ -328,8 +320,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   }
   .impacts__eyebrow { font-size: clamp(.75rem, calc(var(--impacts-type-unit) * .75), 1rem); margin-bottom: clamp(.5rem, 2svh, 1.5rem); }
   .impacts h2 { font-size: clamp(1.75rem, min(4.5vw, calc(10svh - 2rem)), 4.5rem); }
-  .impacts__description { margin-top: clamp(.75rem, 2svh, 1.5rem); font-size: clamp(1rem, calc(var(--impacts-type-unit) * 1.125), 1.5rem); line-height: 1.6; }
-  .impacts__axes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, min(4vw, 6svh), 4rem); margin-top: clamp(1rem, 4svh, 5rem); }
+    .impacts__axes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, min(4vw, 6svh), 4rem); margin-top: clamp(1rem, 4svh, 5rem); }
   .impacts__axis { padding-top: clamp(.75rem, 2.5svh, 2.25rem); }
   .impacts__number { font-size: clamp(.875rem, calc(var(--impacts-type-unit) * 1.125), 1.5rem); }
   .impacts h3 { margin: clamp(.375rem, 1svh, .875rem) 0 clamp(.5rem, 1.3svh, 1.25rem); font-size: clamp(1.125rem, calc(var(--impacts-type-unit) * 1.375), 1.75rem); }
@@ -372,3 +363,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .embers { display: none; }
   .cursor-glow { opacity: 0 !important; }
 }
+
+/* Sumário compartilhado das páginas educativas. */
+.reading-contents { padding-block: var(--reading-gap, var(--data-gap, 1rem)); }
+.reading-contents__title { margin: 0 0 .5rem; font-weight: 650; }
+.reading-contents ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.reading-contents li { min-width: 0; }
+.reading-contents a { display: inline-flex; align-items: center; min-height: 44px; padding-block: .5rem; line-height: 1.5; text-underline-offset: .25em; }
+.reading-contents a:hover { color: var(--impacts-accent); }

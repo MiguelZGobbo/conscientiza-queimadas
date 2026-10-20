@@ -1,0 +1,214 @@
+/* Mesma escala por largura e altura utilizada na página Queimadas. */
+.dados-page main {
+  --data-type: clamp(1rem, min(1.15vw, 2.3svh), 1.25rem);
+  --data-gap: clamp(1rem, min(2vw, 3svh), 2rem);
+  --data-space: clamp(2.5rem, min(6vw, 9svh), 5rem);
+  color-scheme: light;
+  background: var(--impacts-background);
+  color: var(--impacts-foreground);
+  font-size: var(--data-type);
+  line-height: 1.75;
+}
+.dados-page main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
+.dados-page main :focus-visible { outline-color: var(--impacts-accent); }
+.dados-page main :is(h1, h2, h3, p, li, dt, dd, th, td, a) { overflow-wrap: anywhere; }
+.dados-page main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
+.data-reading { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
+.data-reading--inner { width: min(100%, 68ch); margin-inline: auto; }
+.data-intro { padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem); background: var(--background); color: var(--foreground); }
+.data-intro h1 { margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; }
+.data-intro p { margin: var(--data-gap) 0 0; color: var(--muted); }
+.data-section { container: data-page / inline-size; padding-block: var(--data-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
+.data-section:focus-visible { outline-offset: -4px; }
+.data-section:last-child { border-bottom: 0; }
+.data-section h2 { margin: 0 0 var(--data-gap); font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
+.data-section h3 { margin: calc(var(--data-space) * .6) 0 var(--data-gap); font-size: calc(var(--data-type) * 1.25); line-height: 1.4; }
+.data-section p { margin: 0 0 var(--data-gap); }
+.data-section a { text-underline-offset: .2em; }
+.data-section a:hover { color: var(--impacts-accent); }
+.data-section figure { margin: var(--data-space) 0 0; }
+.data-section .chart-results { margin: 0; padding: 0; list-style: none; }
+.data-section figcaption { font-weight: 650; line-height: 1.5; }
+.data-section figcaption > span { display: block; margin-top: .375rem; color: var(--impacts-muted); font-size: .875em; font-weight: 400; }
+.data-section .data-source, .state-map figcaption { margin-top: var(--data-gap); color: var(--impacts-muted); font-size: .875em; font-weight: 400; line-height: 1.65; }
+.biome-chart { padding-block: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
+.biome-chart__row + .biome-chart__row { margin-top: .5rem; }
+.biome-chart__label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin-bottom: .375rem; line-height: 1.5; }
+.biome-chart__label strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+.bar { height: .5rem; }
+.bar__fill { display: block; width: calc(var(--share, 0) * 1%); height: 100%; background: var(--impacts-accent); }
+.bar__fill--historical { background: var(--impacts-foreground); }
+.bar__fill--focus { background: var(--impacts-foreground); }
+.national-focus { margin-top: var(--data-space); padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
+.chart-intro { max-width: 68ch; margin-inline: auto; }
+.chart-intro h3 { margin-top: 0; }
+.data-section .focus-chart { margin-block: var(--data-space) 0; }
+#state-focus-data > .focus-chart:first-child { margin-top: 0; }
+.focus-chart__row + .focus-chart__row { margin-top: .75rem; }
+.data-section figcaption > .focus-place { display: inline; margin: 0; color: inherit; font-size: inherit; font-weight: inherit; }
+.focus-chart__label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin-bottom: .25rem; line-height: 1.5; }
+.focus-chart__peak { font-weight: 600; }
+.focus-chart__row[data-current-year] .bar__fill { background: var(--impacts-accent); }
+.focus-chart__row[data-peak] .bar__fill { background: var(--impacts-accent); }
+.focus-chart__label strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+.state-focus { padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
+.state-focus > h3 { margin-top: 0; }
+.data-table-disclosure { border-block: 1px solid var(--impacts-divider); padding-block: .5rem; }
+.data-table-disclosure summary { min-height: 44px; padding-block: .5rem; cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+.data-section table { width: 100%; border-collapse: collapse; font-size: .875em; font-variant-numeric: tabular-nums; }
+.data-section caption { padding-block: var(--data-gap); text-align: left; font-weight: 650; }
+.data-section :is(th, td) { padding: .75rem .5rem; text-align: left; border-bottom: 1px solid var(--impacts-divider); vertical-align: top; }
+.data-section :is(th, td):first-child { padding-left: 0; }
+.data-section :is(th, td):last-child { padding-right: 0; text-align: right; }
+.state-explorer { margin-top: var(--data-space); padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
+.state-control { max-width: 34rem; margin-inline: auto; }
+.state-control label { display: block; font-weight: 650; }
+.state-control select { margin-top: .5rem; width: 100%; min-width: 0; min-height: 48px; padding: .75rem .5rem; border: 1px solid var(--impacts-muted); border-radius: 4px; background: #fffaf1; color: var(--impacts-foreground); font: inherit; }
+.state-combobox { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 1rem; margin-top: .5rem; width: 100%; min-height: 48px; padding: .75rem 1rem; border: 1px solid var(--impacts-muted); border-radius: 4px; background: #fffaf1; color: var(--impacts-foreground); font: inherit; text-align: left; cursor: pointer; }
+.state-combobox::before { content: attr(data-placeholder); visibility: hidden; grid-area: 1 / 1; }
+.state-combobox > span:first-child { grid-area: 1 / 1; }
+.state-combobox__arrow { grid-area: 1 / 2; }
+.state-combobox__arrow { flex: none; font-size: 1.25em; line-height: 1; }
+.dados-page main .state-control :is(select, .state-combobox):focus-visible { outline: 2px solid var(--impacts-accent); outline-offset: 2px; }
+.state-options { position: fixed; z-index: 20; box-sizing: border-box; max-height: min(20rem, 50svh, var(--list-space)); overflow-y: auto; overscroll-behavior: contain; margin: 0; padding: .25rem; border: 1px solid var(--impacts-muted); border-radius: 4px; background: #fffaf1; color: var(--impacts-foreground); box-shadow: 0 2px 8px #101a1714; list-style: none; }
+.state-options [role='option'] { min-height: 44px; padding: .5rem .75rem; line-height: 1.5; cursor: pointer; }
+.state-options [data-active] { background: #e5e9dd; outline: 1px solid var(--impacts-muted); outline-offset: -1px; }
+.state-options [aria-selected='true'] { background: var(--impacts-foreground); color: #fffaf1; }
+.state-options [aria-selected='true'][data-active] { outline-color: #fffaf1; outline-offset: -3px; }
+.state-layout { display: flex; flex-direction: column; gap: var(--data-gap); margin-top: var(--data-gap); }
+.state-results { min-width: 0; }
+.state-results h3 { margin: var(--data-gap) 0 0; }
+.state-layout .state-map { min-width: 0; margin: 0; }
+.brazil-map { display: block; width: min(100%, 40rem, calc(65svh * 800 / 810)); height: auto; margin-inline: auto; overflow: visible; }
+.brazil-map path { fill: #d8d5c8; stroke: var(--impacts-muted); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.brazil-map path[role='button'] { cursor: pointer; scroll-margin-block: .75rem; }
+.brazil-map path[role='button']:hover { fill: #bbc3b5; }
+.brazil-map path[aria-pressed='true'], .brazil-map path[aria-pressed='true']:hover { fill: var(--impacts-accent); stroke: var(--impacts-foreground); stroke-width: 2; }
+.brazil-map path:focus { outline: none; }
+.brazil-map path[data-uf]:focus-visible { outline: none; stroke: var(--impacts-foreground); stroke-width: 4; stroke-dasharray: 5 3; }
+.state-layout .state-comparison { min-width: 0; margin: 0; padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
+.comparison-row { margin-top: var(--data-gap); }
+.comparison-row p { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin-bottom: .375rem; line-height: 1.5; }
+.comparison-row strong { font-variant-numeric: tabular-nums; font-weight: 600; }
+.state-explanation { margin-top: var(--data-space); }
+.state-layout .state-explanation { margin-top: 0; }
+.state-explanation .data-source { margin-block: 0; }
+
+/* Espaço de visualização independente da largura dos parágrafos. */
+.data-section :is(.biome-chart, .national-focus, .state-focus, .state-comparison, .state-results, .state-explanation, .state-map figcaption) {
+  width: min(64rem, calc(100cqw - 2 * var(--page-gutter)));
+  margin-inline: calc((100% - min(64rem, calc(100cqw - 2 * var(--page-gutter)))) / 2);
+}
+.biome-chart, .state-comparison { container: horizontal-chart / inline-size; --label-width: 10rem; --value-width: 7rem; }
+.state-comparison { --label-width: 18rem; }
+.bar-axis, .chart-axis { position: relative; height: 1.5rem; margin-top: 1rem; color: var(--impacts-muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.chart-tick { position: absolute; left: calc(var(--tick) * 1%); width: 0; }
+.chart-tick > span { display: block; width: max-content; transform: translateX(-50%); white-space: nowrap; }
+.chart-tick:first-child > span { transform: none; }
+.chart-tick:last-child > span { transform: translateX(-100%); }
+.chart-tick:not(:first-child):not(:last-child) { display: none; }
+.focus-chart { container: focus-chart / inline-size; }
+.chart-plane { position: relative; }
+.chart-line, .chart-dot { display: none; }
+.focus-chart__label strong, .biome-chart__label strong, .comparison-row strong { font-variant-numeric: tabular-nums; }
+
+@container horizontal-chart (min-width: 38rem) {
+  .biome-chart__row, .comparison-row { display: grid; grid-template-columns: var(--label-width) minmax(0, 1fr) var(--value-width); align-items: center; gap: 1rem; min-height: 2.75rem; }
+  .comparison-row { margin-top: .5rem; }
+  .biome-chart__label, .comparison-row p { display: contents; }
+  .biome-chart__label > span, .comparison-row p > span { grid-area: 1 / 1; line-height: 1.45; }
+  .biome-chart__label > strong, .comparison-row strong { grid-area: 1 / 3; text-align: right; }
+  .biome-chart__row > .bar, .comparison-row > .bar { grid-area: 1 / 2; }
+  .bar-axis { margin-left: calc(var(--label-width) + 1rem); margin-right: calc(var(--value-width) + 1rem); }
+}
+@container horizontal-chart (min-width: 56rem) {
+  .bar-axis .chart-tick:not(:first-child):not(:last-child) { display: block; }
+}
+
+/* Históricos de anos civis: barras na leitura estreita e linha quando há espaço. */
+@container focus-chart (min-width: 48rem) {
+  [data-series='annual'].line-ready .chart-plane { --plot-top: 3rem; --plot-left: 4.5rem; --plot-right: 1rem; --plot-height: clamp(9rem, min(21vw, 30svh), 16rem); height: calc(var(--plot-height) + 8rem); }
+  [data-series='annual'].line-ready .chart-results { display: grid; grid-template-columns: repeat(var(--history-count, 23), minmax(0, 1fr)); position: absolute; top: var(--plot-top); right: var(--plot-right); left: var(--plot-left); height: var(--plot-height); }
+  [data-series='annual'].line-ready .chart-axis { position: absolute; top: var(--plot-top); left: var(--plot-left); right: var(--plot-right); height: var(--plot-height); margin: 0; }
+  [data-series='annual'].line-ready .chart-axis .chart-tick { display: block; left: 0; right: 0; width: auto; bottom: calc(var(--tick) * 1%); border-bottom: 1px solid var(--impacts-divider); }
+  [data-series='annual'].line-ready .chart-axis .chart-tick > span { position: absolute; right: calc(100% + .75rem); transform: translateY(-50%); }
+  [data-series='annual'].line-ready .focus-chart__row { position: relative; margin: 0; }
+  [data-series='annual'].line-ready .focus-chart__label { display: contents; }
+  [data-series='annual'].line-ready .focus-chart__label > span { position: absolute; top: calc(100% + 3rem); left: 50%; transform: translateX(-50%); width: max-content; font-size: clamp(.8125rem, 1.3cqi, .875rem); line-height: 1.4; white-space: nowrap; }
+  [data-series='annual'].line-ready .focus-chart__label > strong { position: absolute; bottom: calc(var(--share) * 1% + var(--label-offset, .875rem)); left: calc(50% + var(--label-shift, 0px)); transform: translateX(-50%); font-size: .8125rem; white-space: nowrap; }
+  [data-series='annual'].line-ready .bar { display: none; }
+  [data-series='annual'].line-ready .chart-line { display: block; position: absolute; top: var(--plot-top); left: var(--plot-left); width: calc(100% - var(--plot-left) - var(--plot-right)); height: var(--plot-height); overflow: visible; }
+  .chart-line polyline { fill: none; stroke: var(--impacts-foreground); stroke-width: 2; vector-effect: non-scaling-stroke; }
+  [data-series='annual'].line-ready .chart-dot { display: block; position: absolute; left: calc(50% - .3125rem); bottom: calc(var(--share) * 1% - .3125rem); width: .625rem; height: .625rem; border-radius: 50%; background: var(--impacts-foreground); }
+  [data-current-year] .chart-dot { background: var(--impacts-accent); }
+  [data-current-year] .focus-chart__label { color: var(--impacts-accent); font-weight: 650; }
+}
+
+@container focus-chart (min-width: 48rem) {
+  [data-series='monthly'] .chart-plane { --plot-height: clamp(11rem, min(24vw, 38svh), 19rem); height: calc(var(--plot-height) + 8rem); }
+  [data-series='monthly'] .chart-results { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); position: absolute; top: 5rem; right: 0; left: 4.5rem; height: var(--plot-height); }
+  [data-series='monthly'] .chart-axis { position: absolute; top: 5rem; left: 4.5rem; right: 0; height: var(--plot-height); margin: 0; }
+  [data-series='monthly'] .chart-axis .chart-tick { display: block; left: 0; right: 0; width: auto; bottom: calc(var(--tick) * 1%); border-bottom: 1px solid var(--impacts-divider); }
+  [data-series='monthly'] .chart-axis .chart-tick > span { position: absolute; right: calc(100% + .75rem); transform: translateY(-50%); }
+  [data-series='monthly'] .focus-chart__row { position: relative; margin: 0; }
+  [data-series='monthly'] .focus-chart__label { display: contents; }
+  [data-series='monthly'] .focus-chart__label > span { position: absolute; top: calc(100% + .75rem); left: 0; right: 0; text-align: center; font-size: .8125rem; }
+  [data-series='monthly'] .focus-chart__label > strong { position: absolute; bottom: calc(var(--share) * 1% + .625rem); left: 50%; transform: translateX(-50%); font-size: clamp(.8125rem, 1.4cqi, .9375rem); white-space: nowrap; }
+  [data-series='monthly'] .bar { position: absolute; bottom: 0; left: 25%; width: 50%; height: calc(var(--share) * 1%); }
+  [data-series='monthly'] .bar__fill { width: 100%; }
+  [data-series='monthly'] .focus-chart__peak { display: block; margin-top: .25rem; color: var(--impacts-accent); font-size: .75rem; line-height: 1.3; }
+}
+.data-note { margin-top: var(--data-gap); padding-left: var(--data-gap); border-left: 3px solid var(--impacts-accent); }
+.series-end { display: none; z-index: 3; }
+.line-ready .chart-results strong { padding: 2px 3px; line-height: 1.35; background: var(--impacts-background); border-radius: 2px; z-index: 3; }
+.chart-line { pointer-events: none; }
+.chart-guide { position: absolute; z-index: 0; border-left: 1px solid var(--impacts-muted); opacity: .35; pointer-events: none; }
+.chart-plane > .chart-results { z-index: 2; }
+.chart-guide[hidden] { display: none; }
+.chart-interactive .chart-results > li { cursor: pointer; min-height: 44px; }
+.chart-interactive { --marker-ink: var(--impacts-foreground); }
+.chart-interactive :is([data-current-year], .cumulative-value--current) { --marker-ink: var(--impacts-accent); }
+.data-section figure[tabindex]:focus-visible { outline: 2px solid var(--impacts-accent); outline-offset: 6px; }
+[data-chart-active] .chart-dot { box-shadow: 0 0 0 1px var(--marker-ink); }
+[data-chart-active] :is(.cumulative-month, .focus-chart__label > span) { text-decoration: underline; text-underline-offset: .25em; }
+:is(.biome-chart, .state-comparison) [data-chart-active] .bar__fill { filter: brightness(.9); }
+@container focus-chart (min-width: 48rem) {
+  .cumulative-chart.line-ready .series-end { display: block; position: absolute; left: calc(var(--plot-left) + (100% - var(--plot-left) - var(--plot-right)) * 17 / 18 + .75rem); top: calc(var(--plot-top) + var(--plot-height) * (100 - var(--end-share)) / 100); transform: translateY(-50%); font-size: .875rem; font-weight: 600; line-height: 1.35; white-space: nowrap; }
+  .series-end--current { color: var(--impacts-accent); }
+}
+.cumulative-row + .cumulative-row { margin-top: 1.5rem; }
+.cumulative-month { display: block; font-weight: 600; }
+.cumulative-value { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-top: .375rem; }
+.cumulative-value strong { font-size: .9375em; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cumulative-value .bar { grid-column: 1 / -1; margin-top: .25rem; }
+.cumulative-value--current { --share: var(--current); }
+.cumulative-value--reference { --share: var(--reference); }
+.cumulative-value--reference .bar__fill { background: var(--impacts-foreground); }
+@container focus-chart (min-width: 48rem) {
+  .cumulative-chart.line-ready .chart-plane { --plot-top: 3rem; --plot-left: 4.5rem; --plot-right: 10rem; --plot-height: clamp(12rem, min(25vw, 38svh), 20rem); height: calc(var(--plot-height) + 8rem); }
+  .cumulative-chart.line-ready .chart-results { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); position: absolute; top: var(--plot-top); right: var(--plot-right); left: var(--plot-left); height: var(--plot-height); }
+  .cumulative-chart.line-ready .chart-axis { position: absolute; top: var(--plot-top); left: var(--plot-left); right: var(--plot-right); height: var(--plot-height); margin: 0; }
+  .cumulative-chart.line-ready .chart-axis .chart-tick { display: block; left: 0; right: 0; bottom: calc(var(--tick) * 1%); width: auto; border-bottom: 1px solid var(--impacts-divider); }
+  .cumulative-chart.line-ready .chart-axis .chart-tick > span { position: absolute; right: calc(100% + .75rem); transform: translateY(-50%); }
+  .cumulative-chart.line-ready .chart-line { display: block; position: absolute; top: var(--plot-top); left: var(--plot-left); width: calc(100% - var(--plot-left) - var(--plot-right)); height: var(--plot-height); overflow: visible; }
+  .chart-line .cumulative-current { stroke: var(--impacts-accent); }
+  .chart-line .cumulative-reference { stroke-dasharray: 6 4; }
+  .cumulative-chart.line-ready .cumulative-row { position: relative; margin: 0 !important; }
+  .cumulative-chart.line-ready .cumulative-month { position: absolute; top: calc(100% + 3rem); left: 0; right: 0; text-align: center; font-size: .8125rem; }
+  .cumulative-chart.line-ready .cumulative-value { display: contents; }
+  .cumulative-chart.line-ready .cumulative-value__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .cumulative-chart.line-ready .cumulative-value strong { position: absolute; left: calc(50% + var(--label-shift, 0px)); transform: translateX(-50%); bottom: calc(var(--share) * 1% + var(--label-offset, .875rem)); font-size: .8125rem; white-space: nowrap; }
+  .cumulative-chart.line-ready .cumulative-value--current strong { color: var(--impacts-accent); }
+  .cumulative-chart.line-ready .cumulative-value .bar { display: none; }
+  .cumulative-chart.line-ready .cumulative-value .chart-dot { display: block; position: absolute; left: calc(50% - .25rem); bottom: calc(var(--share) * 1% - .25rem); width: .5rem; height: .5rem; border-radius: 50%; background: var(--impacts-accent); }
+  .cumulative-chart.line-ready .cumulative-value--reference .chart-dot { border: 2px solid var(--impacts-foreground); background: var(--impacts-background); }
+}
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px !important; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.fallback-label { display: none; }
+@media (max-width: 599px) {
+  .states-fallback :is(table, tbody, tr, th, td) { display: block; }
+  .states-fallback thead { display: none; }
+  .states-fallback tr { padding-block: var(--data-gap); border-bottom: 1px solid var(--impacts-divider); }
+  .states-fallback :is(th, td) { border: 0; text-align: left !important; padding: .25rem 0; }
+  .fallback-label { display: block; font-weight: 600; }
+}

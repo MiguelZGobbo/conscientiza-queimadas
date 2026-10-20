@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101a17">
+    <meta name="description" content="Panorama histórico das queimadas no Brasil, acompanhamento dos focos em 2026 e consulta estadual dos últimos 12 meses.">
+    <title>Dados — Conscientiza Queimadas</title>
+    <link rel="icon" type="image/svg+xml" href="./src/favicon.svg">
+    <link rel="stylesheet" href="./src/styles.css">
+    <script src="./src/navigation.js" defer></script>
+    <link rel="stylesheet" href="./src/dados.css">
+    <script type="module" src="./src/dados.js"></script>
+    <script type="module" src="./src/graficos-interacao.js"></script>
+  </head>
+  <body class="dados-page">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="home-opening">
+      <header class="site-header" id="inicio" tabindex="-1">
+        <div class="site-header__inner container">
+          <a class="brand" href="./index.html" aria-label="Conscientiza Queimadas — Início">
+            <svg class="brand__mark" width="34" height="40" viewBox="0 0 34 40" fill="none" aria-hidden="true" focusable="false">
+              <path d="M17 3C18 12 29 15 29 25a12 12 0 0 1-24 0c0-5 3-9 6-12 0 5 2 7 4 8 3-5 4-11 2-18Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M17 34V23m0 6-5-4m5 1 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="brand__name">Conscientiza Queimadas</span>
+          </a>
+          <button class="menu-toggle" type="button" popovertarget="primary-navigation" aria-controls="primary-navigation" aria-label="Menu principal">
+            <span class="menu-toggle__label">Menu</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" focusable="false">
+              <path class="menu-toggle__bars" d="M3 7h16M3 15h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path class="menu-toggle__cross" d="m5 5 12 12M17 5 5 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <nav id="primary-navigation" class="site-nav" popover="auto" aria-label="Principal">
+            <ul>
+              <li><a href="./index.html">Início</a></li>
+              <li><a href="./queimadas.html">Queimadas</a></li>
+              <li><a href="./dados.html" aria-current="page">Dados</a></li>
+              <li><span class="site-nav__pending" aria-disabled="true"><span>Prevenção</span><small>em breve</small></span></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+<main id="conteudo" tabindex="-1">
+  <section class="data-intro" aria-labelledby="dados-title">
+    <div class="container data-reading">
+      <h1 id="dados-title">Queimadas em números</h1>
+      <p>Conheça o alcance histórico das queimadas no Brasil, acompanhe os focos de 2026 e consulte os dados recentes de cada estado.</p>
+    </div>
+  </section>
+  <nav class="reading-contents" aria-labelledby="reading-contents-title">
+    <div class="container data-reading">
+      <p class="reading-contents__title" id="reading-contents-title">Nesta página</p>
+      <ul>
+        <li><a href="#panorama">O retrato do fogo no Brasil</a></li>
+        <li><a href="#estados">Explore os estados brasileiros</a></li>
+        <li><a href="#metodologia">Entenda os dados</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="data-section" id="panorama" aria-labelledby="panorama-title" tabindex="-1">
+    <div class="container data-reading">
+      <h2 id="panorama-title">O retrato do fogo no Brasil</h2>
+      <!-- AREA-PANORAMA:INICIO -->
+<h3>O alcance das queimadas no Brasil</h3>
+<p>Entre 1985 e 2025, <strong>208.441.608 hectares do território brasileiro foram atingidos pelo fogo ao menos uma vez</strong>, segundo o MapBiomas Fogo. Isso corresponde a aproximadamente 24% do país. Cada local é contado uma única vez, mesmo quando queimou em vários anos.</p>
+<h3>Onde o fogo se concentrou nesse período?</h3>
+<p>O <strong>Cerrado concentrou 43,5%</strong> desse território e a <strong>Amazônia, 42,5%</strong>. Juntos, responderam por 86% da área atingida no período.</p>
+<!-- AREA-PANORAMA:FIM -->
+      <figure class="biome-chart" data-scale-max="100000000" aria-labelledby="biome-chart-title">
+  <figcaption id="biome-chart-title">Território atingido pelo fogo por bioma<span>Hectares (ha) · 1985 a 2025 · cada local contado uma única vez · escala iniciada em zero</span></figcaption>
+  <div class="biome-chart__scale bar-axis" aria-hidden="true"><span class="chart-tick" style="--tick:0"><span>0</span></span><span class="chart-tick" style="--tick:25"><span>25.000.000</span></span><span class="chart-tick" style="--tick:50"><span>50.000.000</span></span><span class="chart-tick" style="--tick:75"><span>75.000.000</span></span><span class="chart-tick" style="--tick:100"><span>100.000.000</span></span></div>
+  <ul class="chart-results" role="list"><li class="biome-chart__row" style="--share:90.71029200000001"><div class="biome-chart__label"><span>Cerrado</span><strong>90.710.292</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+<li class="biome-chart__row" style="--share:88.608526"><div class="biome-chart__label"><span>Amazônia</span><strong>88.608.526</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+<li class="biome-chart__row" style="--share:11.305981"><div class="biome-chart__label"><span>Caatinga</span><strong>11.305.981</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+<li class="biome-chart__row" style="--share:8.005006"><div class="biome-chart__label"><span>Mata Atlântica</span><strong>8.005.006</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+<li class="biome-chart__row" style="--share:9.270523"><div class="biome-chart__label"><span>Pantanal</span><strong>9.270.523</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+<li class="biome-chart__row" style="--share:0.54128"><div class="biome-chart__label"><span>Pampa</span><strong>541.280</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li></ul>
+  <p class="data-source">Fonte: <a href="https://raf.ia.mapbiomas.org/raf2025/publication-web-resources/html/publication-20.html">MapBiomas Fogo — RAF2025, Coleção 5, Tabela 3</a> · 1985–2025 · Visualização adaptada · <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br">CC BY 4.0</a>.</p>
+</figure>
+      <!-- FOCOS-NACIONAL:INICIO -->
+<div class="national-focus">
+  <div class="chart-intro"><h3>Além da área: os focos de fogo ativo</h3>
+  <p>O histórico reúne anos completos. Para acompanhar 2026, compare o acumulado até cada mês com a média histórica dos mesmos meses, de 2003 a 2025.</p></div>
+  <figure id="national-focus-annual" class="focus-chart" data-series="annual" data-count="23" data-scale-max="400000" aria-labelledby="national-focus-annual-title">
+  <figcaption id="national-focus-annual-title">Histórico anual de focos no Brasil<span>Total anual de focos · 2003 a 2025 · escala iniciada em zero</span></figcaption>
+
+  <div class="chart-plane">
+  <div class="chart-axis" data-chart-axis aria-hidden="true"><span class="chart-tick" style="--tick:0"><span>0</span></span><span class="chart-tick" style="--tick:25"><span>100.000</span></span><span class="chart-tick" style="--tick:50"><span>200.000</span></span><span class="chart-tick" style="--tick:75"><span>300.000</span></span><span class="chart-tick" style="--tick:100"><span>400.000</span></span></div>
+  <svg class="chart-line" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="21.7391,146.9075 65.2174,48.8875 108.6957,93.5925 152.1739,377.0525 195.6522,15.2125 239.1304,470.1675 282.6087,612.2450 326.0870,201.5425 369.5652,604.7525 413.0435,456.9150 456.5217,679.6375 500.0000,560.2700 543.4783,458.0550 586.9565,539.4575 630.4348,481.2300 673.9130,667.8250 717.3913,505.9200 760.8696,443.0075 804.3478,539.7975 847.8261,498.0925 891.3043,525.2475 934.7826,304.2525 978.2609,659.0175"/></svg>
+  <ul class="chart-results" role="list">
+  <li class="focus-chart__row" style="--share:85.30925"><div class="focus-chart__label"><span>2003</span><strong data-value-index="0">341.237</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:95.11125"><div class="focus-chart__label"><span>2004</span><strong data-value-index="1">380.445</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:90.64075"><div class="focus-chart__label"><span>2005</span><strong data-value-index="2">362.563</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:62.29475"><div class="focus-chart__label"><span>2006</span><strong data-value-index="3">249.179</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:98.47875"><div class="focus-chart__label"><span>2007</span><strong data-value-index="4">393.915</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:52.983250000000005"><div class="focus-chart__label"><span>2008</span><strong data-value-index="5">211.933</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:38.7755"><div class="focus-chart__label"><span>2009</span><strong data-value-index="6">155.102</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:79.84575000000001"><div class="focus-chart__label"><span>2010</span><strong data-value-index="7">319.383</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:39.52475"><div class="focus-chart__label"><span>2011</span><strong data-value-index="8">158.099</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:54.3085"><div class="focus-chart__label"><span>2012</span><strong data-value-index="9">217.234</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:32.03625"><div class="focus-chart__label"><span>2013</span><strong data-value-index="10">128.145</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:43.973"><div class="focus-chart__label"><span>2014</span><strong data-value-index="11">175.892</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:54.1945"><div class="focus-chart__label"><span>2015</span><strong data-value-index="12">216.778</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:46.05425"><div class="focus-chart__label"><span>2016</span><strong data-value-index="13">184.217</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:51.876999999999995"><div class="focus-chart__label"><span>2017</span><strong data-value-index="14">207.508</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:33.2175"><div class="focus-chart__label"><span>2018</span><strong data-value-index="15">132.870</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:49.408"><div class="focus-chart__label"><span>2019</span><strong data-value-index="16">197.632</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:55.69925"><div class="focus-chart__label"><span>2020</span><strong data-value-index="17">222.797</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:46.020250000000004"><div class="focus-chart__label"><span>2021</span><strong data-value-index="18">184.081</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:50.190749999999994"><div class="focus-chart__label"><span>2022</span><strong data-value-index="19">200.763</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:47.47525"><div class="focus-chart__label"><span>2023</span><strong data-value-index="20">189.901</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:69.57475"><div class="focus-chart__label"><span>2024</span><strong data-value-index="21">278.299</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:34.09825" data-current-year><div class="focus-chart__label"><span>2025</span><strong data-value-index="22">136.393</strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+  </ul>
+  </div>
+  </figure>
+  <figure id="national-focus-cumulative" class="focus-chart cumulative-chart" data-series="cumulative" data-scale-max="200000" aria-labelledby="national-focus-cumulative-title">
+  <figcaption id="national-focus-cumulative-title">Como os focos se acumulam em 2026?<span>Focos acumulados de janeiro até cada mês · escala iniciada em zero</span><span>Média histórica: mesmos meses de 2003 a 2025</span></figcaption>
+  <div class="chart-plane"><div class="chart-axis" aria-hidden="true"><span class="chart-tick" style="--tick:0"><span>0</span></span><span class="chart-tick" style="--tick:25"><span>50.000</span></span><span class="chart-tick" style="--tick:50"><span>100.000</span></span><span class="chart-tick" style="--tick:75"><span>150.000</span></span><span class="chart-tick" style="--tick:100"><span>200.000</span></span></div>
+  <svg class="chart-line" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline class="cumulative-current" points="55.55555555555555,977.2 166.66666666666666,967.9 277.77777777777777,958.065 388.8888888888889,947.89 500,928.735 611.1111111111112,902.69 722.2222222222222,871.27 833.3333333333334,770.1600000000001 944.4444444444445,648.25"/><polyline class="cumulative-reference" points="55.55555555555555,981.6667391304347 166.66666666666666,970.5554347826087 277.77777777777777,956.8719565217391 388.8888888888889,944.7841304347826 500,923.8152173913044 611.1111111111112,883.7513043478261 722.2222222222222,801.314347826087 833.3333333333334,563.195652173913 944.4444444444445,228.13478260869567"/></svg>
+  <ul class="chart-results" role="list"><li class="cumulative-row" style="--current:2.2800000000000002;--reference:1.833326086956522">
+  <span class="cumulative-month">Jan</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>4.560</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>3.666,7</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:3.2099999999999995;--reference:2.9444565217391307">
+  <span class="cumulative-month">Fev</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>6.420</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>5.888,9</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:4.1935;--reference:4.312804347826087">
+  <span class="cumulative-month">Mar</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>8.387</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>8.625,6</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:5.210999999999999;--reference:5.521586956521738">
+  <span class="cumulative-month">Abr</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>10.422</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>11.043,2</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:7.126499999999999;--reference:7.618478260869566">
+  <span class="cumulative-month">Mai</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>14.253</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>15.237,0</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:9.731;--reference:11.624869565217393">
+  <span class="cumulative-month">Jun</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>19.462</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>23.249,7</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:12.873000000000001;--reference:19.868565217391303">
+  <span class="cumulative-month">Jul</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>25.746</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>39.737,1</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:22.983999999999998;--reference:43.68043478260869">
+  <span class="cumulative-month">Ago</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>45.968</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>87.360,9</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li>
+<li class="cumulative-row" style="--current:35.175;--reference:77.18652173913043">
+  <span class="cumulative-month">Set</span>
+  <div class="cumulative-value cumulative-value--current"><span class="cumulative-value__name">2026: </span><strong>70.350</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div>
+  <div class="cumulative-value cumulative-value--reference"><span class="cumulative-value__name">Média histórica: </span><strong>154.373,0</strong><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div><span class="chart-dot" aria-hidden="true"></span></div></li></ul>
+  <span class="series-end series-end--current" style="--end-share:35.175">2026</span>
+  <span class="series-end series-end--reference" style="--end-share:77.18652173913043">Média histórica</span></div>
+  <p class="data-source">Os valores de 2026 representam detecções disponíveis e não são uma previsão. Não há registros AQUA_M-T em 3 de maio, 10 e 22 de julho nos arquivos oficiais de 2026.</p>
+  </figure>
+  <p class="data-source">Fonte: <a href="https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/">INPE — Programa Queimadas</a> · Satélite de referência AQUA_M-T · Série anual: 2003–2025; meses recentes até set/2026 · Agregação própria · Acesso em: 19 out. 2026 · <a href="https://data.inpe.br/queimadas/faq/">Referência e condições de uso</a>.</p>
+</div>
+<!-- FOCOS-NACIONAL:FIM -->
+    </div>
+  </section>
+  <section class="data-section" id="estados" aria-labelledby="estados-title" tabindex="-1">
+    <div class="container data-reading">
+      <div class="data-reading data-reading--inner">
+        <h2 id="estados-title">Explore os estados brasileiros</h2>
+<p id="state-instructions">Selecione um estado ou o Distrito Federal no mapa ou na lista para consultar a área queimada e os focos recentes, com referências históricas identificadas em cada gráfico.</p>
+      </div>
+      <div class="state-explorer" id="state-explorer">
+        <div class="state-control">
+          <label for="state-select">Selecione uma unidade federativa</label>
+          <select id="state-select" aria-describedby="state-instructions" disabled>
+            <option value="">Selecione uma unidade federativa</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
+        </div>
+        <div class="state-layout">
+          <figure class="state-map">
+            <!-- MAPA-IBGE:INICIO -->
+        <svg class="brazil-map" viewBox="0 0 800 810" role="group" aria-labelledby="map-title map-description" xmlns="http://www.w3.org/2000/svg">
+          <title id="map-title">Unidades federativas do Brasil</title>
+          <desc id="map-description">Mapa para seleção de uma unidade federativa. A mesma consulta está disponível no seletor textual.</desc>
+          <path data-uf="AC" aria-label="Acre" d="M18.0,275.6L20.0,278.1L19.9,279.9L16.0,280.8L16.4,285.7L18.7,287.6L20.3,287.8L21.8,289.0L20.8,292.1L23.1,293.1L24.2,295.1L24.3,297.0L25.4,297.8L25.7,299.5L30.0,301.9L30.0,304.3L31.3,305.6L33.6,305.9L36.2,309.9L37.3,309.9L38.6,312.1L38.7,314.3L37.6,315.1L34.2,320.3L43.8,319.3L47.6,320.4L50.0,320.1L52.5,321.2L53.4,325.2L55.4,325.8L55.8,327.8L55.3,330.1L70.8,328.6L74.0,327.3L74.7,325.6L77.9,324.2L80.0,320.9L81.3,320.3L82.2,318.7L85.5,315.7L86.3,316.1L85.2,319.4L86.7,321.6L85.2,323.8L87.3,347.3L88.9,345.9L91.0,347.8L93.3,348.2L95.4,347.7L97.3,346.2L100.9,344.5L105.6,344.8L110.2,343.9L113.7,343.9L118.9,344.4L120.0,345.0L121.9,344.3L124.0,347.2L127.3,346.2L128.2,344.9L132.1,343.4L135.2,338.8L135.0,337.6L136.7,336.1L140.3,335.9L142.7,336.7L144.4,333.2L147.5,331.3L147.7,330.1L149.7,329.8L149.7,328.5L152.3,328.7L155.5,326.7L157.9,323.1L162.4,319.1L158.7,317.7L148.4,313.9L144.7,313.5L122.0,304.9L106.7,293.5L92.6,283.1L76.4,282.6L42.6,281.9L18.0,275.6Z"/>
+          <path data-uf="AL" aria-label="Alagoas" d="M717.1,316.4L719.1,317.1L721.0,319.3L722.5,319.2L725.0,321.7L729.3,323.1L731.0,325.3L732.6,325.5L734.3,327.4L736.3,327.8L737.0,330.8L740.4,333.7L742.4,333.7L743.2,335.0L743.2,337.1L745.7,337.6L746.3,339.0L748.5,336.3L749.0,334.8L754.2,330.6L759.0,324.7L761.1,323.6L762.4,321.7L765.6,319.1L766.6,317.6L768.8,316.0L773.4,309.6L766.2,307.0L761.8,308.5L758.8,307.1L754.4,308.6L751.3,312.5L749.3,313.5L748.0,313.1L745.2,314.5L744.4,315.4L741.5,313.7L738.5,313.9L737.6,315.6L735.2,312.6L732.3,311.0L730.4,308.3L727.8,306.4L724.7,306.5L723.0,303.4L721.6,304.2L720.9,306.4L717.9,309.2L715.9,309.4L712.8,312.3L713.4,314.2L715.7,314.8L717.1,316.4Z"/>
+          <path data-uf="AP" aria-label="Amapá" d="M484.2,101.9L484.3,101.0L486.9,100.5L489.2,97.3L491.2,95.9L491.4,92.9L491.1,90.4L491.6,86.5L490.9,82.9L486.0,80.4L480.6,80.4L479.5,79.7L477.4,76.8L477.1,75.4L475.4,74.0L473.6,67.8L472.7,66.9L471.3,62.2L470.0,60.4L468.4,53.2L466.9,48.7L467.5,46.6L467.6,40.4L465.6,39.8L465.7,38.0L464.9,35.4L463.5,33.4L459.3,29.9L456.4,28.5L455.5,30.0L455.5,32.7L456.2,34.1L455.4,37.4L453.1,38.6L452.7,40.2L449.0,43.6L448.6,44.8L443.5,52.4L441.5,53.8L441.6,55.5L438.5,60.9L437.3,63.6L437.3,64.9L434.5,68.9L430.8,70.4L429.4,72.4L428.4,72.7L424.7,71.7L422.4,71.9L421.8,70.3L420.4,69.3L418.2,71.0L413.9,70.6L411.6,68.8L404.5,73.7L402.6,72.8L401.3,73.2L396.9,71.8L395.7,69.7L393.1,69.7L392.2,69.0L392.4,67.1L388.8,67.6L390.4,69.9L391.1,72.1L390.2,73.3L390.2,75.5L391.5,80.3L394.4,80.1L396.6,80.8L399.0,80.5L402.7,82.8L403.9,82.9L405.4,85.5L406.4,85.3L411.3,87.4L415.2,88.3L416.6,90.2L418.6,90.9L417.9,92.6L418.9,96.6L423.4,99.7L425.2,101.4L424.3,103.0L423.7,107.2L425.4,109.6L427.6,114.0L428.6,117.4L430.3,117.5L433.7,120.8L433.4,124.3L434.5,126.0L436.7,125.8L437.4,128.5L437.1,131.3L438.5,130.9L439.0,134.7L440.7,136.4L445.0,137.1L446.3,137.7L452.0,137.0L453.6,135.5L454.0,130.3L455.8,127.5L458.6,124.9L460.6,122.1L460.9,120.8L463.7,117.3L466.7,116.6L468.6,114.3L472.6,113.0L475.0,111.6L477.4,109.2L479.9,103.6L482.1,102.2L484.2,101.9ZM478.7,76.1L480.0,78.8L481.8,78.8L482.8,77.7L481.1,74.5L479.0,74.8L478.7,76.1Z"/>
+          <path data-uf="AM" aria-label="Amazonas" d="M18.0,275.6L42.6,281.9L76.4,282.6L92.6,283.1L106.7,293.5L122.0,304.9L144.7,313.5L148.4,313.9L158.7,317.7L159.3,316.4L164.4,313.6L166.4,310.8L166.6,309.3L168.8,308.8L174.4,308.5L175.5,309.7L179.3,311.2L180.1,308.9L181.8,308.0L183.6,309.1L184.6,305.8L185.8,306.0L188.3,304.5L190.5,308.2L192.2,307.2L194.6,303.4L194.1,301.5L195.3,299.1L196.5,298.5L200.8,298.8L205.8,296.9L206.1,298.2L209.4,297.0L209.1,292.9L211.2,291.8L212.0,289.6L213.2,289.3L212.6,284.5L213.9,283.5L215.5,284.3L216.8,282.6L218.5,278.1L218.5,277.0L233.0,276.3L235.6,277.4L237.2,279.4L237.6,281.2L240.4,284.1L241.4,283.2L243.5,284.3L243.5,286.2L245.5,287.8L247.2,288.2L248.5,292.2L250.3,292.1L252.2,293.6L253.7,293.0L254.0,290.7L255.9,289.7L258.1,290.3L259.0,291.7L281.7,290.8L309.4,290.0L320.2,289.7L320.3,287.8L321.2,285.6L320.6,283.5L321.8,281.5L322.9,276.3L322.8,275.0L321.1,271.6L321.0,270.2L322.5,269.1L323.0,267.6L324.4,265.9L324.1,262.7L325.5,260.5L324.7,257.6L321.5,253.3L319.5,251.8L318.5,249.3L318.5,247.6L319.5,246.0L322.8,242.6L335.5,213.4L346.7,188.7L348.9,183.5L354.3,171.5L358.4,162.8L357.2,162.4L358.5,159.3L362.3,157.4L364.4,154.5L362.6,154.7L358.1,157.3L355.8,156.6L354.0,158.1L351.0,157.4L351.8,155.1L351.3,154.2L349.0,154.3L345.6,152.5L344.5,150.2L342.0,148.5L338.9,149.0L335.0,146.6L332.1,146.2L331.5,144.6L329.3,143.4L326.5,142.6L325.7,141.4L326.3,138.9L324.4,137.0L322.3,139.5L320.3,137.6L319.2,137.9L315.8,132.6L313.0,130.5L310.5,128.1L310.5,124.3L307.5,122.6L307.2,119.7L307.5,117.4L306.8,115.9L306.7,110.8L283.3,111.5L282.9,113.4L281.5,114.6L281.4,116.1L280.1,117.3L279.8,119.4L278.4,121.2L277.5,125.3L276.4,126.9L278.5,130.4L276.1,131.8L274.6,132.1L271.3,134.1L269.5,133.7L268.0,130.5L267.3,130.5L264.6,128.2L261.5,127.0L259.7,127.1L259.5,128.3L256.9,129.1L255.0,130.3L253.5,132.3L252.7,136.7L253.6,138.3L252.1,142.9L253.0,144.1L252.6,145.9L248.7,144.8L246.7,145.1L244.0,140.3L242.3,139.5L240.8,137.8L237.8,136.4L236.5,134.7L233.9,133.7L234.1,131.8L236.4,132.2L238.0,130.9L237.5,129.5L238.1,127.1L239.8,124.5L238.5,123.5L238.6,121.6L237.0,120.2L236.8,118.4L235.0,117.0L234.0,114.5L234.0,111.1L232.1,108.7L231.8,105.5L233.3,103.5L232.7,101.6L233.5,99.9L231.8,97.6L229.1,90.9L227.1,89.8L225.5,88.1L227.0,85.9L227.3,82.6L226.7,80.9L224.4,80.0L220.6,80.2L218.6,78.7L218.0,77.3L215.3,77.8L213.3,76.8L212.3,78.4L208.3,79.0L207.5,80.7L203.7,82.0L201.1,81.7L199.4,82.9L199.7,84.9L199.3,88.3L197.0,90.9L192.9,93.3L193.9,91.2L189.7,93.4L189.1,94.9L185.8,97.2L184.8,95.6L181.9,97.6L180.5,99.9L178.7,99.0L177.8,100.0L177.1,103.8L174.9,103.4L173.1,105.5L172.3,108.5L170.6,109.0L169.3,108.0L171.0,104.9L169.9,103.1L168.5,102.5L165.8,102.8L163.0,104.3L161.6,106.2L159.3,107.9L156.7,107.7L154.5,108.5L142.7,100.0L138.0,101.5L137.7,99.8L137.8,95.6L136.5,93.2L136.4,89.8L135.3,88.6L133.6,88.5L131.5,85.9L130.8,81.7L127.3,83.2L125.2,86.5L123.3,85.8L120.9,88.6L120.1,90.3L117.8,90.4L115.5,87.8L113.9,87.5L112.5,90.4L115.2,92.3L89.9,94.4L86.9,93.6L84.7,94.7L80.6,95.4L81.7,107.6L83.1,107.0L87.2,107.2L92.4,106.5L95.1,108.0L96.5,112.3L95.6,114.7L94.2,115.8L92.4,115.6L89.7,113.5L87.0,115.8L85.9,115.2L82.9,116.9L78.4,117.9L79.5,130.8L79.5,132.4L82.5,134.8L84.0,134.9L87.0,136.9L89.0,137.6L90.1,140.3L89.2,142.3L91.2,144.6L91.4,145.8L93.5,147.4L94.3,149.1L93.9,151.5L94.8,154.1L94.1,154.9L94.0,157.6L91.3,184.0L88.8,210.9L88.8,212.4L86.9,213.8L85.0,212.6L82.4,213.3L81.7,210.6L78.6,210.1L76.9,210.4L74.0,211.8L72.1,211.2L71.1,212.0L69.1,215.9L64.8,216.3L54.0,219.9L52.5,219.5L50.1,220.3L49.3,222.3L47.7,223.0L46.1,224.8L42.0,226.9L40.7,229.0L37.2,231.0L37.0,232.2L35.1,232.6L32.2,235.3L32.5,237.5L31.1,241.1L31.5,245.0L30.0,247.5L28.0,249.7L27.7,252.3L26.7,254.8L27.5,256.8L28.7,257.7L30.1,260.1L29.7,262.3L28.0,263.9L25.6,264.3L25.2,265.2L22.2,266.5L20.4,268.2L18.3,272.1L18.7,274.5L18.0,275.6Z"/>
+          <path data-uf="BA" aria-label="Bahia" d="M671.0,492.5L671.8,490.5L674.7,486.1L676.5,484.5L678.9,483.7L681.8,480.2L681.1,478.5L680.9,472.8L681.3,469.3L681.9,468.3L683.1,463.4L683.3,461.1L684.1,460.0L685.3,454.7L686.5,452.7L686.5,450.9L690.1,443.1L688.9,439.3L688.9,435.3L688.5,431.5L688.9,425.4L688.6,421.2L688.0,420.4L688.3,417.9L689.8,412.4L690.3,409.6L691.9,403.6L690.8,400.8L693.0,397.4L692.4,396.3L693.4,394.6L692.4,393.3L692.3,391.1L693.1,389.6L696.4,387.9L698.8,386.0L702.1,386.2L704.4,385.2L706.7,383.3L711.8,378.2L716.8,371.7L720.3,366.2L725.0,358.1L726.4,356.3L722.8,358.2L720.3,357.5L718.8,357.9L717.2,357.0L716.5,355.5L714.5,354.2L712.6,346.5L710.3,344.2L710.1,342.3L711.0,340.2L713.7,340.5L715.4,341.5L718.9,339.6L719.0,336.7L718.2,335.0L720.6,333.4L720.7,331.4L719.9,328.8L720.4,327.4L718.1,325.0L716.4,324.3L716.6,322.5L715.8,318.0L717.1,316.4L715.7,314.8L713.4,314.2L712.8,312.3L711.6,308.4L712.3,306.4L710.1,306.2L708.0,304.2L709.1,302.6L707.2,301.8L705.7,304.8L704.5,302.2L702.9,300.7L699.9,300.7L698.4,299.2L694.3,297.8L693.7,295.3L691.3,294.7L687.6,296.6L685.8,296.6L685.9,299.1L681.5,299.7L681.7,301.9L679.7,304.1L677.8,304.1L676.5,305.0L674.5,303.7L673.8,304.2L672.8,308.1L671.7,310.0L670.6,309.4L669.5,310.7L666.4,311.8L663.8,310.6L666.0,305.2L663.1,303.4L662.7,300.8L661.5,298.4L658.1,297.0L657.6,295.4L654.7,295.9L653.2,295.2L650.5,297.8L649.3,299.5L645.5,301.1L643.2,305.3L640.6,305.3L633.8,306.2L630.1,309.6L628.3,309.5L623.6,311.7L621.4,309.6L620.7,307.1L617.3,306.5L614.9,307.2L612.1,303.9L609.3,304.8L607.0,306.7L605.2,307.3L603.7,309.4L604.8,313.5L607.1,314.9L606.1,316.6L606.9,318.2L606.3,319.8L605.0,319.8L603.2,324.3L601.1,326.9L599.4,327.6L598.3,329.8L597.0,330.8L594.6,330.3L593.7,329.0L590.0,330.6L588.6,330.1L586.7,331.2L586.8,332.5L584.3,333.6L583.9,334.7L581.5,335.9L578.6,333.9L575.5,333.4L573.4,331.5L572.0,329.1L571.9,326.9L572.9,326.0L572.4,323.9L570.8,322.4L569.3,318.7L566.9,319.5L567.3,321.6L565.3,322.9L564.8,325.5L560.0,328.2L556.0,332.3L555.7,334.8L554.3,334.8L550.0,341.2L549.5,342.8L550.4,345.3L551.9,346.5L553.7,346.3L555.6,347.0L555.6,348.4L554.0,349.8L553.6,352.5L554.2,354.6L552.5,357.2L552.3,359.7L553.0,362.4L552.6,363.3L554.4,365.1L553.6,370.2L553.3,375.4L557.0,375.1L556.7,375.9L553.8,377.0L553.3,379.2L553.2,383.1L556.9,382.0L557.4,383.1L554.3,385.2L553.9,387.2L554.4,389.6L553.1,392.7L553.9,393.9L553.3,395.9L554.1,396.5L553.9,399.2L555.9,400.4L557.4,402.4L558.6,403.0L559.1,405.5L557.8,406.2L558.0,408.9L557.5,413.3L556.7,414.9L558.0,416.8L557.8,418.3L556.4,419.9L559.6,420.8L563.4,419.4L563.9,418.3L566.1,416.6L568.5,416.4L572.5,413.0L574.6,413.2L575.5,412.0L579.0,410.2L580.2,408.4L585.0,405.4L586.4,405.2L589.3,403.7L598.9,405.6L599.4,406.1L597.8,409.8L598.2,412.8L604.3,415.7L608.2,413.3L610.8,413.1L612.4,414.0L614.9,414.5L617.7,417.3L620.9,419.7L624.1,421.4L627.4,423.8L629.4,423.4L630.4,425.1L633.1,425.2L636.1,423.9L643.9,432.5L644.0,437.5L646.2,437.5L647.5,438.3L650.1,437.3L655.9,436.8L658.3,439.7L659.8,439.3L661.7,440.3L664.5,440.2L665.4,442.3L666.8,442.5L668.4,444.5L669.3,444.4L671.0,447.0L668.7,451.1L667.0,453.0L665.9,453.3L664.4,456.0L662.5,455.8L661.1,459.7L662.6,461.1L661.9,462.5L660.4,461.8L658.0,461.9L656.3,465.4L656.2,470.0L655.2,470.7L655.3,472.6L656.5,473.2L657.6,475.8L659.8,477.3L662.4,481.9L660.7,483.3L661.4,484.5L671.0,492.5Z"/>
+          <path data-uf="CE" aria-label="Ceará" d="M671.5,268.6L672.9,269.5L674.6,269.5L676.6,268.6L679.1,270.4L681.6,270.4L684.5,269.7L686.8,269.9L690.0,272.2L692.1,273.2L691.7,275.2L697.9,278.6L699.5,280.8L701.2,281.4L701.8,279.7L706.4,277.4L707.6,276.4L708.1,274.3L710.5,271.0L708.9,268.9L708.4,266.9L706.7,264.8L706.8,263.0L709.7,261.0L708.7,259.2L709.5,256.8L711.5,253.9L711.5,252.4L711.3,250.8L714.9,246.7L717.0,247.5L721.0,243.7L722.7,240.9L722.1,239.6L724.1,237.5L726.0,236.5L727.3,233.4L728.7,232.7L728.7,231.1L730.2,228.3L731.2,228.1L732.2,225.6L740.0,224.4L738.4,221.5L733.4,219.6L731.1,216.8L730.5,215.0L728.9,214.5L724.1,209.5L721.3,205.2L719.6,203.8L717.8,200.3L714.1,199.4L711.2,196.5L709.1,195.2L708.1,193.5L706.6,193.4L704.6,191.7L702.8,189.3L700.3,188.4L695.8,184.9L693.6,184.0L689.1,181.0L684.7,179.9L679.7,179.4L678.5,178.8L675.5,179.9L673.2,179.7L668.2,180.2L662.8,179.8L661.8,180.4L663.0,182.1L662.9,183.7L659.4,188.5L661.1,189.5L660.4,195.3L662.1,195.8L661.2,198.1L662.4,200.6L661.8,201.5L664.4,202.9L663.7,204.3L664.0,207.9L663.1,209.3L661.3,214.0L662.2,215.1L660.6,218.9L662.9,221.7L663.6,223.4L666.5,225.3L666.7,227.2L665.9,230.3L666.4,234.5L666.0,238.8L666.5,241.3L665.8,242.2L666.8,244.6L666.6,246.3L667.8,248.0L667.3,249.7L667.4,252.3L668.7,255.5L673.2,257.0L674.0,258.6L673.8,263.0L672.4,264.6L671.5,268.6Z"/>
+          <path data-uf="DF" aria-label="Distrito Federal" d="M531.9,437.6L530.8,436.9L530.8,434.5L532.1,431.7L532.0,428.7L530.3,426.7L515.6,426.2L515.3,431.2L513.8,433.1L514.4,435.0L513.8,437.3L531.9,437.9L531.9,437.6Z"/>
+          <path data-uf="ES" aria-label="Espírito Santo" d="M643.0,551.2L643.3,549.7L645.1,547.8L646.5,543.7L647.6,542.2L650.5,541.5L653.0,538.0L655.0,536.0L656.3,533.1L658.4,530.1L659.4,526.2L661.5,522.6L663.3,520.4L666.3,519.1L668.1,515.5L669.1,512.2L668.7,504.6L669.0,499.7L669.6,496.1L671.0,492.5L661.4,484.5L659.2,483.2L657.0,483.1L656.0,482.4L654.3,483.1L652.4,484.7L650.6,483.1L649.1,484.0L651.0,486.4L649.6,487.1L648.5,486.3L645.8,487.2L643.6,489.9L643.2,492.7L645.9,493.2L645.1,496.7L647.1,498.0L646.4,501.1L643.8,500.8L645.0,504.0L644.2,504.7L646.2,506.9L646.7,508.5L645.9,513.7L644.1,515.8L641.5,517.7L640.9,522.2L638.7,522.9L637.4,527.0L636.3,528.3L630.1,527.9L629.5,529.7L628.0,531.2L628.9,532.2L628.4,536.9L627.2,539.2L629.5,540.4L629.8,543.9L629.2,546.2L634.5,548.8L635.4,548.6L638.9,549.8L640.8,549.4L643.0,551.2Z"/>
+          <path data-uf="GO" aria-label="Goiás" d="M463.0,505.9L464.1,505.0L465.2,502.3L467.8,499.3L469.5,499.3L471.2,496.8L471.1,495.1L472.2,494.3L474.7,490.4L477.5,489.8L479.0,489.9L480.1,488.5L484.5,489.4L488.9,487.4L490.0,487.7L491.4,489.7L496.7,484.5L497.6,485.2L500.3,483.0L502.2,483.9L507.2,483.5L508.0,484.4L512.2,484.2L516.6,485.7L518.1,487.4L519.9,486.9L524.7,483.9L524.8,482.5L528.8,480.5L530.2,479.1L530.3,477.3L529.5,474.2L531.6,469.8L530.6,468.0L527.9,468.1L526.8,465.1L528.9,463.8L530.4,460.9L534.2,458.1L534.6,456.9L533.2,454.8L532.9,451.5L530.8,448.9L529.3,448.0L528.9,446.3L531.6,441.6L531.1,439.6L531.9,437.9L513.8,437.3L514.4,435.0L513.8,433.1L515.3,431.2L515.6,426.2L530.3,426.7L532.0,428.7L532.1,431.7L530.8,434.5L530.8,436.9L531.9,437.6L533.7,437.1L535.1,435.6L536.7,435.8L541.1,434.9L541.4,432.9L540.8,429.4L539.1,428.2L539.5,425.8L541.4,423.5L539.7,422.0L541.2,417.0L545.5,418.8L547.3,417.2L547.0,413.4L548.6,411.1L551.4,413.5L552.0,415.8L555.7,416.1L556.7,414.9L557.5,413.3L558.0,408.9L557.8,406.2L559.1,405.5L558.6,403.0L557.4,402.4L555.9,400.4L553.9,399.2L554.1,396.5L553.3,395.9L553.9,393.9L553.1,392.7L554.4,389.6L553.9,387.2L554.3,385.2L557.4,383.1L556.9,382.0L553.2,383.1L553.3,379.2L553.8,377.0L556.7,375.9L557.0,375.1L555.3,375.8L552.0,376.3L552.2,373.8L551.3,372.9L550.5,375.9L544.8,375.6L539.7,378.9L535.6,379.9L534.5,381.3L532.7,380.5L531.9,381.3L527.7,378.1L527.3,380.0L527.9,383.3L526.8,385.1L524.6,382.2L520.4,381.1L517.7,381.5L518.0,378.6L516.4,378.9L513.5,380.6L512.1,380.7L511.8,378.8L510.0,377.6L509.6,376.3L504.6,370.9L502.5,374.0L500.4,372.6L499.9,370.5L497.4,372.9L495.6,376.0L494.9,380.2L483.4,373.2L479.5,372.2L477.1,370.0L479.3,363.1L476.3,364.9L474.0,368.4L473.3,371.4L473.0,373.6L472.1,374.9L471.3,380.6L470.2,383.0L468.3,384.7L467.3,388.3L466.4,389.5L466.7,392.9L466.2,393.6L466.8,396.1L465.5,396.7L463.9,400.3L463.5,402.8L464.1,405.1L461.6,411.4L461.7,413.1L458.1,415.5L457.5,414.2L455.2,414.8L453.2,415.9L451.1,418.1L451.0,420.1L448.9,425.9L448.7,427.8L446.5,431.4L445.2,431.0L444.1,432.5L439.5,432.6L438.1,436.2L433.9,438.1L434.0,440.0L431.9,440.5L431.2,442.2L432.8,444.6L430.6,447.3L429.9,449.1L427.6,450.6L424.7,453.3L424.4,456.4L422.5,458.9L421.5,461.5L420.8,467.9L421.0,469.6L422.4,470.9L424.0,476.2L422.7,477.2L423.4,481.9L426.5,481.6L428.7,481.9L429.0,484.0L425.9,486.6L426.9,488.6L429.9,489.7L435.4,489.7L437.3,492.4L440.2,492.9L442.1,495.1L444.7,495.4L446.3,497.2L449.9,498.9L451.0,498.8L454.2,499.7L460.3,502.7L463.0,505.9Z"/>
+          <path data-uf="MA" aria-label="Maranhão" d="M561.2,321.2L562.0,321.2L563.9,318.5L564.8,315.1L564.4,313.5L565.4,311.8L565.1,307.5L566.3,305.9L566.1,304.6L564.1,302.1L564.4,299.9L563.8,296.9L562.7,294.6L563.5,292.4L565.9,290.5L568.1,286.2L569.8,281.3L571.4,279.5L571.7,276.9L572.9,274.1L574.1,270.2L576.8,268.1L579.2,268.0L580.4,267.0L582.5,267.1L585.0,266.3L587.2,264.3L589.7,265.1L592.3,261.9L595.9,259.9L597.3,259.9L598.6,257.6L599.6,257.1L601.5,253.9L604.8,252.8L605.3,253.4L608.1,252.2L611.1,252.7L614.0,255.1L615.2,255.4L618.7,254.1L620.6,254.5L623.7,254.0L625.3,252.5L626.0,250.7L626.4,247.5L627.4,246.1L627.0,244.2L624.8,242.6L622.9,239.8L623.5,238.8L622.6,237.0L623.0,231.5L624.3,230.9L626.0,228.1L628.7,226.2L629.4,223.2L627.9,216.2L626.9,214.7L629.2,209.5L628.4,207.5L627.1,206.8L626.8,203.8L631.2,198.8L632.1,198.3L633.6,195.6L633.7,193.4L636.0,191.5L636.9,189.9L639.0,189.4L643.5,189.2L645.1,187.7L645.2,186.1L648.2,185.3L649.1,184.1L649.9,183.0L650.0,183.0L652.2,180.5L650.9,178.6L651.9,176.5L650.2,175.6L647.5,175.6L647.0,174.8L643.3,174.3L643.1,175.9L641.1,175.0L637.2,174.0L634.6,171.8L632.0,171.0L623.9,166.9L620.6,166.2L619.0,167.1L619.4,169.1L616.0,169.4L613.3,168.4L615.7,167.3L616.2,164.3L614.3,165.0L614.1,166.9L609.7,170.1L606.6,173.5L603.0,174.0L603.1,173.1L605.5,172.2L607.9,169.0L607.9,166.9L602.3,168.2L601.2,170.4L599.8,174.5L599.4,177.1L597.9,178.6L596.3,178.9L594.6,178.2L594.4,176.2L596.0,171.9L597.6,169.1L600.7,166.6L601.4,165.2L600.7,162.8L599.5,161.4L596.9,161.1L598.8,159.4L598.7,156.3L597.1,153.3L594.0,154.1L594.0,150.2L591.1,150.4L590.9,149.2L592.4,147.9L591.6,146.7L589.4,148.5L587.2,147.6L585.7,147.9L583.7,149.9L582.7,148.8L583.3,146.2L579.7,145.2L577.5,143.2L575.5,143.1L573.3,141.2L570.3,141.4L569.0,139.1L567.1,141.4L565.9,142.9L566.8,144.3L565.4,146.7L566.2,148.8L565.7,150.6L564.3,151.6L564.4,153.6L562.7,159.8L559.6,162.6L559.4,167.2L557.8,168.7L555.5,169.2L554.5,170.9L555.8,172.2L554.3,174.0L554.7,175.4L553.8,177.9L552.1,179.9L551.1,182.1L549.7,182.6L548.2,184.3L547.8,186.0L546.5,187.1L546.3,189.1L545.3,192.7L543.0,195.1L540.5,196.3L539.2,200.1L537.8,200.9L534.8,205.5L532.8,207.1L530.1,207.2L511.0,221.1L513.0,220.4L514.0,221.0L515.8,218.2L518.9,217.8L522.5,219.7L524.5,220.0L526.1,219.3L528.6,220.2L529.4,222.5L531.1,222.4L535.8,225.4L536.2,228.2L535.8,229.1L536.9,232.3L536.5,234.8L536.9,238.1L537.7,240.4L535.0,248.3L534.7,252.3L533.8,255.2L531.5,257.7L529.8,257.9L531.6,260.8L533.8,260.1L535.0,261.6L533.3,263.8L535.9,265.5L537.9,269.0L540.4,272.2L542.9,276.2L544.5,276.0L546.2,274.6L551.7,273.4L553.6,275.0L554.3,277.1L553.2,279.0L552.5,281.9L550.8,281.9L547.9,282.7L546.5,286.0L545.3,287.0L545.5,289.0L544.8,290.2L544.8,292.5L543.3,292.8L541.9,296.3L545.7,298.3L546.4,301.5L547.5,303.1L549.3,303.4L551.0,305.2L550.7,307.4L549.4,310.4L551.9,311.7L552.6,313.3L552.5,315.6L553.0,317.4L555.3,319.6L557.6,319.5L558.4,320.3L561.0,319.7L561.2,321.2ZM595.8,176.6L596.6,178.5L598.3,177.3L598.6,172.9L596.3,174.4L595.8,176.6Z"/>
+          <path data-uf="MT" aria-label="Mato Grosso" d="M424.0,476.2L422.4,470.9L421.0,469.6L420.8,467.9L421.5,461.5L422.5,458.9L424.4,456.4L424.7,453.3L427.6,450.6L429.9,449.1L430.6,447.3L432.8,444.6L431.2,442.2L431.9,440.5L434.0,440.0L433.9,438.1L438.1,436.2L439.5,432.6L444.1,432.5L445.2,431.0L446.5,431.4L448.7,427.8L448.9,425.9L451.0,420.1L451.1,418.1L453.2,415.9L455.2,414.8L457.5,414.2L458.1,415.5L461.7,413.1L461.6,411.4L464.1,405.1L463.5,402.8L463.9,400.3L465.5,396.7L466.8,396.1L466.2,393.6L466.7,392.9L466.4,389.5L467.3,388.3L468.3,384.7L470.2,383.0L471.3,380.6L472.1,374.9L473.0,373.6L473.3,371.4L471.1,370.1L471.2,368.8L469.7,366.2L471.3,363.1L470.3,358.2L470.4,353.7L471.2,351.5L470.3,351.0L469.7,348.4L471.0,345.8L469.4,344.6L469.7,341.3L470.8,339.4L471.0,336.7L472.1,335.0L471.7,332.2L472.1,329.8L473.0,328.6L472.4,326.7L474.7,323.4L475.0,321.7L476.8,317.8L476.5,316.7L478.4,314.3L480.0,310.4L468.1,309.3L404.8,304.2L354.9,300.5L353.0,301.0L352.0,298.1L348.6,297.9L347.3,296.8L347.7,295.2L344.4,291.6L342.7,291.6L340.3,290.5L340.2,289.1L336.8,288.5L335.9,283.9L334.8,281.5L335.6,277.7L331.8,272.6L331.7,271.0L330.4,267.0L327.0,261.4L325.5,260.5L324.1,262.7L324.4,265.9L323.0,267.6L322.5,269.1L321.0,270.2L321.1,271.6L322.8,275.0L322.9,276.3L321.8,281.5L320.6,283.5L321.2,285.6L320.3,287.8L320.2,289.7L309.4,290.0L281.7,290.8L259.0,291.7L260.4,292.4L261.4,294.0L259.8,297.5L260.5,300.5L259.1,300.9L258.6,302.8L260.0,303.4L259.6,304.9L261.1,306.5L261.3,309.4L260.8,310.0L261.3,313.7L259.8,318.9L260.4,320.8L262.7,324.2L262.4,325.6L262.7,331.7L261.8,333.1L261.9,335.6L282.5,335.0L283.8,337.1L289.9,337.1L291.5,337.9L292.8,343.4L289.9,346.3L289.4,348.8L290.6,353.0L292.2,353.4L292.7,356.3L294.0,357.5L294.3,360.0L296.1,362.0L295.2,364.5L293.4,367.3L291.8,367.7L291.0,373.1L290.4,374.7L289.1,374.9L287.3,377.3L287.6,378.5L285.7,382.2L285.6,384.9L283.3,386.0L280.0,388.6L279.6,390.0L283.1,391.4L283.9,392.4L285.7,396.2L284.3,398.0L284.9,402.4L288.5,408.5L289.4,418.2L283.2,418.4L289.8,425.9L291.5,442.0L304.6,441.8L324.1,442.2L326.0,441.1L326.4,443.1L325.5,444.3L325.8,446.2L323.7,449.0L323.5,454.8L325.2,456.8L325.1,459.8L327.4,462.2L332.7,466.4L334.8,465.0L337.3,467.3L338.6,470.3L340.0,472.0L342.3,473.2L346.9,471.7L349.4,471.3L353.5,466.3L355.6,462.1L357.4,462.3L364.5,460.7L365.0,459.8L368.8,458.7L369.5,460.1L376.1,462.1L378.7,465.0L379.3,464.9L385.9,468.4L389.3,467.5L390.9,467.8L393.0,465.7L396.2,464.7L397.5,464.9L401.0,468.6L403.3,467.4L405.3,467.7L405.7,465.5L407.3,464.7L411.2,460.1L412.8,460.2L412.3,468.5L409.5,469.4L407.9,472.2L407.8,473.7L409.5,473.9L411.0,475.5L416.7,476.2L419.9,475.4L422.1,476.3L424.0,476.2Z"/>
+          <path data-uf="MS" aria-label="Mato Grosso do Sul" d="M337.3,467.3L336.7,468.8L338.1,470.6L338.0,472.7L340.3,477.0L341.1,481.0L337.6,494.5L338.4,494.5L338.7,497.3L337.3,497.3L331.2,512.2L336.3,516.5L332.1,519.4L330.8,522.0L332.6,525.0L334.0,526.4L333.8,529.5L335.6,530.8L336.7,533.9L336.2,535.6L337.5,537.1L336.6,538.3L337.0,543.9L335.1,547.9L335.5,550.3L336.6,551.5L335.3,554.9L335.7,556.4L334.8,559.8L338.2,560.9L340.2,559.6L342.3,561.3L344.7,561.6L346.9,562.6L348.9,562.2L350.9,562.7L352.8,562.1L354.8,562.6L355.6,563.7L357.4,562.4L359.0,562.7L360.7,561.5L361.4,559.7L363.7,559.1L364.3,560.9L367.0,563.0L370.6,563.3L373.6,563.2L375.5,565.4L375.8,568.6L377.6,570.1L377.7,572.6L376.9,574.7L378.2,580.8L379.5,581.7L379.0,584.1L379.9,585.4L379.2,586.8L379.5,590.5L380.5,590.9L381.3,593.7L381.0,596.3L382.8,597.9L384.8,598.1L387.1,597.3L387.9,597.8L394.9,594.2L399.0,596.0L401.7,599.3L405.0,596.9L407.1,587.1L410.8,585.2L413.3,580.1L413.9,576.6L415.0,575.3L418.9,572.8L421.5,571.8L422.9,569.9L424.8,567.3L427.4,566.2L428.5,564.9L434.1,561.7L436.1,559.5L437.2,556.7L441.1,552.1L442.1,550.0L441.2,548.2L444.3,546.3L445.8,542.4L445.3,540.0L446.9,539.1L448.3,536.4L450.0,535.9L449.8,532.0L450.6,529.7L452.3,528.2L455.3,523.9L459.1,522.8L460.3,521.8L461.6,518.5L461.7,514.8L460.9,511.3L463.0,505.9L460.3,502.7L454.2,499.7L451.0,498.8L449.9,498.9L446.3,497.2L444.7,495.4L442.1,495.1L440.2,492.9L437.3,492.4L435.4,489.7L429.9,489.7L426.9,488.6L425.9,486.6L429.0,484.0L428.7,481.9L426.5,481.6L423.4,481.9L422.7,477.2L424.0,476.2L422.1,476.3L419.9,475.4L416.7,476.2L411.0,475.5L409.5,473.9L407.8,473.7L407.9,472.2L409.5,469.4L412.3,468.5L412.8,460.2L411.2,460.1L407.3,464.7L405.7,465.5L405.3,467.7L403.3,467.4L401.0,468.6L397.5,464.9L396.2,464.7L393.0,465.7L390.9,467.8L389.3,467.5L385.9,468.4L379.3,464.9L378.7,465.0L376.1,462.1L369.5,460.1L368.8,458.7L365.0,459.8L364.5,460.7L357.4,462.3L355.6,462.1L353.5,466.3L349.4,471.3L346.9,471.7L342.3,473.2L340.0,472.0L338.6,470.3L337.3,467.3Z"/>
+          <path data-uf="MG" aria-label="Minas Gerais" d="M461.6,518.5L462.2,517.5L465.6,515.5L467.9,515.0L469.4,513.1L471.4,512.4L473.5,514.2L478.2,514.5L479.1,515.4L482.0,516.0L483.9,515.6L488.8,515.6L489.9,516.9L492.7,516.6L492.6,520.8L493.9,523.7L495.8,523.1L496.8,520.7L498.6,521.8L498.6,525.8L500.4,525.7L500.1,523.2L501.3,520.9L504.7,521.1L510.6,520.2L512.6,518.8L514.4,521.0L518.6,520.2L519.0,518.0L521.3,518.0L523.0,519.3L524.0,518.3L526.2,517.7L527.2,520.1L529.8,521.8L530.1,523.5L529.0,525.6L529.0,527.7L531.5,529.2L532.4,531.8L531.1,533.0L529.6,536.6L531.3,538.7L531.4,541.8L532.5,543.5L533.3,547.7L535.5,547.7L536.9,546.7L540.0,547.4L542.3,548.6L542.5,550.7L541.2,553.3L538.8,556.4L540.1,559.7L538.8,560.5L540.0,562.9L538.9,563.5L538.0,566.2L539.4,568.7L542.6,570.6L543.5,573.5L542.4,574.7L544.5,575.5L543.7,576.8L544.2,578.4L547.0,577.7L550.2,578.4L552.1,577.2L554.6,577.6L555.7,576.2L555.2,573.9L561.2,574.0L565.7,571.9L567.7,570.6L569.3,570.7L572.2,569.5L576.7,568.2L579.4,566.8L582.7,567.2L585.2,565.5L587.1,565.2L591.2,563.6L592.0,564.2L594.5,563.6L596.8,564.0L598.6,563.0L600.6,563.0L603.8,564.8L607.4,562.3L617.1,558.5L618.8,558.1L617.1,556.0L619.3,553.4L620.6,547.2L623.0,544.1L622.1,542.8L625.5,541.4L627.2,539.2L628.4,536.9L628.9,532.2L628.0,531.2L629.5,529.7L630.1,527.9L636.3,528.3L637.4,527.0L638.7,522.9L640.9,522.2L641.5,517.7L644.1,515.8L645.9,513.7L646.7,508.5L646.2,506.9L644.2,504.7L645.0,504.0L643.8,500.8L646.4,501.1L647.1,498.0L645.1,496.7L645.9,493.2L643.2,492.7L643.6,489.9L645.8,487.2L648.5,486.3L649.6,487.1L651.0,486.4L649.1,484.0L650.6,483.1L652.4,484.7L654.3,483.1L656.0,482.4L657.0,483.1L659.2,483.2L661.4,484.5L660.7,483.3L662.4,481.9L659.8,477.3L657.6,475.8L656.5,473.2L655.3,472.6L655.2,470.7L656.2,470.0L656.3,465.4L658.0,461.9L660.4,461.8L661.9,462.5L662.6,461.1L661.1,459.7L662.5,455.8L664.4,456.0L665.9,453.3L667.0,453.0L668.7,451.1L671.0,447.0L669.3,444.4L668.4,444.5L666.8,442.5L665.4,442.3L664.5,440.2L661.7,440.3L659.8,439.3L658.3,439.7L655.9,436.8L650.1,437.3L647.5,438.3L646.2,437.5L644.0,437.5L643.9,432.5L636.1,423.9L633.1,425.2L630.4,425.1L629.4,423.4L627.4,423.8L624.1,421.4L620.9,419.7L617.7,417.3L614.9,414.5L612.4,414.0L610.8,413.1L608.2,413.3L604.3,415.7L598.2,412.8L597.8,409.8L599.4,406.1L598.9,405.6L589.3,403.7L586.4,405.2L585.0,405.4L580.2,408.4L579.0,410.2L575.5,412.0L574.6,413.2L572.5,413.0L568.5,416.4L566.1,416.6L563.9,418.3L563.4,419.4L559.6,420.8L556.4,419.9L557.8,418.3L558.0,416.8L556.7,414.9L555.7,416.1L552.0,415.8L551.4,413.5L548.6,411.1L547.0,413.4L547.3,417.2L545.5,418.8L541.2,417.0L539.7,422.0L541.4,423.5L539.5,425.8L539.1,428.2L540.8,429.4L541.4,432.9L541.1,434.9L536.7,435.8L535.1,435.6L533.7,437.1L531.9,437.6L531.9,437.9L531.1,439.6L531.6,441.6L528.9,446.3L529.3,448.0L530.8,448.9L532.9,451.5L533.2,454.8L534.6,456.9L534.2,458.1L530.4,460.9L528.9,463.8L526.8,465.1L527.9,468.1L530.6,468.0L531.6,469.8L529.5,474.2L530.3,477.3L530.2,479.1L528.8,480.5L524.8,482.5L524.7,483.9L519.9,486.9L518.1,487.4L516.6,485.7L512.2,484.2L508.0,484.4L507.2,483.5L502.2,483.9L500.3,483.0L497.6,485.2L496.7,484.5L491.4,489.7L490.0,487.7L488.9,487.4L484.5,489.4L480.1,488.5L479.0,489.9L477.5,489.8L474.7,490.4L472.2,494.3L471.1,495.1L471.2,496.8L469.5,499.3L467.8,499.3L465.2,502.3L464.1,505.0L463.0,505.9L460.9,511.3L461.7,514.8L461.6,518.5Z"/>
+          <path data-uf="PA" aria-label="Pará" d="M480.0,310.4L482.7,304.5L482.5,303.1L483.9,299.3L486.5,297.0L487.8,294.2L490.9,290.8L492.7,290.5L496.4,285.4L497.7,282.1L499.0,281.4L500.4,277.7L501.6,271.8L501.7,269.7L498.3,267.1L497.6,263.6L500.5,260.4L501.5,258.5L501.2,252.3L505.0,249.6L510.0,248.7L512.3,246.9L512.1,245.5L513.3,243.1L517.2,240.2L517.4,237.3L519.8,236.3L519.0,234.4L521.1,232.9L519.9,231.1L520.3,228.9L522.3,228.7L523.1,226.6L520.4,225.2L518.2,222.3L515.8,222.9L514.1,222.7L511.0,221.1L530.1,207.2L532.8,207.1L534.8,205.5L537.8,200.9L539.2,200.1L540.5,196.3L543.0,195.1L545.3,192.7L546.3,189.1L546.5,187.1L547.8,186.0L548.2,184.3L549.7,182.6L551.1,182.1L552.1,179.9L553.8,177.9L554.7,175.4L554.3,174.0L555.8,172.2L554.5,170.9L555.5,169.2L557.8,168.7L559.4,167.2L559.6,162.6L562.7,159.8L564.4,153.6L564.3,151.6L565.7,150.6L566.2,148.8L565.4,146.7L566.8,144.3L565.9,142.9L567.1,141.4L568.0,139.5L565.0,137.8L565.9,136.3L565.4,135.1L562.8,137.7L560.0,137.1L559.4,134.6L558.2,135.5L556.0,132.9L555.0,133.9L553.1,134.1L552.6,131.9L550.4,133.0L548.0,132.6L547.8,130.9L545.8,130.3L542.9,128.5L537.9,128.1L536.5,128.5L535.1,127.1L532.9,128.0L531.7,127.5L529.3,130.0L527.9,129.3L524.2,132.5L523.4,133.9L521.4,134.2L519.2,133.2L518.6,132.0L520.2,124.3L521.6,122.2L520.5,120.7L514.1,120.9L512.7,120.2L510.1,120.4L508.5,119.0L500.3,119.0L500.1,117.4L501.6,116.3L500.9,114.5L497.1,113.9L496.1,114.2L494.8,112.7L496.2,110.9L498.2,110.1L498.9,108.5L497.3,107.5L492.6,109.1L485.3,108.8L485.2,107.7L487.2,106.4L488.0,105.1L487.3,103.1L486.1,103.4L484.2,101.9L482.1,102.2L479.9,103.6L477.4,109.2L475.0,111.6L472.6,113.0L468.6,114.3L466.7,116.6L463.7,117.3L460.9,120.8L460.6,122.1L458.6,124.9L455.8,127.5L454.0,130.3L453.6,135.5L452.0,137.0L446.3,137.7L445.0,137.1L440.7,136.4L439.0,134.7L438.5,130.9L437.1,131.3L437.4,128.5L436.7,125.8L434.5,126.0L433.4,124.3L433.7,120.8L430.3,117.5L428.6,117.4L427.6,114.0L425.4,109.6L423.7,107.2L424.3,103.0L425.2,101.4L423.4,99.7L418.9,96.6L417.9,92.6L418.6,90.9L416.6,90.2L415.2,88.3L411.3,87.4L406.4,85.3L405.4,85.5L403.9,82.9L402.7,82.8L399.0,80.5L396.6,80.8L394.4,80.1L391.5,80.3L390.2,75.5L390.2,73.3L391.1,72.1L390.4,69.9L388.8,67.6L386.0,64.6L384.7,65.7L383.5,65.1L378.8,66.4L377.8,67.7L375.9,67.6L371.6,68.4L366.9,66.0L365.7,67.9L363.8,69.2L362.6,71.1L364.5,71.7L366.2,74.5L367.6,75.4L367.7,78.2L366.5,79.0L363.5,79.1L362.2,78.3L360.0,78.5L358.4,77.4L356.1,77.2L353.5,78.2L350.8,77.8L349.6,79.0L346.7,78.5L345.9,78.9L343.2,76.2L340.2,77.4L338.6,76.6L336.0,78.4L333.5,82.6L330.5,82.2L324.8,83.4L324.1,86.4L321.8,86.6L320.5,85.1L317.8,85.4L316.6,87.2L314.0,87.4L315.1,89.1L314.3,91.2L313.0,90.7L310.0,90.8L309.6,92.4L307.6,93.2L306.2,92.1L306.7,110.8L306.8,115.9L307.5,117.4L307.2,119.7L307.5,122.6L310.5,124.3L310.5,128.1L313.0,130.5L315.8,132.6L319.2,137.9L320.3,137.6L322.3,139.5L324.4,137.0L326.3,138.9L325.7,141.4L326.5,142.6L329.3,143.4L331.5,144.6L332.1,146.2L335.0,146.6L338.9,149.0L342.0,148.5L344.5,150.2L345.6,152.5L349.0,154.3L351.3,154.2L351.8,155.1L351.0,157.4L354.0,158.1L355.8,156.6L358.1,157.3L362.6,154.7L364.4,154.5L362.3,157.4L358.5,159.3L357.2,162.4L358.4,162.8L354.3,171.5L348.9,183.5L346.7,188.7L335.5,213.4L322.8,242.6L319.5,246.0L318.5,247.6L318.5,249.3L319.5,251.8L321.5,253.3L324.7,257.6L325.5,260.5L327.0,261.4L330.4,267.0L331.7,271.0L331.8,272.6L335.6,277.7L334.8,281.5L335.9,283.9L336.8,288.5L340.2,289.1L340.3,290.5L342.7,291.6L344.4,291.6L347.7,295.2L347.3,296.8L348.6,297.9L352.0,298.1L353.0,301.0L354.9,300.5L404.8,304.2L468.1,309.3L480.0,310.4Z"/>
+          <path data-uf="PB" aria-label="Paraíba" d="M706.4,277.4L708.3,279.9L710.5,280.3L713.9,279.4L714.3,282.1L717.3,281.5L718.5,282.6L719.4,281.0L720.7,281.7L723.1,279.4L725.2,278.9L727.3,277.2L729.9,276.2L730.8,274.8L732.9,274.3L734.1,273.1L736.0,272.9L737.8,274.6L739.9,275.5L740.5,277.5L737.8,278.3L736.0,280.2L737.0,282.5L735.4,283.6L733.3,286.0L736.3,287.8L735.8,291.0L737.2,292.9L739.5,293.9L740.8,292.8L746.3,290.7L746.5,288.2L747.8,286.7L749.5,287.3L751.4,285.1L757.8,285.2L758.7,285.9L760.9,285.7L761.7,284.9L765.5,284.5L768.8,283.4L769.6,280.3L770.9,280.3L774.6,278.7L778.1,279.5L779.6,281.0L779.9,282.5L782.4,283.0L783.6,278.8L784.0,275.2L782.8,272.6L783.3,270.1L782.4,268.4L781.8,263.8L781.9,261.6L778.3,262.5L774.7,262.0L773.5,260.9L770.2,260.5L768.4,259.4L766.3,259.9L762.8,259.8L759.6,258.2L756.9,258.1L756.0,256.9L756.5,255.5L754.3,255.0L753.4,256.3L752.1,256.1L751.3,258.8L751.4,260.7L750.3,263.0L751.0,265.2L749.0,267.2L745.8,267.0L746.7,265.1L744.8,262.8L742.1,263.4L741.5,262.1L739.0,263.0L737.6,264.1L736.4,263.7L735.5,261.1L732.1,261.3L732.8,257.8L734.2,257.4L734.8,254.2L739.4,250.9L739.3,248.8L737.8,248.1L733.6,250.1L727.9,250.5L727.2,252.1L725.3,253.9L721.0,255.3L720.4,256.2L716.8,255.7L714.9,254.0L711.5,252.4L711.5,253.9L709.5,256.8L708.7,259.2L709.7,261.0L706.8,263.0L706.7,264.8L708.4,266.9L708.9,268.9L710.5,271.0L708.1,274.3L707.6,276.4L706.4,277.4Z"/>
+          <path data-uf="PR" aria-label="Paraná" d="M413.2,643.7L415.7,644.7L417.8,643.5L419.1,643.8L422.8,646.6L424.5,645.7L430.0,645.8L431.5,647.1L432.7,646.8L437.9,648.2L440.0,648.4L441.8,650.3L450.8,650.8L451.8,652.8L455.3,651.6L455.5,650.2L454.4,647.7L455.2,645.6L459.6,643.7L462.3,644.5L464.8,642.9L466.2,640.4L469.1,639.7L470.7,640.8L473.1,640.0L474.0,640.8L477.1,639.6L479.5,640.1L480.6,641.6L484.9,644.3L486.8,642.8L488.1,642.8L490.7,640.3L491.9,639.7L494.5,640.1L495.5,639.4L502.0,639.5L503.2,636.2L505.2,632.6L507.1,631.7L511.2,626.2L509.8,624.0L510.2,622.9L509.2,621.4L506.9,620.5L505.8,619.4L503.7,621.7L502.5,619.9L503.1,619.1L503.4,615.7L504.4,614.5L502.4,612.9L499.5,613.4L498.4,612.7L495.4,612.4L493.6,613.1L490.1,612.5L492.2,606.1L490.7,605.1L489.6,603.5L489.9,601.8L487.8,599.9L486.1,595.0L486.3,592.8L485.1,590.9L485.7,586.0L483.4,580.7L480.1,579.4L478.9,576.2L475.3,577.3L469.4,577.0L466.7,576.0L465.9,577.1L462.6,573.8L460.6,573.8L456.6,572.1L456.0,571.1L452.6,570.8L450.7,571.7L447.7,570.9L446.9,569.9L445.1,570.2L443.9,568.9L440.5,567.9L440.0,570.5L435.0,569.7L433.8,570.2L432.2,568.8L430.3,570.0L425.3,568.8L422.9,569.9L421.5,571.8L418.9,572.8L415.0,575.3L413.9,576.6L413.3,580.1L410.8,585.2L407.1,587.1L405.0,596.9L401.7,599.3L400.7,601.1L402.2,605.6L401.0,607.4L400.9,612.2L399.9,613.7L398.6,619.4L399.3,621.4L398.1,623.9L395.9,627.4L396.3,630.3L399.3,631.7L400.0,630.5L402.3,630.3L403.3,629.1L406.3,629.8L409.3,631.7L410.0,634.5L409.5,635.2L410.0,638.1L411.6,639.9L413.2,643.7Z"/>
+          <path data-uf="PE" aria-label="Pernambuco" d="M712.8,312.3L715.9,309.4L717.9,309.2L720.9,306.4L721.6,304.2L723.0,303.4L724.7,306.5L727.8,306.4L730.4,308.3L732.3,311.0L735.2,312.6L737.6,315.6L738.5,313.9L741.5,313.7L744.4,315.4L745.2,314.5L748.0,313.1L749.3,313.5L751.3,312.5L754.4,308.6L758.8,307.1L761.8,308.5L766.2,307.0L773.4,309.6L775.0,306.4L775.5,304.5L778.6,298.9L778.5,297.7L781.9,290.5L781.6,288.2L782.7,284.6L782.4,283.0L779.9,282.5L779.6,281.0L778.1,279.5L774.6,278.7L770.9,280.3L769.6,280.3L768.8,283.4L765.5,284.5L761.7,284.9L760.9,285.7L758.7,285.9L757.8,285.2L751.4,285.1L749.5,287.3L747.8,286.7L746.5,288.2L746.3,290.7L740.8,292.8L739.5,293.9L737.2,292.9L735.8,291.0L736.3,287.8L733.3,286.0L735.4,283.6L737.0,282.5L736.0,280.2L737.8,278.3L740.5,277.5L739.9,275.5L737.8,274.6L736.0,272.9L734.1,273.1L732.9,274.3L730.8,274.8L729.9,276.2L727.3,277.2L725.2,278.9L723.1,279.4L720.7,281.7L719.4,281.0L718.5,282.6L717.3,281.5L714.3,282.1L713.9,279.4L710.5,280.3L708.3,279.9L706.4,277.4L701.8,279.7L701.2,281.4L699.5,280.8L697.9,278.6L691.7,275.2L692.1,273.2L690.0,272.2L686.8,269.9L684.5,269.7L681.6,270.4L679.1,270.4L676.6,268.6L674.6,269.5L672.9,269.5L671.5,268.6L670.9,270.0L667.5,271.7L669.1,275.2L667.9,277.2L670.1,278.5L670.1,281.4L668.1,284.8L665.0,287.9L661.0,289.5L656.1,294.1L653.2,295.2L654.7,295.9L657.6,295.4L658.1,297.0L661.5,298.4L662.7,300.8L663.1,303.4L666.0,305.2L663.8,310.6L666.4,311.8L669.5,310.7L670.6,309.4L671.7,310.0L672.8,308.1L673.8,304.2L674.5,303.7L676.5,305.0L677.8,304.1L679.7,304.1L681.7,301.9L681.5,299.7L685.9,299.1L685.8,296.6L687.6,296.6L691.3,294.7L693.7,295.3L694.3,297.8L698.4,299.2L699.9,300.7L702.9,300.7L704.5,302.2L705.7,304.8L707.2,301.8L709.1,302.6L708.0,304.2L710.1,306.2L712.3,306.4L711.6,308.4L712.8,312.3Z"/>
+          <path data-uf="PI" aria-label="Piauí" d="M566.9,319.5L569.3,318.7L570.8,322.4L572.4,323.9L572.9,326.0L571.9,326.9L572.0,329.1L573.4,331.5L575.5,333.4L578.6,333.9L581.5,335.9L583.9,334.7L584.3,333.6L586.8,332.5L586.7,331.2L588.6,330.1L590.0,330.6L593.7,329.0L594.6,330.3L597.0,330.8L598.3,329.8L599.4,327.6L601.1,326.9L603.2,324.3L605.0,319.8L606.3,319.8L606.9,318.2L606.1,316.6L607.1,314.9L604.8,313.5L603.7,309.4L605.2,307.3L607.0,306.7L609.3,304.8L612.1,303.9L614.9,307.2L617.3,306.5L620.7,307.1L621.4,309.6L623.6,311.7L628.3,309.5L630.1,309.6L633.8,306.2L640.6,305.3L643.2,305.3L645.5,301.1L649.3,299.5L650.5,297.8L653.2,295.2L656.1,294.1L661.0,289.5L665.0,287.9L668.1,284.8L670.1,281.4L670.1,278.5L667.9,277.2L669.1,275.2L667.5,271.7L670.9,270.0L671.5,268.6L672.4,264.6L673.8,263.0L674.0,258.6L673.2,257.0L668.7,255.5L667.4,252.3L667.3,249.7L667.8,248.0L666.6,246.3L666.8,244.6L665.8,242.2L666.5,241.3L666.0,238.8L666.4,234.5L665.9,230.3L666.7,227.2L666.5,225.3L663.6,223.4L662.9,221.7L660.6,218.9L662.2,215.1L661.3,214.0L663.1,209.3L664.0,207.9L663.7,204.3L664.4,202.9L661.8,201.5L662.4,200.6L661.2,198.1L662.1,195.8L660.4,195.3L661.1,189.5L659.4,188.5L662.9,183.7L663.0,182.1L661.8,180.4L656.0,179.5L652.8,176.5L651.9,176.5L650.9,178.6L652.2,180.5L650.0,183.0L649.9,183.0L649.1,184.1L648.2,185.3L645.2,186.1L645.1,187.7L643.5,189.2L639.0,189.4L636.9,189.9L636.0,191.5L633.7,193.4L633.6,195.6L632.1,198.3L631.2,198.8L626.8,203.8L627.1,206.8L628.4,207.5L629.2,209.5L626.9,214.7L627.9,216.2L629.4,223.2L628.7,226.2L626.0,228.1L624.3,230.9L623.0,231.5L622.6,237.0L623.5,238.8L622.9,239.8L624.8,242.6L627.0,244.2L627.4,246.1L626.4,247.5L626.0,250.7L625.3,252.5L623.7,254.0L620.6,254.5L618.7,254.1L615.2,255.4L614.0,255.1L611.1,252.7L608.1,252.2L605.3,253.4L604.8,252.8L601.5,253.9L599.6,257.1L598.6,257.6L597.3,259.9L595.9,259.9L592.3,261.9L589.7,265.1L587.2,264.3L585.0,266.3L582.5,267.1L580.4,267.0L579.2,268.0L576.8,268.1L574.1,270.2L572.9,274.1L571.7,276.9L571.4,279.5L569.8,281.3L568.1,286.2L565.9,290.5L563.5,292.4L562.7,294.6L563.8,296.9L564.4,299.9L564.1,302.1L566.1,304.6L566.3,305.9L565.1,307.5L565.4,311.8L564.4,313.5L564.8,315.1L563.9,318.5L562.0,321.2L561.2,321.2L561.9,323.4L564.0,321.4L566.4,321.2L566.9,319.5Z"/>
+          <path data-uf="RJ" aria-label="Rio de Janeiro" d="M583.6,586.0L583.3,584.8L581.5,584.1L579.8,585.9L583.6,586.0ZM572.2,569.5L573.2,569.8L575.0,573.6L577.3,574.4L579.7,573.3L583.2,574.8L583.3,576.1L581.8,577.4L581.5,578.6L579.4,579.1L577.6,578.8L572.9,580.6L572.0,581.3L571.2,584.9L570.0,586.2L572.8,589.2L575.9,588.0L575.5,586.8L573.0,585.8L574.1,582.9L575.7,582.9L578.4,581.2L580.2,581.0L580.7,582.1L582.5,583.0L584.1,582.7L584.8,581.3L588.5,580.6L590.7,581.5L594.1,584.1L596.5,583.3L598.6,583.4L601.2,582.1L599.4,579.2L599.7,578.2L602.9,576.8L603.8,578.2L601.8,580.8L603.4,582.8L605.5,583.0L611.7,582.5L620.7,583.5L623.6,579.9L622.5,578.6L622.4,577.0L626.8,571.8L628.8,570.4L631.6,569.3L638.1,567.5L641.2,565.8L641.8,564.2L641.1,557.6L640.6,555.6L642.9,552.4L643.0,551.2L640.8,549.4L638.9,549.8L635.4,548.6L634.5,548.8L629.2,546.2L629.8,543.9L629.5,540.4L627.2,539.2L625.5,541.4L622.1,542.8L623.0,544.1L620.6,547.2L619.3,553.4L617.1,556.0L618.8,558.1L617.1,558.5L607.4,562.3L603.8,564.8L600.6,563.0L598.6,563.0L596.8,564.0L594.5,563.6L592.0,564.2L591.2,563.6L587.1,565.2L585.2,565.5L582.7,567.2L579.4,566.8L576.7,568.2L572.2,569.5ZM601.5,579.0L601.5,579.0L601.5,579.0L601.5,579.0Z"/>
+          <path data-uf="RN" aria-label="Rio Grande do Norte" d="M711.5,252.4L714.9,254.0L716.8,255.7L720.4,256.2L721.0,255.3L725.3,253.9L727.2,252.1L727.9,250.5L733.6,250.1L737.8,248.1L739.3,248.8L739.4,250.9L734.8,254.2L734.2,257.4L732.8,257.8L732.1,261.3L735.5,261.1L736.4,263.7L737.6,264.1L739.0,263.0L741.5,262.1L742.1,263.4L744.8,262.8L746.7,265.1L745.8,267.0L749.0,267.2L751.0,265.2L750.3,263.0L751.4,260.7L751.3,258.8L752.1,256.1L753.4,256.3L754.3,255.0L756.5,255.5L756.0,256.9L756.9,258.1L759.6,258.2L762.8,259.8L766.3,259.9L768.4,259.4L770.2,260.5L773.5,260.9L774.7,262.0L778.3,262.5L781.9,261.6L781.1,258.8L781.1,256.5L780.1,255.3L780.3,252.8L779.4,250.5L778.8,246.5L778.7,243.1L776.4,237.0L774.3,234.2L765.5,231.1L761.8,231.7L750.7,230.5L748.8,229.5L747.4,227.6L745.7,226.7L744.1,227.2L741.7,226.9L740.0,224.4L732.2,225.6L731.2,228.1L730.2,228.3L728.7,231.1L728.7,232.7L727.3,233.4L726.0,236.5L724.1,237.5L722.1,239.6L722.7,240.9L721.0,243.7L717.0,247.5L714.9,246.7L711.3,250.8L711.5,252.4Z"/>
+          <path data-uf="RS" aria-label="Rio Grande do Sul" d="M409.7,662.3L407.8,661.9L405.1,665.0L403.4,665.1L403.1,666.6L401.4,667.4L398.6,667.6L397.7,669.1L395.0,669.5L391.1,671.8L391.0,673.6L389.0,675.8L385.9,676.3L383.7,677.7L383.0,679.7L381.0,680.7L379.7,682.5L376.1,684.1L377.9,686.1L376.3,686.7L374.4,686.4L374.2,688.9L372.4,689.3L372.1,690.9L368.9,694.9L367.0,695.6L367.0,697.4L365.7,698.4L364.8,701.1L362.1,701.9L360.9,705.5L359.3,707.0L358.2,709.4L356.8,710.3L355.7,712.6L353.0,715.2L351.2,715.4L349.6,717.6L349.7,719.3L347.4,722.1L345.2,723.5L345.6,725.0L348.2,725.9L350.0,725.0L351.9,725.5L354.0,721.6L357.9,721.5L360.6,723.8L364.1,727.6L369.4,731.7L370.1,733.7L372.2,735.2L372.8,736.7L372.4,740.4L374.9,740.9L378.8,737.7L379.8,736.3L381.6,738.5L383.4,739.9L385.5,743.5L388.5,746.0L389.7,744.8L391.0,747.1L392.6,748.2L394.3,747.9L396.8,748.5L398.8,750.7L399.1,752.4L405.4,757.9L407.4,757.7L409.7,760.4L411.1,760.8L411.5,762.7L412.9,765.3L412.8,766.9L413.9,768.3L415.8,768.9L416.3,770.2L420.5,772.1L422.4,774.0L419.6,777.9L416.2,780.2L414.9,782.2L415.1,786.1L414.7,792.8L417.4,793.9L421.0,790.8L427.4,784.8L430.0,781.3L432.2,776.6L433.6,771.4L435.7,766.1L436.7,764.6L439.4,762.3L443.6,757.9L450.5,753.5L454.1,750.5L462.0,742.0L468.9,731.2L470.1,728.9L472.8,721.3L474.6,717.0L477.3,711.8L480.8,706.6L478.1,704.5L475.6,703.2L476.7,701.7L477.1,699.3L476.6,698.5L476.7,695.4L479.9,692.6L481.5,692.5L480.5,689.9L479.0,689.9L476.7,688.7L474.5,689.5L472.0,688.4L468.8,688.4L464.7,686.4L463.2,684.5L462.5,682.3L461.4,682.3L460.3,678.9L458.1,677.5L456.7,675.5L454.3,674.3L453.6,672.8L451.5,671.9L450.4,670.4L448.9,670.5L447.0,668.8L444.2,669.5L442.9,667.7L439.6,665.1L437.8,665.6L431.6,663.9L429.8,664.6L426.8,662.4L424.8,663.3L423.1,662.1L421.1,662.7L417.7,660.8L415.2,662.9L412.3,662.2L409.7,662.3Z"/>
+          <path data-uf="RO" aria-label="Rondônia" d="M162.4,319.1L167.5,318.1L171.4,316.2L173.7,316.1L175.9,315.3L177.7,315.4L180.4,314.9L181.7,316.6L183.8,315.6L183.9,314.3L186.0,313.3L188.2,316.8L187.4,318.1L187.6,320.4L188.6,323.9L186.8,327.1L186.2,329.3L187.8,332.8L188.2,335.2L189.7,337.0L190.3,339.3L189.7,341.5L188.5,342.2L188.5,344.9L189.9,349.8L191.4,350.0L191.7,352.7L192.5,354.1L194.3,353.7L194.8,356.7L195.8,357.4L195.8,359.5L198.0,360.0L199.4,359.6L202.0,362.7L205.2,363.9L206.4,364.9L206.3,366.4L208.2,367.9L211.5,367.9L212.7,368.8L214.9,368.5L216.7,369.1L220.0,366.9L224.6,368.3L226.8,369.3L227.9,371.1L229.5,371.6L233.5,370.4L235.3,374.5L236.9,374.4L237.9,375.8L240.6,377.9L242.0,376.8L243.0,378.2L246.2,378.8L246.8,379.8L249.0,380.2L250.6,379.3L252.4,380.1L252.6,382.2L254.8,384.3L257.1,385.7L257.5,387.5L259.6,387.6L262.9,386.7L265.1,387.7L267.7,386.5L273.2,386.4L275.3,387.0L276.3,388.5L279.6,390.0L280.0,388.6L283.3,386.0L285.6,384.9L285.7,382.2L287.6,378.5L287.3,377.3L289.1,374.9L290.4,374.7L291.0,373.1L291.8,367.7L293.4,367.3L295.2,364.5L296.1,362.0L294.3,360.0L294.0,357.5L292.7,356.3L292.2,353.4L290.6,353.0L289.4,348.8L289.9,346.3L292.8,343.4L291.5,337.9L289.9,337.1L283.8,337.1L282.5,335.0L261.9,335.6L261.8,333.1L262.7,331.7L262.4,325.6L262.7,324.2L260.4,320.8L259.8,318.9L261.3,313.7L260.8,310.0L261.3,309.4L261.1,306.5L259.6,304.9L260.0,303.4L258.6,302.8L259.1,300.9L260.5,300.5L259.8,297.5L261.4,294.0L260.4,292.4L259.0,291.7L258.1,290.3L255.9,289.7L254.0,290.7L253.7,293.0L252.2,293.6L250.3,292.1L248.5,292.2L247.2,288.2L245.5,287.8L243.5,286.2L243.5,284.3L241.4,283.2L240.4,284.1L237.6,281.2L237.2,279.4L235.6,277.4L233.0,276.3L218.5,277.0L218.5,278.1L216.8,282.6L215.5,284.3L213.9,283.5L212.6,284.5L213.2,289.3L212.0,289.6L211.2,291.8L209.1,292.9L209.4,297.0L206.1,298.2L205.8,296.9L200.8,298.8L196.5,298.5L195.3,299.1L194.1,301.5L194.6,303.4L192.2,307.2L190.5,308.2L188.3,304.5L185.8,306.0L184.6,305.8L183.6,309.1L181.8,308.0L180.1,308.9L179.3,311.2L175.5,309.7L174.4,308.5L168.8,308.8L166.6,309.3L166.4,310.8L164.4,313.6L159.3,316.4L158.7,317.7L162.4,319.1Z"/>
+          <path data-uf="RR" aria-label="Roraima" d="M213.3,76.8L215.3,77.8L218.0,77.3L218.6,78.7L220.6,80.2L224.4,80.0L226.7,80.9L227.3,82.6L227.0,85.9L225.5,88.1L227.1,89.8L229.1,90.9L231.8,97.6L233.5,99.9L232.7,101.6L233.3,103.5L231.8,105.5L232.1,108.7L234.0,111.1L234.0,114.5L235.0,117.0L236.8,118.4L237.0,120.2L238.6,121.6L238.5,123.5L239.8,124.5L238.1,127.1L237.5,129.5L238.0,130.9L236.4,132.2L234.1,131.8L233.9,133.7L236.5,134.7L237.8,136.4L240.8,137.8L242.3,139.5L244.0,140.3L246.7,145.1L248.7,144.8L252.6,145.9L253.0,144.1L252.1,142.9L253.6,138.3L252.7,136.7L253.5,132.3L255.0,130.3L256.9,129.1L259.5,128.3L259.7,127.1L261.5,127.0L264.6,128.2L267.3,130.5L268.0,130.5L269.5,133.7L271.3,134.1L274.6,132.1L276.1,131.8L278.5,130.4L276.4,126.9L277.5,125.3L278.4,121.2L279.8,119.4L280.1,117.3L281.4,116.1L281.5,114.6L282.9,113.4L283.3,111.5L306.7,110.8L306.2,92.1L304.3,90.7L298.4,89.0L295.0,86.0L292.1,82.8L291.0,83.1L288.2,79.6L288.7,77.3L288.3,74.3L288.6,73.2L284.9,70.9L284.8,68.6L283.2,66.5L282.8,64.8L282.8,60.2L283.3,57.2L284.2,54.7L286.2,51.9L285.4,50.6L286.1,49.0L285.1,47.2L288.8,45.2L288.9,43.7L290.3,43.4L290.8,40.1L288.9,38.3L289.6,37.1L287.5,36.4L287.2,34.2L288.2,32.6L286.6,31.6L282.2,30.1L278.1,30.1L278.1,29.1L279.9,28.2L280.8,25.8L281.7,19.5L279.7,18.3L278.3,16.3L276.7,16.0L274.6,17.2L269.7,17.8L266.7,17.0L269.0,22.2L266.2,25.6L262.5,26.9L261.9,29.4L260.6,30.8L258.0,31.1L253.8,30.7L253.4,32.9L251.2,32.6L250.0,33.3L250.2,34.9L249.1,36.2L244.8,36.4L241.6,38.4L238.6,38.4L237.6,39.8L230.3,38.4L228.7,39.5L228.4,41.2L224.8,41.3L223.8,44.2L224.8,45.6L224.8,48.3L223.0,47.1L220.7,49.7L218.1,48.3L216.9,46.2L215.2,46.0L214.5,44.8L212.4,43.6L208.7,45.7L207.0,44.8L204.0,44.7L201.6,44.2L198.6,45.2L195.6,41.6L193.2,41.4L192.2,40.7L187.9,42.0L185.2,41.9L182.0,39.0L181.0,40.0L182.6,43.4L186.1,44.8L188.0,47.0L193.8,50.1L196.6,53.6L196.8,56.2L194.8,60.8L196.5,62.1L199.4,66.0L200.1,69.0L198.9,70.7L199.1,72.1L201.0,72.7L203.1,71.9L205.2,72.8L208.2,72.5L209.9,72.9L213.0,72.7L213.3,76.8Z"/>
+          <path data-uf="SC" aria-label="Santa Catarina" d="M480.8,706.6L485.1,701.1L488.0,698.1L493.8,693.8L496.4,692.5L497.8,690.6L497.6,689.6L500.7,681.0L500.3,679.5L500.9,677.4L502.6,676.3L502.5,675.3L505.0,669.9L504.3,668.0L501.2,666.6L501.0,664.7L502.0,663.4L501.0,662.2L501.8,660.4L500.7,659.9L501.1,655.9L500.0,653.6L500.8,650.8L503.5,644.8L502.0,643.1L502.0,639.5L495.5,639.4L494.5,640.1L491.9,639.7L490.7,640.3L488.1,642.8L486.8,642.8L484.9,644.3L480.6,641.6L479.5,640.1L477.1,639.6L474.0,640.8L473.1,640.0L470.7,640.8L469.1,639.7L466.2,640.4L464.8,642.9L462.3,644.5L459.6,643.7L455.2,645.6L454.4,647.7L455.5,650.2L455.3,651.6L451.8,652.8L450.8,650.8L441.8,650.3L440.0,648.4L437.9,648.2L432.7,646.8L431.5,647.1L430.0,645.8L424.5,645.7L422.8,646.6L419.1,643.8L417.8,643.5L415.7,644.7L413.2,643.7L411.6,648.8L411.4,654.1L412.5,656.7L411.2,659.5L410.4,659.6L409.7,662.3L412.3,662.2L415.2,662.9L417.7,660.8L421.1,662.7L423.1,662.1L424.8,663.3L426.8,662.4L429.8,664.6L431.6,663.9L437.8,665.6L439.6,665.1L442.9,667.7L444.2,669.5L447.0,668.8L448.9,670.5L450.4,670.4L451.5,671.9L453.6,672.8L454.3,674.3L456.7,675.5L458.1,677.5L460.3,678.9L461.4,682.3L462.5,682.3L463.2,684.5L464.7,686.4L468.8,688.4L472.0,688.4L474.5,689.5L476.7,688.7L479.0,689.9L480.5,689.9L481.5,692.5L479.9,692.6L476.7,695.4L476.6,698.5L477.1,699.3L476.7,701.7L475.6,703.2L478.1,704.5L480.8,706.6Z"/>
+          <path data-uf="SP" aria-label="São Paulo" d="M422.9,569.9L425.3,568.8L430.3,570.0L432.2,568.8L433.8,570.2L435.0,569.7L440.0,570.5L440.5,567.9L443.9,568.9L445.1,570.2L446.9,569.9L447.7,570.9L450.7,571.7L452.6,570.8L456.0,571.1L456.6,572.1L460.6,573.8L462.6,573.8L465.9,577.1L466.7,576.0L469.4,577.0L475.3,577.3L478.9,576.2L480.1,579.4L483.4,580.7L485.7,586.0L485.1,590.9L486.3,592.8L486.1,595.0L487.8,599.9L489.9,601.8L489.6,603.5L490.7,605.1L492.2,606.1L490.1,612.5L493.6,613.1L495.4,612.4L498.4,612.7L499.5,613.4L502.4,612.9L504.4,614.5L503.4,615.7L503.1,619.1L502.5,619.9L503.7,621.7L505.8,619.4L506.9,620.5L509.2,621.4L510.2,622.9L509.8,624.0L511.2,626.2L511.2,626.2L514.4,623.3L515.9,619.6L521.1,615.3L526.8,611.8L531.2,608.6L531.3,607.1L532.8,605.8L542.6,600.1L545.9,600.7L547.3,597.7L550.1,596.6L552.8,596.2L559.9,598.0L560.3,593.8L562.1,592.9L563.3,593.3L564.6,591.4L566.4,591.5L566.8,589.9L569.6,588.3L572.8,589.2L570.0,586.2L571.2,584.9L572.0,581.3L572.9,580.6L577.6,578.8L579.4,579.1L581.5,578.6L581.8,577.4L583.3,576.1L583.2,574.8L579.7,573.3L577.3,574.4L575.0,573.6L573.2,569.8L572.2,569.5L569.3,570.7L567.7,570.6L565.7,571.9L561.2,574.0L555.2,573.9L555.7,576.2L554.6,577.6L552.1,577.2L550.2,578.4L547.0,577.7L544.2,578.4L543.7,576.8L544.5,575.5L542.4,574.7L543.5,573.5L542.6,570.6L539.4,568.7L538.0,566.2L538.9,563.5L540.0,562.9L538.8,560.5L540.1,559.7L538.8,556.4L541.2,553.3L542.5,550.7L542.3,548.6L540.0,547.4L536.9,546.7L535.5,547.7L533.3,547.7L532.5,543.5L531.4,541.8L531.3,538.7L529.6,536.6L531.1,533.0L532.4,531.8L531.5,529.2L529.0,527.7L529.0,525.6L530.1,523.5L529.8,521.8L527.2,520.1L526.2,517.7L524.0,518.3L523.0,519.3L521.3,518.0L519.0,518.0L518.6,520.2L514.4,521.0L512.6,518.8L510.6,520.2L504.7,521.1L501.3,520.9L500.1,523.2L500.4,525.7L498.6,525.8L498.6,521.8L496.8,520.7L495.8,523.1L493.9,523.7L492.6,520.8L492.7,516.6L489.9,516.9L488.8,515.6L483.9,515.6L482.0,516.0L479.1,515.4L478.2,514.5L473.5,514.2L471.4,512.4L469.4,513.1L467.9,515.0L465.6,515.5L462.2,517.5L461.6,518.5L460.3,521.8L459.1,522.8L455.3,523.9L452.3,528.2L450.6,529.7L449.8,532.0L450.0,535.9L448.3,536.4L446.9,539.1L445.3,540.0L445.8,542.4L444.3,546.3L441.2,548.2L442.1,550.0L441.1,552.1L437.2,556.7L436.1,559.5L434.1,561.7L428.5,564.9L427.4,566.2L424.8,567.3L422.9,569.9ZM562.5,599.1L563.3,597.1L561.4,596.0L560.9,597.6L559.1,599.2L560.0,600.2L562.5,599.1Z"/>
+          <path data-uf="SE" aria-label="Sergipe" d="M717.1,316.4L715.8,318.0L716.6,322.5L716.4,324.3L718.1,325.0L720.4,327.4L719.9,328.8L720.7,331.4L720.6,333.4L718.2,335.0L719.0,336.7L718.9,339.6L715.4,341.5L713.7,340.5L711.0,340.2L710.1,342.3L710.3,344.2L712.6,346.5L714.5,354.2L716.5,355.5L717.2,357.0L718.8,357.9L720.3,357.5L722.8,358.2L726.4,356.3L728.3,353.3L730.2,351.4L733.1,347.2L736.7,343.4L738.4,342.1L741.9,340.4L746.3,339.0L745.7,337.6L743.2,337.1L743.2,335.0L742.4,333.7L740.4,333.7L737.0,330.8L736.3,327.8L734.3,327.4L732.6,325.5L731.0,325.3L729.3,323.1L725.0,321.7L722.5,319.2L721.0,319.3L719.1,317.1L717.1,316.4Z"/>
+          <path data-uf="TO" aria-label="Tocantins" d="M473.3,371.4L474.0,368.4L476.3,364.9L479.3,363.1L477.1,370.0L479.5,372.2L483.4,373.2L494.9,380.2L495.6,376.0L497.4,372.9L499.9,370.5L500.4,372.6L502.5,374.0L504.6,370.9L509.6,376.3L510.0,377.6L511.8,378.8L512.1,380.7L513.5,380.6L516.4,378.9L518.0,378.6L517.7,381.5L520.4,381.1L524.6,382.2L526.8,385.1L527.9,383.3L527.3,380.0L527.7,378.1L531.9,381.3L532.7,380.5L534.5,381.3L535.6,379.9L539.7,378.9L544.8,375.6L550.5,375.9L551.3,372.9L552.2,373.8L552.0,376.3L555.3,375.8L557.0,375.1L553.3,375.4L553.6,370.2L554.4,365.1L552.6,363.3L553.0,362.4L552.3,359.7L552.5,357.2L554.2,354.6L553.6,352.5L554.0,349.8L555.6,348.4L555.6,347.0L553.7,346.3L551.9,346.5L550.4,345.3L549.5,342.8L550.0,341.2L554.3,334.8L555.7,334.8L556.0,332.3L560.0,328.2L564.8,325.5L565.3,322.9L567.3,321.6L566.9,319.5L566.4,321.2L564.0,321.4L561.9,323.4L561.2,321.2L561.0,319.7L558.4,320.3L557.6,319.5L555.3,319.6L553.0,317.4L552.5,315.6L552.6,313.3L551.9,311.7L549.4,310.4L550.7,307.4L551.0,305.2L549.3,303.4L547.5,303.1L546.4,301.5L545.7,298.3L541.9,296.3L543.3,292.8L544.8,292.5L544.8,290.2L545.5,289.0L545.3,287.0L546.5,286.0L547.9,282.7L550.8,281.9L552.5,281.9L553.2,279.0L554.3,277.1L553.6,275.0L551.7,273.4L546.2,274.6L544.5,276.0L542.9,276.2L540.4,272.2L537.9,269.0L535.9,265.5L533.3,263.8L535.0,261.6L533.8,260.1L531.6,260.8L529.8,257.9L531.5,257.7L533.8,255.2L534.7,252.3L535.0,248.3L537.7,240.4L536.9,238.1L536.5,234.8L536.9,232.3L535.8,229.1L536.2,228.2L535.8,225.4L531.1,222.4L529.4,222.5L528.6,220.2L526.1,219.3L524.5,220.0L522.5,219.7L518.9,217.8L515.8,218.2L514.0,221.0L513.0,220.4L511.0,221.1L514.1,222.7L515.8,222.9L518.2,222.3L520.4,225.2L523.1,226.6L522.3,228.7L520.3,228.9L519.9,231.1L521.1,232.9L519.0,234.4L519.8,236.3L517.4,237.3L517.2,240.2L513.3,243.1L512.1,245.5L512.3,246.9L510.0,248.7L505.0,249.6L501.2,252.3L501.5,258.5L500.5,260.4L497.6,263.6L498.3,267.1L501.7,269.7L501.6,271.8L500.4,277.7L499.0,281.4L497.7,282.1L496.4,285.4L492.7,290.5L490.9,290.8L487.8,294.2L486.5,297.0L483.9,299.3L482.5,303.1L482.7,304.5L480.0,310.4L478.4,314.3L476.5,316.7L476.8,317.8L475.0,321.7L474.7,323.4L472.4,326.7L473.0,328.6L472.1,329.8L471.7,332.2L472.1,335.0L471.0,336.7L470.8,339.4L469.7,341.3L469.4,344.6L471.0,345.8L469.7,348.4L470.3,351.0L471.2,351.5L470.4,353.7L470.3,358.2L471.3,363.1L469.7,366.2L471.2,368.8L471.1,370.1L473.3,371.4Z"/>
+        </svg>
+        <!-- MAPA-IBGE:FIM -->
+            <figcaption><a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102268.pdf">IBGE · Malha 2025</a> · Limites simplificados e reprojetados · Licença compatível com <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br">CC BY 4.0</a>.</figcaption>
+          </figure>
+          <div id="state-results" class="state-results" hidden>
+            <h3 id="state-name"></h3>
+            <p id="state-unavailable" hidden>Dados não disponíveis para esta consulta.</p>
+          </div>
+          <figure id="state-comparison" class="state-comparison" data-period-start="2025-10" data-period-end="2026-09" aria-labelledby="state-comparison-title" hidden>
+  <figcaption id="state-comparison-title">Área queimada: últimos 12 meses e média anual<span>Hectares (ha) · soma das áreas mensais · referência: anos completos de 2019 a 2024 · escala iniciada em zero</span></figcaption>
+  <div class="bar-axis" data-chart-axis aria-hidden="true"></div>
+  <ul class="chart-results" role="list"><li class="comparison-row"><p><span>Últimos 12 meses — out/2025–set/2026</span><strong id="comparison-area"></strong></p><div class="bar" aria-hidden="true"><span class="bar__fill"></span></div></li>
+  <li class="comparison-row"><p><span>Média anual — 2019–2024</span><strong id="comparison-average"></strong></p><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--historical"></span></div></li></ul>
+</figure>
+      <div class="data-reading data-reading--inner state-explanation">
+<p class="data-source">Fonte: <a href="https://brasil.mapbiomas.org/iniciativas-e-produtos/fogo/monitor-do-fogo/">MapBiomas — Monitor do Fogo</a> · out/2025–set/2026 · Soma das áreas mensais · Visualização adaptada · <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br">CC BY 4.0</a>.</p>
+</div>
+          <!-- FOCOS-ESTADO:INICIO -->
+<div id="state-focus" class="state-focus" hidden>
+  <h3>Focos de fogo ativo</h3>
+  <p id="state-focus-unavailable" hidden>Dados não disponíveis para esta consulta.</p>
+  <div id="state-focus-data">
+    <figure id="state-focus-monthly" class="focus-chart" data-series="monthly" data-count="12" data-scale-max="1" aria-labelledby="state-focus-monthly-title">
+  <figcaption id="state-focus-monthly-title">Focos detectados por mês: <span class="focus-place" data-focus-place></span><span>Quantidade mensal de focos · out/2025 a set/2026 · escala iniciada em zero</span></figcaption>
+  <p data-focus-empty hidden>Nenhum foco detectado no período.</p>
+  <div class="chart-plane">
+  <div class="chart-axis" data-chart-axis aria-hidden="true"><span class="chart-tick" style="--tick:0"><span>0</span></span><span class="chart-tick" style="--tick:100"><span>1</span></span></div>
+
+  <ul class="chart-results" role="list">
+  <li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Out/2025<span class="focus-chart__peak" data-peak-index="0" hidden> · maior contagem</span></span><strong data-value-index="0"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Nov/2025<span class="focus-chart__peak" data-peak-index="1" hidden> · maior contagem</span></span><strong data-value-index="1"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Dez/2025<span class="focus-chart__peak" data-peak-index="2" hidden> · maior contagem</span></span><strong data-value-index="2"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Jan/2026<span class="focus-chart__peak" data-peak-index="3" hidden> · maior contagem</span></span><strong data-value-index="3"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Fev/2026<span class="focus-chart__peak" data-peak-index="4" hidden> · maior contagem</span></span><strong data-value-index="4"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Mar/2026<span class="focus-chart__peak" data-peak-index="5" hidden> · maior contagem</span></span><strong data-value-index="5"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Abr/2026<span class="focus-chart__peak" data-peak-index="6" hidden> · maior contagem</span></span><strong data-value-index="6"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Mai/2026<span class="focus-chart__peak" data-peak-index="7" hidden> · maior contagem</span></span><strong data-value-index="7"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Jun/2026<span class="focus-chart__peak" data-peak-index="8" hidden> · maior contagem</span></span><strong data-value-index="8"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Jul/2026<span class="focus-chart__peak" data-peak-index="9" hidden> · maior contagem</span></span><strong data-value-index="9"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Ago/2026<span class="focus-chart__peak" data-peak-index="10" hidden> · maior contagem</span></span><strong data-value-index="10"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>Set/2026<span class="focus-chart__peak" data-peak-index="11" hidden> · maior contagem</span></span><strong data-value-index="11"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div></li>
+  </ul>
+  </div>
+  </figure>
+    <figure id="state-focus-annual" class="focus-chart" data-series="annual" data-count="23" data-scale-max="1" aria-labelledby="state-focus-annual-title">
+  <figcaption id="state-focus-annual-title">Histórico anual de focos: <span class="focus-place" data-focus-place></span><span>Total anual de focos · 2003 a 2025 · escala iniciada em zero</span></figcaption>
+
+  <div class="chart-plane">
+  <div class="chart-axis" data-chart-axis aria-hidden="true"><span class="chart-tick" style="--tick:0"><span>0</span></span><span class="chart-tick" style="--tick:100"><span>1</span></span></div>
+  <svg class="chart-line" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false"><polyline points="21.7391,1000.0000 65.2174,1000.0000 108.6957,1000.0000 152.1739,1000.0000 195.6522,1000.0000 239.1304,1000.0000 282.6087,1000.0000 326.0870,1000.0000 369.5652,1000.0000 413.0435,1000.0000 456.5217,1000.0000 500.0000,1000.0000 543.4783,1000.0000 586.9565,1000.0000 630.4348,1000.0000 673.9130,1000.0000 717.3913,1000.0000 760.8696,1000.0000 804.3478,1000.0000 847.8261,1000.0000 891.3043,1000.0000 934.7826,1000.0000 978.2609,1000.0000"/></svg>
+  <ul class="chart-results" role="list">
+  <li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2003</span><strong data-value-index="0"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2004</span><strong data-value-index="1"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2005</span><strong data-value-index="2"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2006</span><strong data-value-index="3"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2007</span><strong data-value-index="4"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2008</span><strong data-value-index="5"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2009</span><strong data-value-index="6"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2010</span><strong data-value-index="7"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2011</span><strong data-value-index="8"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2012</span><strong data-value-index="9"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2013</span><strong data-value-index="10"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2014</span><strong data-value-index="11"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2015</span><strong data-value-index="12"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2016</span><strong data-value-index="13"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2017</span><strong data-value-index="14"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2018</span><strong data-value-index="15"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2019</span><strong data-value-index="16"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2020</span><strong data-value-index="17"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2021</span><strong data-value-index="18"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2022</span><strong data-value-index="19"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2023</span><strong data-value-index="20"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0"><div class="focus-chart__label"><span>2024</span><strong data-value-index="21"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+<li class="focus-chart__row" style="--share:0" data-current-year><div class="focus-chart__label"><span>2025</span><strong data-value-index="22"></strong></div><div class="bar" aria-hidden="true"><span class="bar__fill bar__fill--focus"></span></div><span class="chart-dot" aria-hidden="true"></span></li>
+  </ul>
+  </div>
+  </figure>
+    <p class="data-source">Fonte: <a href="https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/">INPE — Programa Queimadas</a> · Satélite de referência AQUA_M-T · Série anual: 2003–2025; meses recentes até set/2026 · Agregação própria · Acesso em: 19 out. 2026 · <a href="https://data.inpe.br/queimadas/faq/">Referência e condições de uso</a>.</p>
+  </div>
+</div>
+<!-- FOCOS-ESTADO:FIM -->
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true" id="state-status" aria-label="Consulta estadual"></p>
+      </div>
+      <noscript>
+        <div class="states-fallback">
+          <table id="states-fallback"><caption>Área queimada acumulada em out/2025–set/2026 e média anual de 2019–2024 (anos completos de janeiro a dezembro)</caption><thead><tr><th scope="col">Unidade federativa</th><th scope="col">Últimos 12 meses (ha)</th><th scope="col">Média anual (ha)</th></tr></thead><tbody><tr><th scope="row">Acre</th><td><span class="fallback-label">Últimos 12 meses</span>122.524 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>268.450 ha</td></tr>
+<tr><th scope="row">Alagoas</th><td><span class="fallback-label">Últimos 12 meses</span>6.299 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>3.611 ha</td></tr>
+<tr><th scope="row">Amapá</th><td><span class="fallback-label">Últimos 12 meses</span>286.638 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>281.886 ha</td></tr>
+<tr><th scope="row">Amazonas</th><td><span class="fallback-label">Últimos 12 meses</span>504.051 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>1.105.729 ha</td></tr>
+<tr><th scope="row">Bahia</th><td><span class="fallback-label">Últimos 12 meses</span>567.943 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>560.280 ha</td></tr>
+<tr><th scope="row">Ceará</th><td><span class="fallback-label">Últimos 12 meses</span>84.468 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>89.461 ha</td></tr>
+<tr><th scope="row">Distrito Federal</th><td><span class="fallback-label">Últimos 12 meses</span>10.984 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>16.160 ha</td></tr>
+<tr><th scope="row">Espírito Santo</th><td><span class="fallback-label">Últimos 12 meses</span>5.151 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>6.094 ha</td></tr>
+<tr><th scope="row">Goiás</th><td><span class="fallback-label">Últimos 12 meses</span>444.259 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>458.850 ha</td></tr>
+<tr><th scope="row">Maranhão</th><td><span class="fallback-label">Últimos 12 meses</span>1.232.011 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>1.656.926 ha</td></tr>
+<tr><th scope="row">Mato Grosso</th><td><span class="fallback-label">Últimos 12 meses</span>2.040.678 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>4.213.282 ha</td></tr>
+<tr><th scope="row">Mato Grosso do Sul</th><td><span class="fallback-label">Últimos 12 meses</span>248.101 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>949.148 ha</td></tr>
+<tr><th scope="row">Minas Gerais</th><td><span class="fallback-label">Últimos 12 meses</span>217.894 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>301.972 ha</td></tr>
+<tr><th scope="row">Pará</th><td><span class="fallback-label">Últimos 12 meses</span>1.275.712 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>3.416.590 ha</td></tr>
+<tr><th scope="row">Paraíba</th><td><span class="fallback-label">Últimos 12 meses</span>10.386 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>27.370 ha</td></tr>
+<tr><th scope="row">Paraná</th><td><span class="fallback-label">Últimos 12 meses</span>35.087 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>39.719 ha</td></tr>
+<tr><th scope="row">Pernambuco</th><td><span class="fallback-label">Últimos 12 meses</span>16.499 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>16.024 ha</td></tr>
+<tr><th scope="row">Piauí</th><td><span class="fallback-label">Últimos 12 meses</span>885.099 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>1.127.392 ha</td></tr>
+<tr><th scope="row">Rio de Janeiro</th><td><span class="fallback-label">Últimos 12 meses</span>16.681 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>23.589 ha</td></tr>
+<tr><th scope="row">Rio Grande do Norte</th><td><span class="fallback-label">Últimos 12 meses</span>7.762 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>12.321 ha</td></tr>
+<tr><th scope="row">Rio Grande do Sul</th><td><span class="fallback-label">Últimos 12 meses</span>19.135 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>42.708 ha</td></tr>
+<tr><th scope="row">Rondônia</th><td><span class="fallback-label">Últimos 12 meses</span>104.370 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>835.645 ha</td></tr>
+<tr><th scope="row">Roraima</th><td><span class="fallback-label">Últimos 12 meses</span>1.111.748 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>1.310.507 ha</td></tr>
+<tr><th scope="row">Santa Catarina</th><td><span class="fallback-label">Últimos 12 meses</span>8.725 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>20.393 ha</td></tr>
+<tr><th scope="row">São Paulo</th><td><span class="fallback-label">Últimos 12 meses</span>126.470 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>154.455 ha</td></tr>
+<tr><th scope="row">Sergipe</th><td><span class="fallback-label">Últimos 12 meses</span>2.745 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>2.287 ha</td></tr>
+<tr><th scope="row">Tocantins</th><td><span class="fallback-label">Últimos 12 meses</span>1.978.940 ha</td><td><span class="fallback-label">Média anual — 2019–2024</span>2.087.228 ha</td></tr></tbody></table>
+        </div>
+        <!-- FOCOS-ALTERNATIVA:INICIO -->
+<div class="states-fallback focus-fallback">
+<table id="focus-states-fallback"><caption>Focos de fogo ativo por unidade federativa out/2025–set/2026 — INPE, satélite de referência</caption><thead><tr><th scope="col">Unidade federativa</th><th scope="col">Total de focos</th><th scope="col">Mês ou meses com mais focos</th></tr></thead><tbody><tr><th scope="row">Acre</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>2.053 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Setembro/2026 · 877 focos</td></tr>
+<tr><th scope="row">Alagoas</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>356 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Janeiro/2026 · 46 focos</td></tr>
+<tr><th scope="row">Amapá</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>1.211 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 335 focos</td></tr>
+<tr><th scope="row">Amazonas</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>7.520 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Setembro/2026 · 3.726 focos</td></tr>
+<tr><th scope="row">Bahia</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>11.698 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 3.304 focos</td></tr>
+<tr><th scope="row">Ceará</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>7.872 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 2.902 focos</td></tr>
+<tr><th scope="row">Distrito Federal</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>144 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Agosto/2026 · 36 focos</td></tr>
+<tr><th scope="row">Espírito Santo</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>472 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Agosto/2026 · 89 focos</td></tr>
+<tr><th scope="row">Goiás</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>3.203 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 1.101 focos</td></tr>
+<tr><th scope="row">Maranhão</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>20.844 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 5.784 focos</td></tr>
+<tr><th scope="row">Mato Grosso</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>11.289 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Agosto/2026 · 3.691 focos</td></tr>
+<tr><th scope="row">Mato Grosso do Sul</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>1.341 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 254 focos</td></tr>
+<tr><th scope="row">Minas Gerais</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>6.068 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 2.018 focos</td></tr>
+<tr><th scope="row">Pará</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>23.764 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 5.659 focos</td></tr>
+<tr><th scope="row">Paraíba</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>979 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 319 focos</td></tr>
+<tr><th scope="row">Paraná</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>892 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Abril/2026 · 132 focos</td></tr>
+<tr><th scope="row">Pernambuco</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>2.255 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 846 focos</td></tr>
+<tr><th scope="row">Piauí</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>10.229 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 3.709 focos</td></tr>
+<tr><th scope="row">Rio de Janeiro</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>373 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Julho/2026 · 93 focos</td></tr>
+<tr><th scope="row">Rio Grande do Norte</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>664 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Novembro/2025 · 155 focos</td></tr>
+<tr><th scope="row">Rio Grande do Sul</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>795 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Julho/2026 · 165 focos</td></tr>
+<tr><th scope="row">Rondônia</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>1.532 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Setembro/2026 · 515 focos</td></tr>
+<tr><th scope="row">Roraima</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>2.454 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Março/2026 · 602 focos</td></tr>
+<tr><th scope="row">Santa Catarina</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>923 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Agosto/2026 · 149 focos</td></tr>
+<tr><th scope="row">São Paulo</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>906 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 228 focos</td></tr>
+<tr><th scope="row">Sergipe</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>170 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Janeiro/2026 · 43 focos</td></tr>
+<tr><th scope="row">Tocantins</th><td><span class="fallback-label">Focos em out/2025–set/2026</span>10.991 focos</td><td><span class="fallback-label">Maior contagem mensal</span>Outubro/2025 · 2.428 focos</td></tr></tbody></table>
+<details class="data-table-disclosure"><summary>Acre — distribuição e evolução dos focos</summary><table id="fallback-AC-monthly"><caption>Acre: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>558 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>33 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>1 foco</td></tr>
+<tr><th scope="row">Jan/2026</th><td>2 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>2 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>2 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>15 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>20 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>56 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>487 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>877 focos</td></tr></tbody></table><table id="fallback-AC-annual"><caption>Acre: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>10.523 focos</td></tr>
+<tr><th scope="row">2004</th><td>7.271 focos</td></tr>
+<tr><th scope="row">2005</th><td>15.993 focos</td></tr>
+<tr><th scope="row">2006</th><td>6.198 focos</td></tr>
+<tr><th scope="row">2007</th><td>8.549 focos</td></tr>
+<tr><th scope="row">2008</th><td>5.699 focos</td></tr>
+<tr><th scope="row">2009</th><td>3.511 focos</td></tr>
+<tr><th scope="row">2010</th><td>8.661 focos</td></tr>
+<tr><th scope="row">2011</th><td>3.191 focos</td></tr>
+<tr><th scope="row">2012</th><td>4.720 focos</td></tr>
+<tr><th scope="row">2013</th><td>4.980 focos</td></tr>
+<tr><th scope="row">2014</th><td>4.398 focos</td></tr>
+<tr><th scope="row">2015</th><td>5.779 focos</td></tr>
+<tr><th scope="row">2016</th><td>7.684 focos</td></tr>
+<tr><th scope="row">2017</th><td>6.295 focos</td></tr>
+<tr><th scope="row">2018</th><td>6.626 focos</td></tr>
+<tr><th scope="row">2019</th><td>6.802 focos</td></tr>
+<tr><th scope="row">2020</th><td>9.193 focos</td></tr>
+<tr><th scope="row">2021</th><td>8.828 focos</td></tr>
+<tr><th scope="row">2022</th><td>11.840 focos</td></tr>
+<tr><th scope="row">2023</th><td>6.562 focos</td></tr>
+<tr><th scope="row">2024</th><td>8.658 focos</td></tr>
+<tr><th scope="row">2025</th><td>2.184 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Alagoas — distribuição e evolução dos focos</summary><table id="fallback-AL-monthly"><caption>Alagoas: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>21 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>42 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>39 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>46 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>39 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>35 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>28 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>22 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>19 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>17 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>40 focos</td></tr></tbody></table><table id="fallback-AL-annual"><caption>Alagoas: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>373 focos</td></tr>
+<tr><th scope="row">2004</th><td>233 focos</td></tr>
+<tr><th scope="row">2005</th><td>292 focos</td></tr>
+<tr><th scope="row">2006</th><td>268 focos</td></tr>
+<tr><th scope="row">2007</th><td>262 focos</td></tr>
+<tr><th scope="row">2008</th><td>409 focos</td></tr>
+<tr><th scope="row">2009</th><td>360 focos</td></tr>
+<tr><th scope="row">2010</th><td>299 focos</td></tr>
+<tr><th scope="row">2011</th><td>267 focos</td></tr>
+<tr><th scope="row">2012</th><td>377 focos</td></tr>
+<tr><th scope="row">2013</th><td>201 focos</td></tr>
+<tr><th scope="row">2014</th><td>165 focos</td></tr>
+<tr><th scope="row">2015</th><td>460 focos</td></tr>
+<tr><th scope="row">2016</th><td>388 focos</td></tr>
+<tr><th scope="row">2017</th><td>129 focos</td></tr>
+<tr><th scope="row">2018</th><td>201 focos</td></tr>
+<tr><th scope="row">2019</th><td>232 focos</td></tr>
+<tr><th scope="row">2020</th><td>159 focos</td></tr>
+<tr><th scope="row">2021</th><td>173 focos</td></tr>
+<tr><th scope="row">2022</th><td>140 focos</td></tr>
+<tr><th scope="row">2023</th><td>227 focos</td></tr>
+<tr><th scope="row">2024</th><td>285 focos</td></tr>
+<tr><th scope="row">2025</th><td>228 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Amapá — distribuição e evolução dos focos</summary><table id="fallback-AP-monthly"><caption>Amapá: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>333 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>335 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>183 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>4 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>3 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>15 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>67 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>235 focos</td></tr></tbody></table><table id="fallback-AP-annual"><caption>Amapá: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>2.516 focos</td></tr>
+<tr><th scope="row">2004</th><td>3.413 focos</td></tr>
+<tr><th scope="row">2005</th><td>2.020 focos</td></tr>
+<tr><th scope="row">2006</th><td>1.665 focos</td></tr>
+<tr><th scope="row">2007</th><td>1.484 focos</td></tr>
+<tr><th scope="row">2008</th><td>2.153 focos</td></tr>
+<tr><th scope="row">2009</th><td>2.456 focos</td></tr>
+<tr><th scope="row">2010</th><td>1.000 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.396 focos</td></tr>
+<tr><th scope="row">2012</th><td>2.518 focos</td></tr>
+<tr><th scope="row">2013</th><td>1.529 focos</td></tr>
+<tr><th scope="row">2014</th><td>1.848 focos</td></tr>
+<tr><th scope="row">2015</th><td>2.936 focos</td></tr>
+<tr><th scope="row">2016</th><td>2.595 focos</td></tr>
+<tr><th scope="row">2017</th><td>1.946 focos</td></tr>
+<tr><th scope="row">2018</th><td>1.206 focos</td></tr>
+<tr><th scope="row">2019</th><td>1.277 focos</td></tr>
+<tr><th scope="row">2020</th><td>750 focos</td></tr>
+<tr><th scope="row">2021</th><td>676 focos</td></tr>
+<tr><th scope="row">2022</th><td>990 focos</td></tr>
+<tr><th scope="row">2023</th><td>2.552 focos</td></tr>
+<tr><th scope="row">2024</th><td>2.014 focos</td></tr>
+<tr><th scope="row">2025</th><td>948 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Amazonas — distribuição e evolução dos focos</summary><table id="fallback-AM-monthly"><caption>Amazonas: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>874 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>271 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>118 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>18 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>31 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>41 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>39 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>41 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>122 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>2.231 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>3.726 focos</td></tr></tbody></table><table id="fallback-AM-annual"><caption>Amazonas: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>10.191 focos</td></tr>
+<tr><th scope="row">2004</th><td>8.083 focos</td></tr>
+<tr><th scope="row">2005</th><td>15.644 focos</td></tr>
+<tr><th scope="row">2006</th><td>11.697 focos</td></tr>
+<tr><th scope="row">2007</th><td>11.293 focos</td></tr>
+<tr><th scope="row">2008</th><td>6.701 focos</td></tr>
+<tr><th scope="row">2009</th><td>9.280 focos</td></tr>
+<tr><th scope="row">2010</th><td>12.139 focos</td></tr>
+<tr><th scope="row">2011</th><td>5.028 focos</td></tr>
+<tr><th scope="row">2012</th><td>9.114 focos</td></tr>
+<tr><th scope="row">2013</th><td>6.512 focos</td></tr>
+<tr><th scope="row">2014</th><td>9.007 focos</td></tr>
+<tr><th scope="row">2015</th><td>13.419 focos</td></tr>
+<tr><th scope="row">2016</th><td>11.173 focos</td></tr>
+<tr><th scope="row">2017</th><td>11.685 focos</td></tr>
+<tr><th scope="row">2018</th><td>11.446 focos</td></tr>
+<tr><th scope="row">2019</th><td>12.676 focos</td></tr>
+<tr><th scope="row">2020</th><td>16.729 focos</td></tr>
+<tr><th scope="row">2021</th><td>14.848 focos</td></tr>
+<tr><th scope="row">2022</th><td>21.217 focos</td></tr>
+<tr><th scope="row">2023</th><td>19.601 focos</td></tr>
+<tr><th scope="row">2024</th><td>25.499 focos</td></tr>
+<tr><th scope="row">2025</th><td>4.545 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Bahia — distribuição e evolução dos focos</summary><table id="fallback-BA-monthly"><caption>Bahia: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>3.304 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>938 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>402 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>229 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>244 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>298 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>417 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>555 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>625 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>588 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>1.351 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>2.747 focos</td></tr></tbody></table><table id="fallback-BA-annual"><caption>Bahia: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>19.584 focos</td></tr>
+<tr><th scope="row">2004</th><td>18.983 focos</td></tr>
+<tr><th scope="row">2005</th><td>18.447 focos</td></tr>
+<tr><th scope="row">2006</th><td>10.218 focos</td></tr>
+<tr><th scope="row">2007</th><td>29.468 focos</td></tr>
+<tr><th scope="row">2008</th><td>20.781 focos</td></tr>
+<tr><th scope="row">2009</th><td>8.956 focos</td></tr>
+<tr><th scope="row">2010</th><td>17.063 focos</td></tr>
+<tr><th scope="row">2011</th><td>13.136 focos</td></tr>
+<tr><th scope="row">2012</th><td>16.896 focos</td></tr>
+<tr><th scope="row">2013</th><td>7.231 focos</td></tr>
+<tr><th scope="row">2014</th><td>7.190 focos</td></tr>
+<tr><th scope="row">2015</th><td>16.513 focos</td></tr>
+<tr><th scope="row">2016</th><td>6.311 focos</td></tr>
+<tr><th scope="row">2017</th><td>6.450 focos</td></tr>
+<tr><th scope="row">2018</th><td>4.956 focos</td></tr>
+<tr><th scope="row">2019</th><td>7.371 focos</td></tr>
+<tr><th scope="row">2020</th><td>7.912 focos</td></tr>
+<tr><th scope="row">2021</th><td>14.359 focos</td></tr>
+<tr><th scope="row">2022</th><td>9.820 focos</td></tr>
+<tr><th scope="row">2023</th><td>11.917 focos</td></tr>
+<tr><th scope="row">2024</th><td>9.160 focos</td></tr>
+<tr><th scope="row">2025</th><td>12.089 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Ceará — distribuição e evolução dos focos</summary><table id="fallback-CE-monthly"><caption>Ceará: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>1.532 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>2.902 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>2.069 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>476 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>84 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>10 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>7 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>20 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>35 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>82 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>189 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>466 focos</td></tr></tbody></table><table id="fallback-CE-annual"><caption>Ceará: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>11.626 focos</td></tr>
+<tr><th scope="row">2004</th><td>10.582 focos</td></tr>
+<tr><th scope="row">2005</th><td>8.524 focos</td></tr>
+<tr><th scope="row">2006</th><td>6.167 focos</td></tr>
+<tr><th scope="row">2007</th><td>7.527 focos</td></tr>
+<tr><th scope="row">2008</th><td>7.631 focos</td></tr>
+<tr><th scope="row">2009</th><td>5.447 focos</td></tr>
+<tr><th scope="row">2010</th><td>4.934 focos</td></tr>
+<tr><th scope="row">2011</th><td>4.798 focos</td></tr>
+<tr><th scope="row">2012</th><td>4.308 focos</td></tr>
+<tr><th scope="row">2013</th><td>2.831 focos</td></tr>
+<tr><th scope="row">2014</th><td>2.327 focos</td></tr>
+<tr><th scope="row">2015</th><td>3.158 focos</td></tr>
+<tr><th scope="row">2016</th><td>4.316 focos</td></tr>
+<tr><th scope="row">2017</th><td>3.486 focos</td></tr>
+<tr><th scope="row">2018</th><td>3.034 focos</td></tr>
+<tr><th scope="row">2019</th><td>4.304 focos</td></tr>
+<tr><th scope="row">2020</th><td>3.979 focos</td></tr>
+<tr><th scope="row">2021</th><td>4.379 focos</td></tr>
+<tr><th scope="row">2022</th><td>4.136 focos</td></tr>
+<tr><th scope="row">2023</th><td>6.808 focos</td></tr>
+<tr><th scope="row">2024</th><td>7.160 focos</td></tr>
+<tr><th scope="row">2025</th><td>7.852 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Distrito Federal — distribuição e evolução dos focos</summary><table id="fallback-DF-monthly"><caption>Distrito Federal: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>33 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>1 foco</td></tr>
+<tr><th scope="row">Dez/2025</th><td>0 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>1 foco</td></tr>
+<tr><th scope="row">Abr/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>7 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>13 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>21 focos</td></tr></tbody></table><table id="fallback-DF-annual"><caption>Distrito Federal: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>161 focos</td></tr>
+<tr><th scope="row">2004</th><td>312 focos</td></tr>
+<tr><th scope="row">2005</th><td>140 focos</td></tr>
+<tr><th scope="row">2006</th><td>140 focos</td></tr>
+<tr><th scope="row">2007</th><td>485 focos</td></tr>
+<tr><th scope="row">2008</th><td>201 focos</td></tr>
+<tr><th scope="row">2009</th><td>99 focos</td></tr>
+<tr><th scope="row">2010</th><td>613 focos</td></tr>
+<tr><th scope="row">2011</th><td>270 focos</td></tr>
+<tr><th scope="row">2012</th><td>169 focos</td></tr>
+<tr><th scope="row">2013</th><td>105 focos</td></tr>
+<tr><th scope="row">2014</th><td>241 focos</td></tr>
+<tr><th scope="row">2015</th><td>155 focos</td></tr>
+<tr><th scope="row">2016</th><td>229 focos</td></tr>
+<tr><th scope="row">2017</th><td>287 focos</td></tr>
+<tr><th scope="row">2018</th><td>88 focos</td></tr>
+<tr><th scope="row">2019</th><td>213 focos</td></tr>
+<tr><th scope="row">2020</th><td>196 focos</td></tr>
+<tr><th scope="row">2021</th><td>259 focos</td></tr>
+<tr><th scope="row">2022</th><td>251 focos</td></tr>
+<tr><th scope="row">2023</th><td>89 focos</td></tr>
+<tr><th scope="row">2024</th><td>349 focos</td></tr>
+<tr><th scope="row">2025</th><td>234 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Espírito Santo — distribuição e evolução dos focos</summary><table id="fallback-ES-monthly"><caption>Espírito Santo: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>35 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>10 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>25 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>22 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>46 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>35 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>71 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>80 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>89 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>35 focos</td></tr></tbody></table><table id="fallback-ES-annual"><caption>Espírito Santo: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>976 focos</td></tr>
+<tr><th scope="row">2004</th><td>267 focos</td></tr>
+<tr><th scope="row">2005</th><td>199 focos</td></tr>
+<tr><th scope="row">2006</th><td>431 focos</td></tr>
+<tr><th scope="row">2007</th><td>757 focos</td></tr>
+<tr><th scope="row">2008</th><td>412 focos</td></tr>
+<tr><th scope="row">2009</th><td>239 focos</td></tr>
+<tr><th scope="row">2010</th><td>295 focos</td></tr>
+<tr><th scope="row">2011</th><td>364 focos</td></tr>
+<tr><th scope="row">2012</th><td>384 focos</td></tr>
+<tr><th scope="row">2013</th><td>275 focos</td></tr>
+<tr><th scope="row">2014</th><td>296 focos</td></tr>
+<tr><th scope="row">2015</th><td>940 focos</td></tr>
+<tr><th scope="row">2016</th><td>599 focos</td></tr>
+<tr><th scope="row">2017</th><td>187 focos</td></tr>
+<tr><th scope="row">2018</th><td>205 focos</td></tr>
+<tr><th scope="row">2019</th><td>622 focos</td></tr>
+<tr><th scope="row">2020</th><td>401 focos</td></tr>
+<tr><th scope="row">2021</th><td>549 focos</td></tr>
+<tr><th scope="row">2022</th><td>474 focos</td></tr>
+<tr><th scope="row">2023</th><td>543 focos</td></tr>
+<tr><th scope="row">2024</th><td>662 focos</td></tr>
+<tr><th scope="row">2025</th><td>385 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Goiás — distribuição e evolução dos focos</summary><table id="fallback-GO-monthly"><caption>Goiás: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>1.101 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>194 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>36 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>35 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>26 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>25 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>88 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>136 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>155 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>238 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>738 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>431 focos</td></tr></tbody></table><table id="fallback-GO-annual"><caption>Goiás: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>6.874 focos</td></tr>
+<tr><th scope="row">2004</th><td>9.012 focos</td></tr>
+<tr><th scope="row">2005</th><td>6.128 focos</td></tr>
+<tr><th scope="row">2006</th><td>4.387 focos</td></tr>
+<tr><th scope="row">2007</th><td>12.639 focos</td></tr>
+<tr><th scope="row">2008</th><td>5.240 focos</td></tr>
+<tr><th scope="row">2009</th><td>2.920 focos</td></tr>
+<tr><th scope="row">2010</th><td>13.419 focos</td></tr>
+<tr><th scope="row">2011</th><td>5.766 focos</td></tr>
+<tr><th scope="row">2012</th><td>6.031 focos</td></tr>
+<tr><th scope="row">2013</th><td>3.050 focos</td></tr>
+<tr><th scope="row">2014</th><td>5.897 focos</td></tr>
+<tr><th scope="row">2015</th><td>6.107 focos</td></tr>
+<tr><th scope="row">2016</th><td>4.912 focos</td></tr>
+<tr><th scope="row">2017</th><td>6.428 focos</td></tr>
+<tr><th scope="row">2018</th><td>3.110 focos</td></tr>
+<tr><th scope="row">2019</th><td>7.160 focos</td></tr>
+<tr><th scope="row">2020</th><td>6.008 focos</td></tr>
+<tr><th scope="row">2021</th><td>6.020 focos</td></tr>
+<tr><th scope="row">2022</th><td>4.796 focos</td></tr>
+<tr><th scope="row">2023</th><td>3.160 focos</td></tr>
+<tr><th scope="row">2024</th><td>6.362 focos</td></tr>
+<tr><th scope="row">2025</th><td>4.878 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Maranhão — distribuição e evolução dos focos</summary><table id="fallback-MA-monthly"><caption>Maranhão: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>5.019 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>5.784 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>2.915 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>990 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>97 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>45 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>44 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>294 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>565 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>673 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>1.937 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>2.481 focos</td></tr></tbody></table><table id="fallback-MA-annual"><caption>Maranhão: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>34.548 focos</td></tr>
+<tr><th scope="row">2004</th><td>33.585 focos</td></tr>
+<tr><th scope="row">2005</th><td>33.691 focos</td></tr>
+<tr><th scope="row">2006</th><td>23.302 focos</td></tr>
+<tr><th scope="row">2007</th><td>44.765 focos</td></tr>
+<tr><th scope="row">2008</th><td>22.122 focos</td></tr>
+<tr><th scope="row">2009</th><td>19.132 focos</td></tr>
+<tr><th scope="row">2010</th><td>36.277 focos</td></tr>
+<tr><th scope="row">2011</th><td>19.315 focos</td></tr>
+<tr><th scope="row">2012</th><td>34.299 focos</td></tr>
+<tr><th scope="row">2013</th><td>17.455 focos</td></tr>
+<tr><th scope="row">2014</th><td>24.675 focos</td></tr>
+<tr><th scope="row">2015</th><td>28.436 focos</td></tr>
+<tr><th scope="row">2016</th><td>21.789 focos</td></tr>
+<tr><th scope="row">2017</th><td>25.576 focos</td></tr>
+<tr><th scope="row">2018</th><td>13.892 focos</td></tr>
+<tr><th scope="row">2019</th><td>18.521 focos</td></tr>
+<tr><th scope="row">2020</th><td>16.817 focos</td></tr>
+<tr><th scope="row">2021</th><td>16.077 focos</td></tr>
+<tr><th scope="row">2022</th><td>20.224 focos</td></tr>
+<tr><th scope="row">2023</th><td>21.113 focos</td></tr>
+<tr><th scope="row">2024</th><td>22.879 focos</td></tr>
+<tr><th scope="row">2025</th><td>24.300 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Mato Grosso — distribuição e evolução dos focos</summary><table id="fallback-MT-monthly"><caption>Mato Grosso: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>1.410 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>275 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>205 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>245 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>127 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>164 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>191 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>831 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>1.440 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>746 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>3.691 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>1.964 focos</td></tr></tbody></table><table id="fallback-MT-annual"><caption>Mato Grosso: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>70.560 focos</td></tr>
+<tr><th scope="row">2004</th><td>97.012 focos</td></tr>
+<tr><th scope="row">2005</th><td>72.104 focos</td></tr>
+<tr><th scope="row">2006</th><td>43.479 focos</td></tr>
+<tr><th scope="row">2007</th><td>79.968 focos</td></tr>
+<tr><th scope="row">2008</th><td>29.448 focos</td></tr>
+<tr><th scope="row">2009</th><td>15.059 focos</td></tr>
+<tr><th scope="row">2010</th><td>59.013 focos</td></tr>
+<tr><th scope="row">2011</th><td>17.371 focos</td></tr>
+<tr><th scope="row">2012</th><td>27.953 focos</td></tr>
+<tr><th scope="row">2013</th><td>18.554 focos</td></tr>
+<tr><th scope="row">2014</th><td>24.955 focos</td></tr>
+<tr><th scope="row">2015</th><td>27.741 focos</td></tr>
+<tr><th scope="row">2016</th><td>27.305 focos</td></tr>
+<tr><th scope="row">2017</th><td>30.911 focos</td></tr>
+<tr><th scope="row">2018</th><td>18.032 focos</td></tr>
+<tr><th scope="row">2019</th><td>31.169 focos</td></tr>
+<tr><th scope="row">2020</th><td>47.708 focos</td></tr>
+<tr><th scope="row">2021</th><td>22.520 focos</td></tr>
+<tr><th scope="row">2022</th><td>29.039 focos</td></tr>
+<tr><th scope="row">2023</th><td>21.723 focos</td></tr>
+<tr><th scope="row">2024</th><td>50.551 focos</td></tr>
+<tr><th scope="row">2025</th><td>11.061 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Mato Grosso do Sul — distribuição e evolução dos focos</summary><table id="fallback-MS-monthly"><caption>Mato Grosso do Sul: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>254 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>107 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>60 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>111 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>59 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>43 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>81 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>63 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>71 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>222 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>171 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>99 focos</td></tr></tbody></table><table id="fallback-MS-annual"><caption>Mato Grosso do Sul: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>5.612 focos</td></tr>
+<tr><th scope="row">2004</th><td>8.616 focos</td></tr>
+<tr><th scope="row">2005</th><td>12.904 focos</td></tr>
+<tr><th scope="row">2006</th><td>5.244 focos</td></tr>
+<tr><th scope="row">2007</th><td>11.139 focos</td></tr>
+<tr><th scope="row">2008</th><td>4.830 focos</td></tr>
+<tr><th scope="row">2009</th><td>6.313 focos</td></tr>
+<tr><th scope="row">2010</th><td>7.356 focos</td></tr>
+<tr><th scope="row">2011</th><td>3.731 focos</td></tr>
+<tr><th scope="row">2012</th><td>7.428 focos</td></tr>
+<tr><th scope="row">2013</th><td>3.615 focos</td></tr>
+<tr><th scope="row">2014</th><td>2.214 focos</td></tr>
+<tr><th scope="row">2015</th><td>4.617 focos</td></tr>
+<tr><th scope="row">2016</th><td>6.373 focos</td></tr>
+<tr><th scope="row">2017</th><td>5.737 focos</td></tr>
+<tr><th scope="row">2018</th><td>2.380 focos</td></tr>
+<tr><th scope="row">2019</th><td>11.653 focos</td></tr>
+<tr><th scope="row">2020</th><td>12.080 focos</td></tr>
+<tr><th scope="row">2021</th><td>9.377 focos</td></tr>
+<tr><th scope="row">2022</th><td>2.368 focos</td></tr>
+<tr><th scope="row">2023</th><td>4.529 focos</td></tr>
+<tr><th scope="row">2024</th><td>13.041 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.844 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Minas Gerais — distribuição e evolução dos focos</summary><table id="fallback-MG-monthly"><caption>Minas Gerais: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>2.018 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>433 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>163 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>97 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>74 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>77 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>208 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>166 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>315 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>513 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>1.048 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>956 focos</td></tr></tbody></table><table id="fallback-MG-annual"><caption>Minas Gerais: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>19.426 focos</td></tr>
+<tr><th scope="row">2004</th><td>13.229 focos</td></tr>
+<tr><th scope="row">2005</th><td>13.702 focos</td></tr>
+<tr><th scope="row">2006</th><td>8.832 focos</td></tr>
+<tr><th scope="row">2007</th><td>22.514 focos</td></tr>
+<tr><th scope="row">2008</th><td>11.888 focos</td></tr>
+<tr><th scope="row">2009</th><td>4.936 focos</td></tr>
+<tr><th scope="row">2010</th><td>13.766 focos</td></tr>
+<tr><th scope="row">2011</th><td>11.766 focos</td></tr>
+<tr><th scope="row">2012</th><td>10.108 focos</td></tr>
+<tr><th scope="row">2013</th><td>5.387 focos</td></tr>
+<tr><th scope="row">2014</th><td>11.337 focos</td></tr>
+<tr><th scope="row">2015</th><td>9.490 focos</td></tr>
+<tr><th scope="row">2016</th><td>6.482 focos</td></tr>
+<tr><th scope="row">2017</th><td>8.383 focos</td></tr>
+<tr><th scope="row">2018</th><td>4.627 focos</td></tr>
+<tr><th scope="row">2019</th><td>9.999 focos</td></tr>
+<tr><th scope="row">2020</th><td>8.737 focos</td></tr>
+<tr><th scope="row">2021</th><td>12.110 focos</td></tr>
+<tr><th scope="row">2022</th><td>7.790 focos</td></tr>
+<tr><th scope="row">2023</th><td>6.498 focos</td></tr>
+<tr><th scope="row">2024</th><td>11.787 focos</td></tr>
+<tr><th scope="row">2025</th><td>8.716 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Pará — distribuição e evolução dos focos</summary><table id="fallback-PA-monthly"><caption>Pará: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>3.682 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>5.659 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>2.705 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>1.042 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>206 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>108 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>18 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>233 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>285 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>640 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>3.962 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>5.224 focos</td></tr></tbody></table><table id="fallback-PA-annual"><caption>Pará: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>53.040 focos</td></tr>
+<tr><th scope="row">2004</th><td>74.214 focos</td></tr>
+<tr><th scope="row">2005</th><td>71.477 focos</td></tr>
+<tr><th scope="row">2006</th><td>55.840 focos</td></tr>
+<tr><th scope="row">2007</th><td>68.491 focos</td></tr>
+<tr><th scope="row">2008</th><td>48.449 focos</td></tr>
+<tr><th scope="row">2009</th><td>41.664 focos</td></tr>
+<tr><th scope="row">2010</th><td>57.196 focos</td></tr>
+<tr><th scope="row">2011</th><td>26.563 focos</td></tr>
+<tr><th scope="row">2012</th><td>37.221 focos</td></tr>
+<tr><th scope="row">2013</th><td>24.046 focos</td></tr>
+<tr><th scope="row">2014</th><td>35.526 focos</td></tr>
+<tr><th scope="row">2015</th><td>43.164 focos</td></tr>
+<tr><th scope="row">2016</th><td>29.724 focos</td></tr>
+<tr><th scope="row">2017</th><td>49.770 focos</td></tr>
+<tr><th scope="row">2018</th><td>22.080 focos</td></tr>
+<tr><th scope="row">2019</th><td>30.165 focos</td></tr>
+<tr><th scope="row">2020</th><td>38.603 focos</td></tr>
+<tr><th scope="row">2021</th><td>22.876 focos</td></tr>
+<tr><th scope="row">2022</th><td>41.421 focos</td></tr>
+<tr><th scope="row">2023</th><td>41.715 focos</td></tr>
+<tr><th scope="row">2024</th><td>56.070 focos</td></tr>
+<tr><th scope="row">2025</th><td>18.367 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Paraíba — distribuição e evolução dos focos</summary><table id="fallback-PB-monthly"><caption>Paraíba: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>235 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>319 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>173 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>76 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>27 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>21 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>3 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>4 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>5 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>9 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>31 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>76 focos</td></tr></tbody></table><table id="fallback-PB-annual"><caption>Paraíba: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>1.562 focos</td></tr>
+<tr><th scope="row">2004</th><td>1.108 focos</td></tr>
+<tr><th scope="row">2005</th><td>1.004 focos</td></tr>
+<tr><th scope="row">2006</th><td>1.014 focos</td></tr>
+<tr><th scope="row">2007</th><td>987 focos</td></tr>
+<tr><th scope="row">2008</th><td>867 focos</td></tr>
+<tr><th scope="row">2009</th><td>1.056 focos</td></tr>
+<tr><th scope="row">2010</th><td>956 focos</td></tr>
+<tr><th scope="row">2011</th><td>942 focos</td></tr>
+<tr><th scope="row">2012</th><td>548 focos</td></tr>
+<tr><th scope="row">2013</th><td>306 focos</td></tr>
+<tr><th scope="row">2014</th><td>395 focos</td></tr>
+<tr><th scope="row">2015</th><td>540 focos</td></tr>
+<tr><th scope="row">2016</th><td>708 focos</td></tr>
+<tr><th scope="row">2017</th><td>363 focos</td></tr>
+<tr><th scope="row">2018</th><td>759 focos</td></tr>
+<tr><th scope="row">2019</th><td>1.184 focos</td></tr>
+<tr><th scope="row">2020</th><td>910 focos</td></tr>
+<tr><th scope="row">2021</th><td>907 focos</td></tr>
+<tr><th scope="row">2022</th><td>800 focos</td></tr>
+<tr><th scope="row">2023</th><td>951 focos</td></tr>
+<tr><th scope="row">2024</th><td>1.074 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.061 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Paraná — distribuição e evolução dos focos</summary><table id="fallback-PR-monthly"><caption>Paraná: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>131 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>86 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>67 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>80 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>23 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>91 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>132 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>27 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>39 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>98 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>75 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>43 focos</td></tr></tbody></table><table id="fallback-PR-annual"><caption>Paraná: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>10.866 focos</td></tr>
+<tr><th scope="row">2004</th><td>7.132 focos</td></tr>
+<tr><th scope="row">2005</th><td>5.023 focos</td></tr>
+<tr><th scope="row">2006</th><td>5.880 focos</td></tr>
+<tr><th scope="row">2007</th><td>4.998 focos</td></tr>
+<tr><th scope="row">2008</th><td>3.662 focos</td></tr>
+<tr><th scope="row">2009</th><td>3.025 focos</td></tr>
+<tr><th scope="row">2010</th><td>3.398 focos</td></tr>
+<tr><th scope="row">2011</th><td>3.388 focos</td></tr>
+<tr><th scope="row">2012</th><td>2.668 focos</td></tr>
+<tr><th scope="row">2013</th><td>2.531 focos</td></tr>
+<tr><th scope="row">2014</th><td>2.233 focos</td></tr>
+<tr><th scope="row">2015</th><td>2.087 focos</td></tr>
+<tr><th scope="row">2016</th><td>4.151 focos</td></tr>
+<tr><th scope="row">2017</th><td>3.592 focos</td></tr>
+<tr><th scope="row">2018</th><td>2.511 focos</td></tr>
+<tr><th scope="row">2019</th><td>3.314 focos</td></tr>
+<tr><th scope="row">2020</th><td>3.519 focos</td></tr>
+<tr><th scope="row">2021</th><td>3.698 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.771 focos</td></tr>
+<tr><th scope="row">2023</th><td>1.439 focos</td></tr>
+<tr><th scope="row">2024</th><td>2.704 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.812 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Pernambuco — distribuição e evolução dos focos</summary><table id="fallback-PE-monthly"><caption>Pernambuco: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>846 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>536 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>222 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>146 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>77 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>39 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>35 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>19 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>69 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>72 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>178 focos</td></tr></tbody></table><table id="fallback-PE-annual"><caption>Pernambuco: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>2.770 focos</td></tr>
+<tr><th scope="row">2004</th><td>2.003 focos</td></tr>
+<tr><th scope="row">2005</th><td>1.811 focos</td></tr>
+<tr><th scope="row">2006</th><td>1.759 focos</td></tr>
+<tr><th scope="row">2007</th><td>2.157 focos</td></tr>
+<tr><th scope="row">2008</th><td>1.620 focos</td></tr>
+<tr><th scope="row">2009</th><td>1.714 focos</td></tr>
+<tr><th scope="row">2010</th><td>1.919 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.722 focos</td></tr>
+<tr><th scope="row">2012</th><td>1.185 focos</td></tr>
+<tr><th scope="row">2013</th><td>696 focos</td></tr>
+<tr><th scope="row">2014</th><td>593 focos</td></tr>
+<tr><th scope="row">2015</th><td>950 focos</td></tr>
+<tr><th scope="row">2016</th><td>874 focos</td></tr>
+<tr><th scope="row">2017</th><td>563 focos</td></tr>
+<tr><th scope="row">2018</th><td>722 focos</td></tr>
+<tr><th scope="row">2019</th><td>840 focos</td></tr>
+<tr><th scope="row">2020</th><td>1.017 focos</td></tr>
+<tr><th scope="row">2021</th><td>1.192 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.155 focos</td></tr>
+<tr><th scope="row">2023</th><td>1.834 focos</td></tr>
+<tr><th scope="row">2024</th><td>2.057 focos</td></tr>
+<tr><th scope="row">2025</th><td>2.335 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Piauí — distribuição e evolução dos focos</summary><table id="fallback-PI-monthly"><caption>Piauí: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>3.709 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>1.941 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>703 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>251 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>32 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>33 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>59 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>129 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>209 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>291 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>1.024 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>1.848 focos</td></tr></tbody></table><table id="fallback-PI-annual"><caption>Piauí: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>10.858 focos</td></tr>
+<tr><th scope="row">2004</th><td>11.186 focos</td></tr>
+<tr><th scope="row">2005</th><td>11.874 focos</td></tr>
+<tr><th scope="row">2006</th><td>7.867 focos</td></tr>
+<tr><th scope="row">2007</th><td>17.978 focos</td></tr>
+<tr><th scope="row">2008</th><td>6.656 focos</td></tr>
+<tr><th scope="row">2009</th><td>6.541 focos</td></tr>
+<tr><th scope="row">2010</th><td>19.192 focos</td></tr>
+<tr><th scope="row">2011</th><td>11.163 focos</td></tr>
+<tr><th scope="row">2012</th><td>14.537 focos</td></tr>
+<tr><th scope="row">2013</th><td>6.484 focos</td></tr>
+<tr><th scope="row">2014</th><td>9.210 focos</td></tr>
+<tr><th scope="row">2015</th><td>13.839 focos</td></tr>
+<tr><th scope="row">2016</th><td>8.303 focos</td></tr>
+<tr><th scope="row">2017</th><td>7.657 focos</td></tr>
+<tr><th scope="row">2018</th><td>9.431 focos</td></tr>
+<tr><th scope="row">2019</th><td>10.894 focos</td></tr>
+<tr><th scope="row">2020</th><td>9.317 focos</td></tr>
+<tr><th scope="row">2021</th><td>12.745 focos</td></tr>
+<tr><th scope="row">2022</th><td>10.866 focos</td></tr>
+<tr><th scope="row">2023</th><td>12.957 focos</td></tr>
+<tr><th scope="row">2024</th><td>10.587 focos</td></tr>
+<tr><th scope="row">2025</th><td>11.806 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Rio de Janeiro — distribuição e evolução dos focos</summary><table id="fallback-RJ-monthly"><caption>Rio de Janeiro: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>85 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>20 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>12 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>20 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>1 foco</td></tr>
+<tr><th scope="row">Mar/2026</th><td>2 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>6 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>93 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>75 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>15 focos</td></tr></tbody></table><table id="fallback-RJ-annual"><caption>Rio de Janeiro: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>1.111 focos</td></tr>
+<tr><th scope="row">2004</th><td>750 focos</td></tr>
+<tr><th scope="row">2005</th><td>687 focos</td></tr>
+<tr><th scope="row">2006</th><td>1.172 focos</td></tr>
+<tr><th scope="row">2007</th><td>1.369 focos</td></tr>
+<tr><th scope="row">2008</th><td>590 focos</td></tr>
+<tr><th scope="row">2009</th><td>422 focos</td></tr>
+<tr><th scope="row">2010</th><td>1.137 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.101 focos</td></tr>
+<tr><th scope="row">2012</th><td>551 focos</td></tr>
+<tr><th scope="row">2013</th><td>392 focos</td></tr>
+<tr><th scope="row">2014</th><td>1.283 focos</td></tr>
+<tr><th scope="row">2015</th><td>542 focos</td></tr>
+<tr><th scope="row">2016</th><td>677 focos</td></tr>
+<tr><th scope="row">2017</th><td>959 focos</td></tr>
+<tr><th scope="row">2018</th><td>246 focos</td></tr>
+<tr><th scope="row">2019</th><td>712 focos</td></tr>
+<tr><th scope="row">2020</th><td>693 focos</td></tr>
+<tr><th scope="row">2021</th><td>502 focos</td></tr>
+<tr><th scope="row">2022</th><td>747 focos</td></tr>
+<tr><th scope="row">2023</th><td>404 focos</td></tr>
+<tr><th scope="row">2024</th><td>1.200 focos</td></tr>
+<tr><th scope="row">2025</th><td>512 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Rio Grande do Norte — distribuição e evolução dos focos</summary><table id="fallback-RN-monthly"><caption>Rio Grande do Norte: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>149 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>155 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>105 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>81 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>28 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>34 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>6 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>6 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>8 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>33 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>51 focos</td></tr></tbody></table><table id="fallback-RN-annual"><caption>Rio Grande do Norte: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>1.547 focos</td></tr>
+<tr><th scope="row">2004</th><td>825 focos</td></tr>
+<tr><th scope="row">2005</th><td>1.001 focos</td></tr>
+<tr><th scope="row">2006</th><td>734 focos</td></tr>
+<tr><th scope="row">2007</th><td>774 focos</td></tr>
+<tr><th scope="row">2008</th><td>597 focos</td></tr>
+<tr><th scope="row">2009</th><td>659 focos</td></tr>
+<tr><th scope="row">2010</th><td>628 focos</td></tr>
+<tr><th scope="row">2011</th><td>464 focos</td></tr>
+<tr><th scope="row">2012</th><td>432 focos</td></tr>
+<tr><th scope="row">2013</th><td>250 focos</td></tr>
+<tr><th scope="row">2014</th><td>317 focos</td></tr>
+<tr><th scope="row">2015</th><td>402 focos</td></tr>
+<tr><th scope="row">2016</th><td>378 focos</td></tr>
+<tr><th scope="row">2017</th><td>351 focos</td></tr>
+<tr><th scope="row">2018</th><td>456 focos</td></tr>
+<tr><th scope="row">2019</th><td>730 focos</td></tr>
+<tr><th scope="row">2020</th><td>664 focos</td></tr>
+<tr><th scope="row">2021</th><td>563 focos</td></tr>
+<tr><th scope="row">2022</th><td>411 focos</td></tr>
+<tr><th scope="row">2023</th><td>579 focos</td></tr>
+<tr><th scope="row">2024</th><td>624 focos</td></tr>
+<tr><th scope="row">2025</th><td>639 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Rio Grande do Sul — distribuição e evolução dos focos</summary><table id="fallback-RS-monthly"><caption>Rio Grande do Sul: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>76 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>40 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>50 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>31 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>51 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>53 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>52 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>53 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>165 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>132 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>76 focos</td></tr></tbody></table><table id="fallback-RS-annual"><caption>Rio Grande do Sul: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>6.132 focos</td></tr>
+<tr><th scope="row">2004</th><td>4.729 focos</td></tr>
+<tr><th scope="row">2005</th><td>2.867 focos</td></tr>
+<tr><th scope="row">2006</th><td>4.116 focos</td></tr>
+<tr><th scope="row">2007</th><td>2.822 focos</td></tr>
+<tr><th scope="row">2008</th><td>2.360 focos</td></tr>
+<tr><th scope="row">2009</th><td>2.988 focos</td></tr>
+<tr><th scope="row">2010</th><td>2.515 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.979 focos</td></tr>
+<tr><th scope="row">2012</th><td>2.322 focos</td></tr>
+<tr><th scope="row">2013</th><td>1.547 focos</td></tr>
+<tr><th scope="row">2014</th><td>2.104 focos</td></tr>
+<tr><th scope="row">2015</th><td>1.278 focos</td></tr>
+<tr><th scope="row">2016</th><td>3.527 focos</td></tr>
+<tr><th scope="row">2017</th><td>2.218 focos</td></tr>
+<tr><th scope="row">2018</th><td>1.615 focos</td></tr>
+<tr><th scope="row">2019</th><td>3.196 focos</td></tr>
+<tr><th scope="row">2020</th><td>3.612 focos</td></tr>
+<tr><th scope="row">2021</th><td>2.445 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.635 focos</td></tr>
+<tr><th scope="row">2023</th><td>1.825 focos</td></tr>
+<tr><th scope="row">2024</th><td>1.572 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.620 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Rondônia — distribuição e evolução dos focos</summary><table id="fallback-RO-monthly"><caption>Rondônia: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>360 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>123 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>9 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>11 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>5 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>5 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>0 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>32 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>54 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>402 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>515 focos</td></tr></tbody></table><table id="fallback-RO-annual"><caption>Rondônia: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>30.557 focos</td></tr>
+<tr><th scope="row">2004</th><td>40.881 focos</td></tr>
+<tr><th scope="row">2005</th><td>41.649 focos</td></tr>
+<tr><th scope="row">2006</th><td>25.702 focos</td></tr>
+<tr><th scope="row">2007</th><td>27.500 focos</td></tr>
+<tr><th scope="row">2008</th><td>11.560 focos</td></tr>
+<tr><th scope="row">2009</th><td>5.401 focos</td></tr>
+<tr><th scope="row">2010</th><td>16.970 focos</td></tr>
+<tr><th scope="row">2011</th><td>6.080 focos</td></tr>
+<tr><th scope="row">2012</th><td>8.312 focos</td></tr>
+<tr><th scope="row">2013</th><td>4.613 focos</td></tr>
+<tr><th scope="row">2014</th><td>7.334 focos</td></tr>
+<tr><th scope="row">2015</th><td>13.113 focos</td></tr>
+<tr><th scope="row">2016</th><td>11.474 focos</td></tr>
+<tr><th scope="row">2017</th><td>11.313 focos</td></tr>
+<tr><th scope="row">2018</th><td>10.255 focos</td></tr>
+<tr><th scope="row">2019</th><td>11.230 focos</td></tr>
+<tr><th scope="row">2020</th><td>11.145 focos</td></tr>
+<tr><th scope="row">2021</th><td>10.030 focos</td></tr>
+<tr><th scope="row">2022</th><td>12.460 focos</td></tr>
+<tr><th scope="row">2023</th><td>7.417 focos</td></tr>
+<tr><th scope="row">2024</th><td>10.692 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.879 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Roraima — distribuição e evolução dos focos</summary><table id="fallback-RR-monthly"><caption>Roraima: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>128 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>180 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>171 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>219 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>493 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>602 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>257 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>32 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>6 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>40 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>110 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>216 focos</td></tr></tbody></table><table id="fallback-RR-annual"><caption>Roraima: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>3.987 focos</td></tr>
+<tr><th scope="row">2004</th><td>2.221 focos</td></tr>
+<tr><th scope="row">2005</th><td>1.461 focos</td></tr>
+<tr><th scope="row">2006</th><td>2.189 focos</td></tr>
+<tr><th scope="row">2007</th><td>3.244 focos</td></tr>
+<tr><th scope="row">2008</th><td>1.950 focos</td></tr>
+<tr><th scope="row">2009</th><td>2.359 focos</td></tr>
+<tr><th scope="row">2010</th><td>1.918 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.475 focos</td></tr>
+<tr><th scope="row">2012</th><td>1.376 focos</td></tr>
+<tr><th scope="row">2013</th><td>1.395 focos</td></tr>
+<tr><th scope="row">2014</th><td>2.519 focos</td></tr>
+<tr><th scope="row">2015</th><td>2.452 focos</td></tr>
+<tr><th scope="row">2016</th><td>3.870 focos</td></tr>
+<tr><th scope="row">2017</th><td>1.565 focos</td></tr>
+<tr><th scope="row">2018</th><td>2.383 focos</td></tr>
+<tr><th scope="row">2019</th><td>4.784 focos</td></tr>
+<tr><th scope="row">2020</th><td>1.930 focos</td></tr>
+<tr><th scope="row">2021</th><td>989 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.223 focos</td></tr>
+<tr><th scope="row">2023</th><td>2.659 focos</td></tr>
+<tr><th scope="row">2024</th><td>5.358 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.539 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Santa Catarina — distribuição e evolução dos focos</summary><table id="fallback-SC-monthly"><caption>Santa Catarina: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>128 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>50 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>50 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>97 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>25 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>119 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>109 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>29 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>57 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>149 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>74 focos</td></tr></tbody></table><table id="fallback-SC-annual"><caption>Santa Catarina: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>7.648 focos</td></tr>
+<tr><th scope="row">2004</th><td>5.030 focos</td></tr>
+<tr><th scope="row">2005</th><td>3.582 focos</td></tr>
+<tr><th scope="row">2006</th><td>4.986 focos</td></tr>
+<tr><th scope="row">2007</th><td>2.689 focos</td></tr>
+<tr><th scope="row">2008</th><td>2.245 focos</td></tr>
+<tr><th scope="row">2009</th><td>2.121 focos</td></tr>
+<tr><th scope="row">2010</th><td>2.163 focos</td></tr>
+<tr><th scope="row">2011</th><td>1.772 focos</td></tr>
+<tr><th scope="row">2012</th><td>1.820 focos</td></tr>
+<tr><th scope="row">2013</th><td>1.663 focos</td></tr>
+<tr><th scope="row">2014</th><td>1.180 focos</td></tr>
+<tr><th scope="row">2015</th><td>906 focos</td></tr>
+<tr><th scope="row">2016</th><td>2.561 focos</td></tr>
+<tr><th scope="row">2017</th><td>2.005 focos</td></tr>
+<tr><th scope="row">2018</th><td>1.417 focos</td></tr>
+<tr><th scope="row">2019</th><td>1.804 focos</td></tr>
+<tr><th scope="row">2020</th><td>2.425 focos</td></tr>
+<tr><th scope="row">2021</th><td>2.351 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.360 focos</td></tr>
+<tr><th scope="row">2023</th><td>1.341 focos</td></tr>
+<tr><th scope="row">2024</th><td>1.801 focos</td></tr>
+<tr><th scope="row">2025</th><td>1.478 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>São Paulo — distribuição e evolução dos focos</summary><table id="fallback-SP-monthly"><caption>São Paulo: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>228 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>59 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>44 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>33 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>29 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>39 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>54 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>43 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>58 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>103 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>171 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>45 focos</td></tr></tbody></table><table id="fallback-SP-annual"><caption>São Paulo: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>5.597 focos</td></tr>
+<tr><th scope="row">2004</th><td>4.333 focos</td></tr>
+<tr><th scope="row">2005</th><td>3.832 focos</td></tr>
+<tr><th scope="row">2006</th><td>5.367 focos</td></tr>
+<tr><th scope="row">2007</th><td>4.476 focos</td></tr>
+<tr><th scope="row">2008</th><td>2.796 focos</td></tr>
+<tr><th scope="row">2009</th><td>1.763 focos</td></tr>
+<tr><th scope="row">2010</th><td>7.291 focos</td></tr>
+<tr><th scope="row">2011</th><td>4.183 focos</td></tr>
+<tr><th scope="row">2012</th><td>2.662 focos</td></tr>
+<tr><th scope="row">2013</th><td>2.388 focos</td></tr>
+<tr><th scope="row">2014</th><td>4.484 focos</td></tr>
+<tr><th scope="row">2015</th><td>1.808 focos</td></tr>
+<tr><th scope="row">2016</th><td>3.186 focos</td></tr>
+<tr><th scope="row">2017</th><td>3.902 focos</td></tr>
+<tr><th scope="row">2018</th><td>3.019 focos</td></tr>
+<tr><th scope="row">2019</th><td>3.074 focos</td></tr>
+<tr><th scope="row">2020</th><td>6.123 focos</td></tr>
+<tr><th scope="row">2021</th><td>5.469 focos</td></tr>
+<tr><th scope="row">2022</th><td>1.599 focos</td></tr>
+<tr><th scope="row">2023</th><td>1.666 focos</td></tr>
+<tr><th scope="row">2024</th><td>8.712 focos</td></tr>
+<tr><th scope="row">2025</th><td>2.376 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Sergipe — distribuição e evolução dos focos</summary><table id="fallback-SE-monthly"><caption>Sergipe: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>1 foco</td></tr>
+<tr><th scope="row">Nov/2025</th><td>5 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>15 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>43 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>24 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>16 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>7 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>1 foco</td></tr>
+<tr><th scope="row">Jul/2026</th><td>4 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>9 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>9 focos</td></tr></tbody></table><table id="fallback-SE-annual"><caption>Sergipe: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>468 focos</td></tr>
+<tr><th scope="row">2004</th><td>288 focos</td></tr>
+<tr><th scope="row">2005</th><td>293 focos</td></tr>
+<tr><th scope="row">2006</th><td>226 focos</td></tr>
+<tr><th scope="row">2007</th><td>191 focos</td></tr>
+<tr><th scope="row">2008</th><td>313 focos</td></tr>
+<tr><th scope="row">2009</th><td>253 focos</td></tr>
+<tr><th scope="row">2010</th><td>165 focos</td></tr>
+<tr><th scope="row">2011</th><td>231 focos</td></tr>
+<tr><th scope="row">2012</th><td>251 focos</td></tr>
+<tr><th scope="row">2013</th><td>174 focos</td></tr>
+<tr><th scope="row">2014</th><td>89 focos</td></tr>
+<tr><th scope="row">2015</th><td>241 focos</td></tr>
+<tr><th scope="row">2016</th><td>134 focos</td></tr>
+<tr><th scope="row">2017</th><td>77 focos</td></tr>
+<tr><th scope="row">2018</th><td>140 focos</td></tr>
+<tr><th scope="row">2019</th><td>81 focos</td></tr>
+<tr><th scope="row">2020</th><td>77 focos</td></tr>
+<tr><th scope="row">2021</th><td>132 focos</td></tr>
+<tr><th scope="row">2022</th><td>85 focos</td></tr>
+<tr><th scope="row">2023</th><td>151 focos</td></tr>
+<tr><th scope="row">2024</th><td>190 focos</td></tr>
+<tr><th scope="row">2025</th><td>157 focos</td></tr></tbody></table></details>
+<details class="data-table-disclosure"><summary>Tocantins — distribuição e evolução dos focos</summary><table id="fallback-TO-monthly"><caption>Tocantins: distribuição mensal out/2025–set/2026 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Mês</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">Out/2025</th><td>2.428 focos</td></tr>
+<tr><th scope="row">Nov/2025</th><td>803 focos</td></tr>
+<tr><th scope="row">Dez/2025</th><td>127 focos</td></tr>
+<tr><th scope="row">Jan/2026</th><td>123 focos</td></tr>
+<tr><th scope="row">Fev/2026</th><td>36 focos</td></tr>
+<tr><th scope="row">Mar/2026</th><td>38 focos</td></tr>
+<tr><th scope="row">Abr/2026</th><td>150 focos</td></tr>
+<tr><th scope="row">Mai/2026</th><td>1.035 focos</td></tr>
+<tr><th scope="row">Jun/2026</th><td>1.109 focos</td></tr>
+<tr><th scope="row">Jul/2026</th><td>1.283 focos</td></tr>
+<tr><th scope="row">Ago/2026</th><td>1.925 focos</td></tr>
+<tr><th scope="row">Set/2026</th><td>1.934 focos</td></tr></tbody></table><table id="fallback-TO-annual"><caption>Tocantins: histórico anual de 2003–2025 — número de focos detectados pelo satélite de referência</caption><thead><tr><th scope="col">Ano</th><th scope="col">Focos detectados</th></tr></thead><tbody><tr><th scope="row">2003</th><td>12.124 focos</td></tr>
+<tr><th scope="row">2004</th><td>15.147 focos</td></tr>
+<tr><th scope="row">2005</th><td>16.214 focos</td></tr>
+<tr><th scope="row">2006</th><td>10.299 focos</td></tr>
+<tr><th scope="row">2007</th><td>25.389 focos</td></tr>
+<tr><th scope="row">2008</th><td>10.753 focos</td></tr>
+<tr><th scope="row">2009</th><td>6.428 focos</td></tr>
+<tr><th scope="row">2010</th><td>29.100 focos</td></tr>
+<tr><th scope="row">2011</th><td>10.637 focos</td></tr>
+<tr><th scope="row">2012</th><td>19.044 focos</td></tr>
+<tr><th scope="row">2013</th><td>9.935 focos</td></tr>
+<tr><th scope="row">2014</th><td>14.075 focos</td></tr>
+<tr><th scope="row">2015</th><td>15.705 focos</td></tr>
+<tr><th scope="row">2016</th><td>14.494 focos</td></tr>
+<tr><th scope="row">2017</th><td>15.673 focos</td></tr>
+<tr><th scope="row">2018</th><td>8.033 focos</td></tr>
+<tr><th scope="row">2019</th><td>13.625 focos</td></tr>
+<tr><th scope="row">2020</th><td>12.093 focos</td></tr>
+<tr><th scope="row">2021</th><td>10.007 focos</td></tr>
+<tr><th scope="row">2022</th><td>12.145 focos</td></tr>
+<tr><th scope="row">2023</th><td>9.641 focos</td></tr>
+<tr><th scope="row">2024</th><td>17.251 focos</td></tr>
+<tr><th scope="row">2025</th><td>11.548 focos</td></tr></tbody></table></details>
+<p class="data-source">Fonte: <a href="https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/">INPE — Programa Queimadas</a> · Satélite de referência AQUA_M-T · Série anual: 2003–2025; meses recentes até set/2026 · Agregação própria · Acesso em: 19 out. 2026 · <a href="https://data.inpe.br/queimadas/faq/">Referência e condições de uso</a>.</p>
+</div>
+<!-- FOCOS-ALTERNATIVA:FIM -->
+      </noscript>
+
+    </div>
+  </section>
+  <section class="data-section" id="metodologia" aria-labelledby="metodologia-title" tabindex="-1">
+    <div class="container data-reading">
+      <h2 id="metodologia-title">Entenda os dados</h2>
+      <h3>O que significa área queimada?</h3>
+<p>A área queimada corresponde à extensão da superfície onde foram identificadas marcas da passagem do fogo, conhecidas como cicatrizes de queimada.</p>
+<p>O Monitor do Fogo, do MapBiomas, mapeia cicatrizes mensalmente com imagens de satélite. Nesta página, o acumulado de área queimada é a soma das áreas mensais publicadas entre out/2025 e set/2026. Uma mesma área pode contribuir em mais de um mês; esse acumulado difere da extensão territorial atingida pelo menos uma vez.</p>
+<p>Os resultados são apresentados em hectares. <strong>Um hectare equivale a 10 mil metros quadrados</strong>, a área de um terreno quadrado de 100 metros de lado.</p>
+<h3>Área queimada é o mesmo que foco de fogo?</h3>
+<p>A <strong>área queimada</strong> representa a extensão territorial identificada como atingida pelo fogo. Já um <strong>foco de fogo</strong> é uma detecção de fogo ativo realizada por sensores de satélite, como aqueles utilizados pelo Programa Queimadas do INPE.</p>
+<p>Um incêndio pode produzir diversas detecções. Por isso, a quantidade de focos não equivale à quantidade de incêndios nem permite calcular hectares queimados. Nesta página, o MapBiomas informa áreas em hectares, enquanto o INPE informa contagens de detecções.</p>
+<h3>Os satélites identificam todas as áreas queimadas?</h3>
+<p>Não necessariamente. A cobertura de nuvens, a resolução das imagens, as características das marcas do fogo e os métodos utilizados podem limitar a identificação de áreas queimadas. Os resultados estão sujeitos a essas limitações e não representam um registro completo de todas as ocorrências.</p>
+<p>Os focos abrangem out/2025–set/2026 e cinco períodos completos de outubro a setembro. Nos arquivos oficiais, não há registros AQUA_M-T em 3 de maio, 10 e 22 de julho de 2026; isso não comprova ausência de fogo nessas datas. Os totais usam somente as detecções disponíveis, sem estimativas.</p>
+<h3>Por que comparar com uma média anual?</h3>
+<p>A média anual de referência usa seis períodos completos de outubro a setembro: de out/2019–set/2020 até out/2024–set/2025. Os seis acumulados são somados e divididos por seis. O intervalo de referência é out/2019–set/2025 e exclui os 12 meses recentes.</p>
+<p>O acumulado recente e a média utilizam o mesmo produto e a mesma forma de agregação, com 12 meses em cada período. Assim, a comparação considera a mesma sequência de meses. O gráfico de evolução dos focos apresenta cinco períodos de 12 meses; a contagem de detecções é um indicador distinto da área queimada.</p>
+<p>Diferenças entre anos ou em relação à média não explicam, por si só, as causas das queimadas nem demonstram uma tendência permanente. A extensão territorial, as características ecológicas e a recorrência do fogo também precisam ser consideradas; totais absolutos não constituem uma classificação de risco ou de gravidade ambiental.</p>
+      <p class="data-note">Recorte principal: out/2025–set/2026. Dados preparados localmente, sem atualização em tempo real.</p>
+    </div>
+  </section>
+</main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__layout container">
+        <div class="site-footer__groups">
+          <div class="site-footer__identity">
+            <svg class="site-footer__mark" width="34" height="40" viewBox="0 0 34 40" fill="none" aria-hidden="true" focusable="false">
+              <path d="M17 3C18 12 29 15 29 25a12 12 0 0 1-24 0c0-5 3-9 6-12 0 5 2 7 4 8 3-5 4-11 2-18Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M17 34V23m0 6-5-4m5 1 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <h2>Conscientiza <span>Queimadas</span></h2>
+            <p>Informação e prevenção para uma relação mais consciente com o fogo.</p>
+          </div>
+
+          <nav aria-labelledby="footer-navigation-title">
+            <h3 id="footer-navigation-title">Navegação</h3>
+            <ul>
+              <li><a href="#inicio">Voltar ao topo</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__institutional">
+            <h3>Institucional</h3>
+            <ul>
+              <li>Sobre o projeto</li>
+              <li>Fontes e créditos</li>
+              <li>Feedback</li>
+            </ul>
+            <p class="site-footer__availability">Conteúdos ainda não disponíveis.</p>
+          </div>
+
+          <div class="site-footer__academic">
+            <h3>Atividade acadêmica</h3>
+            <p>Projeto desenvolvido como parte da Atividade Extensionista III da UNINTER.</p>
+            <p class="site-footer__location">
+              <svg class="site-footer__location-mark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="2.5"/>
+              </svg>
+              <span>Itaguaçu — Espírito Santo</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="site-footer__landscape" aria-hidden="true">
+          <img src="./src/footer-background.webp" width="2172" height="724" alt="" decoding="async" fetchpriority="low">
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Conscientiza Queimadas</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
