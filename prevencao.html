@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style>
     <meta name="theme-color" content="#101a17">
     <meta name="description" content="Como prevenir queimadas, agir com segurança diante de incêndios e reduzir a exposição à fumaça. Orientações e canais oficiais.">
     <title>Prevenção — Conscientiza Queimadas</title>
     <link rel="icon" type="image/svg+xml" href="./src/favicon.svg">
     <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./src/paginas.css">
     <script src="./src/navigation.js" defer></script>
     <link rel="stylesheet" href="./src/queimadas.css">
     <link rel="stylesheet" href="./src/prevencao.css">
@@ -43,15 +45,29 @@
       </header>
 
 <main id="conteudo" tabindex="-1">
-  <section class="reading-intro" aria-labelledby="prevencao-title">
-    <div class="container reading-column">
+  <section class="reading-intro page-intro" aria-labelledby="prevencao-title">
+    <div class="container page-intro__layout">
+      <div class="page-intro__text">
       <h1 id="prevencao-title">Prevenir queimadas é <span>proteger vidas.</span></h1>
       <p>A prevenção começa antes das chamas. Atitudes simples no dia a dia, cuidados com a vegetação e atenção às condições do ambiente ajudam a reduzir o risco de incêndios.</p>
       <p>Conheça orientações para evitar queimadas, agir com segurança diante do fogo e proteger a saúde dos efeitos da fumaça.</p>
       <div class="prevention-emergency">
         <p><strong>Viu um incêndio?</strong> Afaste-se do perigo e ligue <a href="tel:193">193</a>.</p>
-        <a class="prevention-shortcut" href="#encontrar-incendio">O que fazer ao encontrar um incêndio <span aria-hidden="true">↓</span></a>
+        <a class="prevention-shortcut" href="#encontrar-incendio"><span>O que fazer ao encontrar um incêndio</span> <span aria-hidden="true">↓</span></a>
       </div>
+      </div>
+      <svg class="page-intro__art" viewBox="0 0 360 260" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 220c40-36 67-22 108-33 51-14 104-6 192 33-94 29-205 29-300 0Z" fill="#20372b"/>
+        <path d="M180 26c25 17 50 25 79 29v67c0 49-31 82-79 109-48-27-79-60-79-109V55c29-4 54-12 79-29Z" fill="#182c23" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M180 47c19 12 39 19 60 23v51c0 38-22 65-60 89-38-24-60-51-60-89V70c21-4 41-11 60-23Z" stroke="currentColor" stroke-opacity=".25" stroke-width="1.5"/>
+        <path d="M180 177v-65m0 37c-31 0-44-18-44-41 27-1 44 13 44 41Zm0-13c31 0 44-18 44-41-27-1-44 13-44 41Z" fill="#36513e"/>
+        <path d="M180 177v-65m0 37-28-25m28 12 28-25" stroke="#c1c9be" stroke-width="2" stroke-linecap="round"/>
+        <g stroke="#c1c9be" stroke-width="2" stroke-linecap="round">
+          <path d="M61 211v-60m0 26c-18-1-27-12-27-28 18 0 27 10 27 28Zm0 10c19-1 29-13 29-29-19 0-29 11-29 29Z"/>
+          <path d="M300 211v-69m0 22-15-14m15 34 18-17m-35 49 6-17m18 18-4-14"/>
+          <path d="M42 221c37-7 70-10 103-10m70 0c35 1 70 5 105 12" opacity=".6"/>
+        </g>
+      </svg>
     </div>
   </section>
 
@@ -218,7 +234,7 @@
         </div>
 
         <div class="site-footer__landscape" aria-hidden="true">
-          <img src="./src/footer-background.webp" width="2172" height="724" alt="" decoding="async" fetchpriority="low">
+          <picture><img src="./src/footer-background-1440.webp" srcset="./src/footer-background-768.webp 768w, ./src/footer-background-960.webp 960w, ./src/footer-background-1440.webp 1440w, ./src/footer-background-1920.webp 1920w, ./src/footer-background.webp 2014w" sizes="(min-width: 1920px) 960px, (min-width: 1200px) 50vw, (min-width: 960px) 960px, (max-width: 464px) 465px, 100vw" width="2014" height="780" alt="" decoding="async" fetchpriority="low"></picture>
         </div>
 
         <div class="site-footer__bottom">

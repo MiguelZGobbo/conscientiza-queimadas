@@ -85,7 +85,7 @@
       const lean = Math.max(-4, Math.min(4, (point.x - nearest.x) / 30)) * strength;
       activeFlame = nearest.element;
       activeFlame.style.transform = `rotate(${lean.toFixed(2)}deg) scaleY(${(1 + strength * .08).toFixed(3)})`;
-      activeFlame.style.opacity = String(.87 + strength * .13);
+      activeFlame.style.opacity = String(.92 + strength * .08);
     }
   }
 
@@ -110,5 +110,6 @@
   window.addEventListener('scroll', () => { reset(); geometry = undefined; }, { passive: true });
   window.addEventListener('blur', reset);
   document.addEventListener('visibilitychange', () => { if (document.hidden) reset(); });
+  art.classList.add('is-motion-ready');
   loadSmokeTexture();
 })();

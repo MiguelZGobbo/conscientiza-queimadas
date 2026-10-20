@@ -14,15 +14,11 @@
 :is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
 :is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
 .reading-column { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
-.reading-intro { padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem); background: var(--background); color: var(--foreground); }
-.reading-intro h1 { margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; letter-spacing: -.04em; }
-.reading-intro h1 span { color: var(--accent); }
-.reading-intro p { margin: clamp(1rem, min(1.5vw, 3svh), 1.5rem) 0 0; color: var(--muted); }
 .reading-section { padding-block: var(--reading-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
 .reading-section:focus-visible { outline-offset: -4px; }
 .reading-section__layout { display: grid; gap: var(--reading-gap); }
 .reading-section__heading, .reading-section__body { min-width: 0; }
-.reading-section h2, .reading-next h2 { max-width: 24ch; margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
+.reading-section h2 { max-width: 24ch; margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
 .reading-section__body p { margin: 0 0 var(--reading-gap); }
 .reading-section__body > :last-child { margin-bottom: 0; }
 .reading-section h3 { margin: calc(var(--reading-space) * .6) 0 var(--reading-gap); font-size: calc(var(--reading-type-unit) * 1.25); line-height: 1.4; }
@@ -63,7 +59,4 @@
 .fire-triangle__symbol--fuel .fire-triangle__disc, .fire-triangle__symbol--air .fire-triangle__disc { fill: color-mix(in srgb, var(--impacts-foreground) 8%, var(--impacts-background)); }
 .fire-triangle figcaption { margin-top: var(--reading-gap); color: var(--impacts-muted); font-size: calc(var(--reading-type-unit) * .875); line-height: 1.5; text-align: center; }
 .reading-note { margin-top: var(--reading-space) !important; padding-left: var(--reading-gap); border-left: 3px solid var(--impacts-accent); }
-.reading-next { padding-block: var(--reading-space); }
-.reading-next h2 { margin-bottom: var(--reading-gap); }
-.reading-next p { margin: 0 0 var(--reading-gap); }
 .reading-next .reading-next__availability { margin-top: .75rem; margin-bottom: 0; font-size: calc(var(--reading-type-unit) * .875); color: var(--impacts-muted); }

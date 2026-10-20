@@ -9,12 +9,12 @@ const handoff = readFileSync(new URL('./fixtures/dados-aprovado.json', import.me
 const approved = JSON.parse(handoff);
 const number = value => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 }).format(value);
 
-test('publica o conteúdo revisado nas quatro seções e preserva o rodapé', async ({ page }) => {
+test('publica o conteúdo revisado e o convite à prevenção e preserva o rodapé', async ({ page }) => {
   const response = await page.goto('/dados.html');
   expect(response.status()).toBe(200);
   const geometry = await page.locator('.brazil-map [data-uf]').evaluateAll(elements => elements.map(element => [element.dataset.uf, element.getAttribute('d')]).sort(([a], [b]) => a.localeCompare(b)).map(([uf, path]) => `${uf}:${path}\n`).join(''));
   expect(createHash('sha256').update(geometry).digest('hex')).toBe(approved.mapGeometrySha256);
-  await expect(page.locator('main > section')).toHaveCount(4);
+  await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.locator('h1')).toHaveText('Queimadas em números');
   await expect(page.locator('#metodologia h3')).toHaveText(approved.methodologyHeadings);
   const text = await page.locator('main').innerText();

@@ -67,7 +67,9 @@ test('integra quatro páginas com destinos relativos, página atual e rodapés i
     expect(paths.every(path => path.startsWith('./'))).toBe(true);
   }
   await page.goto('/queimadas.html');
-  await page.getByRole('link', { name: 'Acessar orientações de prevenção', exact: true }).click();
+  await page.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true }).click();
+  await expect(page).toHaveURL(/\/dados\.html$/);
+  await page.getByRole('link', { name: 'Conhecer as orientações de prevenção', exact: true }).click();
   await expect(page).toHaveURL(/\/prevencao\.html$/);
   const urls = await page.locator('a[href], link[href], script[src], img[src]').evaluateAll(elements => elements.map(element => element.href || element.src));
   for (const url of new Set(urls.filter(url => url.startsWith('http://127.0.0.1:4173/')))) {

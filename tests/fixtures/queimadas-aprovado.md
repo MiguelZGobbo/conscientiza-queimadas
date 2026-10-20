@@ -133,8 +133,8 @@ Em algumas áreas, a vegetação pode se regenerar naturalmente. Em outras, os d
 
 ---
 
-## ENCERRAMENTO — Entendeu o problema? Saiba como prevenir.
+## ENCERRAMENTO — Entenda a dimensão das queimadas no Brasil.
 
-**Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.**
+Veja o panorama histórico, os focos de fogo e os dados recentes de cada estado.
 
 ---

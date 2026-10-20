@@ -5,7 +5,9 @@
 .reading-intro .prevention-emergency p { margin: 0; color: var(--foreground); }
 .prevention-emergency a { color: var(--accent); }
 .prevention-emergency a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .25rem; font-size: 1.25em; font-weight: 650; }
-.prevention-shortcut { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: .5rem; padding-block: .5rem; }
+.prevention-shortcut { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: .5rem; padding-block: .5rem; text-decoration: none; }
+.prevention-shortcut span:first-child { min-width: 0; text-decoration: underline; text-underline-offset: .2em; }
+.prevention-shortcut span[aria-hidden] { flex-shrink: 0; }
 .reading-section__body .prevention-guidance { margin-block: var(--reading-gap); }
 .prevention-guidance > li + li { margin-top: var(--reading-gap); }
 .prevention-guidance li p, .prevention-steps li p { margin: .375rem 0 0; }

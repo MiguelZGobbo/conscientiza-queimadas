@@ -1,0 +1,32 @@
+/* Aberturas ilustradas das três páginas de conteúdo. */
+.page-intro {
+  padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem);
+  background: var(--background);
+  color: var(--foreground);
+  color-scheme: dark;
+}
+.page-intro__layout {
+  display: grid;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: 72rem;
+}
+.page-intro__text { min-width: 0; }
+.page-intro h1 { max-width: 26ch; margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; letter-spacing: -.04em; }
+.page-intro h1 span { color: var(--accent); }
+.page-intro p { max-width: 60ch; margin: clamp(1rem, min(1.5vw, 3svh), 1.5rem) 0 0; color: var(--muted); }
+.page-intro__art { display: block; justify-self: center; width: min(100%, 22.5rem); height: 128px; color: var(--accent); pointer-events: none; }
+:is(.queimadas-page, .dados-page, .prevencao-page) .page-intro :focus-visible { outline-color: var(--accent); }
+
+/* Encerramentos usam a mesma coluna e escala de leitura de cada página. */
+.reading-next { padding-block: var(--reading-space, var(--data-space)); }
+.reading-next h2 { max-width: 24ch; margin: 0 0 var(--reading-gap, var(--data-gap)); font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
+.reading-next p { margin: 0 0 var(--reading-gap, var(--data-gap)); }
+.reading-next p:last-child { margin-bottom: 0; }
+.reading-next a { display: inline-flex; align-items: center; min-height: 44px; padding-block: .5rem; text-underline-offset: .25em; }
+.reading-next a:hover { color: var(--impacts-accent); }
+
+@media (min-width: 960px) {
+  .page-intro__layout { grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); }
+  .page-intro__art { height: 240px; }
+}

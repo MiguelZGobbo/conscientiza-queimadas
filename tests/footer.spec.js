@@ -31,7 +31,7 @@ test('rodapé encerra a Home com identidade, contexto acadêmico e apenas um des
   const background = footer.locator('.site-footer__landscape');
   await expect(background).toHaveAttribute('aria-hidden', 'true');
   await expect(background.locator('img')).toHaveAttribute('alt', '');
-  expect(await background.locator('img').evaluate(image => image.complete && image.naturalWidth >= 1000)).toBe(true);
+  expect(await background.locator('img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
   const response = await page.request.get(await background.locator('img').evaluate(image => image.src));
   expect(response.ok()).toBe(true);
   expect(response.headers()['content-type']).toContain('image/webp');

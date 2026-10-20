@@ -28,7 +28,7 @@ test('publica o conteúdo revisado, visível e na sequência aprovada', async ({
   await expect(main.locator('.reading-next p')).toHaveCount(2);
   await expect(main).not.toContainText('O exemplo mostra por que um incêndio');
   await expect(main).not.toContainText('Por isso, compreender as queimadas significa');
-  await expect(main.getByRole('link', { name: 'Acessar orientações de prevenção', exact: true })).toHaveAttribute('href', './prevencao.html');
+  await expect(main.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true })).toHaveAttribute('href', './dados.html');
   await expect(main.getByRole('heading', { name: 'Fontes consultadas' })).toHaveCount(0);
   await expect(main.getByRole('link', { name: /Ibama/ })).toHaveCount(0);
   await expect(page.getByRole('contentinfo').getByText('Fontes e créditos', { exact: true })).toBeVisible();
@@ -126,14 +126,14 @@ test('títulos precedem o texto em uma coluna centralizada e atalhos têm alinha
   for (const [width, height] of [[320, 568], [768, 1024], [1440, 900], [1920, 1080]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/queimadas.html');
-    const introduction = await page.locator('.reading-intro p').boundingBox();
+    const reading = await page.locator('.reading-section__body > p').first().boundingBox();
     const paragraphs = page.locator('.reading-section__body > p:first-child');
     for (const paragraph of await paragraphs.all()) {
       const body = await paragraph.boundingBox();
       const heading = await paragraph.evaluate(element => element.closest('section').querySelector('h2').getBoundingClientRect().toJSON());
       expect(heading.bottom).toBeLessThan(body.y);
       expect(Math.abs(heading.left - body.x)).toBeLessThanOrEqual(1);
-      expect(Math.abs(body.x - introduction.x)).toBeLessThanOrEqual(1);
+      expect(Math.abs(body.x - reading.x)).toBeLessThanOrEqual(1);
       expect(Math.abs(body.x - (width - body.width) / 2)).toBeLessThanOrEqual(1);
       expect(await paragraph.evaluate(element => getComputedStyle(element).textAlign)).toBe('start');
     }
@@ -145,13 +145,13 @@ test('títulos precedem o texto em uma coluna centralizada e atalhos têm alinha
     for (const link of await links.all()) {
       const bounds = await link.boundingBox();
       expect(bounds.height).toBeGreaterThanOrEqual(44);
-      expect(bounds.x).toBeGreaterThanOrEqual(introduction.x - 1);
-      expect(bounds.x + bounds.width).toBeLessThanOrEqual(introduction.x + introduction.width + 1);
+      expect(bounds.x).toBeGreaterThanOrEqual(reading.x - 1);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(reading.x + reading.width + 1);
       expect(bounds.y).toBeGreaterThanOrEqual(previousBottom);
       previousBottom = bounds.y + bounds.height;
     }
     const closing = await page.locator('.reading-next__body').boundingBox();
-    expect(Math.abs(closing.x - introduction.x)).toBeLessThanOrEqual(1);
+    expect(Math.abs(closing.x - reading.x)).toBeLessThanOrEqual(1);
   }
 });
 
@@ -228,9 +228,9 @@ test('conexões do triângulo ficam livres dos rótulos transparentes, inclusive
   }
 });
 
-test('encerramento preserva o convite editorial e oferece acesso à prevenção', async ({ page }) => {
+test('encerramento apresenta o panorama e oferece acesso aos dados', async ({ page }) => {
   await page.goto('/queimadas.html');
-  const invitation = page.getByText('Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.', { exact: true });
+  const invitation = page.getByText('Veja o panorama histórico, os focos de fogo e os dados recentes de cada estado.', { exact: true });
   await expect(invitation).toBeVisible();
   const presentation = await invitation.evaluate(element => {
     const style = getComputedStyle(element);
@@ -241,7 +241,7 @@ test('encerramento preserva o convite editorial e oferece acesso à prevenção'
     };
   });
   expect(presentation).toEqual({ border: 0, padding: 0, interactive: false });
-  await expect(page.getByRole('link', { name: 'Acessar orientações de prevenção', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true })).toBeVisible();
 });
 
 test('escala de leitura responde à largura e altura sem reduzir o corpo abaixo de 16px', async ({ page }) => {

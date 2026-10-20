@@ -15,9 +15,6 @@
 .dados-page main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
 .data-reading { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
 .data-reading--inner { width: min(100%, 68ch); margin-inline: auto; }
-.data-intro { padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem); background: var(--background); color: var(--foreground); }
-.data-intro h1 { margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; }
-.data-intro p { margin: var(--data-gap) 0 0; color: var(--muted); }
 .data-section { container: data-page / inline-size; padding-block: var(--data-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
 .data-section:focus-visible { outline-offset: -4px; }
 .data-section:last-child { border-bottom: 0; }

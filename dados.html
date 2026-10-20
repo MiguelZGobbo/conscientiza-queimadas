@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style>
     <meta name="theme-color" content="#101a17">
     <meta name="description" content="Panorama histórico das queimadas no Brasil, acompanhamento dos focos em 2026 e consulta estadual dos últimos 12 meses.">
     <title>Dados — Conscientiza Queimadas</title>
     <link rel="icon" type="image/svg+xml" href="./src/favicon.svg">
     <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./src/paginas.css">
     <script src="./src/navigation.js" defer></script>
     <link rel="stylesheet" href="./src/dados.css">
     <script type="module" src="./src/dados.js"></script>
@@ -44,10 +46,25 @@
       </header>
 
 <main id="conteudo" tabindex="-1">
-  <section class="data-intro" aria-labelledby="dados-title">
-    <div class="container data-reading">
+  <section class="data-intro page-intro" aria-labelledby="dados-title">
+    <div class="container page-intro__layout">
+      <div class="page-intro__text">
       <h1 id="dados-title">Queimadas em números</h1>
       <p>Conheça o alcance histórico das queimadas no Brasil, acompanhe os focos de 2026 e consulte os dados recentes de cada estado.</p>
+      </div>
+      <svg class="page-intro__art" viewBox="0 0 360 260" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 220c40-36 67-22 108-33 51-14 104-6 192 33-94 29-205 29-300 0Z" fill="#20372b"/>
+        <g transform="translate(88 29) scale(.23)">
+          <path d="M18,276L32,235L54,220L89,211L94,149L80,132L81,95L115,92L131,82L155,109L177,104L213,77L199,72L188,47L249,36L278,16L288,33L283,65L288,80L306,92L389,68L405,74L435,69L459,30L475,74L491,83L484,102L500,119L521,121L567,141L597,153L602,168L624,167L652,177L662,180L689,181L718,200L740,224L774,234L782,262L782,283L773,310L746,339L726,356L704,385L693,390L688,418L690,443L671,493L669,512L643,551L627,539L617,559L572,570L573,589L533,606L511,626L502,640L505,670L496,693L481,707L462,742L422,774L397,749L375,741L356,713L367,696L391,672L410,662L413,644L396,627L402,599L383,598L374,563L335,560L337,544L331,512L341,481L337,467L325,460L324,442L292,442L289,409L280,390L258,388L234,370L208,368L190,350L186,313L162,319L132,343L87,347L85,324L55,330L16,286L18,276Z" fill="#36513e" stroke="currentColor" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        </g>
+        <g stroke="#c1c9be" stroke-width="1.5" stroke-linecap="round">
+          <path d="M43 89h31m-31 8h19m-19 8h25M287 132h29m-29 8h20m-20 8h25" opacity=".6"/>
+          <path d="M79 93h28m138 49h33" stroke="currentColor"/>
+          <circle cx="111" cy="93" r="4" fill="#101a17" stroke="currentColor"/>
+          <circle cx="241" cy="142" r="4" fill="#101a17" stroke="currentColor"/>
+          <path d="M122 225h116" opacity=".6"/>
+        </g>
+      </svg>
     </div>
   </section>
   <nav class="reading-contents" aria-labelledby="reading-contents-title">
@@ -1329,6 +1346,13 @@
       <p class="data-note">Edição estática: meses recentes até setembro de 2026, com os períodos históricos identificados em cada gráfico. Os dados não são atualizados em tempo real.</p>
     </div>
   </section>
+  <section class="reading-next" aria-labelledby="prevencao-next-title">
+    <div class="container data-reading"><div class="reading-next__body">
+      <h2 id="prevencao-next-title">Dos dados à prevenção.</h2>
+      <p>Conheça atitudes que ajudam a evitar queimadas e saiba como agir com segurança diante de um incêndio.</p>
+      <p><a href="./prevencao.html">Conhecer as orientações de prevenção</a></p>
+    </div></div>
+  </section>
 </main>
     </div>
 
@@ -1375,7 +1399,7 @@
         </div>
 
         <div class="site-footer__landscape" aria-hidden="true">
-          <img src="./src/footer-background.webp" width="2172" height="724" alt="" decoding="async" fetchpriority="low">
+          <picture><img src="./src/footer-background-1440.webp" srcset="./src/footer-background-768.webp 768w, ./src/footer-background-960.webp 960w, ./src/footer-background-1440.webp 1440w, ./src/footer-background-1920.webp 1920w, ./src/footer-background.webp 2014w" sizes="(min-width: 1920px) 960px, (min-width: 1200px) 50vw, (min-width: 960px) 960px, (max-width: 464px) 465px, 100vw" width="2014" height="780" alt="" decoding="async" fetchpriority="low"></picture>
         </div>
 
         <div class="site-footer__bottom">

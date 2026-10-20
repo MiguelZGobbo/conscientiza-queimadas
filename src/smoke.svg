@@ -9,10 +9,10 @@
     <!-- Região limitada e ruído fixo: a animação fica no documento que usa este SVG. -->
     <filter id="texture" x="-.08" y="-.04" width="1.16" height="1.08" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency=".014 .022" numOctaves="2" seed="17" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="38" xChannelSelector="R" yChannelSelector="G" result="warped"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="28" xChannelSelector="R" yChannelSelector="G" result="warped"/>
       <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.5 0 0 0 -.25" result="density"/>
       <feComposite in="warped" in2="density" operator="in"/>
-      <feGaussianBlur stdDeviation="4"/>
+      <feGaussianBlur stdDeviation="2.6"/>
     </filter>
   </defs>
   <g fill="url(#volume)" filter="url(#texture)">

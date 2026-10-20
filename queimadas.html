@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style>
     <meta name="theme-color" content="#101a17">
     <meta name="description" content="O que são queimadas, como o fogo começa e se espalha e quais são suas consequências para a natureza, a saúde e as comunidades.">
     <title>Queimadas — Conscientiza Queimadas</title>
     <link rel="icon" type="image/svg+xml" href="./src/favicon.svg">
     <link rel="stylesheet" href="./src/styles.css">
+    <link rel="stylesheet" href="./src/paginas.css">
     <script src="./src/navigation.js" defer></script>
     <link rel="stylesheet" href="./src/queimadas.css">
   </head>
@@ -42,10 +44,25 @@
       </header>
 
 <main id="conteudo" tabindex="-1">
-  <section class="reading-intro" aria-labelledby="queimadas-title">
-    <div class="container reading-column">
+  <section class="reading-intro page-intro" aria-labelledby="queimadas-title">
+    <div class="container page-intro__layout">
+      <div class="page-intro__text">
       <h1 id="queimadas-title">Queimadas: entenda como o fogo <span>começa e se espalha.</span></h1>
       <p>Compreender o fogo é um passo para reconhecer seus riscos. Conheça os conceitos, os fatores que favorecem sua propagação e os impactos que permanecem depois das chamas.</p>
+      </div>
+      <svg class="page-intro__art" viewBox="0 0 360 260" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 220c40-36 67-22 108-33 51-14 104-6 192 33-94 29-205 29-300 0Z" fill="#20372b"/>
+        <path d="M76 199v-68m0 39-25-24m25 7 22-23M130 190V95m0 59-26-25m26 2 26-26" stroke="#c1c9be" stroke-width="2" stroke-linecap="round"/>
+        <path d="M44 141c-5-28 12-55 31-68 19 17 32 40 27 66-18 14-40 13-58 2Zm52-18c-9-33 10-70 33-87 25 21 39 52 33 84-20 18-45 19-66 3Z" fill="#36513e"/>
+        <path d="M76 199v-68m54 59V96m0 52-17-17m17-10 13-13" stroke="#c1c9be" stroke-width="2" stroke-linecap="round"/>
+        <path d="M218 202c-39-4-47-33-34-57 3 13 9 19 17 22-8-29 20-41 21-75 29 24 11 50 28 60 7-7 9-14 8-23 35 41 13 78-40 73Z" fill="currentColor"/>
+        <path d="M219 194c-16-7-19-21-6-38 0 11 8 14 10 20 4-7 7-11 7-19 15 19 10 32-11 37Z" fill="#a85833"/>
+        <g stroke="#c1c9be" stroke-width="2" stroke-linecap="round">
+          <path d="M233 78c-17-21 17-24 4-45m19 69c21-15-7-26 7-40" opacity=".5"/>
+          <path d="M294 210v-64m0 23-14-13m14 34 16-18"/>
+          <path d="M42 221c83-15 174-14 278 2M99 215l-7-14m15 13 5-19m53 16-5-14" opacity=".6"/>
+        </g>
+      </svg>
     </div>
   </section>
   <nav class="reading-contents" aria-labelledby="reading-contents-title">
@@ -177,11 +194,11 @@
     </div>
   </div>
 </section>
-  <section class="reading-next" aria-labelledby="prevencao-title">
+  <section class="reading-next" aria-labelledby="dados-next-title">
     <div class="container reading-column"><div class="reading-next__body">
-      <h2 id="prevencao-title">Entendeu o problema? Saiba como prevenir.</h2>
-<p><strong>Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.</strong></p>
-<p><a href="./prevencao.html">Acessar orientações de prevenção</a></p>
+      <h2 id="dados-next-title">Entenda a dimensão das queimadas no Brasil.</h2>
+<p>Veja o panorama histórico, os focos de fogo e os dados recentes de cada estado.</p>
+<p><a href="./dados.html">Explorar os dados das queimadas</a></p>
     </div></div>
   </section>
 </main>
@@ -230,7 +247,7 @@
         </div>
 
         <div class="site-footer__landscape" aria-hidden="true">
-          <img src="./src/footer-background.webp" width="2172" height="724" alt="" decoding="async" fetchpriority="low">
+          <picture><img src="./src/footer-background-1440.webp" srcset="./src/footer-background-768.webp 768w, ./src/footer-background-960.webp 960w, ./src/footer-background-1440.webp 1440w, ./src/footer-background-1920.webp 1920w, ./src/footer-background.webp 2014w" sizes="(min-width: 1920px) 960px, (min-width: 1200px) 50vw, (min-width: 960px) 960px, (max-width: 464px) 465px, 100vw" width="2014" height="780" alt="" decoding="async" fetchpriority="low"></picture>
         </div>
 
         <div class="site-footer__bottom">
