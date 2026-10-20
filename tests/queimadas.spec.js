@@ -28,7 +28,7 @@ test('publica o conteúdo revisado, visível e na sequência aprovada', async ({
   await expect(main.locator('.reading-next p')).toHaveCount(2);
   await expect(main).not.toContainText('O exemplo mostra por que um incêndio');
   await expect(main).not.toContainText('Por isso, compreender as queimadas significa');
-  await expect(main.getByText('Página Prevenção em desenvolvimento.', { exact: true })).toBeVisible();
+  await expect(main.getByRole('link', { name: 'Acessar orientações de prevenção', exact: true })).toHaveAttribute('href', './prevencao.html');
   await expect(main.getByRole('heading', { name: 'Fontes consultadas' })).toHaveCount(0);
   await expect(main.getByRole('link', { name: /Ibama/ })).toHaveCount(0);
   await expect(page.getByRole('contentinfo').getByText('Fontes e créditos', { exact: true })).toBeVisible();
@@ -45,7 +45,7 @@ test('conecta documentos com caminhos relativos e preserva o rodapé', async ({ 
   await expect(nav.getByRole('link', { name: 'Queimadas', exact: true })).toHaveAttribute('aria-current', 'page');
   expect(await page.getByRole('contentinfo').innerHTML()).toBe(homeFooter);
   for (const name of ['Prevenção']) {
-    await expect(nav.getByRole('link', { name, exact: true })).toHaveCount(0);
+    await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('href', './prevencao.html');
     await expect(nav.getByText(name, { exact: true })).toBeVisible();
   }
   // Todos os destinos internos publicados devem responder, incluindo assets.
@@ -228,7 +228,7 @@ test('conexões do triângulo ficam livres dos rótulos transparentes, inclusive
   }
 });
 
-test('prevenção pendente aparece como texto, sem aparência ou interação de botão', async ({ page }) => {
+test('encerramento preserva o convite editorial e oferece acesso à prevenção', async ({ page }) => {
   await page.goto('/queimadas.html');
   const invitation = page.getByText('Conheça as medidas de prevenção e saiba como agir com segurança diante de situações de risco.', { exact: true });
   await expect(invitation).toBeVisible();
@@ -241,7 +241,7 @@ test('prevenção pendente aparece como texto, sem aparência ou interação de 
     };
   });
   expect(presentation).toEqual({ border: 0, padding: 0, interactive: false });
-  await expect(page.getByText('Página Prevenção em desenvolvimento.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Acessar orientações de prevenção', exact: true })).toBeVisible();
 });
 
 test('escala de leitura responde à largura e altura sem reduzir o corpo abaixo de 16px', async ({ page }) => {

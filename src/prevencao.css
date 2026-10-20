@@ -1,0 +1,30 @@
+/* A escala, a coluna de leitura e as seções vêm de queimadas.css. */
+.prevencao-page main :is(a, dt, dd) { overflow-wrap: anywhere; }
+.prevencao-page main a { text-underline-offset: .2em; }
+.prevention-emergency { margin-top: var(--reading-gap); padding-top: var(--reading-gap); border-top: 1px solid #435247; }
+.reading-intro .prevention-emergency p { margin: 0; color: var(--foreground); }
+.prevention-emergency a { color: var(--accent); }
+.prevention-emergency a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .25rem; font-size: 1.25em; font-weight: 650; }
+.prevention-shortcut { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: .5rem; padding-block: .5rem; }
+.reading-section__body .prevention-guidance { margin-block: var(--reading-gap); }
+.prevention-guidance > li + li { margin-top: var(--reading-gap); }
+.prevention-guidance li p, .prevention-steps li p { margin: .375rem 0 0; }
+.prevention-steps { margin: var(--reading-gap) 0; padding-left: 2rem; }
+.prevention-steps li { padding-left: .5rem; }
+.prevention-steps li + li { margin-top: var(--reading-gap); }
+.prevention-steps li::marker { color: var(--impacts-accent); font-weight: 650; font-variant-numeric: tabular-nums; }
+.prevention-safety { margin-block: calc(var(--reading-space) * .6); padding: var(--reading-gap); border-left: 3px solid var(--impacts-accent); background: #e9dfcd; }
+.prevention-safety--health { border-color: var(--impacts-foreground); }
+.prevention-safety h3 { margin-top: 0; }
+.prevention-safety > :last-child { margin-bottom: 0; }
+.prevention-contacts { margin: var(--reading-gap) 0; }
+.prevention-contacts > div { padding-block: var(--reading-gap); border-top: 1px solid var(--impacts-divider); }
+.prevention-contacts dt { font-weight: 650; line-height: 1.5; }
+.prevention-contacts dt a { display: inline-flex; align-items: center; min-height: 44px; padding-block: .25rem; }
+.prevention-contacts dd { margin: .375rem 0 0; }
+.prevention-contacts dd p { margin-bottom: .5rem; }
+.prevention-contacts dd p:last-child { margin-bottom: 0; }
+.prevention-contacts__emergency dt a { color: var(--impacts-accent); font-size: 2em; }
+.prevention-report-note { padding-top: var(--reading-gap); border-top: 1px solid var(--impacts-divider); }
+.prevencao-page main a:hover { color: var(--impacts-accent); }
+.prevencao-page .reading-intro a:hover { color: var(--foreground); }

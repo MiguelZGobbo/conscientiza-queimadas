@@ -102,7 +102,7 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
   await expect(nav).toBeVisible();
   await expect(nav.getByRole('link', { name: 'Início', exact: true })).toBeInViewport();
   await expect(nav.getByText('Prevenção', { exact: true })).toBeInViewport();
-  const destinations = ['Início', 'Queimadas', 'Dados'];
+  const destinations = ['Início', 'Queimadas', 'Dados', 'Prevenção'];
   for (const name of destinations) {
     await page.keyboard.press('Tab');
     await expect(nav.getByRole('link', { name, exact: true })).toBeFocused();

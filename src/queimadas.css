@@ -1,5 +1,5 @@
 /* Página educativa: escala fluida e coluna de leitura compartilhada. */
-.queimadas-page main {
+:is(.queimadas-page, .prevencao-page) main {
   --reading-type-unit: clamp(1rem, min(1.15vw, 2.3svh), 1.25rem);
   --reading-gap: clamp(1rem, min(2vw, 3svh), 2rem);
   --reading-space: clamp(2.5rem, min(6vw, 9svh), 5rem);
@@ -9,10 +9,10 @@
   font-size: var(--reading-type-unit);
   line-height: 1.75;
 }
-.queimadas-page main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
-.queimadas-page main :focus-visible { outline-color: var(--impacts-accent); }
-.queimadas-page main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
-.queimadas-page main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
+:is(.queimadas-page, .prevencao-page) main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
+:is(.queimadas-page, .prevencao-page) main :focus-visible { outline-color: var(--impacts-accent); }
+:is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
+:is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
 .reading-column { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
 .reading-intro { padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem); background: var(--background); color: var(--foreground); }
 .reading-intro h1 { margin: 0; font-size: clamp(1.75rem, min(3vw, 6svh), 2.75rem); line-height: 1.2; letter-spacing: -.04em; }
