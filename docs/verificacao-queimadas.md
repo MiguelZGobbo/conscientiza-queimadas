@@ -2,6 +2,18 @@
 
 Data: 13/10/2026. Escopo: documento educativo separado e integração com a Home, conforme o handoff do usuário. Não foram criadas páginas Dados, Prevenção ou institucionais.
 
+## Atualização de 20/10/2026 — fluxo e interface compartilhada
+
+O encerramento de Queimadas agora leva a Dados, que oferece continuidade para Prevenção após a metodologia. Os novos títulos, parágrafos e links seguem o plano aprovado; a fixture editorial foi atualizada somente no encerramento. O conteúdo educativo e os dados foram preservados.
+
+As três introduções usam `src/paginas.css`, com texto e ilustração temática SVG em duas colunas a partir de 960 px e ilustração após o texto nas telas menores. A coluna de leitura do conteúdo permanece centralizada; a introdução passa a ter composição própria de até 72 rem. Em Prevenção, aviso, telefone e atalho precedem a arte, e somente o texto do atalho fica sublinhado. Os estilos internos são carregados somente nessas páginas para preservar o limite de tamanho da Home.
+
+A navbar compartilhada tem hover dourado, foco visível e linha estável para a página atual. A dissolução nativa de 180 ms tem adesão antecipada no `head` das quatro páginas e duração no CSS global. A declaração antecipada evita a ativação tardia observada no Chromium ao entrar em Dados. Movimento reduzido desativa a transição; sem suporte, a navegação HTML continua normal. Nenhum clique é interceptado por JavaScript.
+
+`tests/navegacao.spec.js` verifica percurso e histórico com e sem JavaScript, publicação em subdiretório, hover sem deslocamento, foco por teclado, seta sem sublinhado, ilustrações sem sobreposição em sete viewports e texto a 200%, além da transição real nas quatro páginas com ambos os modos de movimento. As capturas das três aberturas foram inspecionadas em desktop e celular; navbar e menu também foram conferidos visualmente. A revisão independente não encontrou problemas acionáveis.
+
+Verificação final: `npm test -- --reporter=line` aprovou os **185 testes Playwright em 1,6 min**; `npm run check` aprovou a sintaxe dos módulos e os **21 testes Python**. O percurso com e sem JavaScript passou em seis verificações repetidas, e a transição nas quatro páginas passou em três repetições com os dois modos de movimento. Os testes aguardam o término real da transição antes do próximo clique. O limite de tamanho da Home foi preservado; `git diff --check` não apontou erros. Não houve teste em aparelho físico ou leitor de tela real.
+
 ## Atualização de 19/10/2026 — repetições
 
 A revisão autorizada pelo usuário removeu o parágrafo de recapitulação do exemplo da propagação, a conclusão que repetia a permanência dos impactos e as chamadas redundantes de prevenção. O encerramento mantém uma mensagem e o aviso de indisponibilidade. O exemplo, o triângulo, a navegação e o rodapé foram preservados. A referência editorial de teste foi ajustada para essa nova redação; o registro original abaixo descreve a entrega anterior. Ver resultados atuais em [verificacao-dados.md](./verificacao-dados.md).

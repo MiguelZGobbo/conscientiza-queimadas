@@ -1,5 +1,35 @@
 # Verificação do Hero
 
+## Redução das chamas — 20/10/2026
+
+Redução de aproximadamente 20% nas duas dimensões das 19 chamas, com igualdade dos centros horizontais e das bases confirmada durante a preparação. Os testes de escala passaram a exigir também uma altura máxima e foram observados falhando antes da redução. Conferidas capturas em 1440 e 390 px. Os 37 testes relacionados à arte e à Home passaram, incluindo contraste, cursor, movimento reduzido, ausência de JavaScript, responsividade e orçamento de código; git diff --check sem erros.
+
+## Frente de incêndio — verificação de 20/10/2026
+
+A regressão de escala/profundidade e os novos ritmos foram observados falhando antes da implementação. Os testes agora conferem chamas maiores, bases distribuídas em profundidade, confinamento à região da mata, três durações independentes, continuidade entre ciclos e somente transform/opacity nas animações. A amostragem usa ciclos ativos completos, pois tempos negativos do delay representam a fase anterior à animação na API do navegador.
+
+A revisão independente identificou 18 animações ainda ativas no desktop sem JavaScript. Uma regressão reproduziu o problema antes da correção. O marcador is-motion-ready passou a condicionar as animações; o teste cobre tanto JavaScript desativado quanto falha do script da arte, preservando o fogo e a fumaça inline visíveis. As verificações existentes de touch, movimento reduzido, falha da textura, cursor, menu, âncoras e recursos locais continuam mantidas.
+
+Comparação de 120 intervalos de requestAnimationFrame em 1440 × 900, cursor sobre o incêndio: versão anterior com mediana 16,7 ms e p95 16,7/16,8 ms em 1×/2×; versão final com mediana de 16,7 ms nas duas densidades e p95 de 16,7/16,8 ms, sem intervalos acima de 25 ms. O ensaio observou layout shift 0. O acompanhamento natural de 45 segundos registrou três reinícios na primeira pluma e dois na segunda, com opacidade máxima adjacente de 0,003926. São medições deste ambiente de laboratório, sem extrapolação para dispositivos físicos.
+
+O código transferido no cenário mobile ficou em 39.775 bytes, abaixo do orçamento original de 40.000. O HTML/CSS do rodapé permanece idêntico ao início desta alteração, com 6.891 bytes. Hashes também confirmaram preservação do HTML fora da ilustração, das três páginas internas e da textura smoke.svg. Nenhuma imagem raster ou dependência foi adicionada.
+
+As capturas antes/depois foram inspecionadas em 390, 768, 1440 e 1920 px, em 1×/2×; telas baixas de 1440 × 500 e 1920 × 420 e texto a 200% também foram conferidos. O teste de contraste foi ampliado para oito combinações de tamanho e ampliação. Ele detectou contraste de 3,70:1 atrás de um link da navbar em janela baixa e 2,90:1 na descrição com texto ampliado. O sombreamento superior da arte e a extensão do gradiente lateral em janelas baixas corrigiram os dois casos, preservando os requisitos AA. Axe: nenhuma violação A/AA na Home em 390, 768, 1440 ou 1920 px. Sem rolagem horizontal nos quatro cenários ampliados.
+
+Resultado final: **197 testes Playwright aprovados em 1,8 min**. `npm run check` aprovou a sintaxe e **21 testes Python**; `git diff --check` sem erros. A suíte inclui a nova composição e mantém as verificações de navegação, histórico, publicação em subdiretório e acessibilidade existentes.
+
+## Registro anterior — SVG original refinado em 20/10/2026
+
+As regressões de presença da paisagem SVG e remoção da máscara do rodapé foram observadas falhando antes da recuperação. Os testes da pintura foram substituídos por verificações da arte atual: ausência de raster do Hero, resolução física do rodapé, contraste real sobre pixels renderizados e recuperação dos comportamentos vetoriais originais. As verificações de conteúdo, navegação, acessibilidade e orçamento existentes foram preservadas.
+
+Foram inspecionadas capturas de 390, 768, 1440 e 1920 px em 1×/2×, além dos ciclos naturais aos 22,5 e 45 segundos. O acompanhamento da fumaça registrou três reinícios na primeira pluma e dois na segunda, com opacidade máxima de 0,0039065 nos frames adjacentes ao reinício. A medição de contraste desativa apenas a transição de cor do teste ao ocultar/restaurar o texto, evitando medir cores transparentes intermediárias.
+
+Em 120 intervalos de requestAnimationFrame, com cursor sobre o fogo e viewport 1440 × 900, a mediana foi 16,7 ms tanto em 1× como em 2×; p95 de 16,7/16,8 ms, nenhum intervalo acima de 25 ms e layout shift 0. O ensaio da pintura anterior mediu mediana 16,7 ms e p95 16,8/16,7 ms. A página atual não transfere raster do Hero; a textura SVG compartilhada pesa 1.655 bytes. Medições de laboratório deste ambiente, sem extrapolação para dispositivos físicos.
+
+Verificação final: **193 testes Playwright aprovados em 1,8 min**; `npm run check` aprovou sintaxe e **21 testes Python**; `git diff --check` sem erros. Conferência adicional com axe: nenhuma violação A/AA na Home em 390, 768, 1440 e 1920 px, nem em Queimadas a 1440 px. A suíte preserva navegação, histórico, publicação em subdiretório, alternativas sem JavaScript, touch, movimento reduzido, texto a 200%, telas baixas, contraste e axe. A revisão independente apontou o caso de densidade em 1199 px, corrigido e coberto por regressão. O HTML/CSS do rodapé ocupa 6.891 bytes, abaixo dos 7.000 permitidos; o código anterior ficou em 39.002 bytes, abaixo dos 40.000 permitidos.
+
+## Registro anterior — 06/10/2026
+
 Executada em 06/10/2026 no Chromium do Playwright 1.63.0, em ambiente local Windows. Não substitui avaliação com leitores de tela ou dispositivos físicos.
 
 ## Evidência funcional

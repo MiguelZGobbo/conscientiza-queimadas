@@ -1,5 +1,29 @@
 # Hero da Home
 
+## Ajuste de tamanho das chamas — 20/10/2026
+
+A pedido do usuário, as 19 instâncias de chama foram reduzidas aproximadamente 20% na largura e na altura, mantendo o centro horizontal e a base de cada uma. A maior altura nominal atual é de 246 unidades no desktop e 135 no mobile. Profundidade, demais elementos da cena e animações permanecem preservados.
+
+## Frente de incêndio em quatro planos — 20/10/2026
+
+Refinamento exclusivo da ilustração SVG do Início, conforme plano aprovado. A cena organiza mata distante de menor contraste, vegetação intermediária parcialmente encoberta pela fumaça, frente principal de incêndio e silhuetas próximas. Canopias, troncos carbonizados e galhos se sobrepõem ao fogo; a coluna de leitura mantém o gradiente original, ampliado somente em janelas baixas. Um sombreamento fixo no topo da arte protege o fundo da navbar mesmo quando o SVG é recortado verticalmente. O rodapé, a navbar, os textos, os impactos e as páginas internas foram preservados, com conferência por hash das áreas protegidas.
+
+As três silhuetas existentes foram redesenhadas com pontas alongadas, bifurcações assimétricas, núcleos irregulares e bases alaranjadas. Os símbolos aceitam proporções diferentes em cada instância. Há três focos distantes e oito principais no desktop; duas chamas distantes e seis principais no mobile. A maior altura nominal passou de 184 para 308 unidades no desktop e de 99 para 169 no mobile. As bases variam em profundidade, em vez de formar uma fileira. Uma máscara SVG estática suaviza somente os últimos 5% da base, integrando-a ao terreno, sem filtro animado. Duas elipses de luz aquecem o chão e reflexos estreitos acompanham os troncos.
+
+As chamas alternam ciclos de 2,3, 3,1 e 4,2 segundos, com alongamento até 12%, inclinação até 2 graus e estados iguais no retorno. A luz varia suavemente em 7,1 segundos; a fumaça conserva os ciclos de 18/22 segundos, agora com plumas em posições distintas. Seis brasas permanecem restritas ao desktop com mouse e movimento permitido. Somente transformações e opacidade animam; câmera e vegetação permanecem imóveis.
+
+O script ativa a classe is-motion-ready somente após registrar a interação. Sem JavaScript ou com falha do script, nenhuma animação da cena é iniciada. Mobile, touch e movimento reduzido também permanecem estáticos; falha de smoke.svg conserva a fumaça inline. A reação ao cursor mantém os limites existentes e acompanha automaticamente as novas posições das chamas; sua opacidade-base foi alinhada ao novo valor de 0,92. Não há raster, dependências ou serviços externos novos. O orçamento original de código continua preservado.
+
+## Registro anterior — retorno ao SVG com refinamento fiel — 20/10/2026
+
+A pedido do usuário, a pintura foi retirada da página e a cena vetorial original recuperada seletivamente do Git, mantendo navbar, textos, links, impactos e transições aprovadas. Árvores, enquadramentos desktop/mobile e distribuição do fogo permanecem. Os dez WebPs da pintura foram removidos; os PNGs históricos continuam arquivados, sem referências de produção.
+
+O refinamento acrescenta uma terceira silhueta assimétrica de chama, pequenas reflexões nos troncos e luz discreta no terreno. As chamas têm ritmos de 4,7, 5,4 e 6,3 segundos, com início/fim iguais; a iluminação varia suavemente em 7,1 segundos. A fumaça SVG mantém duas plumas com ciclos de 18/22 segundos e recebe deformação de 28 unidades e suavização de 2,6 para preservar mais estrutura. A textura é renderizada separadamente, sem filtros animados no documento principal.
+
+Somente transformações e opacidade animam, em desktop com mouse e movimento permitido. O script de interação original foi restaurado integralmente. Celular, touch, movimento reduzido e ausência de JavaScript mantêm a paisagem completa estática. Falhas da textura preservam a fumaça inline. Definições SVG e grupos estáticos foram compactados, sem alteração geométrica, para respeitar o orçamento existente de código.
+
+## Histórico — desenho vetorial original
+
 Escopo: somente navbar, ilustração decorativa, H1, descrição e CTA da solicitação de 06/10/2026. Nenhuma seção posterior ou página adicional.
 
 O repositório iniciou vazio. HTML semântico, CSS mobile-first e JavaScript nativo evitam framework e dependências de produção. Marca: Conscientiza Queimadas, também usada no título da aba. Fontes do sistema. SVG autoral com formas abstratas de vegetação, terreno em camadas, galhos carbonizados e focos âmbar, sem identificação botânica.

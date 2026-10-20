@@ -1,5 +1,19 @@
 # Rodapé da Home — decisões e verificação
 
+## Correção de nitidez e densidade — 20/10/2026
+
+O diagnóstico confirmou que a máscara vertical anterior desvanecia também o primeiro plano. Além disso, o antigo banner de 2172 px incluía grande área verde sem detalhes e não fornecia densidade 2× em largura desktop. A comparação do PNG com o WebP mostrou efeito menor da compressão. A solução remove a máscara e concentra a imagem na paisagem, com preenchimento verde em CSS e escurecimento restrito à área dos textos e à faixa inferior do copyright.
+
+O ImageGen refinou o recorte esquerdo do PNG aprovado, reconstruindo folhas, ramos e contornos em 2014 × 780 px nativos. O arquivo não é uma ampliação do anterior. O painel ocupa 50vw no desktop e até 960 px CSS em todas as larguras; nas telas estreitas, sizes considera também a largura necessária ao recorte de 180 px de altura. A revisão independente identificou ampliação em 1199 px/2×; o limite de 960 px e uma regressão específica corrigiram esse intervalo.
+
+As quatro páginas usam os mesmos caminhos relativos e srcset/sizes. WebPs qualidade 94: 768 px/49.750 bytes; 960/73.096; 1440/145.428; 1920/218.998; 2014/234.972. Todas as variantes ficam abaixo de 450.000 bytes; o src de fallback em 1440 px também respeita o limite legado de 200.000 bytes. HTML/CSS do rodapé e código anterior continuam com limites separados de 7.000 e 40.000 bytes.
+
+As capturas comparam 390, 768, 1440 e 1920 px em 1×/2×, esperando a decodificação da imagem. Testes medem a dimensão física do WebP escolhido contra a área realmente pintada, incluindo object-fit, além dos casos de 1199 px e das quatro páginas. A faixa inferior passou pelo teste de contraste real em nove larguras e texto 100%/200%, sem alterar o requisito AA.
+
+Verificação final: **193 testes Playwright aprovados em 1,8 min**; `npm run check` aprovou sintaxe e **21 testes Python**; `git diff --check` sem erros. Conferência adicional com axe: nenhuma violação A/AA na Home em 390, 768, 1440 e 1920 px, nem em Queimadas a 1440 px. A suíte preserva navegação, histórico, publicação em subdiretório, alternativas sem JavaScript, touch, movimento reduzido, texto a 200%, telas baixas, contraste e axe. A revisão independente apontou o caso de densidade em 1199 px, corrigido e coberto por regressão. O HTML/CSS do rodapé ocupa 6.891 bytes, abaixo dos 7.000 permitidos; o código anterior ficou em 39.002 bytes, abaixo dos 40.000 permitidos.
+
+## Registro anterior — 07/10/2026
+
 Implementado e redesenhado em 07/10/2026 para encerrar a Home do Conscientiza Queimadas. A versão atual utiliza um fundo raster preparado a partir do exemplo 3 enviado pelo usuário e a logo original do site, substituindo a paisagem vetorial e a folha das versões anteriores. A marcação e os estilos do Hero e de Impactos foram preservados; nenhuma página ou dependência foi adicionada. O servidor local recebeu suporte à extensão WebP para servir a imagem.
 
 ## Estrutura e integração

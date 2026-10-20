@@ -56,10 +56,11 @@ Abrir http://127.0.0.1:4173, http://127.0.0.1:4173/queimadas.html, http://127.0.
 - `docs/fontes-inpe.md` e `docs/auditoria-focos.json`: fontes e condições de uso específicas do INPE, contagens e hashes dos 23 arquivos anuais e nove mensais; licença de reutilização expressa dos ZIPs ainda não identificada.
 - `src/styles.css`: tokens, layout mobile-first, navbar, enquadramentos da paisagem e animações acessíveis.
 - `src/navigation.js`: sincronização acessível do menu nativo e gerenciamento de foco.
-- `src/hero-interaction.js`: brilho decorativo, reação da chama próxima e deslocamento curto da fumaça com mouse no desktop.
-- `src/smoke.svg`: duas plumas autorais com textura fixa de ruído, deformação e suavidade; carregadas somente no desktop com mouse e movimento permitido.
+- `src/hero-interaction.js`: brilho decorativo, reação da chama próxima e deslocamento curto da fumaça no SVG original. A textura local é solicitada somente em desktop com mouse e movimento permitido; falha ou ausência de JavaScript preserva a fumaça inline.
+- `src/smoke.svg`: textura vetorial de fumaça, compartilhada por duas plumas. O Hero usa SVG inline nítido em qualquer densidade, com três silhuetas de chama e ritmos independentes. Mobile, touch, movimento reduzido e ausência de JavaScript mantêm a cena estática completa.
+- `src/artwork/originais/`: originais do rodapé e arquivo histórico da pintura do Hero descartada, sem carregamento pelo site. Origem, prompt e exportações em `src/artwork/README.md`.
 - `src/favicon.svg`: símbolo autoral da marca sobre fundo verde escuro, registrado como ícone da aba.
-- `src/footer-background.webp`: fundo do rodapé preparado a partir do exemplo 3 fornecido pelo usuário, sem textos, ícones ou marca do mockup; arquivo raster local otimizado.
+- `src/footer-background.webp` e variantes de 768, 960, 1440 e 1920 px: painel ilustrado do rodapé, reconstruído em 2014 × 780 px nativos. A paisagem ocupa até 960 px CSS e recebe resolução suficiente em 2×; o restante do fundo usa CSS. Seleção por `srcset`/`sizes`, sem ampliação artificial.
 - `scripts/dev-server.mjs`: servidor local com módulos nativos do Node.
 - `tests/hero.spec.js`: verificação funcional no Chromium.
 - `tests/impacts.spec.js`: semântica, layout responsivo, rolagem natural, texto ampliado, contraste e movimento reduzido da transição e dos impactos.
@@ -89,7 +90,9 @@ Os destinos publicados usam caminhos relativos ao diretório de cada documento e
 | Prevenção na navbar das quatro páginas | `./prevencao.html` |
 | Voltar ao topo no rodapé das quatro páginas | `#inicio` |
 
-**Prevenção** está integrada às quatro páginas por links relativos, com `aria-current="page"` somente no documento atual. O encerramento de Queimadas oferece “Acessar orientações de prevenção”. A síntese dos impactos continua na Home, e seu CTA permanece apontando para `#impactos`. Os telefones e links oficiais estão diretamente no HTML de Prevenção e podem ser revisados sem alterar scripts.
+**Prevenção** está integrada às quatro páginas por links relativos, com `aria-current="page"` somente no documento atual. Os encerramentos seguem o percurso Queimadas → Dados → Prevenção, com “Explorar os dados das queimadas” e “Conhecer as orientações de prevenção”. A síntese dos impactos continua na Home, e seu CTA permanece apontando para `#impactos`. Os telefones e links oficiais estão diretamente no HTML de Prevenção e podem ser revisados sem alterar scripts.
+
+As três páginas internas compartilham a composição `.page-intro` e os encerramentos em `src/paginas.css`, carregado somente nelas. As ilustrações SVG são decorativas, com texto antes da imagem em telas pequenas e duas colunas a partir de 960 px. Os estilos globais oferecem hover dourado na navbar e dissolução nativa de 180 ms entre documentos, somente com movimento permitido e suporte do navegador. A navegação permanece nativa e funciona sem JavaScript.
 
 No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto**, **Fontes e créditos** e **Feedback** permanecem textos sem interação, acompanhados de “Conteúdos ainda não disponíveis.” Integrar somente quando existir destino real publicado. Por decisão do usuário, as dez referências de Queimadas ficam somente em docs/recursos-e-licencas.md, até existir a página institucional Fontes e créditos. O HTML do rodapé é idêntico nas quatro páginas e usa o mesmo CSS e a mesma imagem.
 

@@ -41,6 +41,18 @@ Os binários de navegador instalados pelo Playwright ficam no ambiente de testes
 
 Não são utilizados vídeos, CDN, fontes web ou SVGs de bancos de ícones. Nenhum logotipo oficial da UNINTER é incorporado. As paisagens são representações artísticas de vegetação e não afirmam espécies ou um local documentado. O fundo raster do rodapé foi solicitado pelo usuário para substituir a ilustração vetorial anterior; sua origem e preparação estão registradas abaixo.
 
+## Refinamento do rodapé e retorno do Início ao SVG — 20/10/2026
+
+A arte em uso é o painel de 2014 × 780 px gerado com a ferramenta integrada ImageGen, usando o recorte esquerdo do refinamento anterior do rodapé como alvo. O PNG original desse refinamento anterior tem 2172 × 724 px e deriva do fundo aprovado já registrado abaixo. A nova geração reconstrói detalhes no painel, em vez de ampliar a área verde vazia do banner. O original atual é `src/artwork/originais/rodape-painel.png`; WebPs locais de 768, 960, 1440, 1920 e 2014 px foram exportados com Sharp, sem nova dependência no projeto. Prompt, identificação da geração e preparação estão em [src/artwork/README.md](../src/artwork/README.md).
+
+A pintura criada para o Início foi rejeitada pelo usuário e retirada da página. Seus PNGs permanecem como arquivo histórico, sem carregamento pelo site. A paisagem SVG autoral original e `src/smoke.svg` foram restauradas, com refinamentos de silhuetas, fumaça e iluminação no próprio código. Não há raster novo no Hero nem recursos de bancos de imagens, vídeos, fontes ou bibliotecas visuais externas.
+
+Não é atribuída uma licença pública nova às imagens ou à referência de origem; as condições e pendências já registradas para a referência do rodapé permanecem. Não houve publicação externa nesta alteração.
+
+## Ilustrações das introduções — registro anterior
+
+Atualizado em 20/10/2026. As três composições SVG inline foram desenhadas no código para Queimadas (vegetação, chama e fumaça), Dados (mapa com elementos gráficos abstratos, sem estatísticas) e Prevenção (vegetação protegida por escudo). Os desenhos são estáticos e decorativos, sem bibliotecas visuais, fontes ou imagens externas. O contorno do Brasil é uma simplificação do contorno externo das 27 UFs do mapa IBGE já incorporado ao projeto, com as mesmas condições de uso registradas na seção da página Dados abaixo; não houve alteração do mapa interativo. Os demais traços e a composição visual são autorais do projeto, sem atribuição externa adicional e sem presumir uma licença pública geral.
+
 ## Fundo raster do rodapé
 
 Atualizado em 07/10/2026. A instrução do usuário foi utilizar o fundo do exemplo 3 que ele anexou. O ImageGen preparou uma versão limpa a partir dessa referência, removendo textos, folha, ícones e divisórias do mockup. O arquivo resultante foi codificado em WebP, sem alteração da composição, com a ferramenta Sharp disponível no ambiente do Codex; nenhuma dependência foi adicionada ao projeto. O PNG de edição permanece no diretório de imagens geradas do Codex. O arquivo publicado é local, tem 2172 × 724 px e 21.556 bytes.
