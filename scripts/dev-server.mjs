@@ -10,7 +10,7 @@ createServer(async (request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname;
   const relativePath = pathname === '/' ? 'index.html' : pathname.slice(1);
   const extension = relativePath.slice(relativePath.lastIndexOf('.'));
-  const allowed = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html'].includes(relativePath) || /^src\/[\w/-]+\.(css|js|svg|webp)$/.test(relativePath);
+  const allowed = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html', 'fontes.html'].includes(relativePath) || /^src\/[\w/-]+\.(css|js|svg|webp)$/.test(relativePath);
 
   if (!allowed || !['GET', 'HEAD'].includes(request.method)) {
     response.writeHead(404).end('Página não encontrada.');

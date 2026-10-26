@@ -1,5 +1,9 @@
 # Rodapé da Home — decisões e verificação
 
+## Integração de Fontes e créditos — 26/10/2026
+
+O item “Fontes e créditos” agora é um link relativo para `./fontes.html` nos seis rodapés, incluindo a nova página. Somente Feedback permanece indisponível. A navbar mantém seus quatro itens; estrutura, arte, contexto acadêmico e retorno ao topo local foram preservados. O HTML dos seis rodapés é idêntico. Esta integração substitui o estado anterior de indisponibilidade de Fontes descrito no histórico abaixo. Resultados e limites em [verificacao-fontes.md](./verificacao-fontes.md).
+
 ## Integração de Sobre — 26/10/2026
 
 O atalho “Sobre o projeto” agora abre `./sobre.html` nas cinco páginas, sem entrar na navbar principal. Fontes e créditos e Feedback continuam como textos sem interação, com aviso específico de indisponibilidade. Conforme a confirmação do usuário, a atribuição acadêmica passou a mencionar as Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER. A estrutura, os recursos visuais e o CSS do rodapé foram preservados; sua altura continua acompanhando naturalmente o conteúdo. Os cinco documentos têm rodapés idênticos, com `#inicio` local em cada página. Essa integração substitui a situação de indisponibilidade de Sobre descrita no histórico abaixo. Verificações e limites atuais estão em [verificacao-sobre.md](./verificacao-sobre.md).

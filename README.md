@@ -6,7 +6,7 @@ Site educativo desenvolvido progressivamente nas Atividades Extensionistas I, II
 
 A página Dados combina panorama histórico e consulta estadual recente. A abertura e os seis biomas mostram o território atingido ao menos uma vez em 1985–2025 (RAF2025, Coleção 5, Tabela 3). Os focos nacionais têm histórico anual de 2003–2025 e acompanhamento acumulado de jan–set/2026 frente à média dos mesmos meses históricos. Estados: área out/2025–set/2026 versus média dos anos civis 2019–2024, distribuição mensal recente dos focos e histórico anual 2003–2025. Cada gráfico tem uma única lista de resultados acessíveis; tabelas estaduais existem apenas sem JavaScript. Home e Queimadas permanecem preservadas nesta revisão. A seção Entenda os dados foi revisada em 20/10/2026 para explicar esses produtos, recortes, médias e limites em quatro respostas curtas, encerrando a pendência editorial anterior.
 
-Dados não contém mais o expansível Fontes e créditos. Créditos curtos, links originais, adaptações e licenças aplicáveis continuam junto às visualizações. As referências completas estão em `docs/recursos-e-licencas.md` e `docs/fontes-inpe.md`, reservadas para a página institucional futura. O item do rodapé permanece indisponível até essa página existir; nenhuma página adicional foi criada.
+Dados não contém mais o expansível Fontes e créditos. Créditos curtos, links originais, adaptações e licenças aplicáveis continuam junto às visualizações. A página `fontes.html`, acessível pelo rodapé, reúne as referências auditadas e os créditos. Os inventários completos e as pendências permanecem em `docs/recursos-e-licencas.md`, `docs/fontes-inpe.md` e `docs/auditoria-fontes-creditos.md`.
 
 ## Apresentação dos gráficos
 
@@ -32,17 +32,18 @@ npm ci
 npm run dev
 ```
 
-Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou o atalho **Sobre o projeto** no rodapé para http://127.0.0.1:4173/sobre.html. O servidor é local e destinado ao desenvolvimento. A interface é estática; para hospedagem, servir `index.html`, `queimadas.html`, `dados.html`, `prevencao.html`, `sobre.html` e `src/`. Os caminhos relativos permitem publicar em subdiretórios, inclusive no GitHub Pages. Não é necessário build nem biblioteca em produção. Servir por HTTP(S) para carregar o módulo local de dados.
+Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou os atalhos **Sobre o projeto** e **Fontes e créditos** no rodapé para `/sobre.html` e `/fontes.html`. O servidor é local e destinado ao desenvolvimento. A interface é estática; para hospedagem, servir `index.html`, `queimadas.html`, `dados.html`, `prevencao.html`, `sobre.html`, `fontes.html` e `src/`. Os caminhos relativos permitem publicar em subdiretórios, inclusive no GitHub Pages. Não é necessário build nem biblioteca em produção. Servir por HTTP(S) para carregar o módulo local de dados.
 
 ## Organização
 
 - `index.html`: conteúdo semântico, links e ilustração SVG autoral. A marca Conscientiza Queimadas segue o nome do repositório.
-- `queimadas.html`: introdução compacta, conteúdo educativo aprovado em coluna centralizada, sumário Nesta página com títulos completos, diagrama SVG autoral e rodapé reutilizado. As fontes permanecem na documentação até a página institucional existir.
+- `queimadas.html`: introdução compacta, conteúdo educativo aprovado em coluna centralizada, sumário Nesta página com títulos completos, diagrama SVG autoral e rodapé reutilizado. As referências confirmadas estão reunidas em `fontes.html`.
 - `src/queimadas.css`: composição editorial da página educativa, com títulos acima dos textos e dimensionamento fluido conforme largura e altura da janela. Corpo entre 16 e 20 px, título inicial entre 28 e 44 px, rótulos transparentes no triângulo e intervalos internos compactos, usando os tokens compartilhados e sem alterar o Hero ou os impactos.
 - `dados.html`: quatro seções editoriais, sumário como Queimadas, biomas, mapa SVG centralizado e consulta estadual com área e focos apresentados diretamente nos gráficos, sem indicadores duplicados; gráficos com listas de resultados acessíveis e tabelas estaduais exclusivamente sem JavaScript; rodapé existente.
 - `src/dados.css`: escala fluida por largura e altura, mapa proporcional limitado a 40 rem e 65% da altura da janela e resultados abaixo dele em todas as larguras. Duas camadas decorativas acima dos territórios mantêm seleção contínua de 2 px e foco tracejado de 4 px, sem interceptar eventos ou alterar a ordem de Tab das 27 UFs.
-- `prevencao.html` e `src/prevencao.css`: orientações fornecidas no handoff, sequência de segurança e canais oficiais; referências preservadas na documentação para a futura página de fontes; escala e coluna reutilizadas de `src/queimadas.css`, sem JavaScript próprio.
+- `prevencao.html` e `src/prevencao.css`: orientações fornecidas no handoff, sequência de segurança e canais oficiais; referências auditadas em `fontes.html`; escala e coluna reutilizadas de `src/queimadas.css`, sem JavaScript próprio.
 - `sobre.html`: três blocos institucionais com texto aprovado, navbar existente e acesso pelo rodapé. Reutiliza a abertura compacta de `src/paginas.css`, a coluna e a escala fluida de `src/queimadas.css`, sem ilustração, stylesheet ou script próprios.
+- `fontes.html`: referências educativas, dados e metodologia, recursos e créditos e referências técnicas. Acesso pelo rodapé das seis páginas, com o padrão visual e a escala de Sobre. Sem JavaScript ou dependências novos; direitos da referência do rodapé e termos específicos INPE permanecem explicitamente pendentes. Ver `docs/verificacao-fontes.md`.
 - `tests/sobre.spec.js` e `tests/fixtures/sobre-aprovado.json`: fidelidade editorial, acesso pelo rodapé das quatro páginas principais, subdiretório, teclado, acessibilidade, reflow, texto ampliado e comparação da escala com Queimadas e Prevenção. Resultados e limites em `docs/verificacao-sobre.md`.
 - `src/dados-base.js`: 27 UFs e metadados do Monitor do Fogo; acumulado recente e média dos anos civis 2019–2024. `src/area-historica.js` contém os seis biomas e o total nacional da Tabela 3 do RAF2025. `scripts/importar-area.py` reproduz a base e `docs/auditoria-area.json` registra os valores originais e cálculos.
 - `src/dados.js`: seleção sincronizada entre mapa e lista, barras e anúncio acessível; sem requisições externas.
@@ -79,25 +80,26 @@ Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção,
 
 - `docs/verificacao-prevencao.md`: decisões, fontes conferidas, verificações e limites da página Prevenção.
 
-## Navegação e destinos institucionais futuros
+## Navegação e destinos institucionais
 
 Os destinos publicados usam caminhos relativos ao diretório de cada documento e funcionam sem JavaScript:
 
 | Elemento | Destino preparado |
 | --- | --- |
 | Marca na Home | `./` |
-| Início na navbar das cinco páginas / marcas nas páginas secundárias | `./index.html` |
-| Queimadas na navbar das cinco páginas | `./queimadas.html` |
-| Dados na navbar das cinco páginas | `./dados.html` |
-| Prevenção na navbar das cinco páginas | `./prevencao.html` |
-| Sobre o projeto, somente no rodapé das cinco páginas | `./sobre.html` |
-| Voltar ao topo no rodapé das cinco páginas | `#inicio` |
+| Início na navbar das seis páginas / marcas nas páginas secundárias | `./index.html` |
+| Queimadas na navbar das seis páginas | `./queimadas.html` |
+| Dados na navbar das seis páginas | `./dados.html` |
+| Prevenção na navbar das seis páginas | `./prevencao.html` |
+| Sobre o projeto, somente no rodapé das seis páginas | `./sobre.html` |
+| Fontes e créditos, somente no rodapé das seis páginas | `./fontes.html` |
+| Voltar ao topo no rodapé das seis páginas | `#inicio` |
 
 **Prevenção** está integrada às quatro páginas por links relativos, com `aria-current="page"` somente no documento atual. Os encerramentos seguem o percurso Queimadas → Dados → Prevenção, com “Explorar os dados das queimadas” e “Conhecer as orientações de prevenção”. A síntese dos impactos continua na Home, e seu CTA permanece apontando para `#impactos`. Os telefones e links oficiais estão diretamente no HTML de Prevenção e podem ser revisados sem alterar scripts.
 
-As quatro páginas internas compartilham a abertura `.page-intro` de `src/paginas.css`. Queimadas, Dados e Prevenção também usam os encerramentos desse arquivo e ilustrações SVG decorativas, com texto antes da imagem em telas pequenas e duas colunas a partir de 960 px. Sobre mantém uma única coluna sem ilustração. Os estilos globais oferecem hover dourado na navbar e dissolução nativa de 180 ms entre documentos, somente com movimento permitido e suporte do navegador. Em Sobre, a dissolução também exige scripts disponíveis, evitando o bloqueio da interação observado no Chromium sem JavaScript. A navegação permanece nativa e funciona sem JavaScript.
+As cinco páginas internas compartilham a abertura `.page-intro` de `src/paginas.css`. Queimadas, Dados e Prevenção também usam os encerramentos desse arquivo e ilustrações SVG decorativas, com texto antes da imagem em telas pequenas e duas colunas a partir de 960 px. Sobre e Fontes mantêm uma única coluna sem ilustração. Os estilos globais oferecem hover dourado na navbar e dissolução nativa de 180 ms entre documentos, somente com movimento permitido e suporte do navegador. Em Sobre e Fontes, a dissolução também exige scripts disponíveis, evitando o bloqueio da interação observado no Chromium sem JavaScript. A navegação permanece nativa e funciona sem JavaScript.
 
-No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto** abre `./sobre.html` e não aparece na navbar; nessa página, nenhum dos quatro itens principais recebe `aria-current="page"`. **Fontes e créditos** e **Feedback** permanecem textos sem interação, acompanhados de “Fontes e créditos e Feedback ainda não disponíveis.” Integrar esses dois destinos somente quando existirem páginas reais. Por decisão do usuário, as dez referências de Queimadas ficam somente em docs/recursos-e-licencas.md, até existir a página institucional Fontes e créditos. O HTML do rodapé é idêntico nas cinco páginas e usa o mesmo CSS e a mesma imagem. A atribuição acadêmica menciona as Atividades Extensionistas I, II e III.
+No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto** e **Fontes e créditos** abrem `./sobre.html` e `./fontes.html`, sem aparecer na navbar; nessas páginas, nenhum dos quatro itens principais recebe `aria-current="page"`. Somente **Feedback** permanece sem interação, acompanhado de “Feedback ainda não disponível.” As referências de Queimadas foram selecionadas pela auditoria para a página Fontes, com as pendências mantidas na documentação. O HTML do rodapé é idêntico nas seis páginas e usa o mesmo CSS e a mesma imagem. A atribuição acadêmica menciona as Atividades Extensionistas I, II e III.
 
 O rodapé fica fora do conteúdo principal e reutiliza os tokens escuros, a tipografia e o container da Home. Seus quatro grupos mantêm a ordem identidade, navegação, institucional e contexto acadêmico: uma coluna abaixo de 600 px, duas entre 600 e 1199 px e quatro a partir de 1200 px. No desktop, o fundo raster preparado a partir do exemplo 3 cobre o rodapé, com a paisagem de entardecer à esquerda e a área escura para os grupos à direita. Em telas menores, a paisagem aparece abaixo dos grupos e as divisórias verticais são removidas. A logo vetorial original do cabeçalho acompanha o nome em duas linhas, sem a folha criada na primeira versão. Logo e imagem de fundo são decorativas, sem identificar espécies ou um local documentado. O link Voltar ao topo é sublinhado, tem área mínima de 44 × 44 px e foco visível. O rodapé funciona sem JavaScript e cresce livremente com texto ampliado. A licença da referência original do fundo ainda precisa de comprovação, conforme `docs/recursos-e-licencas.md`.
 

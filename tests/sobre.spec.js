@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const approved = JSON.parse(readFileSync(new URL('./fixtures/sobre-aprovado.json', import.meta.url), 'utf8'));
 const viewports = [[320, 568], [390, 844], [768, 1024], [1024, 768], [1440, 900], [1920, 1080], [844, 390], [1280, 500]];
-const pages = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html'];
+const pages = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html', 'fontes.html'];
 
 test.use({ reducedMotion: 'reduce' });
 
@@ -32,13 +32,14 @@ test('abre Sobre pelo rodapé das quatro páginas sem acrescentá-la à navbar',
     await page.goto(`/${path}`);
     const nav = page.getByRole('navigation', { name: 'Principal', exact: true });
     await expect(nav.getByRole('link')).toHaveText(['Início', 'Queimadas', 'Dados', 'Prevenção']);
-    await expect(nav.locator('[aria-current="page"]')).toHaveCount(path === 'sobre.html' ? 0 : 1);
+    await expect(nav.locator('[aria-current="page"]')).toHaveCount(['sobre.html', 'fontes.html'].includes(path) ? 0 : 1);
     const currentFooter = page.getByRole('contentinfo');
     const html = await currentFooter.innerHTML();
     if (footer === undefined) footer = html;
     expect(html).toBe(footer);
     await expect(currentFooter.locator('.site-footer__academic > p').first()).toHaveText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.');
-    for (const name of ['Fontes e créditos', 'Feedback']) {
+    await expect(currentFooter.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
+    for (const name of ['Feedback']) {
       expect(await currentFooter.getByText(name, { exact: true }).evaluate(element => element.closest('a, button, [tabindex]') === null)).toBe(true);
     }
     const link = currentFooter.getByRole('link', { name: 'Sobre o projeto', exact: true });

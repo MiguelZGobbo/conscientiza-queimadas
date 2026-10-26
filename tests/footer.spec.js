@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const pendingInstitutionalItems = ['Fontes e créditos', 'Feedback'];
+const pendingInstitutionalItems = ['Feedback'];
 
 test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à página Sobre', async ({ page }) => {
   await page.goto('/');
@@ -13,7 +13,8 @@ test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à 
   await expect(footer.getByText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.', { exact: true })).toBeVisible();
   await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
   await expect(footer.getByText('© 2026 Conscientiza Queimadas', { exact: true })).toBeVisible();
-  await expect(footer.getByRole('link')).toHaveCount(2);
+  await expect(footer.getByRole('link')).toHaveCount(3);
+  await expect(footer.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
   await expect(footer.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
   await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Voltar ao topo', exact: true })).toHaveAttribute('href', '#inicio');
   for (const name of pendingInstitutionalItems) {
@@ -21,7 +22,7 @@ test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à 
     await expect(item).toBeVisible();
     expect(await item.evaluate(element => element.closest('a, button, [tabindex]') === null)).toBe(true);
   }
-  await expect(footer.getByText('Fontes e créditos e Feedback ainda não disponíveis.', { exact: true })).toBeVisible();
+  await expect(footer.getByText('Feedback ainda não disponível.', { exact: true })).toBeVisible();
   const mark = footer.locator('.site-footer__mark');
   await expect(footer.locator('svg')).toHaveCount(2);
   await expect(mark).toHaveAttribute('aria-hidden', 'true');

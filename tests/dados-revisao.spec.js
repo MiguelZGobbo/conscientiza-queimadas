@@ -229,10 +229,10 @@ test('créditos curtos preservam fontes e o expansível completo deixa Dados', a
   await expect(page.locator('.state-map figcaption')).toContainText('simplificados e reprojetados');
   const institutional = page.locator('.site-footer__institutional');
   await expect(institutional.getByText('Fontes e créditos', { exact: true })).toBeVisible();
-  await expect(institutional.getByRole('link')).toHaveText(['Sobre o projeto']);
-  await expect(institutional.getByRole('link')).toHaveAttribute('href', './sobre.html');
-  await expect(institutional.getByText('Fontes e créditos', { exact: true }).locator('a')).toHaveCount(0);
-  await expect(institutional).toContainText('Fontes e créditos e Feedback ainda não disponíveis.');
+  await expect(institutional.getByRole('link')).toHaveText(['Sobre o projeto', 'Fontes e créditos']);
+  await expect(institutional.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
+  await expect(institutional.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
+  await expect(institutional).toContainText('Feedback ainda não disponível.');
 });
 
 test('sem JavaScript, dados de focos nacionais e estaduais ficam disponíveis', async ({ browser }) => {
