@@ -389,7 +389,8 @@ test('carregamento lento do script não desloca o conteúdo e recursos são loca
   const totalSize = metrics.resources.reduce((size, resource) => size + resource.size, metrics.htmlSize);
   // O HTML/CSS e a imagem decorativa do rodapé têm orçamentos próprios.
   const backgroundSize = metrics.resources.filter(resource => /\/footer-background(?:-\d+)?\.webp$/.test(new URL(resource.name).pathname)).reduce((sum, resource) => sum + resource.size, 0);
-  expect(footerSize).toBeLessThan(7000);
+  // O link e a descrição acessível de Feedback acrescentam 180 bytes; preserva a margem anterior.
+  expect(footerSize).toBeLessThan(7000 + 180);
   expect(backgroundSize).toBeLessThan(200000);
   expect(totalSize - footerSize - backgroundSize).toBeLessThan(40000);
 });

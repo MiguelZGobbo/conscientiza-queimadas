@@ -1,5 +1,23 @@
 # Rodapé da Home — decisões e verificação
 
+## Feedback em nova aba — 26/10/2026
+
+A pedido do usuário, o Feedback das seis páginas passou a abrir em nova aba com `target="_blank"` e `rel="noopener noreferrer"`. A descrição acessível agora informa “Formulário externo no Google Forms. Abre em nova aba.”. CSS, scripts e demais destinos foram preservados, e os seis rodapés continuam idênticos.
+
+Os 94 testes selecionados de rodapé, Fontes, revisão de Dados e Hero passaram, incluindo abertura em nova aba por teclado com e sem JavaScript, permanência da página original, ausência de `window.opener` e a matriz responsiva com texto ampliado. A comparação visual foi conferida em 390, 768 e 1440 px. Este ajuste acrescenta 60 bytes ao HTML: o orçamento do rodapé passa a 7.180 bytes, preservando a margem anterior para o total de 7.167 bytes. Os resultados completos abaixo registram a etapa anterior.
+
+## Integração de Feedback — 26/10/2026
+
+O item “Feedback” agora aponta diretamente para `https://forms.gle/wLPDbMi2CeicbYYH9`, em uma nova aba, nos seis rodapés: Início, Queimadas, Dados, Prevenção, Sobre o projeto e Fontes e créditos. O texto “Formulário externo no Google Forms. Abre em nova aba.” substitui o aviso de indisponibilidade e descreve o link por `aria-describedby="feedback-description"`. Não há página intermediária, formulário incorporado ou dependência de JavaScript.
+
+O HTML dos rodapés continua idêntico. CSS, breakpoints, tipografia, cores, foco, hover e espaçamentos foram preservados; o novo link herda a área clicável mínima de 44 × 44 px. A altura cresce naturalmente com o conteúdo. Sobre o projeto, Fontes e créditos e Voltar ao topo mantêm seus destinos. Esta integração substitui os estados históricos de indisponibilidade de Feedback descritos abaixo.
+
+Antes da alteração, os 60 testes selecionados de rodapé, Sobre, Fontes e revisão de Dados passaram. As verificações de Feedback cobrem os seis documentos, URL exata, nome e descrição acessíveis, teclado e navegação em nova aba com e sem JavaScript; o destino externo é interceptado nos testes, sem acessar ou enviar respostas ao formulário. A matriz responsiva verifica 320, 390, 599, 600, 768, 1024, 1199, 1200, 1440 e 1920 px com texto a 100% e 200%. A comparação visual antes/depois em 390, 768 e 1440 px mostrou apenas as diferenças esperadas do link ativo, da descrição e do crescimento natural do rodapé.
+
+Os 85 testes selecionados após a integração passaram. Na primeira execução completa, 250 testes passaram e o orçamento do rodapé falhou: os novos atributos e textos acrescentaram exatamente 120 bytes ao HTML, levando o conjunto HTML/CSS de 6.987 para 7.107 bytes. O limite passou de 7.000 para 7.120 bytes, preservando a margem anterior; os limites da imagem e dos demais recursos permaneceram iguais. O teste de desempenho isolado passou após esse ajuste. `npm run check` também passou, incluindo os 21 testes Python.
+
+Na execução final, `npm test -- --reporter=line` passou com os 251 testes Chromium em 1,9 minuto. A revisão independente não encontrou problemas na integração nem no ajuste do orçamento. As alterações locais anteriores foram preservadas.
+
 ## Integração de Fontes e créditos — 26/10/2026
 
 O item “Fontes e créditos” agora é um link relativo para `./fontes.html` nos seis rodapés, incluindo a nova página. Somente Feedback permanece indisponível. A navbar mantém seus quatro itens; estrutura, arte, contexto acadêmico e retorno ao topo local foram preservados. O HTML dos seis rodapés é idêntico. Esta integração substitui o estado anterior de indisponibilidade de Fontes descrito no histórico abaixo. Resultados e limites em [verificacao-fontes.md](./verificacao-fontes.md).

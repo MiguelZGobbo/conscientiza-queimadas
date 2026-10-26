@@ -39,9 +39,7 @@ test('abre Sobre pelo rodapé das quatro páginas sem acrescentá-la à navbar',
     expect(html).toBe(footer);
     await expect(currentFooter.locator('.site-footer__academic > p').first()).toHaveText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.');
     await expect(currentFooter.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
-    for (const name of ['Feedback']) {
-      expect(await currentFooter.getByText(name, { exact: true }).evaluate(element => element.closest('a, button, [tabindex]') === null)).toBe(true);
-    }
+    await expect(currentFooter.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', 'https://forms.gle/wLPDbMi2CeicbYYH9');
     const link = currentFooter.getByRole('link', { name: 'Sobre o projeto', exact: true });
     await expect(link).toHaveAttribute('href', './sobre.html');
     await link.click();

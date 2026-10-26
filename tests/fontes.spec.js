@@ -22,7 +22,8 @@ test('abre Fontes pelo atalho de todos os rodapés, mantendo a navbar', async ({
     await link.click();
     await expect(page).toHaveURL(/\/fontes\.html$/);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Fontes e créditos');
-    await expect(footer.locator('.site-footer__availability')).toHaveText('Feedback ainda não disponível.');
+    await expect(footer.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', 'https://forms.gle/wLPDbMi2CeicbYYH9');
+    await expect(footer.locator('.site-footer__availability')).toHaveText('Formulário externo no Google Forms. Abre em nova aba.');
   }
 });
 

@@ -1,6 +1,93 @@
 import { test, expect } from '@playwright/test';
 
-const pendingInstitutionalItems = ['Feedback'];
+const feedbackURL = 'https://forms.gle/wLPDbMi2CeicbYYH9';
+const footerPages = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html', 'fontes.html'];
+
+for (const path of footerPages) {
+  test(`Feedback tem destino e descrição acessíveis em ${path}`, async ({ page }) => {
+    await page.goto(`/${path}`);
+    const footer = page.getByRole('contentinfo');
+    const feedback = footer.getByRole('link', { name: 'Feedback', exact: true });
+    await expect(footer.getByRole('link')).toHaveCount(4);
+    await expect(feedback).toHaveAttribute('href', feedbackURL);
+    await expect(feedback).toHaveAttribute('target', '_blank');
+    await expect(feedback).toHaveAttribute('rel', 'noopener noreferrer');
+    await expect(feedback).toHaveAttribute('aria-describedby', 'feedback-description');
+    await expect(feedback).toHaveAccessibleDescription('Formulário externo no Google Forms. Abre em nova aba.');
+    await expect(footer.locator('#feedback-description')).toBeVisible();
+  });
+
+  for (const javaScriptEnabled of [true, false]) {
+    test(`Feedback abre em nova aba por teclado em ${path}, JavaScript ${javaScriptEnabled}`, async ({ browser }) => {
+      const context = await browser.newContext({ javaScriptEnabled, reducedMotion: 'reduce' });
+      try {
+        await context.route(feedbackURL, route => route.fulfill({ contentType: 'text/html', body: '<html lang="pt-BR"><title>Destino de feedback</title></html>' }));
+        const page = await context.newPage();
+        for (const width of [390, 1440]) {
+          await page.setViewportSize({ width, height: 900 });
+          await page.goto(`http://127.0.0.1:4173/${path}`);
+          const footer = page.getByRole('contentinfo');
+          const credits = footer.getByRole('link', { name: 'Fontes e créditos', exact: true });
+          const feedback = footer.getByRole('link', { name: 'Feedback', exact: true });
+          await credits.focus();
+          await page.keyboard.press('Tab');
+          await expect(feedback).toBeFocused();
+          await expect(feedback).toBeInViewport();
+          expect(await feedback.evaluate(element => element.matches(':focus-visible') && getComputedStyle(element).outlineStyle === 'solid' && parseFloat(getComputedStyle(element).outlineWidth) >= 2)).toBe(true);
+          const bounds = await feedback.boundingBox();
+          expect(bounds.width).toBeGreaterThanOrEqual(44);
+          expect(bounds.height).toBeGreaterThanOrEqual(44);
+          await page.keyboard.press('Shift+Tab');
+          await expect(credits).toBeFocused();
+          await page.keyboard.press('Tab');
+          const newTab = context.waitForEvent('page');
+          await page.keyboard.press('Enter');
+          const form = await newTab;
+          await expect(form).toHaveURL(feedbackURL);
+          await expect(form).toHaveTitle('Destino de feedback');
+          await expect(page).toHaveURL(`http://127.0.0.1:4173/${path}`);
+          expect(context.pages()).toHaveLength(2);
+          expect(await form.evaluate(() => window.opener === null)).toBe(true);
+          await form.close();
+        }
+      } finally {
+        await context.close();
+      }
+    });
+  }
+
+  test(`Feedback mantém o rodapé responsivo em ${path}`, async ({ page }) => {
+    await page.goto(`/${path}`);
+    const footer = page.getByRole('contentinfo');
+    for (const width of [320, 390, 599, 600, 768, 1024, 1199, 1200, 1440, 1920]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const fontSize of ['100%', '200%']) {
+        await page.evaluate(size => document.documentElement.style.fontSize = size, fontSize);
+        const layout = await footer.evaluate(element => {
+          const links = [...element.querySelectorAll('a')].map(link => link.getBoundingClientRect().toJSON());
+          return {
+            overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+            clipped: [...element.querySelectorAll('h2, h3, p, li, a')].some(text => text.scrollWidth > text.clientWidth || text.scrollHeight > text.clientHeight),
+            links,
+            description: element.querySelector('#feedback-description').getBoundingClientRect().toJSON(),
+          };
+        });
+        expect(layout.overflow, `${width}px / ${fontSize}`).toBe(false);
+        expect(layout.clipped, `${width}px / ${fontSize}`).toBe(false);
+        for (const link of layout.links) {
+          expect(link.left).toBeGreaterThanOrEqual(0);
+          expect(link.right).toBeLessThanOrEqual(width);
+          expect(link.height).toBeGreaterThanOrEqual(44);
+        }
+        const feedback = layout.links.at(-1);
+        expect(layout.description.top).toBeGreaterThanOrEqual(feedback.bottom);
+        for (const other of layout.links.slice(0, -1)) {
+          expect(feedback.left >= other.right || feedback.right <= other.left || feedback.top >= other.bottom || feedback.bottom <= other.top).toBe(true);
+        }
+      }
+    }
+  });
+}
 
 test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à página Sobre', async ({ page }) => {
   await page.goto('/');
@@ -13,16 +100,12 @@ test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à 
   await expect(footer.getByText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.', { exact: true })).toBeVisible();
   await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
   await expect(footer.getByText('© 2026 Conscientiza Queimadas', { exact: true })).toBeVisible();
-  await expect(footer.getByRole('link')).toHaveCount(3);
+  await expect(footer.getByRole('link')).toHaveCount(4);
   await expect(footer.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
   await expect(footer.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
   await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Voltar ao topo', exact: true })).toHaveAttribute('href', '#inicio');
-  for (const name of pendingInstitutionalItems) {
-    const item = footer.getByText(name, { exact: true });
-    await expect(item).toBeVisible();
-    expect(await item.evaluate(element => element.closest('a, button, [tabindex]') === null)).toBe(true);
-  }
-  await expect(footer.getByText('Feedback ainda não disponível.', { exact: true })).toBeVisible();
+  await expect(footer.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', feedbackURL);
+  await expect(footer.getByText('Formulário externo no Google Forms. Abre em nova aba.', { exact: true })).toBeVisible();
   const mark = footer.locator('.site-footer__mark');
   await expect(footer.locator('svg')).toHaveCount(2);
   await expect(mark).toHaveAttribute('aria-hidden', 'true');
@@ -40,7 +123,7 @@ test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à 
   expect((await response.body()).length).toBeLessThan(200000);
 });
 
-for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [600, 900, 2], [768, 1024, 2], [1024, 768, 2], [1199, 900, 2], [1200, 900, 4], [1440, 900, 4], [1920, 1080, 4]]) {
+for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [599, 900, 1], [600, 900, 2], [768, 1024, 2], [1024, 768, 2], [1199, 900, 2], [1200, 900, 4], [1440, 900, 4], [1920, 1080, 4]]) {
   test(`rodapé mantém leitura e ordem em ${width}×${height}, inclusive com texto a 200%`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height });
     await page.goto('/');
