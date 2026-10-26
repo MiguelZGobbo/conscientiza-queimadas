@@ -1,5 +1,9 @@
 # Rodapé da Home — decisões e verificação
 
+## Integração de Sobre — 26/10/2026
+
+O atalho “Sobre o projeto” agora abre `./sobre.html` nas cinco páginas, sem entrar na navbar principal. Fontes e créditos e Feedback continuam como textos sem interação, com aviso específico de indisponibilidade. Conforme a confirmação do usuário, a atribuição acadêmica passou a mencionar as Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER. A estrutura, os recursos visuais e o CSS do rodapé foram preservados; sua altura continua acompanhando naturalmente o conteúdo. Os cinco documentos têm rodapés idênticos, com `#inicio` local em cada página. Essa integração substitui a situação de indisponibilidade de Sobre descrita no histórico abaixo. Verificações e limites atuais estão em [verificacao-sobre.md](./verificacao-sobre.md).
+
 ## Correção de nitidez e densidade — 20/10/2026
 
 O diagnóstico confirmou que a máscara vertical anterior desvanecia também o primeiro plano. Além disso, o antigo banner de 2172 px incluía grande área verde sem detalhes e não fornecia densidade 2× em largura desktop. A comparação do PNG com o WebP mostrou efeito menor da compressão. A solução remove a máscara e concentra a imagem na paisagem, com preenchimento verde em CSS e escurecimento restrito à área dos textos e à faixa inferior do copyright.

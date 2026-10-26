@@ -1,4 +1,4 @@
-/* Aberturas ilustradas das três páginas de conteúdo. */
+/* Aberturas compactas das páginas de conteúdo. */
 .page-intro {
   padding-block: clamp(1.5rem, min(3vw, 5svh), 3rem);
   background: var(--background);
@@ -16,7 +16,7 @@
 .page-intro h1 span { color: var(--accent); }
 .page-intro p { max-width: 60ch; margin: clamp(1rem, min(1.5vw, 3svh), 1.5rem) 0 0; color: var(--muted); }
 .page-intro__art { display: block; justify-self: center; width: min(100%, 22.5rem); height: 128px; color: var(--accent); pointer-events: none; }
-:is(.queimadas-page, .dados-page, .prevencao-page) .page-intro :focus-visible { outline-color: var(--accent); }
+:is(.queimadas-page, .dados-page, .prevencao-page, .sobre-page) .page-intro :focus-visible { outline-color: var(--accent); }
 
 /* Encerramentos usam a mesma coluna e escala de leitura de cada página. */
 .reading-next { padding-block: var(--reading-space, var(--data-space)); }

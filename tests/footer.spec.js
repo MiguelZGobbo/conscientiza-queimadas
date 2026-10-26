@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const institutionalItems = ['Sobre o projeto', 'Fontes e créditos', 'Feedback'];
+const pendingInstitutionalItems = ['Fontes e créditos', 'Feedback'];
 
-test('rodapé encerra a Home com identidade, contexto acadêmico e apenas um destino real', async ({ page }) => {
+test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à página Sobre', async ({ page }) => {
   await page.goto('/');
   const footer = page.getByRole('contentinfo');
   await expect(footer).toBeVisible();
@@ -10,17 +10,18 @@ test('rodapé encerra a Home com identidade, contexto acadêmico e apenas um des
   await expect(footer.getByRole('heading', { level: 2 })).toHaveText('Conscientiza Queimadas');
   await expect(footer.getByRole('heading', { level: 3 })).toHaveText(['Navegação', 'Institucional', 'Atividade acadêmica']);
   await expect(footer.getByText('Informação e prevenção para uma relação mais consciente com o fogo.', { exact: true })).toBeVisible();
-  await expect(footer.getByText('Projeto desenvolvido como parte da Atividade Extensionista III da UNINTER.', { exact: true })).toBeVisible();
+  await expect(footer.getByText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.', { exact: true })).toBeVisible();
   await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
   await expect(footer.getByText('© 2026 Conscientiza Queimadas', { exact: true })).toBeVisible();
-  await expect(footer.getByRole('link')).toHaveCount(1);
+  await expect(footer.getByRole('link')).toHaveCount(2);
+  await expect(footer.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
   await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Voltar ao topo', exact: true })).toHaveAttribute('href', '#inicio');
-  for (const name of institutionalItems) {
+  for (const name of pendingInstitutionalItems) {
     const item = footer.getByText(name, { exact: true });
     await expect(item).toBeVisible();
     expect(await item.evaluate(element => element.closest('a, button, [tabindex]') === null)).toBe(true);
   }
-  await expect(footer.getByText('Conteúdos ainda não disponíveis.', { exact: true })).toBeVisible();
+  await expect(footer.getByText('Fontes e créditos e Feedback ainda não disponíveis.', { exact: true })).toBeVisible();
   const mark = footer.locator('.site-footer__mark');
   await expect(footer.locator('svg')).toHaveCount(2);
   await expect(mark).toHaveAttribute('aria-hidden', 'true');

@@ -1,5 +1,5 @@
-/* Página educativa: escala fluida e coluna de leitura compartilhada. */
-:is(.queimadas-page, .prevencao-page) main {
+/* Páginas de leitura: escala fluida e coluna compartilhada. */
+:is(.queimadas-page, .prevencao-page, .sobre-page) main {
   --reading-type-unit: clamp(1rem, min(1.15vw, 2.3svh), 1.25rem);
   --reading-gap: clamp(1rem, min(2vw, 3svh), 2rem);
   --reading-space: clamp(2.5rem, min(6vw, 9svh), 5rem);
@@ -9,10 +9,10 @@
   font-size: var(--reading-type-unit);
   line-height: 1.75;
 }
-:is(.queimadas-page, .prevencao-page) main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
-:is(.queimadas-page, .prevencao-page) main :focus-visible { outline-color: var(--impacts-accent); }
-:is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
-:is(.queimadas-page, .prevencao-page) main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
+:is(.queimadas-page, .prevencao-page, .sobre-page) main ::selection { background: var(--impacts-accent); color: var(--impacts-background); }
+:is(.queimadas-page, .prevencao-page, .sobre-page) main :focus-visible { outline-color: var(--impacts-accent); }
+:is(.queimadas-page, .prevencao-page, .sobre-page) main :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
+:is(.queimadas-page, .prevencao-page, .sobre-page) main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
 .reading-column { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
 .reading-section { padding-block: var(--reading-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
 .reading-section:focus-visible { outline-offset: -4px; }
