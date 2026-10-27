@@ -84,7 +84,8 @@ for (const chart of charts) {
   chart.addEventListener('click', event => {
     const index = indexAt(event);
     if (index === null) return;
-    input = event.pointerType || pointerType;
+    // WebKit pode sintetizar click como mouse depois de um pointerdown de toque.
+    input = pointerType !== 'mouse' ? pointerType : event.pointerType || pointerType;
     pinned = pinned === index ? null : index;
     select(input === 'mouse' ? index : pinned);
   });

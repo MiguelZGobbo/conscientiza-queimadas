@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { withPublicationServer as serve } from './helpers/publicacao.js';
+import { chooseState } from './helpers/dados.js';
 
 test.setTimeout(90000);
 test.use({ hasTouch: true, isMobile: true });
@@ -84,6 +85,36 @@ for (const javaScriptEnabled of [true, false]) for (const reducedMotion of ['red
     } finally { await context.close(); }
   });
 }
+
+test('mapa 27 UFs, seis gráficos e segurança funcionam por toque e teclado', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.violations = [];
+    document.addEventListener('securitypolicyviolation', event => window.violations.push(event.violatedDirective));
+  });
+  await serve('/', async base => {
+    await page.goto(`${base}dados`);
+    const states = await page.locator('#state-select option').evaluateAll(options => options.map(o => o.value).filter(Boolean));
+    expect(states).toHaveLength(27);
+    for (const uf of states) {
+      await chooseState(page, uf);
+      await expect(page.locator(`[data-uf="${uf}"]`)).toHaveAttribute('aria-pressed', 'true');
+    }
+    await page.getByRole('button', { name: 'Acre', exact: true }).tap();
+    await expect(page.locator('[data-uf="AC"]')).toHaveAttribute('aria-pressed', 'true');
+    for (const selector of ['.biome-chart', '.state-comparison', '#national-focus-annual', '#national-focus-cumulative', '#state-focus-monthly', '#state-focus-annual']) {
+      const figure = page.locator(selector);
+      await figure.focus(); await figure.press('End');
+      await expect(figure.locator('[data-chart-active]')).toHaveCount(1);
+      await figure.press('Enter'); await figure.press('Escape');
+      await expect(figure.locator('[data-chart-active]')).toHaveCount(0);
+      const row = figure.locator('li').first();
+      await row.tap(); await expect(row).toHaveAttribute('data-chart-active', '');
+      await row.tap(); await expect(figure.locator('[data-chart-active]')).toHaveCount(0);
+    }
+    expect(await page.evaluate(() => window.violations)).toEqual([]);
+    await expect(page.locator('footer a[href="https://forms.gle/wLPDbMi2CeicbYYH9"]')).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+});
 
 test('links internos navegam diretamente às URLs canônicas em raiz e subdiretório', async ({ page }) => {
   for (const prefix of ['/', '/projeto/']) await serve(prefix, async base => {
