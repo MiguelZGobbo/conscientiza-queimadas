@@ -40,6 +40,25 @@ test('rodapé reduz a ocupação vertical mantendo tipografia e alvos de toque',
   }
 });
 
+test('faixa compacta de tablet mantém o miolo da paisagem no enquadramento', async ({ page }) => {
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.goto('/sobre');
+  const image = page.locator('footer img');
+  await image.scrollIntoViewIfNeeded();
+  const focalArea = await image.evaluate(async el => {
+    await el.decode();
+    const box = el.getBoundingClientRect();
+    const scale = Math.max(box.width / el.naturalWidth, box.height / el.naturalHeight);
+    const position = parseFloat(getComputedStyle(el).objectPosition.split(' ')[1]) / 100;
+    const paintedHeight = el.naturalHeight * scale;
+    const offset = (box.height - paintedHeight) * position;
+    // Região central da obra: preservar a passagem entre entardecer, montanhas e mata.
+    return { top: paintedHeight * .42 + offset, bottom: paintedHeight * .58 + offset, height: box.height };
+  });
+  expect(focalArea.top).toBeGreaterThanOrEqual(0);
+  expect(focalArea.bottom).toBeLessThanOrEqual(focalArea.height);
+});
+
 for (const route of pages) test(`rodapé fluido sem cortes: ${route}, orientações e texto ampliado`, async ({ page }, testInfo) => {
   await serve('/', async base => {
     await page.goto(`${base}${route}`);
