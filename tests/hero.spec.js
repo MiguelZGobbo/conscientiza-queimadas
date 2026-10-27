@@ -384,13 +384,13 @@ test('carregamento lento do script não desloca o conteúdo e recursos são loca
   ]);
   // Mantém o orçamento anterior e limita separadamente o novo conteúdo da Home.
   const footerHtml = html.match(/\n[ \t]*<footer\b[\s\S]*?<\/footer>\r?\n/)[0];
-  const footerCss = css.match(/\/\* Rodapé da Home \*\/[\s\S]*?\/\* Fim do rodapé \*\//)[0];
+  const footerCss = css.slice(css.indexOf('.site-footer {'), css.indexOf('/* Fim do rodapé */'));
   const footerSize = Buffer.byteLength(footerHtml + footerCss);
   const totalSize = metrics.resources.reduce((size, resource) => size + resource.size, metrics.htmlSize);
   // O HTML/CSS e a imagem decorativa do rodapé têm orçamentos próprios.
   const backgroundSize = metrics.resources.filter(resource => /\/footer-background(?:-\d+)?\.webp$/.test(new URL(resource.name).pathname)).reduce((sum, resource) => sum + resource.size, 0);
-  // O link e a descrição acessível de Feedback acrescentam 180 bytes; preserva a margem anterior.
-  expect(footerSize).toBeLessThan(7000 + 180);
+  // Inclui escala fluida, safe areas e reflow por container; o restante mantém o orçamento anterior.
+  expect(footerSize).toBeLessThan(8500);
   expect(backgroundSize).toBeLessThan(200000);
   expect(totalSize - footerSize - backgroundSize).toBeLessThan(40000);
 });
