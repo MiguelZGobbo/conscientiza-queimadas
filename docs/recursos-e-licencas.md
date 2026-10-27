@@ -1,5 +1,11 @@
 # Recursos, autoria e licenças
 
+## Confirmação de autoria das imagens — 26/10/2026
+
+Miguel Zager Gobbo confirmou nesta conversa que todas as imagens fornecidas por ele para o projeto foram criadas por ele com auxílio de IA. Essa declaração esclarece a origem das imagens e de suas referências, incluindo a paisagem do rodapé e a referência visual da marca/favicon, e encerra as respectivas pendências anteriores de autoria e autorização de uso no projeto. Não foi atribuída uma licença pública nova a esses materiais.
+
+O crédito público aprovado é: “Imagens e ilustrações artísticas criadas para o projeto por Miguel Zager Gobbo.” A geração assistida, os prompts, os arquivos de referência e as exportações permanecem documentados internamente. Os registros datados abaixo preservam o histórico anterior à confirmação; seus avisos de pendência sobre essas imagens foram superados por esta atualização. As condições dos dados e da cartografia de terceiros continuam específicas de cada fonte.
+
 ## Referências reservadas para a futura página Fontes e créditos
 
 Atualização de 19/10/2026: o expansível foi removido de Dados por decisão do usuário. A página institucional ainda não foi criada. O site mantém créditos curtos com links originais e avisos de adaptações/licenças junto às visualizações; as referências completas abaixo permanecem na documentação para transferência futura. Nenhuma licença foi atribuída automaticamente ao INPE.
@@ -59,7 +65,7 @@ Atualizado em 07/10/2026. A instrução do usuário foi utilizar o fundo do exem
 
 | Recurso | Fonte | Autor/Órgão | Licença | Link | Forma de atribuição |
 | --- | --- | --- | --- | --- | --- |
-| Fundo de entardecer do rodapé, preparado a partir do exemplo 3 | Anexo do usuário `codex-clipboard-5969be05-e1e8-4827-b24a-009089c15854.png`; edição assistida pelo ImageGen | Autoria do anexo não informada; preparação para o projeto via ImageGen | Licença original do anexo não informada; utilização dessa referência solicitada explicitamente pelo usuário nesta conversa. Não é atribuída uma licença nova ao material de origem | [Arquivo usado no site](../src/footer-background.webp) | Registro da origem e da preparação neste documento; nenhum texto de atribuição obrigatório foi informado para o anexo |
+| Fundo de entardecer do rodapé, preparado a partir do exemplo 3 | Anexo do usuário `codex-clipboard-5969be05-e1e8-4827-b24a-009089c15854.png`; edição assistida pelo ImageGen | Miguel Zager Gobbo, conforme confirmação de autoria das imagens e referências em 26/10/2026; preparação assistida registrada no histórico técnico | Pendência de autoria e autorização de uso no projeto encerrada pela confirmação do responsável; nenhuma licença pública nova atribuída | [Arquivo usado no site](../src/footer-background.webp) | Crédito público único: “Imagens e ilustrações artísticas criadas para o projeto por Miguel Zager Gobbo.” |
 
 ## Referências editoriais — Impactos das queimadas
 
@@ -105,6 +111,17 @@ As dez URLs retornaram conteúdo na consulta de 13/10/2026. A coluna Licença de
 | Erosão, assoreamento e recursos hídricos | Controle de processos erosivos | Codevasf | Consulta factual, sem material reproduzido; licença não atribuída | [Página oficial](https://www.gov.br/codevasf/pt-br/assuntos/revitalizacao-de-bacias-hidrograficas/recuperacao-hidroambiental/controle-de-processos-erosivos) | Título, órgão e link neste documento; integração institucional futura |
 
 A FAQ do INPE contém discussão histórica de tendências; não foram incorporados seus números ao projeto. A redação do handoff foi preservada na entrega original; em 19/10/2026 o usuário autorizou condensar as repetições, sem novos fatos ou fontes. A ressalva jurídica sobre exceções delimitadas à autorização de queima está registrada para revisão em [Verificação de Queimadas](./verificacao-queimadas.md).
+
+## Revisão editorial e condições de uso — 26/10/2026
+
+Este registro complementa as tabelas históricas acima e abaixo, sem apagar as condições identificadas em cada entrega. O [relatório editorial](./relatorio-revisao-editorial.md) reúne trechos antes/depois e fontes verificadas nesta data.
+
+- **CBMSC:** o artigo histórico continua exibindo manutenção. Os conceitos de triângulo do fogo, meteorologia, combustível e relevo foram conferidos nas [Diretrizes do Ministério da Saúde sobre brigadista florestal, 2024, p. 24](https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2024/diretrizes-de-vigilancia-em-saude-do-trabalhador-brigadista-florestal/@@download/file), agora referidas em Fontes. Consulta factual, sem copiar texto, ilustrações ou protocolos de combate. A licença da obra não foi transferida para o site.
+- **Causas e legalidade:** a frase nacional de predominância humana foi substituída por afirmação qualitativa; a definição de queima controlada recebeu ressalva de exceções e orientação de consulta ao órgão competente. Modalidades não foram equiparadas. Fontes passa a associar os dispositivos legais aos temas.
+- **Emergências:** 193 e 199, links e prioridade de incêndio foram mantidos. A ressalva de estrutura local já existia e foi confirmada; acrescentada referência direta da Defesa Civil PR. Não se confirmou uma central 199 ativa em Itaguaçu.
+- **INPE:** reuso das agregações de focos documentado pelo [PDA INPE 2025–2027](https://www.gov.br/inpe/pt-br/acesso-a-informacao/dados-abertos/repositorio-de-arquivos/pda_inpe_25_27_v3_defesoeleitoral2026.pdf) e pelo [Decreto nº 8.777/2016](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/decreto/d8777.htm), com crédito e referência ABNT. Não foi localizado identificador nominal por arquivo e não se aplicou CC BY/CC BY-SA de outro produto. A atualização de [fontes-inpe.md](./fontes-inpe.md) complementa a pendência histórica. Minuta opcional (rascunho local preservado, fora do Git) preparada, sem envio.
+
+Autoria das imagens permanece conforme a declaração já registrada em 26/10; nenhuma nova investigação ou licença pública foi atribuída. Nenhuma série, método de agregação, geometria ou recurso visual foi alterado.
 
 ## Atualização de Dados — 19/10/2026: médias históricas e meses recentes
 

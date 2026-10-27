@@ -1,5 +1,9 @@
 # Artes do rodapé — 20/10/2026
 
+## Autoria confirmada — 26/10/2026
+
+Miguel Zager Gobbo confirmou que as imagens e referências fornecidas para o projeto foram criadas por ele com auxílio de IA. A confirmação encerra a pendência anterior de origem e autorização da referência do rodapé. O crédito público identifica Miguel Zager Gobbo; este arquivo preserva o histórico técnico da preparação e geração, sem estabelecer uma licença pública para as imagens.
+
 ## Arquivo em uso e preparação
 
 O PNG `originais/rodape-painel.png` tem **2014 × 780 px nativos**. Foi produzido pela ferramenta integrada ImageGen, sem CLI/API, a partir do recorte x=0, y=0, largura=1086, altura=420 do PNG `originais/rodape.png` aprovado anteriormente. A geração reconstrói detalhes das árvores e montanhas na área ilustrada; não é uma ampliação de arquivo nem uma alegação de 4K. O resultado foi inspecionado antes da integração.

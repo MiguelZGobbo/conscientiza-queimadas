@@ -45,10 +45,13 @@ test('publica referências auditadas, com métodos distintos e créditos sem lic
   await expect(main.locator('#fonte-raf')).toContainText('1985–2025');
   await expect(main.locator('#fonte-monitor')).toContainText('outubro de 2025 a setembro de 2026');
   await expect(main.locator('#fonte-inpe')).toContainText('AQUA_M-T');
-  await expect(main.locator('#fonte-inpe')).toContainText('licença específica');
+  await expect(main.locator('#fonte-inpe')).toContainText('Plano de Dados Abertos do INPE');
+  await expect(main.locator('#fonte-inpe')).toContainText('Não foi identificado um nome de licença específico para cada arquivo.');
   await expect(main.locator('#fonte-inpe')).not.toContainText('CC BY');
-  await expect(main.locator('#creditos')).toContainText('ImageGen');
-  await expect(main.locator('#creditos')).toContainText('ainda precisam ser confirmadas');
+  const credits = main.locator('#creditos');
+  await expect(credits.getByText('Imagens e ilustrações artísticas criadas para o projeto por Miguel Zager Gobbo.', { exact: true })).toHaveCount(1);
+  await expect(credits).not.toContainText(/ImageGen|inteligência artificial|\bIA\b|ainda precisam ser confirmadas/);
+  await expect(credits.getByRole('heading', { name: 'Paisagem do rodapé', exact: true })).toHaveCount(0);
   await expect(main.locator('#referencias-tecnicas')).toContainText('não representa certificação');
   await expect(main.locator('form, details, button')).toHaveCount(0);
 });

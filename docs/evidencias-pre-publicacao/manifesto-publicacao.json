@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-26T23:36:13.785Z",
+  "directory": "dist",
+  "totalBytes": 1107119,
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 22179,
+      "sha256": "8f1b637f3a9983fd0eb71eb75e051574c04a327e64a5da669f61bcc7d3b0ef0f"
+    },
+    {
+      "path": "queimadas.html",
+      "bytes": 22321,
+      "sha256": "122e9c0b35c4ac72104492b500fbed2d44f71efae7d7a8a0c64357ae6239ac41"
+    },
+    {
+      "path": "dados.html",
+      "bytes": 183735,
+      "sha256": "64c51df4263a0cc8381666a67eaa27b767f325b2058eb486af1ffb5eebf09597"
+    },
+    {
+      "path": "prevencao.html",
+      "bytes": 18030,
+      "sha256": "912cf57ff2605ce0c981baad082ef221bfcb96ed929495831b09433ac75d36b9"
+    },
+    {
+      "path": "sobre.html",
+      "bytes": 8053,
+      "sha256": "5f17b00f57c5107336515dbc1255fb8cf8783d2361327ea3345cd74f30aea35b"
+    },
+    {
+      "path": "fontes.html",
+      "bytes": 18566,
+      "sha256": "2d020aebe8909689bdbc1c3f94cd6a44baa78f342ce9d4ea14dacb9a7abbda26"
+    },
+    {
+      "path": "src/styles.css",
+      "bytes": 18976,
+      "sha256": "987fddc695377a8a6bdcdf008e444913d245b3b5e8ac94c5d437a9913b185e34"
+    },
+    {
+      "path": "src/paginas.css",
+      "bytes": 2037,
+      "sha256": "2fd1069a7fbb13fdbacff6adacbdc231435c342c0f9a86c4b6e86b283cfb365c"
+    },
+    {
+      "path": "src/queimadas.css",
+      "bytes": 4583,
+      "sha256": "56f4923a04e9e9df9ce83bf79e976c7288f4d4ee341fca4ac9737e5cb336a6de"
+    },
+    {
+      "path": "src/dados.css",
+      "bytes": 20635,
+      "sha256": "a1925dd239abf0fc4a60da54930c5d27bd9ef7742738c1a05817f47e3718a4d7"
+    },
+    {
+      "path": "src/prevencao.css",
+      "bytes": 2630,
+      "sha256": "6a47d1e6134fc00d8ac1969b0d0884c92a077af7b09238e2b9552ee12d29da68"
+    },
+    {
+      "path": "src/navigation.js",
+      "bytes": 1316,
+      "sha256": "c5398e4db50c915f5f44e1fc429a46ea3aaedf21e1cf5ba2da6526886aaea99e"
+    },
+    {
+      "path": "src/hero-interaction.js",
+      "bytes": 4480,
+      "sha256": "50dd1fd3896769453718f5fb1af9c44cade62ca4b45bff3d50498c95c35fcfdb"
+    },
+    {
+      "path": "src/dados.js",
+      "bytes": 5651,
+      "sha256": "1a790ffffa817b2f5111a08f32642c917374ab66c6e3d9f7e64be78fe0fe44c7"
+    },
+    {
+      "path": "src/graficos-interacao.js",
+      "bytes": 6293,
+      "sha256": "5f9ea47777e138c9801ac6d8c45a8f957bee48e8f4fdc8a285e2de4caf830510"
+    },
+    {
+      "path": "src/focos.js",
+      "bytes": 3812,
+      "sha256": "ea609c77cee84e4dbe6cf1a69b19e6c10975b32eb2243eec76524a5fe080ddf9"
+    },
+    {
+      "path": "src/graficos.js",
+      "bytes": 7411,
+      "sha256": "93f358c3f82b225ef98d41a7405a087f3290f9c7084fbac3a4b839200a2924d2"
+    },
+    {
+      "path": "src/dados-base.js",
+      "bytes": 8026,
+      "sha256": "6b3b87173d6ec866971f460d0877b26bc7d72dfc124bf8e105abe58a4a09a1e1"
+    },
+    {
+      "path": "src/focos-base.js",
+      "bytes": 18126,
+      "sha256": "134ee4e4774a339b78cd6bf4e7c9e98bc4a3a9984f0cbe9820e99b4f255d0d00"
+    },
+    {
+      "path": "src/seletor-estados.js",
+      "bytes": 5954,
+      "sha256": "24f80cc23c737cadbdbf865fb9f398af9eb0b9bb211439a080747cf21fe97ed3"
+    },
+    {
+      "path": "src/favicon.svg",
+      "bytes": 406,
+      "sha256": "e43baa4d7ba118bd5bf8dbd146976b94e557aa489650acdf5a87162d61568ac9"
+    },
+    {
+      "path": "src/smoke.svg",
+      "bytes": 1655,
+      "sha256": "d54383be047aa2c8fee8df3ea4fa3674f49c1ccc15107bc6ba784968e03a8c5b"
+    },
+    {
+      "path": "src/footer-background.webp",
+      "bytes": 234972,
+      "sha256": "aed55b87373a62f0cba167b59f7947e86340340d556dd6a9daa14d040fd53440"
+    },
+    {
+      "path": "src/footer-background-768.webp",
+      "bytes": 49750,
+      "sha256": "c99e0ee7c05aeec8b9d95d90300e8839917718088acf89a090980d84972afe67"
+    },
+    {
+      "path": "src/footer-background-960.webp",
+      "bytes": 73096,
+      "sha256": "57fec9bcbb6c41ea51e4dc84e04a2a7bb16dab792d885c1ca9660f7c3d81bb5c"
+    },
+    {
+      "path": "src/footer-background-1440.webp",
+      "bytes": 145428,
+      "sha256": "faf994db0141c0bb33aa510b4385e6a3e0a9b1d4d46c203fed23219638ce293a"
+    },
+    {
+      "path": "src/footer-background-1920.webp",
+      "bytes": 218998,
+      "sha256": "3c09bb3916fc7fd362337c19a0f287e88f435c18a9cbf8cc94322f792b106a23"
+    }
+  ]
+}

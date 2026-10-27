@@ -1,0 +1,2669 @@
+{
+  "antes": {
+    "date": "2026-10-26T23:08:24.185Z",
+    "tool": "Playwright/CDP/PerformanceObserver",
+    "node": "v24.19.0",
+    "browser": "153.0.8010.12",
+    "baseURL": "http://127.0.0.1:4173/",
+    "profiles": [
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "mobile": true,
+        "cpu": 4,
+        "latency": 150,
+        "download": 200000,
+        "upload": 93750
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "mobile": false,
+        "cpu": 1
+      }
+    ],
+    "deviceScaleFactor": 1,
+    "cache": "novo contexto; cache desativado por CDP",
+    "fieldINP": "não medido",
+    "samples": [
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 732,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 97927,
+        "initialResourceTimingBytes": 98206,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97927,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 97927,
+        "initialResourceTimingBytes": 98206,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97927,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 720,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 97927,
+        "initialResourceTimingBytes": 98206,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97927,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 97927,
+        "initialResourceTimingBytes": 98206,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97927,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 97927,
+        "initialResourceTimingBytes": 98206,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97927,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 776,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 744,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 776,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 736,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 748,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 1028,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 96
+            },
+            {
+              "name": "pointerup",
+              "duration": 96
+            },
+            {
+              "name": "click",
+              "duration": 96
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 992,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 96
+            },
+            {
+              "name": "pointerup",
+              "duration": 96
+            },
+            {
+              "name": "click",
+              "duration": 96
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 996,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 88
+            },
+            {
+              "name": "pointerup",
+              "duration": 88
+            },
+            {
+              "name": "click",
+              "duration": 88
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 1004,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 104
+            },
+            {
+              "name": "pointerup",
+              "duration": 104
+            },
+            {
+              "name": "click",
+              "duration": 104
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 1076,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 96
+            },
+            {
+              "name": "pointerup",
+              "duration": 96
+            },
+            {
+              "name": "click",
+              "duration": 96
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 808,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 808,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 832,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 820,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 768,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 720,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 724,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 708,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 732,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 776,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 760,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 784,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 744,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 756,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 76,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99827,
+        "initialResourceTimingBytes": 100161,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99827,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 76,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99827,
+        "initialResourceTimingBytes": 100161,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99827,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 76,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99827,
+        "initialResourceTimingBytes": 100161,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99827,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 76,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99827,
+        "initialResourceTimingBytes": 100161,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99827,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 76,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99827,
+        "initialResourceTimingBytes": 100161,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99827,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 100442,
+        "initialResourceTimingBytes": 100788,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100442,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 72,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 13,
+        "initialCdpBytes": 334917,
+        "initialResourceTimingBytes": 335627,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334917,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 7,
+        "initialCdpBytes": 99021,
+        "initialResourceTimingBytes": 99427,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99021,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 44,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86174,
+        "initialResourceTimingBytes": 86520,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86174,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 52,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 52,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 64,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 96687,
+        "initialResourceTimingBytes": 97033,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96687,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      }
+    ]
+  },
+  "depois": {
+    "date": "2026-10-26T23:38:21.009Z",
+    "tool": "Playwright/CDP/PerformanceObserver",
+    "node": "v24.19.0",
+    "browser": "153.0.8010.12",
+    "baseURL": "http://127.0.0.1:4173/",
+    "profiles": [
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "mobile": true,
+        "cpu": 4,
+        "latency": 150,
+        "download": 200000,
+        "upload": 93750
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "mobile": false,
+        "cpu": 1
+      }
+    ],
+    "deviceScaleFactor": 1,
+    "cache": "novo contexto; cache desativado por CDP",
+    "fieldINP": "não medido",
+    "samples": [
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 684,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 4,
+        "initialCdpBytes": 47929,
+        "initialResourceTimingBytes": 48151,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97922,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 660,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 4,
+        "initialCdpBytes": 47929,
+        "initialResourceTimingBytes": 48151,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97922,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 700,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 4,
+        "initialCdpBytes": 47929,
+        "initialResourceTimingBytes": 48151,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97922,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 664,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 4,
+        "initialCdpBytes": 47929,
+        "initialResourceTimingBytes": 48151,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97922,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "index.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 696,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 4,
+        "initialCdpBytes": 47929,
+        "initialResourceTimingBytes": 48151,
+        "afterScrollRequests": 5,
+        "afterScrollCdpBytes": 97922,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 692,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 720,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 704,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "queimadas.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 700,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 1008,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 120
+            },
+            {
+              "name": "pointerup",
+              "duration": 120
+            },
+            {
+              "name": "click",
+              "duration": 120
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 1000,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 128
+            },
+            {
+              "name": "pointerup",
+              "duration": 120
+            },
+            {
+              "name": "click",
+              "duration": 120
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 1016,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 112
+            },
+            {
+              "name": "pointerup",
+              "duration": 112
+            },
+            {
+              "name": "click",
+              "duration": 112
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 1000,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 128
+            },
+            {
+              "name": "pointerup",
+              "duration": 128
+            },
+            {
+              "name": "click",
+              "duration": 128
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "dados.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 1024,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [
+          {
+            "start": 1496.6000000014901,
+            "duration": 52
+          }
+        ],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 128
+            },
+            {
+              "name": "pointerup",
+              "duration": 128
+            },
+            {
+              "name": "click",
+              "duration": 128
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 716,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 720,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 736,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 732,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "prevencao.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 712,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 616,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 36176,
+        "initialResourceTimingBytes": 36465,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 656,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 36176,
+        "initialResourceTimingBytes": 36465,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 628,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 36176,
+        "initialResourceTimingBytes": 36465,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 652,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 36176,
+        "initialResourceTimingBytes": 36465,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "sobre.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 628,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 36176,
+        "initialResourceTimingBytes": 36465,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 688,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 684,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 676,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 708,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "route": "fontes.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 704,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 80,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99822,
+        "initialResourceTimingBytes": 100156,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99822,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 84,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99822,
+        "initialResourceTimingBytes": 100156,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99822,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 80,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99822,
+        "initialResourceTimingBytes": 100156,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99822,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 80,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99822,
+        "initialResourceTimingBytes": 100156,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99822,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "index.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 80,
+          "element": "h1#hero-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 99822,
+        "initialResourceTimingBytes": 100156,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 99822,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 60,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 60,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "queimadas.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "h1#queimadas-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 50444,
+        "initialResourceTimingBytes": 50733,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 100437,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "dados.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 68,
+          "element": "h2#panorama-title",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 12,
+        "initialCdpBytes": 284919,
+        "initialResourceTimingBytes": 285572,
+        "afterScrollRequests": 13,
+        "afterScrollCdpBytes": 334912,
+        "initialLongTasks": [],
+        "interaction": {
+          "selected": "true",
+          "events": [
+            {
+              "name": "pointerdown",
+              "duration": 32
+            },
+            {
+              "name": "pointerup",
+              "duration": 32
+            },
+            {
+              "name": "click",
+              "duration": 32
+            }
+          ]
+        },
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "prevencao.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 60,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 49023,
+        "initialResourceTimingBytes": 49372,
+        "afterScrollRequests": 7,
+        "afterScrollCdpBytes": 99016,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86169,
+        "initialResourceTimingBytes": 86515,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86169,
+        "initialResourceTimingBytes": 86515,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86169,
+        "initialResourceTimingBytes": 86515,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 40,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86169,
+        "initialResourceTimingBytes": 86515,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "sobre.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 44,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 6,
+        "initialCdpBytes": 86169,
+        "initialResourceTimingBytes": 86515,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 86169,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 1,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 2,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 3,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 4,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      },
+      {
+        "profile": "desktop",
+        "route": "fontes.html",
+        "run": 5,
+        "lcp": {
+          "milliseconds": 56,
+          "element": "p",
+          "url": null
+        },
+        "cls": 0,
+        "initialRequests": 5,
+        "initialCdpBytes": 46689,
+        "initialResourceTimingBytes": 46978,
+        "afterScrollRequests": 6,
+        "afterScrollCdpBytes": 96682,
+        "initialLongTasks": [],
+        "interaction": null,
+        "errors": []
+      }
+    ]
+  }
+}

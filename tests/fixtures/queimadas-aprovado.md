@@ -6,13 +6,15 @@ Embora os termos sejam frequentemente confundidos, existe uma diferença importa
 
 **Queima controlada**
 
-É a utilização planejada e monitorada do fogo em uma área delimitada, para determinadas finalidades agrícolas, pecuárias ou florestais. Sua realização depende de condições específicas e da autorização do órgão ambiental competente.
+É a utilização planejada, monitorada e controlada do fogo em uma área delimitada, para determinadas finalidades agrícolas, pecuárias ou florestais. Em regra, exige autorização prévia do órgão ambiental competente, observadas as hipóteses e exceções legais. Consulte esse órgão antes de usar fogo na vegetação.
 
 Mesmo quando planejada, uma queima envolve riscos. Mudanças nas condições do vento, por exemplo, podem fazer com que as chamas ultrapassem a área prevista.
 
 **Incêndio florestal**
 
 É o fogo não planejado e sem controle que atinge florestas ou outras formas de vegetação, sejam naturais ou plantadas. Pode começar por atividades humanas, acidentes ou fenômenos naturais e se espalhar rapidamente quando encontra condições favoráveis.
+
+A legislação também distingue a queima prescrita, planejada para conservação, pesquisa ou manejo, e o uso tradicional e adaptativo do fogo. Cada modalidade segue regras próprias, com hipóteses específicas de dispensa de autorização.
 
 **O fogo é sempre prejudicial à natureza?**
 
@@ -34,7 +36,7 @@ Toda combustão depende de três elementos fundamentais: combustível, oxigênio
 
 Na vegetação, folhas, galhos, capim e madeira funcionam como combustível. O oxigênio está presente no ar, enquanto o calor necessário para iniciar a combustão pode surgir de uma chama, uma faísca ou uma descarga elétrica.
 
-No Brasil, a ação humana está associada à maior parte das ocorrências de fogo na vegetação, seja de maneira intencional ou acidental.
+Ações humanas intencionais ou acidentais podem iniciar incêndios na vegetação. Evitar práticas de risco ajuda a prevenir essas ocorrências.
 
 Entre as situações que podem iniciar incêndios estão:
 

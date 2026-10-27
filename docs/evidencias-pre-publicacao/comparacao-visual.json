@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-26T23:49:38.168Z",
+  "method": "Antes reconstituído a partir do checkpoint externo original; depois em dist; DPR1; movimento reduzido para congelar fases, animações padrão testadas separadamente.",
+  "comparisons": [
+    {
+      "case": "mobile-inicial",
+      "identicalPNG": true,
+      "beforeSha256": "91fe235665b08a3912cc1f9f58b693636e3adb7c1cec6e90b2b9725e7e9c5ba9",
+      "afterSha256": "91fe235665b08a3912cc1f9f58b693636e3adb7c1cec6e90b2b9725e7e9c5ba9"
+    },
+    {
+      "case": "mobile-menu",
+      "identicalPNG": true,
+      "beforeSha256": "022fa6578b0ae645ab1e9fd045bfa31abd43421894cf95c512ce5e070f488f3b",
+      "afterSha256": "022fa6578b0ae645ab1e9fd045bfa31abd43421894cf95c512ce5e070f488f3b"
+    },
+    {
+      "case": "mobile-impactos",
+      "identicalPNG": true,
+      "beforeSha256": "d0b760df6ace85dcf32610db0c7cabfbdace39a117cb7b19598f96d30df5fc51",
+      "afterSha256": "d0b760df6ace85dcf32610db0c7cabfbdace39a117cb7b19598f96d30df5fc51"
+    },
+    {
+      "case": "mobile-mapa",
+      "identicalPNG": true,
+      "beforeSha256": "cd28a92d02911b5d55dadaad9e632d75d1cd5c5878fb74fbec17d40b72ffd322",
+      "afterSha256": "cd28a92d02911b5d55dadaad9e632d75d1cd5c5878fb74fbec17d40b72ffd322"
+    },
+    {
+      "case": "mobile-rodape",
+      "identicalPNG": true,
+      "beforeSha256": "794c5b1733a40cde8b56fc03166c524cc7e47cbf4dbcb1e4b6c22d01f27e5b46",
+      "afterSha256": "794c5b1733a40cde8b56fc03166c524cc7e47cbf4dbcb1e4b6c22d01f27e5b46"
+    },
+    {
+      "case": "desktop-inicial",
+      "identicalPNG": true,
+      "beforeSha256": "19344c94562a1a06f8444cb6826e399a2fe26ddf5a10429c638b7daff16e85fb",
+      "afterSha256": "19344c94562a1a06f8444cb6826e399a2fe26ddf5a10429c638b7daff16e85fb"
+    },
+    {
+      "case": "desktop-mapa",
+      "identicalPNG": true,
+      "beforeSha256": "b8b24541930e3295691453c00b4be3ec47cd10623c87e6362a5854162377d4ec",
+      "afterSha256": "b8b24541930e3295691453c00b4be3ec47cd10623c87e6362a5854162377d4ec"
+    },
+    {
+      "case": "desktop-rodape",
+      "identicalPNG": true,
+      "beforeSha256": "524277df06119b0953a4e4f224022abf38212557c28d43d31008d02dd466887e",
+      "afterSha256": "524277df06119b0953a4e4f224022abf38212557c28d43d31008d02dd466887e"
+    }
+  ]
+}

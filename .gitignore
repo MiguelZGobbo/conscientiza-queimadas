@@ -3,3 +3,8 @@ test-results/
 playwright-report/
 .DS_Store
 __pycache__/
+dist/
+.auditoria-local/
+/docs/minuta-consulta-inpe.md
+/docs/evidencias-pre-publicacao/*.log
+/docs/evidencias-revisao-editorial/*.log

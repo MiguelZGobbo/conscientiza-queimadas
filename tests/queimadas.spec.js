@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { withPublicationServer } from './helpers/publicacao.js';
 import { readFileSync } from 'node:fs';
 
 // Referência editorial independente, revisada com autorização para remover repetições.
@@ -268,11 +269,8 @@ test('escala de leitura responde à largura e altura sem reduzir o corpo abaixo 
 
 test('navega entre Home e Queimadas quando publicado em subdiretório', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.route('**/projeto/**', async route => {
-    const response = await route.fetch({ url: route.request().url().replace('/projeto/', '/') });
-    await route.fulfill({ response });
-  });
-  await page.goto('/projeto/index.html');
+  await withPublicationServer('/projeto/', async base => {
+  await page.goto(`${base}index.html`);
   const navigation = page.getByRole('navigation', { name: 'Principal' });
   await navigation.getByRole('link', { name: 'Queimadas', exact: true }).click();
   await expect(page).toHaveURL(/\/projeto\/queimadas\.html$/);
@@ -280,6 +278,7 @@ test('navega entre Home e Queimadas quando publicado em subdiretório', async ({
   expect(await page.locator('.reading-intro').evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgb(16, 26, 23)');
   await navigation.getByRole('link', { name: 'Início', exact: true }).click();
   await expect(page).toHaveURL(/\/projeto\/index\.html$/);
+  });
 });
 
 test('texto e links da página educativa atingem contraste AA', async ({ page }) => {

@@ -2,6 +2,8 @@
 
 Data: 26/10/2026. Branch local `codex/fontes-creditos`. Sem commit, push ou publicação externa.
 
+**Atualização posterior:** a revisão editorial autorizada de 26/10/2026 complementou esta entrega em `main`. Fontes recebeu apoio oficial alternativo para os conceitos do fogo, vínculo ao Código Florestal, fundamento direto da ressalva do 199 e documentação do reuso dos agregados INPE pelo PDA vigente/decreto federal. Os registros de pendências abaixo são históricos; situação e novas verificações em [relatorio-revisao-editorial.md](./relatorio-revisao-editorial.md). A autoria visual já resolvida permanece intacta.
+
 ## Entrega
 
 Após receber a auditoria e a proposta, o usuário solicitou colocar a página no item “Fontes e créditos” do rodapé. `fontes.html` implementa a proposta: introdução e quatro seções — conteúdos educativos e prevenção, dados e metodologia, recursos e créditos e referências técnicas. O link relativo `./fontes.html` funciona nos seis rodapés, incluindo o da própria página. O aviso restante é “Feedback ainda não disponível.” A navbar conserva Início, Queimadas, Dados e Prevenção. O retorno ao topo usa `#inicio` local e transfere foco ao cabeçalho.
@@ -14,9 +16,15 @@ As alterações de produção das cinco páginas existentes estão restritas aos
 
 A seleção segue `auditoria-fontes-creditos.md`, com instituição, documento, uso e link, consolidando referências repetidas. Foram excluídos candidatos sem uso comprovado, estatísticas antigas e o artigo do CBMSC sem reconferência atual. O MAPA publicado é o material de 2022 utilizado na Home.
 
-Dados distingue RAF2025/Coleção 5/Tabela 3 (território atingido ao menos uma vez em 1985–2025), Monitor do Fogo/Coleção 1 (meses recentes e média de anos civis), INPE/AQUA_M-T (detecções) e malha IBGE 2025 processada. A licença CC BY 4.0 fica ligada aos produtos confirmados; não foi atribuída aos arquivos INPE. A página informa os termos localizados do INPE e a ausência de licença expressa identificada. A preparação assistida por ImageGen da paisagem do rodapé e a pendência de autoria/autorização da referência também são explícitas.
+Dados distingue RAF2025/Coleção 5/Tabela 3 (território atingido ao menos uma vez em 1985–2025), Monitor do Fogo/Coleção 1 (meses recentes e média de anos civis), INPE/AQUA_M-T (detecções) e malha IBGE 2025 processada. A licença CC BY 4.0 fica ligada aos produtos confirmados; não foi atribuída aos arquivos INPE. A página informa os termos localizados do INPE e a ausência de licença expressa identificada.
 
-Continuam na auditoria as pendências de origem da referência visual da marca, autorização do rodapé, termos específicos INPE, fonte CBMSC, afirmação nacional de predominância humana, formulação sobre autorização para uso do fogo e disponibilidade municipal do 199. Os arquivos brutos originais da malha continuam ausentes da árvore atual. A integração da página não regulariza essas questões nem as apresenta como resolvidas.
+Continuam na auditoria as pendências de termos específicos INPE, fonte CBMSC, afirmação nacional de predominância humana, formulação sobre autorização para uso do fogo e disponibilidade municipal do 199. Os arquivos brutos originais da malha continuam ausentes da árvore atual. A integração da página não regulariza essas questões nem as apresenta como resolvidas.
+
+## Ajuste do crédito das imagens — 26/10/2026
+
+Miguel Zager Gobbo confirmou que todas as imagens fornecidas por ele foram criadas por ele com auxílio de IA. As pendências da referência do rodapé e da marca/favicon foram encerradas com base nessa declaração. O crédito público passou a ser “Imagens e ilustrações artísticas criadas para o projeto por Miguel Zager Gobbo.” O bloco separado da paisagem do rodapé e o aviso de autoria/autorização pendente foram removidos. A menção à ferramenta permanece apenas nos registros técnicos internos. Nenhuma licença pública nova foi atribuída, e as referências a dados e cartografia de terceiros foram preservadas. Ajuste realizado na `main`.
+
+O teste editorial existente foi atualizado para exigir o crédito único e a ausência da menção à IA e do aviso anterior. Antes da alteração de produção, falhou pela ausência do crédito aprovado. Após o ajuste, `npm test -- tests/fontes.spec.js --reporter=line` passou nos **13 testes**, incluindo navegação, escala responsiva, texto ampliado e acessibilidade automatizada. A suíte completa e os importadores não foram repetidos nesta revisão de texto.
 
 ## Verificação executada
 

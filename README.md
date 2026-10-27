@@ -25,14 +25,14 @@ Nas linhas, uma guia vertical discreta associa ponto e eixo; nas duas curvas, os
 
 ## Executar
 
-Com Node.js 22 ou superior:
+Com Node.js 24.19.0 (versão fixada em `.node-version`):
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou os atalhos **Sobre o projeto** e **Fontes e créditos** no rodapé para `/sobre.html` e `/fontes.html`. O servidor é local e destinado ao desenvolvimento. A interface é estática; para hospedagem, servir `index.html`, `queimadas.html`, `dados.html`, `prevencao.html`, `sobre.html`, `fontes.html` e `src/`. Os caminhos relativos permitem publicar em subdiretórios, inclusive no GitHub Pages. Não é necessário build nem biblioteca em produção. Servir por HTTP(S) para carregar o módulo local de dados.
+Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou os atalhos **Sobre o projeto** e **Fontes e créditos** no rodapé para `/sobre.html` e `/fontes.html`. O servidor é local e destinado ao desenvolvimento. A interface é estática. Para preparar a hospedagem, executar `npm run preparar:publicacao` e usar exclusivamente `dist/`; não publicar a pasta `src/` inteira do checkout. As seis páginas mantêm caminhos relativos e testes em subdiretório. A nova 404 foi preparada para a raiz do Cloudflare Pages, inclusive em rotas inexistentes profundas. Não há biblioteca de runtime no visitante. Servir por HTTP(S) para carregar o módulo local de dados.
 
 ## Organização
 
@@ -43,7 +43,7 @@ Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção,
 - `src/dados.css`: escala fluida por largura e altura, mapa proporcional limitado a 40 rem e 65% da altura da janela e resultados abaixo dele em todas as larguras. Duas camadas decorativas acima dos territórios mantêm seleção contínua de 2 px e foco tracejado de 4 px, sem interceptar eventos ou alterar a ordem de Tab das 27 UFs.
 - `prevencao.html` e `src/prevencao.css`: orientações fornecidas no handoff, sequência de segurança e canais oficiais; referências auditadas em `fontes.html`; escala e coluna reutilizadas de `src/queimadas.css`, sem JavaScript próprio.
 - `sobre.html`: três blocos institucionais com texto aprovado, navbar existente e acesso pelo rodapé. Reutiliza a abertura compacta de `src/paginas.css`, a coluna e a escala fluida de `src/queimadas.css`, sem ilustração, stylesheet ou script próprios.
-- `fontes.html`: referências educativas, dados e metodologia, recursos e créditos e referências técnicas. Acesso pelo rodapé das seis páginas, com o padrão visual e a escala de Sobre. Sem JavaScript ou dependências novos; direitos da referência do rodapé e termos específicos INPE permanecem explicitamente pendentes. Ver `docs/verificacao-fontes.md`.
+- `fontes.html`: referências educativas, dados e metodologia, recursos e créditos e referências técnicas. Acesso pelo rodapé das seis páginas, com o padrão visual e a escala de Sobre. Sem JavaScript ou dependências novos; imagens creditadas a Miguel Zager Gobbo, conforme confirmação de autoria, e termos específicos INPE explicitamente registrados. Ver `docs/verificacao-fontes.md`.
 - `tests/sobre.spec.js` e `tests/fixtures/sobre-aprovado.json`: fidelidade editorial, acesso pelo rodapé das quatro páginas principais, subdiretório, teclado, acessibilidade, reflow, texto ampliado e comparação da escala com Queimadas e Prevenção. Resultados e limites em `docs/verificacao-sobre.md`.
 - `src/dados-base.js`: 27 UFs e metadados do Monitor do Fogo; acumulado recente e média dos anos civis 2019–2024. `src/area-historica.js` contém os seis biomas e o total nacional da Tabela 3 do RAF2025. `scripts/importar-area.py` reproduz a base e `docs/auditoria-area.json` registra os valores originais e cálculos.
 - `src/dados.js`: seleção sincronizada entre mapa e lista, barras e anúncio acessível; sem requisições externas.
@@ -101,7 +101,7 @@ As cinco páginas internas compartilham a abertura `.page-intro` de `src/paginas
 
 No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto** e **Fontes e créditos** abrem `./sobre.html` e `./fontes.html`, sem aparecer na navbar; nessas páginas, nenhum dos quatro itens principais recebe `aria-current="page"`. **Feedback** abre diretamente `https://forms.gle/wLPDbMi2CeicbYYH9` em uma nova aba, com a descrição acessível “Formulário externo no Google Forms. Abre em nova aba.” associada por `aria-describedby`. As referências de Queimadas foram selecionadas pela auditoria para a página Fontes, com as pendências mantidas na documentação. O HTML do rodapé é idêntico nas seis páginas e usa o mesmo CSS e a mesma imagem. A atribuição acadêmica menciona as Atividades Extensionistas I, II e III.
 
-O rodapé fica fora do conteúdo principal e reutiliza os tokens escuros, a tipografia e o container da Home. Seus quatro grupos mantêm a ordem identidade, navegação, institucional e contexto acadêmico: uma coluna abaixo de 600 px, duas entre 600 e 1199 px e quatro a partir de 1200 px. No desktop, o fundo raster preparado a partir do exemplo 3 cobre o rodapé, com a paisagem de entardecer à esquerda e a área escura para os grupos à direita. Em telas menores, a paisagem aparece abaixo dos grupos e as divisórias verticais são removidas. A logo vetorial original do cabeçalho acompanha o nome em duas linhas, sem a folha criada na primeira versão. Logo e imagem de fundo são decorativas, sem identificar espécies ou um local documentado. O link Voltar ao topo é sublinhado, tem área mínima de 44 × 44 px e foco visível. O rodapé funciona sem JavaScript e cresce livremente com texto ampliado. A licença da referência original do fundo ainda precisa de comprovação, conforme `docs/recursos-e-licencas.md`.
+O rodapé fica fora do conteúdo principal e reutiliza os tokens escuros, a tipografia e o container da Home. Seus quatro grupos mantêm a ordem identidade, navegação, institucional e contexto acadêmico: uma coluna abaixo de 600 px, duas entre 600 e 1199 px e quatro a partir de 1200 px. No desktop, o fundo raster preparado a partir do exemplo 3 cobre o rodapé, com a paisagem de entardecer à esquerda e a área escura para os grupos à direita. Em telas menores, a paisagem aparece abaixo dos grupos e as divisórias verticais são removidas. A logo vetorial original do cabeçalho acompanha o nome em duas linhas, sem a folha criada na primeira versão. Logo e imagem de fundo são decorativas, sem identificar espécies ou um local documentado. O link Voltar ao topo é sublinhado, tem área mínima de 44 × 44 px e foco visível. O rodapé funciona sem JavaScript e cresce livremente com texto ampliado. A autoria das imagens, incluindo a referência do fundo, foi confirmada por Miguel Zager Gobbo; o registro está em `docs/recursos-e-licencas.md`.
 
 A seção de impactos fica abaixo da primeira tela. O Hero oferece o link textual sublinhado **Ver impactos das queimadas ↓**, que aponta para `#impactos` e usa a navegação nativa de âncora: ao ativá-lo, o navegador desloca a página e foca a seção. A navegação por fragmento usa `scroll-behavior: smooth` quando não há preferência por movimento reduzido; com `prefers-reduced-motion: reduce`, a chegada é instantânea. Funciona sem JavaScript e mantém a rolagem manual do navegador. A duração e a curva da suavização são definidas pelo navegador. A seta é decorativa e estática; o link tem área de toque de pelo menos 44 px de altura, tipografia fluida de 16–18 px e foco visível. A seção usa `tabindex="-1"` para receber foco pela âncora sem acrescentar uma parada de Tab.
 
@@ -131,7 +131,7 @@ O Playwright é dependência apenas de desenvolvimento. Os testes sobem o servid
 
 Os testes do importador rodam separadamente com `python -m unittest discover -s tests -p "test_importar_focos.py" -v`. Para reproduzir a edição de focos encerrada em setembro/2026, executar `python scripts/importar-focos.py` e depois `node scripts/gerar-paineis-focos.mjs`. O importador baixa os 23 ZIPs de referência de 2003–2025 e os nove CSVs mensais de 2026, filtrados por AQUA_M-T, e rejeita totais ou formatos incompatíveis; uma nova edição exige revisar fontes e referências, não apenas trocar o ano. A página publicada usa somente os agregados locais.
 
-Com `npm run dev` ativo, `node scripts/medir-dados.mjs` salva medições em `test-results/desempenho-dados.json`. A documentação de Dados registra os cenários, resultados e limites dos testes. A licença da referência original do fundo do rodapé ainda precisa de comprovação antes de declarar a página pronta para publicação.
+Com `npm run dev` ativo, `node scripts/medir-dados.mjs` salva medições em `test-results/desempenho-dados.json`. A documentação de Dados registra os cenários, resultados e limites dos testes. A pendência de autoria e autorização da referência do rodapé foi encerrada após a confirmação de autoria de Miguel Zager Gobbo, registrada em `docs/recursos-e-licencas.md`.
 
 ### Reprodução dos dados e dos painéis
 
@@ -151,3 +151,41 @@ A série INPE registra anos civis completos, competências recentes e acumulados
 O seletor combobox/listbox mantém confirmação separada da navegação, sincroniza com o mapa e possui alternativa nativa. Os históricos anuais usam linha quando há largura e barras horizontais no celular, mantendo valores visíveis. As duas curvas acumuladas compartilham escala e se distinguem por legenda, cor e traçado. Sem JavaScript, gráficos nacionais e tabelas estaduais permanecem disponíveis.
 
 A edição permanece fixada em setembro/2026. Cada indicador tem produto, unidade e período próprios; o gerador valida esses contratos separadamente. A página publicada usa somente arquivos locais. Documentação completa: `docs/fontes-monitor-fogo.md`, `docs/fontes-inpe.md` e `docs/verificacao-dados.md`. A metodologia distingue território atingido uma vez de soma mensal, detecções de incêndios e as duas médias utilizadas, sem tratar os 12 meses recentes como um recorte único de toda a página. As pendências de direitos de uso permanecem registradas.
+
+
+## Preparação técnica local — 26/10/2026
+
+A candidata estática é gerada sem bundler e sem transformar os recursos:
+
+```powershell
+npm run preparar:publicacao
+npm run dev -- --root dist
+# Para conferir subdiretório, encerrar o servidor anterior e executar:
+npm run dev -- --root dist --prefix /projeto/
+```
+
+Publicar futuramente somente o conteúdo de `dist/`, nunca a raiz do checkout. O manifesto com tamanhos e SHA-256 fica em `.auditoria-local/manifesto-publicacao.json`; originais artísticos, documentos, testes e ferramentas não entram na distribuição. A geração local não faz upload nem deploy.
+
+```powershell
+npm run check
+npm test
+npm run test:publicacao
+# Com o servidor local ativo; cinco amostras por página/perfil:
+npm run medir:site -- --base-url http://127.0.0.1:4173/ --phase antes --output .auditoria-local/antes
+npm run medir:site -- --base-url http://127.0.0.1:4173/ --phase depois --output .auditoria-local/depois
+```
+
+Não executar testes ou outros ensaios de navegador simultaneamente às medições. Os relatórios Lighthouse completos e demais artefatos locais ficam em `.auditoria-local/`, preservados entre execuções do Playwright. Evidências selecionadas acompanham os relatórios em `docs/evidencias-pre-publicacao/`.
+
+Entrega: [auditoria](docs/auditoria-pre-publicacao.md), [desempenho](docs/performance-antes-depois.md), [checklist](docs/checklist-validacao.md), [guia de publicação futura](docs/guia-publicacao.md) e [inventário para decidir hospedagem](docs/inventario-tamanho-hospedagem.md). Nenhuma hospedagem foi escolhida e nenhuma publicação foi realizada. As pendências de domínio, provedor, direitos INPE e conteúdo factual continuam explícitas nesses documentos.
+
+
+## Preparação Cloudflare Pages — 27/10/2026
+
+Trabalho sempre na `main`. A candidata local acrescenta `404.html` e `_headers` à lista explícita, mantém o manifesto fora de `dist/` e fixa Node em `.node-version`. A atualização de `dist/` valida dependências e conteúdo existente antes de escrever os arquivos permitidos, sem apagar a pasta. Conteúdo inesperado exige revisão; não usar limpeza destrutiva.
+
+A configuração futura é Pages / None / raiz do repositório / produção `main` / build `npm run preparar:publicacao` / saída `dist`. Nenhuma configuração remota, commit, push ou publicação foi realizada. A integração Git poderá publicar automaticamente após pushes futuros autorizados.
+
+A CSP foi exercitada primeiro em Report-Only; a candidata usa enforcement e bloqueia iframe, conforme decisão do responsável. O servidor de desenvolvimento comum não aplica `_headers`: os testes de distribuição leem o arquivo publicado e aplicam seu subconjunto de regra `/*` numa fixture local. Aliases sem extensão locais não simulam os redirecionamentos do Pages.
+
+Entregas: [relatório desta fase](docs/relatorio-preparacao-cloudflare.md), [política seletiva do Git](docs/politica-repositorio.md) e [checklist de ativação](docs/checklist-ativacao-cloudflare.md). Canonical, OG com URLs absolutas e sitemap aguardam a origem real. Visibilidade do GitHub e autorização de publicação permanecem decisões separadas.

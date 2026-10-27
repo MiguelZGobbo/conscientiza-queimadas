@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26T20:51:56.020720-03:00",
+  "checkout": {
+    "files": 8601,
+    "bytes": 318739118
+  },
+  "groups": {
+    "projeto-sem-saidas": {
+      "files": 148,
+      "bytes": 16882007
+    },
+    ".auditoria-local": {
+      "files": 205,
+      "bytes": 88592031
+    },
+    ".git": {
+      "files": 204,
+      "bytes": 14284572
+    },
+    "dist": {
+      "files": 27,
+      "bytes": 1107119
+    },
+    "node_modules": {
+      "files": 7920,
+      "bytes": 178093837
+    },
+    "test-results": {
+      "files": 97,
+      "bytes": 19779552
+    }
+  },
+  "trackedWorkingFiles": {
+    "files": 94,
+    "bytes": 13518678
+  }
+}

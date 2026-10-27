@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-27T01:36:47.437Z",
+  "origin": "http://127.0.0.1:59873/projeto/",
+  "results": [
+    {
+      "path": "queimadas.html",
+      "selector": "#conceitos",
+      "name": "conceitos",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "queimadas.html",
+      "selector": "#causas p",
+      "name": "causas",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "fontes.html",
+      "selector": "#fonte-inpe",
+      "name": "inpe",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "fontes.html",
+      "selector": "a[href*=\"brigadista-florestal\"]",
+      "name": "fonte-conceitos",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "queimadas.html",
+      "selector": "#conceitos",
+      "name": "conceitos",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "queimadas.html",
+      "selector": "#causas p",
+      "name": "causas",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "fontes.html",
+      "selector": "#fonte-inpe",
+      "name": "inpe",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    },
+    {
+      "path": "fontes.html",
+      "selector": "a[href*=\"brigadista-florestal\"]",
+      "name": "fonte-conceitos",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "clippedText": 0,
+      "errors": []
+    }
+  ]
+}
