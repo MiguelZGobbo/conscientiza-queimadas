@@ -251,7 +251,7 @@ for (const width of [390, 1440]) {
 
 test('todos os textos e estados do link atingem contraste AA no fundo do rodapé', async ({ page }) => {
   test.setTimeout(45000);
-  for (const width of [320, 390, 600, 768, 1024, 1199, 1200, 1440, 1920]) {
+  for (const width of [320, 390, 600, 768, 1024, 1199, 1200, 1280, 1366, 1440, 1920]) {
     await page.setViewportSize({ width, height: 1080 });
     await page.goto('/');
     const footer = page.getByRole('contentinfo');

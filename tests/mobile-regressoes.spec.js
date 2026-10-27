@@ -19,7 +19,26 @@ test('rodapé acompanha largura e altura da escala principal, inclusive a 200%',
 });
 
 const pages = ['index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html', 'fontes.html', '404.html'];
-const viewports = [[320, 568], [360, 800], [375, 812], [390, 844], [414, 896], [599, 900], [600, 900], [768, 1024], [1024, 768], [1199, 900], [1200, 900], [1440, 900], [1920, 1080], [844, 390], [896, 414], [1920, 500]];
+const viewports = [[320, 568], [360, 800], [375, 812], [390, 844], [414, 896], [599, 900], [600, 900], [768, 1024], [1024, 768], [1199, 900], [1200, 900], [1280, 720], [1366, 768], [1440, 900], [1920, 1080], [844, 390], [896, 414], [1920, 500]];
+
+test('rodapé reduz a ocupação vertical mantendo tipografia e alvos de toque', async ({ page }) => {
+  await page.goto('/sobre');
+  // Linha de base 99a75da: 399,47 px e 463 px; redução mínima de 20% no texto normal.
+  for (const [width, height, maxHeight, bodySize] of [[1366, 768, 319.6, 15], [1920, 1080, 370.4, 18.75]]) {
+    await page.setViewportSize({ width, height });
+    const footer = page.locator('footer');
+    const metrics = await footer.evaluate(el => ({
+      height: el.getBoundingClientRect().height,
+      type: parseFloat(getComputedStyle(el.querySelector('p')).fontSize),
+      links: [...el.querySelectorAll('a')].map(a => a.getBoundingClientRect().height),
+      scale: getComputedStyle(el).transform,
+    }));
+    expect(metrics.height, `${width}px`).toBeLessThanOrEqual(maxHeight);
+    expect(metrics.type).toBeCloseTo(bodySize, 2);
+    expect(metrics.scale).toBe('none');
+    for (const targetHeight of metrics.links) expect(targetHeight).toBeGreaterThanOrEqual(44);
+  }
+});
 
 for (const route of pages) test(`rodapé fluido sem cortes: ${route}, orientações e texto ampliado`, async ({ page }, testInfo) => {
   await serve('/', async base => {
