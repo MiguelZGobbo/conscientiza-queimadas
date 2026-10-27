@@ -18,9 +18,9 @@ test('abre Fontes pelo atalho de todos os rodapés, mantendo a navbar', async ({
     await expect(nav.getByRole('link')).toHaveText(['Início', 'Queimadas', 'Dados', 'Prevenção']);
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(['sobre.html', 'fontes.html'].includes(path) ? 0 : 1);
     const link = footer.getByRole('link', { name: 'Fontes e créditos', exact: true });
-    await expect(link).toHaveAttribute('href', './fontes.html');
+    await expect(link).toHaveAttribute('href', './fontes');
     await link.click();
-    await expect(page).toHaveURL(/\/fontes\.html$/);
+    await expect(page).toHaveURL(/\/fontes$/);
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Fontes e créditos');
     await expect(footer.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', 'https://forms.gle/wLPDbMi2CeicbYYH9');
     await expect(footer.locator('.site-footer__availability')).toHaveText('Formulário externo no Google Forms. Abre em nova aba.');
@@ -91,9 +91,9 @@ test('preserva o atalho em subdiretório e retorna ao topo da própria página',
   });
   await page.goto('/projeto/sobre.html');
   await page.getByRole('contentinfo').getByRole('link', { name: 'Fontes e créditos', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/fontes\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/fontes$/);
   await page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/fontes\.html#inicio$/);
+  await expect(page).toHaveURL(/\/projeto\/fontes#inicio$/);
   await expect(page.locator('#inicio')).toBeFocused();
 });
 
@@ -106,7 +106,7 @@ test('funciona sem JavaScript, com teclado e menu móvel', async ({ browser }) =
     await page.keyboard.press('Tab');
     await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Fontes e créditos', exact: true })).toBeFocused();
     await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(/\/fontes\.html$/);
+    await expect(page).toHaveURL(/\/fontes$/);
     await page.keyboard.press('Tab');
     await expect(page.locator('.skip-link')).toBeFocused();
     await page.keyboard.press('Enter');

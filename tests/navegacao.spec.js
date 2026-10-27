@@ -13,23 +13,23 @@ for (const javaScriptEnabled of [true, false]) {
         await route.fulfill({ response });
       });
       for (const prefix of ['', '/projeto']) {
-        await page.goto(`http://127.0.0.1:4173${prefix}/queimadas.html`);
+        await page.goto(`http://127.0.0.1:4173${prefix}/queimadas`);
         const dataLink = page.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true });
         await expect(dataLink).toBeVisible();
         await dataLink.click();
-        await expect(page).toHaveURL(new RegExp(`${prefix}/dados\\.html$`));
+        await expect(page).toHaveURL(new RegExp(`${prefix}/dados$`));
         await waitForPageTransition(page);
         const next = page.getByRole('region', { name: 'Dos dados à prevenção.' });
         expect(await next.evaluate(element => element.previousElementSibling.id)).toBe('metodologia');
         await next.getByRole('link', { name: 'Conhecer as orientações de prevenção', exact: true }).click();
-        await expect(page).toHaveURL(new RegExp(`${prefix}/prevencao\\.html$`));
+        await expect(page).toHaveURL(new RegExp(`${prefix}/prevencao$`));
         await waitForPageTransition(page);
         await page.goBack();
-        await expect(page).toHaveURL(new RegExp(`${prefix}/dados\\.html$`));
+        await expect(page).toHaveURL(new RegExp(`${prefix}/dados$`));
         await waitForPageTransition(page);
         await expect(page.locator('.site-nav [aria-current="page"]')).toHaveText('Dados');
         await page.goBack();
-        await expect(page).toHaveURL(new RegExp(`${prefix}/queimadas\\.html$`));
+        await expect(page).toHaveURL(new RegExp(`${prefix}/queimadas$`));
         await waitForPageTransition(page);
       }
     });
@@ -126,7 +126,7 @@ test('transição nativa dissolve entre documentos e respeita movimento reduzido
     await page.goto('/index.html');
     for (const [label, path] of [['Queimadas', 'queimadas'], ['Dados', 'dados'], ['Prevenção', 'prevencao'], ['Início', 'index']]) {
       await page.getByRole('navigation', { name: 'Principal', exact: true }).getByRole('link', { name: label, exact: true }).click();
-      await expect(page).toHaveURL(new RegExp(`/${path}\\.html$`));
+      await expect(page).toHaveURL(new RegExp(`/${path === 'index' ? '' : path}$`));
       await expect.poll(() => page.evaluate(() => window.pageTransition)).toEqual(
         reducedMotion === 'reduce' ? { active: false } : { active: true, duration: '0.18s', finished: true },
       );

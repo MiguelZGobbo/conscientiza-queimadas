@@ -29,7 +29,7 @@ test('publica o conteúdo revisado, visível e na sequência aprovada', async ({
   await expect(main.locator('.reading-next p')).toHaveCount(2);
   await expect(main).not.toContainText('O exemplo mostra por que um incêndio');
   await expect(main).not.toContainText('Por isso, compreender as queimadas significa');
-  await expect(main.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true })).toHaveAttribute('href', './dados.html');
+  await expect(main.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true })).toHaveAttribute('href', './dados');
   await expect(main.getByRole('heading', { name: 'Fontes consultadas' })).toHaveCount(0);
   await expect(main.getByRole('link', { name: /Ibama/ })).toHaveCount(0);
   await expect(page.getByRole('contentinfo').getByText('Fontes e créditos', { exact: true })).toBeVisible();
@@ -42,11 +42,11 @@ test('conecta documentos com caminhos relativos e preserva o rodapé', async ({ 
   const nav = page.getByRole('navigation', { name: 'Principal' });
   await expect(nav.getByRole('link', { name: 'Início', exact: true })).toHaveAttribute('aria-current', 'page');
   await nav.getByRole('link', { name: 'Queimadas', exact: true }).click();
-  await expect(page).toHaveURL(/\/queimadas\.html$/);
+  await expect(page).toHaveURL(/\/queimadas$/);
   await expect(nav.getByRole('link', { name: 'Queimadas', exact: true })).toHaveAttribute('aria-current', 'page');
   expect(await page.getByRole('contentinfo').innerHTML()).toBe(homeFooter);
   for (const name of ['Prevenção']) {
-    await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('href', './prevencao.html');
+    await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('href', './prevencao');
     await expect(nav.getByText(name, { exact: true })).toBeVisible();
   }
   // Todos os destinos internos publicados devem responder, incluindo assets.
@@ -57,7 +57,7 @@ test('conecta documentos com caminhos relativos e preserva o rodapé', async ({ 
   const paths = await nav.locator('a').evaluateAll(links => links.map(link => link.getAttribute('href')));
   expect(paths.every(path => path.startsWith('./'))).toBe(true);
   await nav.getByRole('link', { name: 'Início', exact: true }).click();
-  await expect(page).toHaveURL(/\/index\.html$/);
+  await expect(page).toHaveURL(/\/$/);
 });
 
 for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1440, 900], [844, 390], [1280, 500]]) {
@@ -273,11 +273,11 @@ test('navega entre Home e Queimadas quando publicado em subdiretório', async ({
   await page.goto(`${base}index.html`);
   const navigation = page.getByRole('navigation', { name: 'Principal' });
   await navigation.getByRole('link', { name: 'Queimadas', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/queimadas\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/queimadas$/);
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   expect(await page.locator('.reading-intro').evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgb(16, 26, 23)');
   await navigation.getByRole('link', { name: 'Início', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/index\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/$/);
   });
 });
 

@@ -75,6 +75,15 @@ test('rejeita dependência local fora da lista sem alterar distribuição anteri
   assert.deepEqual(await readFile(join(root, 'dist', 'index.html')), before);
 }));
 
+test('resolve somente as páginas canônicas conhecidas sem liberar recursos fora da lista', async () => fixture(async root => {
+  await writeFile(join(root, 'index.html'), '<a href="./">Home</a><a href="./dados#estados">Dados</a><a href="./fontes">Fontes</a>');
+  assert.equal(prepare(root).status, 0);
+  for (const path of ['./privado', './src/styles', './src/artwork/README.md']) {
+    await writeFile(join(root, 'index.html'), `<a href="${path}">Não publicar</a>`);
+    assert.match(prepare(root).stderr, /fora da lista/);
+  }
+}));
+
 test('rejeita symlink no destino sem escrever fora da pasta do projeto', async () => fixture(async root => {
   const { symlink } = await import('node:fs/promises');
   await mkdir(join(root, 'externo'));

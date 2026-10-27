@@ -37,8 +37,8 @@ for (const prefix of ['/', '/projeto/']) {
       await page.goto(`${base}dados.html`);
       await page.getByRole('button', { name: 'Acre', exact: true }).click();
       await expect(page.locator('[data-uf="AC"]')).toHaveAttribute('aria-pressed', 'true');
-      await page.locator('.site-nav a[href="./prevencao.html"]').click();
-      await expect(page).toHaveURL(`${base}prevencao.html`);
+      await page.locator('.site-nav a[href="./prevencao"]').click();
+      await expect(page).toHaveURL(`${base}prevencao`);
     });
   });
 }
@@ -79,7 +79,7 @@ test('CSP candidata em Report-Only permite navegação, SVG e seleção estadual
     await page.goto(`${base}index.html`);
     await page.waitForTimeout(100);
     expect(await page.evaluate(() => window.policyViolations)).toEqual([]);
-    await page.locator('.site-nav a[href="./dados.html"]').click();
+    await page.locator('.site-nav a[href="./dados"]').click();
     await page.getByRole('button', { name: 'Acre', exact: true }).click();
     await expect(page.locator('[data-uf="AC"]')).toHaveAttribute('aria-pressed', 'true');
     await page.locator('footer').scrollIntoViewIfNeeded();

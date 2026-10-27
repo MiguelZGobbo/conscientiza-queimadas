@@ -230,8 +230,8 @@ test('créditos curtos preservam fontes e o expansível completo deixa Dados', a
   const institutional = page.locator('.site-footer__institutional');
   await expect(institutional.getByText('Fontes e créditos', { exact: true })).toBeVisible();
   await expect(institutional.getByRole('link')).toHaveText(['Sobre o projeto', 'Fontes e créditos', 'Feedback']);
-  await expect(institutional.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
-  await expect(institutional.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
+  await expect(institutional.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre');
+  await expect(institutional.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes');
   await expect(institutional.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', 'https://forms.gle/wLPDbMi2CeicbYYH9');
   await expect(institutional).toContainText('Formulário externo no Google Forms. Abre em nova aba.');
 });

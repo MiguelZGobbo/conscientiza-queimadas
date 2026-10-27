@@ -66,8 +66,8 @@ for (const [width, height] of [[390, 844], [1440, 900], [320, 844]]) {
         await page.locator('#inicio').scrollIntoViewIfNeeded();
         await page.getByRole('button', { name: 'Abrir menu' }).click();
       }
-      await page.locator('.site-nav a[href="./prevencao.html"]').click();
-      await expect(page).toHaveURL(`${base}prevencao.html`);
+      await page.locator('.site-nav a[href="./prevencao"]').click();
+      await expect(page).toHaveURL(`${base}prevencao`);
       expect(await page.evaluate(() => window.policyViolations)).toEqual([]);
       expect(errors).toEqual([]);
     });

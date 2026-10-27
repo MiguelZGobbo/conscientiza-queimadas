@@ -14,6 +14,9 @@ export const publicFiles = [
     'footer-background-1440.webp', 'footer-background-1920.webp'].map(name => `src/${name}`),
 ];
 
+// Somente páginas conhecidas têm alias sem extensão; assets continuam explícitos.
+const canonicalDocuments = new Map(['queimadas', 'dados', 'prevencao', 'sobre', 'fontes'].map(route => [route, `${route}.html`]));
+
 async function rejectSymlinks(path) {
   let info;
   try { info = await lstat(path); } catch (error) { if (error.code === 'ENOENT') return; throw error; }
@@ -49,7 +52,8 @@ export async function preparePublication(root) {
     for (const ref of references(bytes.toString('utf8'), extname(path))) {
       if (/^(#|https?:|mailto:|tel:|data:)/i.test(ref)) continue;
       const url = new URL(ref, `https://local.invalid/${path}`);
-      const dependency = decodeURIComponent(url.pathname).slice(1) || 'index.html';
+      const referencePath = decodeURIComponent(url.pathname).slice(1) || 'index.html';
+      const dependency = canonicalDocuments.get(referencePath) || referencePath;
       if (url.origin !== 'https://local.invalid' || !publicFiles.includes(dependency)) {
         throw new Error(`Dependência fora da lista: ${path} → ${ref}`);
       }

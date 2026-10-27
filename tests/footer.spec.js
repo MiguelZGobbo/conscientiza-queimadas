@@ -101,8 +101,8 @@ test('rodapé encerra a Home com identidade, trajetória acadêmica e acesso à 
   await expect(footer.getByText('Itaguaçu — Espírito Santo', { exact: true })).toBeVisible();
   await expect(footer.getByText('© 2026 Conscientiza Queimadas', { exact: true })).toBeVisible();
   await expect(footer.getByRole('link')).toHaveCount(4);
-  await expect(footer.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
-  await expect(footer.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre.html');
+  await expect(footer.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes');
+  await expect(footer.getByRole('link', { name: 'Sobre o projeto', exact: true })).toHaveAttribute('href', './sobre');
   await expect(footer.getByRole('navigation', { name: 'Navegação', exact: true }).getByRole('link', { name: 'Voltar ao topo', exact: true })).toHaveAttribute('href', '#inicio');
   await expect(footer.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', feedbackURL);
   await expect(footer.getByText('Formulário externo no Google Forms. Abre em nova aba.', { exact: true })).toBeVisible();

@@ -59,6 +59,42 @@ for (const route of pages) test(`rodapé fluido sem cortes: ${route}, orientaç�
   });
 });
 
+for (const javaScriptEnabled of [true, false]) for (const reducedMotion of ['reduce', 'no-preference']) {
+  test(`percurso móvel, menu e histórico: JS ${javaScriptEnabled}, movimento ${reducedMotion}`, async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, javaScriptEnabled, reducedMotion });
+    try {
+      await serve('/', async base => {
+        const page = await context.newPage();
+        const errors = [];
+        page.on('pageerror', error => errors.push(error.message));
+        await page.goto(base);
+        for (const [name, route] of [['Queimadas', 'queimadas'], ['Dados', 'dados'], ['Prevenção', 'prevencao'], ['Sobre o projeto', 'sobre'], ['Fontes e créditos', 'fontes'], ['Início', '']]) {
+          const footer = ['sobre', 'fontes'].includes(route);
+          if (!footer) await page.locator('.menu-toggle').tap();
+          const link = page.locator(footer ? 'footer' : '.site-nav').getByRole('link', { name, exact: true });
+          await link.tap();
+          await expect(page).toHaveURL(`${base}${route}`);
+          await expect(page.locator('h1')).toBeVisible();
+          expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        }
+        await page.goBack(); await expect(page).toHaveURL(`${base}fontes`);
+        await page.goForward(); await expect(page).toHaveURL(base);
+        expect(errors).toEqual([]);
+      });
+    } finally { await context.close(); }
+  });
+}
+
+test('links internos navegam diretamente às URLs canônicas em raiz e subdiretório', async ({ page }) => {
+  for (const prefix of ['/', '/projeto/']) await serve(prefix, async base => {
+    for (const route of ['', 'queimadas', 'dados', 'prevencao', 'sobre', 'fontes']) {
+      await page.goto(`${base}${route}`);
+      const internal = await page.locator('a[href]').evaluateAll(links => links.filter(a => a.origin === location.origin).map(a => a.pathname));
+      expect(internal.filter(path => path.endsWith('.html'))).toEqual([]);
+    }
+  });
+});
+
 test('rodapé mantém reflow com zoom CSS de 200% e foco por teclado', async ({ page, browserName }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('/sobre.html');
@@ -74,7 +110,7 @@ test('rodapé mantém reflow com zoom CSS de 200% e foco por teclado', async ({ 
   if (browserName === 'chromium') { await page.keyboard.press('Tab'); await expect(about).toBeFocused(); }
   else await about.focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/sobre(?:\.html)?$/);
+  await expect(page).toHaveURL(/\/sobre$/);
 });
 
 test('marca não fragmenta palavras a 200% e atalho de topo cabe no desktop', async ({ page }) => {

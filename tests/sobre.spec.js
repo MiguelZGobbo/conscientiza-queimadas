@@ -38,12 +38,12 @@ test('abre Sobre pelo rodapé das quatro páginas sem acrescentá-la à navbar',
     if (footer === undefined) footer = html;
     expect(html).toBe(footer);
     await expect(currentFooter.locator('.site-footer__academic > p').first()).toHaveText('Projeto desenvolvido ao longo das Atividades Extensionistas I, II e III do curso de Engenharia de Software da UNINTER.');
-    await expect(currentFooter.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes.html');
+    await expect(currentFooter.getByRole('link', { name: 'Fontes e créditos', exact: true })).toHaveAttribute('href', './fontes');
     await expect(currentFooter.getByRole('link', { name: 'Feedback', exact: true })).toHaveAttribute('href', 'https://forms.gle/wLPDbMi2CeicbYYH9');
     const link = currentFooter.getByRole('link', { name: 'Sobre o projeto', exact: true });
-    await expect(link).toHaveAttribute('href', './sobre.html');
+    await expect(link).toHaveAttribute('href', './sobre');
     await link.click();
-    await expect(page).toHaveURL(/\/sobre\.html$/);
+    await expect(page).toHaveURL(/\/sobre$/);
     await expect(page.getByRole('main').getByRole('heading', { level: 1 })).toBeVisible();
   }
 });
@@ -55,14 +55,14 @@ test('resolve a página e os recursos locais em subdiretório', async ({ page })
   });
   await page.goto('/projeto/index.html');
   await page.getByRole('contentinfo').getByRole('link', { name: 'Sobre o projeto', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/sobre\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/sobre$/);
   const urls = await page.locator('a[href], link[href], script[src], img[src]').evaluateAll(elements => elements.map(element => element.href || element.src));
   for (const url of new Set(urls.filter(url => url.startsWith('http://127.0.0.1:4173/')))) {
     expect(new URL(url).pathname).toMatch(/^\/projeto\//);
     expect((await page.request.get(url.replace('/projeto/', '/'))).ok(), url).toBe(true);
   }
   await page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/sobre\.html#inicio$/);
+  await expect(page).toHaveURL(/\/projeto\/sobre#inicio$/);
   await expect(page.locator('#inicio')).toBeFocused();
 });
 
@@ -174,14 +174,14 @@ test('navega pelo rodapé e volta ao topo sem JavaScript, respeitando movimento 
       const page = await context.newPage();
       await page.goto('http://127.0.0.1:4173/index.html');
       await page.getByRole('contentinfo').getByRole('link', { name: 'Sobre o projeto', exact: true }).click();
-      await expect(page).toHaveURL(/\/sobre\.html$/);
+      await expect(page).toHaveURL(/\/sobre$/);
       await page.getByRole('button').click();
       await expect(page.getByRole('navigation', { name: 'Principal', exact: true })).toBeVisible();
       await page.keyboard.press('Escape');
       const top = page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true });
       await top.focus();
       await page.keyboard.press('Enter');
-      await expect(page).toHaveURL(/sobre\.html#inicio$/);
+      await expect(page).toHaveURL(/sobre#inicio$/);
       await expect(page.locator('#inicio')).toBeFocused();
       await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
       expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe(reducedMotion === 'reduce' ? 'auto' : 'smooth');
@@ -189,7 +189,7 @@ test('navega pelo rodapé e volta ao topo sem JavaScript, respeitando movimento 
       await page.keyboard.press('Enter');
       await page.getByRole('navigation', { name: 'Principal', exact: true }).getByRole('link', { name: 'Prevenção', exact: true }).focus();
       await page.keyboard.press('Enter');
-      await expect(page).toHaveURL(/\/prevencao\.html$/);
+      await expect(page).toHaveURL(/\/prevencao$/);
       await page.getByRole('button').focus();
       await page.keyboard.press('Enter');
       await expect(page.getByRole('navigation', { name: 'Principal', exact: true })).toBeVisible();

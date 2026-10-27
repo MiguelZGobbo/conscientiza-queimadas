@@ -259,7 +259,7 @@ test('integra navegação relativa, menu, rodapé e publicação em subdiretóri
   for (const path of ['index.html', 'queimadas.html']) {
     await page.goto(`/projeto/${path}`);
     await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Dados', exact: true }).click();
-    await expect(page).toHaveURL(/\/projeto\/dados.html$/);
+    await expect(page).toHaveURL(/\/projeto\/dados$/);
     await expect(page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Dados', exact: true })).toHaveAttribute('aria-current', 'page');
     await chooseState(page, 'ES');
     await expect(page.locator('#comparison-area')).toHaveText('5.151');

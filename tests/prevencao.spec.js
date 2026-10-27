@@ -59,7 +59,7 @@ test('integra quatro páginas com destinos relativos, página atual e rodapés i
     await expect(nav.getByRole('link')).toHaveText(['Início', 'Queimadas', 'Dados', 'Prevenção']);
     await expect(nav.locator('[aria-current="page"]')).toHaveText(current);
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
-    await expect(nav.getByRole('link', { name: 'Prevenção', exact: true })).toHaveAttribute('href', './prevencao.html');
+    await expect(nav.getByRole('link', { name: 'Prevenção', exact: true })).toHaveAttribute('href', './prevencao');
     const html = await page.getByRole('contentinfo').innerHTML();
     if (footer === undefined) footer = html;
     expect(html).toBe(footer);
@@ -68,9 +68,9 @@ test('integra quatro páginas com destinos relativos, página atual e rodapés i
   }
   await page.goto('/queimadas.html');
   await page.getByRole('link', { name: 'Explorar os dados das queimadas', exact: true }).click();
-  await expect(page).toHaveURL(/\/dados\.html$/);
+  await expect(page).toHaveURL(/\/dados$/);
   await page.getByRole('link', { name: 'Conhecer as orientações de prevenção', exact: true }).click();
-  await expect(page).toHaveURL(/\/prevencao\.html$/);
+  await expect(page).toHaveURL(/\/prevencao$/);
   const urls = await page.locator('a[href], link[href], script[src], img[src]').evaluateAll(elements => elements.map(element => element.href || element.src));
   for (const url of new Set(urls.filter(url => url.startsWith('http://127.0.0.1:4173/')))) {
     expect((await page.request.get(url)).ok(), url).toBe(true);
@@ -86,7 +86,7 @@ test('mantém a navegação quando publicado em subdiretório', async ({ page })
   await page.goto('/projeto/prevencao.html');
   const nav = page.getByRole('navigation', { name: 'Principal', exact: true });
   await nav.getByRole('link', { name: 'Queimadas', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/queimadas\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/queimadas$/);
   await nav.getByRole('link', { name: 'Prevenção', exact: true }).click();
-  await expect(page).toHaveURL(/\/projeto\/prevencao\.html$/);
+  await expect(page).toHaveURL(/\/projeto\/prevencao$/);
 });
