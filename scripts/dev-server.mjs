@@ -2,13 +2,16 @@ import { createServer } from 'node:http';
 import { readFile, realpath } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, relative, extname, isAbsolute } from 'node:path';
+import { createHash } from 'node:crypto';
+import { brotliCompressSync, constants } from 'node:zlib';
 import { publicFiles } from './preparar-publicacao.mjs';
 
 const contentTypes = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp' };
 
 // Somente ferramenta local: permite conferir a mesma distribuição em / e /projeto/.
-export function createStaticServer({ root = fileURLToPath(new URL('../', import.meta.url)), prefix = '/' } = {}) {
+export function createStaticServer({ root = fileURLToPath(new URL('../', import.meta.url)), prefix = '/', cache = 'no-store', canonicalRedirects = false, compress = false } = {}) {
   root = resolve(root);
+  if (!['no-store', 'revalidate'].includes(cache)) throw new Error('Perfil de cache inválido.');
   if (!/^\/(?:[\w-]+\/)*$/.test(prefix)) throw new Error('Prefixo inválido; use / ou /projeto/.');
   return createServer(async (request, response) => {
     async function sendFile(path, status) {
@@ -17,12 +20,26 @@ export function createStaticServer({ root = fileURLToPath(new URL('../', import.
       if (contained.startsWith('..') || isAbsolute(contained)) throw Object.assign(new Error('Fora da raiz.'), { code: 'ENOENT' });
       const file = await readFile(filePath);
       const extension = extname(path);
-      response.writeHead(status, {
+      const etag = `"${createHash('sha256').update(file).digest('hex')}"`;
+      const headers = {
         'Content-Type': `${contentTypes[extension]}${extension === '.webp' ? '' : '; charset=utf-8'}`,
-        'Cache-Control': 'no-store',
+        'Cache-Control': cache === 'revalidate' ? 'public, max-age=0, must-revalidate' : 'no-store',
         'X-Content-Type-Options': 'nosniff',
-      });
-      response.end(request.method === 'HEAD' ? undefined : file);
+      };
+      if (cache === 'revalidate' && status === 200) {
+        headers.ETag = etag;
+        if ((request.headers['if-none-match'] || '').split(/,\s*/).some(value => value.replace(/^W\//, '') === etag)) {
+          response.writeHead(304, headers).end();
+          return;
+        }
+      }
+      const useBrotli = compress && extension !== '.webp' && /\bbr\b/.test(request.headers['accept-encoding'] || '');
+      if (compress) headers.Vary = 'Accept-Encoding';
+      if (useBrotli) headers['Content-Encoding'] = 'br';
+      const body = useBrotli ? brotliCompressSync(file, { params: { [constants.BROTLI_PARAM_QUALITY]: 4 } }) : file;
+      headers['Content-Length'] = body.length;
+      response.writeHead(status, headers);
+      response.end(request.method === 'HEAD' ? undefined : body);
     }
 
     async function notFound() {
@@ -39,6 +56,12 @@ export function createStaticServer({ root = fileURLToPath(new URL('../', import.
 
     if (!publicFiles.includes(relativePath) || relativePath === '_headers' || !['GET', 'HEAD'].includes(request.method)) {
       await notFound();
+      return;
+    }
+
+    if (canonicalRedirects && pathname.endsWith('.html') && relativePath !== '404.html') {
+      const canonical = relativePath === 'index.html' ? prefix : `${prefix}${relativePath.slice(0, -5)}`;
+      response.writeHead(308, { Location: canonical + new URL(request.url, 'http://localhost').search }).end();
       return;
     }
 
