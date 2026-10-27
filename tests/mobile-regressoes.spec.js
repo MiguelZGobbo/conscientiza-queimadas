@@ -136,3 +136,19 @@ test('marca não fragmenta palavras a 200% e atalho de topo cabe no desktop', as
   await page.setViewportSize({ width: 1920, height: 1080 });
   expect(await page.locator('footer a').first().evaluate(el => { const range = document.createRange(); range.selectNodeContents(el); return range.getClientRects().length; })).toBe(1);
 });
+
+test('navegação móvel não cobre o novo documento com snapshot de transição', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => {
+    window.mobileTransition = false;
+    window.addEventListener('pagereveal', event => { window.mobileTransition = Boolean(event.viewTransition); });
+  });
+  await page.goto('/');
+  await page.locator('.menu-toggle').tap();
+  await page.locator('.site-nav').getByRole('link', { name: 'Queimadas', exact: true }).tap();
+  await expect(page).toHaveURL(/\/queimadas$/);
+  await page.waitForLoadState('load');
+  expect(await page.evaluate(() => window.mobileTransition)).toBe(false);
+  await page.locator('.menu-toggle').tap();
+  await expect(page.locator('.site-nav')).toBeVisible();
+});
