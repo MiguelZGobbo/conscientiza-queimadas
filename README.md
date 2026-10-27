@@ -32,7 +32,7 @@ npm ci
 npm run dev
 ```
 
-Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou os atalhos **Sobre o projeto** e **Fontes e créditos** no rodapé para `/sobre.html` e `/fontes.html`. O servidor é local e destinado ao desenvolvimento. A interface é estática. Para preparar a hospedagem, executar `npm run preparar:publicacao` e usar exclusivamente `dist/`; não publicar a pasta `src/` inteira do checkout. As seis páginas mantêm caminhos relativos e testes em subdiretório. A nova 404 foi preparada para a raiz do Cloudflare Pages, inclusive em rotas inexistentes profundas. Não há biblioteca de runtime no visitante. Servir por HTTP(S) para carregar o módulo local de dados.
+Abrir http://127.0.0.1:4173 e usar a navbar para Queimadas, Dados e Prevenção, ou os atalhos **Sobre o projeto** e **Fontes e créditos** no rodapé para `/sobre` e `/fontes`. O servidor é local e destinado ao desenvolvimento. A interface é estática. Para preparar a hospedagem, executar `npm run preparar:publicacao` e usar exclusivamente `dist/`; não publicar a pasta `src/` inteira do checkout. As seis páginas mantêm caminhos relativos e testes em subdiretório. A nova 404 foi preparada para a raiz do Cloudflare Pages, inclusive em rotas inexistentes profundas. Não há biblioteca de runtime no visitante. Servir por HTTP(S) para carregar o módulo local de dados.
 
 ## Organização
 
@@ -87,19 +87,19 @@ Os destinos publicados usam caminhos relativos ao diretório de cada documento e
 | Elemento | Destino preparado |
 | --- | --- |
 | Marca na Home | `./` |
-| Início na navbar das seis páginas / marcas nas páginas secundárias | `./index.html` |
-| Queimadas na navbar das seis páginas | `./queimadas.html` |
-| Dados na navbar das seis páginas | `./dados.html` |
-| Prevenção na navbar das seis páginas | `./prevencao.html` |
-| Sobre o projeto, somente no rodapé das seis páginas | `./sobre.html` |
-| Fontes e créditos, somente no rodapé das seis páginas | `./fontes.html` |
+| Início na navbar das seis páginas / marcas nas páginas secundárias | `./` |
+| Queimadas na navbar das seis páginas | `./queimadas` |
+| Dados na navbar das seis páginas | `./dados` |
+| Prevenção na navbar das seis páginas | `./prevencao` |
+| Sobre o projeto, somente no rodapé das seis páginas | `./sobre` |
+| Fontes e créditos, somente no rodapé das seis páginas | `./fontes` |
 | Voltar ao topo no rodapé das seis páginas | `#inicio` |
 
 **Prevenção** está integrada às quatro páginas por links relativos, com `aria-current="page"` somente no documento atual. Os encerramentos seguem o percurso Queimadas → Dados → Prevenção, com “Explorar os dados das queimadas” e “Conhecer as orientações de prevenção”. A síntese dos impactos continua na Home, e seu CTA permanece apontando para `#impactos`. Os telefones e links oficiais estão diretamente no HTML de Prevenção e podem ser revisados sem alterar scripts.
 
-As cinco páginas internas compartilham a abertura `.page-intro` de `src/paginas.css`. Queimadas, Dados e Prevenção também usam os encerramentos desse arquivo e ilustrações SVG decorativas, com texto antes da imagem em telas pequenas e duas colunas a partir de 960 px. Sobre e Fontes mantêm uma única coluna sem ilustração. Os estilos globais oferecem hover dourado na navbar e dissolução nativa de 180 ms entre documentos, somente com movimento permitido e suporte do navegador. Em Sobre e Fontes, a dissolução também exige scripts disponíveis, evitando o bloqueio da interação observado no Chromium sem JavaScript. A navegação permanece nativa e funciona sem JavaScript.
+As cinco páginas internas compartilham a abertura `.page-intro` de `src/paginas.css`. Queimadas, Dados e Prevenção também usam os encerramentos desse arquivo e ilustrações SVG decorativas, com texto antes da imagem em telas pequenas e duas colunas a partir de 960 px. Sobre e Fontes mantêm uma única coluna sem ilustração. Os estilos globais oferecem hover dourado na navbar e dissolução nativa de 180 ms entre documentos, somente a partir de 960 px com mouse, movimento permitido e suporte do navegador. Em Sobre e Fontes, a dissolução também exige scripts disponíveis, evitando o bloqueio da interação observado no Chromium sem JavaScript. A navegação permanece nativa e funciona sem JavaScript.
 
-No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto** e **Fontes e créditos** abrem `./sobre.html` e `./fontes.html`, sem aparecer na navbar; nessas páginas, nenhum dos quatro itens principais recebe `aria-current="page"`. **Feedback** abre diretamente `https://forms.gle/wLPDbMi2CeicbYYH9` em uma nova aba, com a descrição acessível “Formulário externo no Google Forms. Abre em nova aba.” associada por `aria-describedby`. As referências de Queimadas foram selecionadas pela auditoria para a página Fontes, com as pendências mantidas na documentação. O HTML do rodapé é idêntico nas seis páginas e usa o mesmo CSS e a mesma imagem. A atribuição acadêmica menciona as Atividades Extensionistas I, II e III.
+No rodapé de cada documento, **Voltar ao topo** aponta para seu próprio `#inicio`: volta suavemente ao cabeçalho e transfere o foco sem recarregar ou trocar de página. A âncora funciona sem JavaScript; com movimento reduzido, a chegada é instantânea. O cabeçalho recebe `tabindex="-1"` para acolher o foco sem uma parada adicional de Tab. **Sobre o projeto** e **Fontes e créditos** abrem `./sobre` e `./fontes`, sem aparecer na navbar; nessas páginas, nenhum dos quatro itens principais recebe `aria-current="page"`. **Feedback** abre diretamente `https://forms.gle/wLPDbMi2CeicbYYH9` em uma nova aba, com a descrição acessível “Formulário externo no Google Forms. Abre em nova aba.” associada por `aria-describedby`. As referências de Queimadas foram selecionadas pela auditoria para a página Fontes, com as pendências mantidas na documentação. O HTML do rodapé é idêntico nas seis páginas e usa o mesmo CSS e a mesma imagem. A atribuição acadêmica menciona as Atividades Extensionistas I, II e III.
 
 O rodapé fica fora do conteúdo principal e reutiliza os tokens escuros, a tipografia e o container da Home. Seus quatro grupos mantêm a ordem identidade, navegação, institucional e contexto acadêmico: uma coluna abaixo de 600 px, duas entre 600 e 1199 px e quatro a partir de 1200 px. No desktop, o fundo raster preparado a partir do exemplo 3 cobre o rodapé, com a paisagem de entardecer à esquerda e a área escura para os grupos à direita. Em telas menores, a paisagem aparece abaixo dos grupos e as divisórias verticais são removidas. A logo vetorial original do cabeçalho acompanha o nome em duas linhas, sem a folha criada na primeira versão. Logo e imagem de fundo são decorativas, sem identificar espécies ou um local documentado. O link Voltar ao topo é sublinhado, tem área mínima de 44 × 44 px e foco visível. O rodapé funciona sem JavaScript e cresce livremente com texto ampliado. A autoria das imagens, incluindo a referência do fundo, foi confirmada por Miguel Zager Gobbo; o registro está em `docs/recursos-e-licencas.md`.
 
@@ -189,3 +189,9 @@ A configuração futura é Pages / None / raiz do repositório / produção `mai
 A CSP foi exercitada primeiro em Report-Only; a candidata usa enforcement e bloqueia iframe, conforme decisão do responsável. O servidor de desenvolvimento comum não aplica `_headers`: os testes de distribuição leem o arquivo publicado e aplicam seu subconjunto de regra `/*` numa fixture local. Aliases sem extensão locais não simulam os redirecionamentos do Pages.
 
 Entregas: [relatório desta fase](docs/relatorio-preparacao-cloudflare.md), [política seletiva do Git](docs/politica-repositorio.md) e [checklist de ativação](docs/checklist-ativacao-cloudflare.md). Canonical, OG com URLs absolutas e sitemap aguardam a origem real. Visibilidade do GitHub e autorização de publicação permanecem decisões separadas.
+
+## Rodapé e desempenho móvel — 27/10/2026
+
+O rodapé compartilha a escala fluida por largura e altura das páginas. Os links internos usam URLs sem extensão para evitar a normalização 308 do Cloudflare; os arquivos `.html` e seus acessos antigos continuam disponíveis. O servidor local aceita os aliases também em `/projeto/`.
+
+`npm test` inclui a suíte Chromium e as regressões móveis em WebKit. `npm run check` também executa um ensaio curto do medidor em WebKit para conferir a contagem de redirects. Instalar os motores com `npx playwright install chromium webkit` ao preparar outro ambiente. O medidor `npm run medir:site -- --base-url URL --phase antes --output PASTA --runs 5` aceita loopback e a origem pública deste projeto; produz dados locais, não publica conteúdo. Consulte `docs/relatorio-rodape-performance-mobile.md` para protocolo, comparação e aceite físico pendente.
