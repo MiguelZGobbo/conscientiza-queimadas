@@ -2,7 +2,7 @@
 .dados-page main {
   --data-type: clamp(1rem, min(1.15vw, 2.3svh), 1.25rem);
   --data-gap: clamp(1rem, min(2vw, 3svh), 2rem);
-  --data-space: clamp(2.5rem, min(6vw, 9svh), 5rem);
+  --data-space: clamp(2rem, min(4.8vw, 7.2svh), 4rem);
   color-scheme: light;
   background: var(--impacts-background);
   color: var(--impacts-foreground);
@@ -13,14 +13,15 @@
 .dados-page main :focus-visible { outline-color: var(--impacts-accent); }
 .dados-page main :is(h1, h2, h3, p, li, dt, dd, th, td, a) { overflow-wrap: anywhere; }
 .dados-page main :is(h1, h2, h3) { font-weight: 650; letter-spacing: -.035em; text-wrap: balance; }
-.data-reading { width: min(100%, calc(68ch + var(--page-gutter) * 2)); }
-.data-reading--inner { width: min(100%, 68ch); margin-inline: auto; }
+.data-reading { width: min(100%, calc(80ch + var(--page-gutter) * 2)); }
+.data-reading--inner { width: min(100%, 80ch); margin-inline: auto; }
 .data-section { container: data-page / inline-size; padding-block: var(--data-space); border-bottom: 1px solid var(--impacts-divider); scroll-margin-top: 1rem; }
 .data-section:focus-visible { outline-offset: -4px; }
 .data-section:last-child { border-bottom: 0; }
 .data-section h2 { margin: 0 0 var(--data-gap); font-size: clamp(1.75rem, min(3vw, 6svh), 3rem); line-height: 1.2; }
-.data-section h3 { margin: calc(var(--data-space) * .6) 0 var(--data-gap); font-size: calc(var(--data-type) * 1.25); line-height: 1.4; }
-.data-section p { margin: 0 0 var(--data-gap); }
+.data-section h3 { margin: calc(var(--data-space) * .6) 0 calc(var(--data-gap) * .5); font-size: calc(var(--data-type) * 1.25); line-height: 1.4; }
+.data-section h3 + :is(ul, ol, dl) { margin-top: 0; }
+.data-section p { margin: 0 0 var(--data-gap); text-wrap: pretty; }
 .data-section a { text-underline-offset: .2em; }
 .data-section a:hover { color: var(--impacts-accent); }
 .data-section figure { margin: var(--data-space) 0 0; }
@@ -37,7 +38,7 @@
 .bar__fill--historical { background: var(--impacts-foreground); }
 .bar__fill--focus { background: var(--impacts-foreground); }
 .national-focus { margin-top: var(--data-space); padding-top: var(--data-gap); border-top: 1px solid var(--impacts-divider); }
-.chart-intro { max-width: 68ch; margin-inline: auto; }
+.chart-intro { max-width: 80ch; margin-inline: auto; }
 .chart-intro h3 { margin-top: 0; }
 .data-section .focus-chart { margin-block: var(--data-space) 0; }
 #state-focus-data > .focus-chart:first-child { margin-top: 0; }
@@ -76,7 +77,8 @@
 .state-results { min-width: 0; }
 .state-results h3 { margin: var(--data-gap) 0 0; }
 .state-layout .state-map { min-width: 0; margin: 0; }
-.brazil-map { display: block; width: min(100%, 40rem, calc(65svh * 800 / 810)); height: auto; margin-inline: auto; overflow: visible; }
+/* Preserva a medida anterior do mapa, independentemente da coluna editorial mais ampla. */
+.brazil-map { display: block; width: min(100%, 68ch, 40rem, calc(65svh * 800 / 810)); height: auto; margin-inline: auto; overflow: visible; }
 .brazil-map path[data-uf] { fill: #d8d5c8; stroke: var(--impacts-muted); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .brazil-map path[role='button'] { cursor: pointer; scroll-margin-block: .75rem; }
 .brazil-map path[role='button']:hover { fill: #bbc3b5; }

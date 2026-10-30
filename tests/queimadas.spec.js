@@ -123,7 +123,7 @@ test('atalhos e Voltar ao topo funcionam sem JavaScript e com movimento reduzido
   }
 });
 
-test('títulos precedem o texto em uma coluna centralizada e atalhos têm alinhamento consistente', async ({ page }) => {
+test('títulos precedem o texto na coluna ampla centralizada e atalhos têm alinhamento consistente', async ({ page }) => {
   for (const [width, height] of [[320, 568], [768, 1024], [1440, 900], [1920, 1080]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/queimadas.html');
@@ -134,25 +134,30 @@ test('títulos precedem o texto em uma coluna centralizada e atalhos têm alinha
       const heading = await paragraph.evaluate(element => element.closest('section').querySelector('h2').getBoundingClientRect().toJSON());
       expect(heading.bottom).toBeLessThan(body.y);
       expect(Math.abs(heading.left - body.x)).toBeLessThanOrEqual(1);
-      expect(Math.abs(body.x - reading.x)).toBeLessThanOrEqual(1);
       expect(Math.abs(body.x - (width - body.width) / 2)).toBeLessThanOrEqual(1);
+      expect(Math.abs(body.x - reading.x)).toBeLessThanOrEqual(1);
       expect(await paragraph.evaluate(element => getComputedStyle(element).textAlign)).toBe('start');
     }
     await expect(page.locator('.reading-section__number')).toHaveCount(0);
     const links = page.getByRole('navigation', { name: 'Nesta página' }).getByRole('link');
+    const contents = await page.locator('.reading-contents .container').evaluate(element => {
+      const box = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return { left: box.left + parseFloat(style.paddingLeft), right: box.right - parseFloat(style.paddingRight) };
+    });
     await expect(links).toHaveText(['O que são queimadas?', 'Como começam e por que se espalham?', 'O que acontece quando o fogo avança?']);
     await expect(page.getByRole('navigation', { name: 'Nesta página' }).getByText('Nesta página', { exact: true })).toBeVisible();
     let previousBottom = 0;
     for (const link of await links.all()) {
       const bounds = await link.boundingBox();
       expect(bounds.height).toBeGreaterThanOrEqual(44);
-      expect(bounds.x).toBeGreaterThanOrEqual(reading.x - 1);
-      expect(bounds.x + bounds.width).toBeLessThanOrEqual(reading.x + reading.width + 1);
+      expect(bounds.x).toBeGreaterThanOrEqual(contents.left - 1);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(contents.right + 1);
       expect(bounds.y).toBeGreaterThanOrEqual(previousBottom);
       previousBottom = bounds.y + bounds.height;
     }
     const closing = await page.locator('.reading-next__body').boundingBox();
-    expect(Math.abs(closing.x - reading.x)).toBeLessThanOrEqual(1);
+    expect(Math.abs(closing.x - contents.left)).toBeLessThanOrEqual(1);
   }
 });
 

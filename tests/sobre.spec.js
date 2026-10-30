@@ -80,7 +80,9 @@ for (const [width, height] of viewports) {
           clipped: [...document.querySelectorAll('main h1, main h2, main p, footer h2, footer h3, footer p, footer li, footer a')]
             .filter(element => element.scrollWidth > element.clientWidth || (element.scrollHeight > element.clientHeight && getComputedStyle(element).overflowY !== 'visible'))
             .map(element => element.textContent),
-          overlap: bounds.some((box, index) => index > 0 && box.top < bounds[index - 1].bottom - 1),
+          overlap: bounds.some((box, index) => bounds.slice(0, index).some(previous =>
+            box.left < previous.right - 1 && box.right > previous.left + 1 &&
+            box.top < previous.bottom - 1 && box.bottom > previous.top + 1)),
           outside: bounds.some(box => box.left < 0 || box.right > innerWidth),
           bodyFont: parseFloat(getComputedStyle(document.querySelector('.reading-section__body')).fontSize),
         };

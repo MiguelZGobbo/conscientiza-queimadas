@@ -349,6 +349,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .landscape--desktop { display: block; height: 100%; }
   .impacts {
     --impacts-type-unit: clamp(.875rem, min(1.2vw, 2.4svh), 1.375rem);
+    display: grid;
+    align-items: center;
     padding-block: calc(var(--terrain-height) + clamp(.75rem, 3svh, 3rem)) clamp(1rem, 5svh, 6rem);
   }
   .impacts__eyebrow { font-size: clamp(.75rem, calc(var(--impacts-type-unit) * .75), 1rem); margin-bottom: clamp(.5rem, 2svh, 1.5rem); }
