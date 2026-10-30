@@ -112,19 +112,35 @@ test('textos e navegação mantêm contraste AA sobre a paisagem SVG renderizada
         const channels = rgb.map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
         return channels[0] * .2126 + channels[1] * .7152 + channels[2] * .0722;
       };
-      return [...document.querySelectorAll(selectors)].filter(element => element.getClientRects().length).map(element => {
-        const bounds = element.getBoundingClientRect();
-        const foreground = luminance(getComputedStyle(element).color.match(/[\d.]+/g).slice(0, 3).map(Number));
-        const pixels = context.getImageData(Math.floor(bounds.left), Math.floor(bounds.top), Math.ceil(bounds.width), Math.ceil(bounds.height)).data;
+      const textNodes = new Set();
+      for (const element of document.querySelectorAll(selectors)) {
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+        for (let node = walker.nextNode(); node; node = walker.nextNode()) if (node.textContent.trim()) textNodes.add(node);
+      }
+      return [...textNodes].map(node => {
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        const rectangles = [...range.getClientRects()].filter(bounds => bounds.width > 0 && bounds.height > 0);
+        if (!rectangles.length) return null;
+        const foreground = luminance(getComputedStyle(node.parentElement).color.match(/[\d.]+/g).slice(0, 3).map(Number));
         let minimum = Infinity;
-        for (let index = 0; index < pixels.length; index += 4) {
-          const color = luminance([pixels[index], pixels[index + 1], pixels[index + 2]]);
-          minimum = Math.min(minimum, (Math.max(foreground, color) + .05) / (Math.min(foreground, color) + .05));
+        // Medir cada linha de texto; a caixa do span em bloco inclui área vazia sobre a arte.
+        for (const bounds of rectangles) {
+          const pixels = context.getImageData(Math.floor(bounds.left), Math.floor(bounds.top), Math.ceil(bounds.width), Math.ceil(bounds.height)).data;
+          for (let index = 0; index < pixels.length; index += 4) {
+            const color = luminance([pixels[index], pixels[index + 1], pixels[index + 2]]);
+            minimum = Math.min(minimum, (Math.max(foreground, color) + .05) / (Math.min(foreground, color) + .05));
+          }
         }
-        return { text: element.textContent.trim(), minimum };
-      });
+        return { text: node.textContent.trim(), minimum };
+      }).filter(Boolean);
     }, { selectors, background });
-    for (const result of contrasts) expect(result.minimum, `${width}×${height} / ${fontSize}: ${result.text}`).toBeGreaterThanOrEqual(4.5);
+    expect(contrasts.some(result => result.text === 'As marcas ficam.')).toBe(true);
+    expect(contrasts.length).toBeGreaterThan(5);
+    for (const result of contrasts) {
+      expect(Number.isFinite(result.minimum), `Amostra efetiva: ${result.text}`).toBe(true);
+      expect(result.minimum, `${width}×${height} / ${fontSize}: ${result.text}`).toBeGreaterThanOrEqual(4.5);
+    }
   }
 });
 

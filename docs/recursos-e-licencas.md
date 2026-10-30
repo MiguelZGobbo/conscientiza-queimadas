@@ -1,5 +1,18 @@
 # Recursos, autoria e licenças
 
+## Fraunces no destaque da Home — 29/10/2026
+
+A segunda frase do título da Home utiliza Fraunces, dos autores do projeto Fraunces, sob a SIL Open Font License 1.1. O restante do site mantém a fonte de interface do sistema. O arquivo é hospedado localmente e não exige chamadas ao Google durante a visita.
+
+- Arquivo: `src/fonts/fraunces-v38-latin-600.woff2` — versão CDN v38, peso 600, tamanho óptico 144, subconjunto latino; 17.172 bytes.
+- SHA-256: `1344190933e23984694ba9f9ab913c36944cd600016e5a0cc775b776e12985bd`.
+- Origem do arquivo: [Google Fonts CDN](https://fonts.gstatic.com/s/fraunces/v38/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58njr1a03gg7S2nfgRYIcaRyTCf7T.woff2), selecionado da API para `Fraunces:opsz,wght@144,600`.
+- Projeto e autoria: [Fraunces](https://github.com/undercasetype/Fraunces).
+- Licença integral distribuída em `src/fonts/OFL-Fraunces.txt`; [origem da licença](https://raw.githubusercontent.com/google/fonts/main/ofl/fraunces/OFL.txt).
+- SHA-256 da licença: `bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b`.
+
+O WOFF2 original do CDN foi preservado sem conversão ou alteração. Sua medida de “As marcas ficam.” a 88 px é igual à do arquivo usado na prévia aprovada. A licença desta fonte não altera a situação de direitos dos demais recursos do projeto.
+
 ## Confirmação de autoria das imagens — 26/10/2026
 
 Miguel Zager Gobbo confirmou nesta conversa que todas as imagens fornecidas por ele para o projeto foram criadas por ele com auxílio de IA. Essa declaração esclarece a origem das imagens e de suas referências, incluindo a paisagem do rodapé e a referência visual da marca/favicon, e encerra as respectivas pendências anteriores de autoria e autorização de uso no projeto. Não foi atribuída uma licença pública nova a esses materiais.

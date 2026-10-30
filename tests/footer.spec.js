@@ -194,7 +194,7 @@ for (const width of [390, 1440]) {
   test(`Voltar ao topo no rodapé é acessível por Tab, Shift+Tab e Enter em ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
-    const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
+    const shortcut = page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true });
     const home = page.getByRole('contentinfo').getByRole('link', { name: 'Voltar ao topo', exact: true });
     await shortcut.focus();
     await page.keyboard.press('Tab');
@@ -268,7 +268,7 @@ test('todos os textos e estados do link atingem contraste AA no fundo do rodapé
         if (state === 'hover') await home.hover();
         if (state === 'focus') {
           await page.mouse.move(0, 0);
-          await page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true }).focus();
+          await page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true }).focus();
           await page.keyboard.press('Tab');
         }
         // Espera a transição de cor curta antes de medir o estado final.

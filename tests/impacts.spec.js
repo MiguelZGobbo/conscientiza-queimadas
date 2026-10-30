@@ -11,7 +11,7 @@ for (const [width, height] of [[390, 844], [1350, 626], [1920, 1080]]) {
         const page = await context.newPage();
         for (const action of ['click', 'Enter']) {
           await page.goto('http://127.0.0.1:4173/');
-          const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
+          const shortcut = page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true });
           await expect(shortcut).toBeVisible();
           if (action === 'click') await shortcut.click();
           else {
@@ -121,7 +121,7 @@ for (const [width, height, columns] of [[320, 568, 1], [390, 844, 1], [768, 1024
       expect(layout.blocks[1].top).toBeGreaterThan(layout.blocks[0].bottom);
       expect(layout.blocks[2].top).toBeGreaterThan(layout.blocks[1].bottom);
     }
-    await page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true }).click();
+    await page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true }).click();
     await expect.poll(async () => Math.abs((await page.locator('.impacts').boundingBox()).y)).toBeLessThanOrEqual(1);
     await blocks.last().scrollIntoViewIfNeeded();
     await expect(blocks.last().getByRole('heading', { name: 'Sociedade' })).toBeInViewport();
@@ -222,7 +222,7 @@ test('impactos e transição continuam disponíveis com movimento reduzido e sem
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4173/');
     await expect(page.locator('.hero__cta, .hero__continuity')).toHaveCount(0);
-    await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true })).toBeVisible();
     expect(await page.locator('.impacts').evaluate(element => getComputedStyle(element, '::before').clipPath)).toContain('polygon(');
     await expect(page.getByRole('region', { name: sectionTitle }).getByRole('heading', { level: 3 })).toHaveText(axes);
     expect(await page.evaluate(() => document.getAnimations().filter(animation => animation.playState === 'running').length)).toBe(0);
@@ -243,7 +243,7 @@ test('texto a 200% e reflow a 320 px preservam todo o conteúdo', async ({ page 
       const style = getComputedStyle(element);
       return element.scrollWidth <= element.clientWidth && (element.scrollHeight <= element.clientHeight || style.overflowY === 'visible');
     }))).toBe(true);
-    await page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true }).click();
+    await page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true }).click();
     await expect.poll(async () => Math.abs((await content.boundingBox()).y)).toBeLessThanOrEqual(1);
     const lastParagraph = content.locator('.impacts__axis p').last();
     await lastParagraph.scrollIntoViewIfNeeded();

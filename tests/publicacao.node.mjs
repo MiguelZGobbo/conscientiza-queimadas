@@ -37,7 +37,9 @@ test('copia somente o site e preserva bytes; o manifesto fica fora de dist', asy
   const result = prepare(root);
   assert.equal(result.status, 0, result.stderr);
   const manifest = JSON.parse(await readFile(join(root, '.auditoria-local', 'manifesto-publicacao.json'), 'utf8'));
-  assert.equal(manifest.files.length, 29);
+  assert.equal(manifest.files.length, 31);
+  assert.ok(manifest.files.some(file => file.path === 'src/fonts/fraunces-v38-latin-600.woff2'));
+  assert.ok(manifest.files.some(file => file.path === 'src/fonts/OFL-Fraunces.txt'));
   for (const file of manifest.files) {
     assert.deepEqual(await readFile(join(root, 'dist', file.path)), await readFile(join(root, file.path)));
     assert.match(file.sha256, /^[a-f0-9]{64}$/);
@@ -107,6 +109,14 @@ test('serve o artefato real na raiz e em subdiretório, com MIME e 404', async (
       assert.equal(css.status, 200);
       assert.match(css.headers.get('content-type'), /text\/css/);
       assert.equal(await css.text(), expected);
+      const font = await fetch(`${base}src/fonts/fraunces-v38-latin-600.woff2`);
+      assert.equal(font.status, 200);
+      assert.equal(font.headers.get('content-type'), 'font/woff2');
+      assert.deepEqual(Buffer.from(await font.arrayBuffer()), await readFile(join(root, 'src', 'fonts', 'fraunces-v38-latin-600.woff2')));
+      const license = await fetch(`${base}src/fonts/OFL-Fraunces.txt`);
+      assert.equal(license.status, 200);
+      assert.match(license.headers.get('content-type'), /^text\/plain; charset=utf-8$/);
+      assert.match(await license.text(), /SIL OPEN FONT LICENSE Version 1.1/);
       for (const page of pages) assert.equal((await fetch(`${base}${page}`)).status, 200, page);
       for (const page of pages.filter(page => page !== 'index.html')) {
         const alias = await fetch(`${base}${page.slice(0, -5)}`);

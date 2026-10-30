@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 export const publicFiles = [
   'index.html', 'queimadas.html', 'dados.html', 'prevencao.html', 'sobre.html', 'fontes.html',
   '404.html', '_headers',
+  'src/fonts/fraunces-v38-latin-600.woff2', 'src/fonts/OFL-Fraunces.txt',
   ...['styles.css', 'paginas.css', 'queimadas.css', 'dados.css', 'prevencao.css',
     'navigation.js', 'hero-interaction.js', 'dados.js', 'graficos-interacao.js', 'focos.js',
     'graficos.js', 'dados-base.js', 'focos-base.js', 'seletor-estados.js', 'favicon.svg', 'smoke.svg',

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-const headline = 'Quando o fogo avança, não é só a mata que se perde.';
-const description = 'Entenda como as queimadas afetam o ambiente, a saúde e a vida das comunidades — e saiba como prevenir.';
+const headline = 'O fogo passa. As marcas ficam.';
+const description = 'As queimadas podem destruir habitats, comprometer a qualidade do ar e afetar a saúde e a vida das comunidades. Explore os impactos que vão além das chamas e entenda a importância de prevenir.';
 
 async function readNativeMenuExpanded(page) {
   // Consulta a árvore acessível real: o estado nativo não é um atributo ARIA no DOM.
@@ -11,7 +11,7 @@ async function readNativeMenuExpanded(page) {
   return nodes.find(node => node.role?.value === 'button').properties.find(property => property.name === 'expanded').value.value;
 }
 
-test('Home preserva os textos e a cena do Hero com atalho nativo para os impactos', async ({ page }) => {
+test('Home apresenta a abertura marcante e preserva a cena com atalho nativo para os impactos', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle('Conscientiza Queimadas');
   const favicon = page.locator('link[rel="icon"]');
@@ -21,12 +21,13 @@ test('Home preserva os textos e a cena do Hero com atalho nativo para os impacto
   expect(iconResponse.headers()['content-type']).toContain('image/svg+xml');
   await expect(page.locator('.brand__name')).toHaveText('Conscientiza Queimadas');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(headline);
+  await expect(page.locator('#hero-title span')).toHaveText('As marcas ficam.');
   await expect(page.locator('.hero__description')).toHaveText(description);
   await expect(page.locator('main > section')).toHaveCount(2);
   await expect(page.getByRole('contentinfo')).toHaveCount(1);
   await expect(page.locator('main a')).toHaveCount(1);
   await expect(page.locator('main button')).toHaveCount(0);
-  const shortcut = page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true });
+  const shortcut = page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true });
   await expect(shortcut).toHaveAttribute('href', '#impactos');
   await expect(shortcut.locator('[aria-hidden="true"]')).toHaveText('↓');
   await expect(page.locator('.hero__cta, .hero__continuity')).toHaveCount(0);
@@ -34,6 +35,21 @@ test('Home preserva os textos e a cena do Hero com atalho nativo para os impacto
   await expect(page.locator('.hero__scroll-cue')).toHaveCount(0);
   await expect(page.locator('.hero__landscape')).toHaveAttribute('aria-hidden', 'true');
   await expect(page.locator('.hero__landscape text')).toHaveCount(0);
+});
+
+test('hierarquia editorial adapta as duas frases à largura e altura sem recarregar', async ({ page }) => {
+  await page.goto('/');
+  const documentOrigin = await page.evaluate(() => performance.timeOrigin);
+  for (const [width, height, firstSize, secondSize] of [[1920, 1080, 48, 88], [1440, 900, 43.2, 86.4], [1024, 768, 30.72, 61.44], [1920, 500, 25, 55], [390, 844, 24, 44], [844, 390, 24, 44]]) {
+    await page.setViewportSize({ width, height });
+    const sizes = await page.locator('#hero-title').evaluate(element => ({
+      first: parseFloat(getComputedStyle(element).fontSize),
+      second: parseFloat(getComputedStyle(element.querySelector('span')).fontSize),
+    }));
+    expect(sizes.first).toBeCloseTo(firstSize, 1);
+    expect(sizes.second).toBeCloseTo(secondSize, 1);
+    expect(await page.evaluate(() => performance.timeOrigin)).toBe(documentOrigin);
+  }
 });
 
 for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768], [1280, 500], [1440, 900], [1920, 1080], [844, 390], [1920, 420]]) {
@@ -66,7 +82,7 @@ for (const [width, height] of [[320, 568], [390, 844], [768, 1024], [1024, 768],
     expect(layout.shortcut.left).toBeGreaterThanOrEqual(16);
     expect(layout.shortcut.right).toBeLessThanOrEqual(width - 16);
     expect(layout.hero.bottom).toBeGreaterThanOrEqual(height - 1);
-    expect(layout.hero.bottom).toBeLessThanOrEqual(height + 1);
+    // O complemento maior pode exigir crescimento; todos os blocos e a reserva da cena devem caber.
     const eyebrow = await page.locator('.impacts__eyebrow').boundingBox();
     expect(eyebrow.y).toBeGreaterThanOrEqual(height);
     if (width < 960) {
@@ -116,7 +132,7 @@ test('menu mobile funciona por teclado, fecha com Esc e ao sair com Tab', async 
     await expect(nav.getByRole('link', { name, exact: true })).toBeFocused();
   }
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Ver impactos das queimadas', exact: true })).toBeFocused();
+  await expect(page.getByRole('link', { name: 'Descubra os impactos das queimadas', exact: true })).toBeFocused();
   await expect(nav).toBeHidden();
 });
 
@@ -389,8 +405,17 @@ test('carregamento lento do script não desloca o conteúdo e recursos são loca
   const totalSize = metrics.resources.reduce((size, resource) => size + resource.size, metrics.htmlSize);
   // O HTML/CSS e a imagem decorativa do rodapé têm orçamentos próprios.
   const backgroundSize = metrics.resources.filter(resource => /\/footer-background(?:-\d+)?\.webp$/.test(new URL(resource.name).pathname)).reduce((sum, resource) => sum + resource.size, 0);
+  const fonts = metrics.resources.filter(resource => new URL(resource.name).pathname === '/src/fonts/fraunces-v38-latin-600.woff2');
+  expect(fonts).toHaveLength(1);
+  const fontSize = fonts.reduce((sum, resource) => sum + resource.size, 0);
+  expect(fontSize).toBeGreaterThan(0);
+  const fontFaceCss = css.match(/@font-face \{[\s\S]*?\n\}/)[0];
+  const fontPreload = html.match(/<link rel="preload"[^>]+>/)[0];
+  const fontDeliverySize = fontSize + Buffer.byteLength(fontFaceCss + fontPreload);
+  // Inclui o WOFF2 e suas declarações; mantém separado o orçamento anterior do restante do site.
+  expect(fontDeliverySize).toBeLessThanOrEqual(18000);
   // Inclui escala fluida, safe areas e reflow por container; o restante mantém o orçamento anterior.
   expect(footerSize).toBeLessThan(8500);
   expect(backgroundSize).toBeLessThan(200000);
-  expect(totalSize - footerSize - backgroundSize).toBeLessThan(40000);
+  expect(totalSize - footerSize - backgroundSize - fontDeliverySize).toBeLessThan(40000);
 });

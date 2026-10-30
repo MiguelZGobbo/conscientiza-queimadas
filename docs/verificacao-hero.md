@@ -1,5 +1,13 @@
 # Verificação do Hero
 
+## Composição editorial — 29/10/2026
+
+A prévia B aprovada passa a ser a composição atual: primeira frase menor na fonte do sistema; segunda frase em Fraunces 600 dourada, iniciando abaixo e com quebras naturais; complemento mais desenvolvido e chamada existente. A fonte WOFF2 de 17.172 bytes e sua licença são locais, com preload exclusivo da Home e `font-display: optional`. Ver [relatorio-home-editorial.md](relatorio-home-editorial.md) para resultados e limites; as seções seguintes registram as etapas anteriores.
+
+## Abertura marcante — 29/10/2026
+
+A abertura atual usa “O fogo passa. As marcas ficam.”, com a segunda frase em dourado, o subtítulo aprovado e a chamada “Descubra os impactos das queimadas ↓”. O título desktop chega a 96 px, mantendo os limites por altura e as regras de telas pequenas e janelas baixas. A arte, as animações e o destino da âncora foram preservados. A verificação desta atualização está em [relatorio-home-marcante.md](relatorio-home-marcante.md); os registros abaixo descrevem versões anteriores.
+
 ## Redução das chamas — 20/10/2026
 
 Redução de aproximadamente 20% nas duas dimensões das 19 chamas, com igualdade dos centros horizontais e das bases confirmada durante a preparação. Os testes de escala passaram a exigir também uma altura máxima e foram observados falhando antes da redução. Conferidas capturas em 1440 e 390 px. Os 37 testes relacionados à arte e à Home passaram, incluindo contraste, cursor, movimento reduzido, ausência de JavaScript, responsividade e orçamento de código; git diff --check sem erros.

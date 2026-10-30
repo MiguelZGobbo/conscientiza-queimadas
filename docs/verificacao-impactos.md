@@ -1,5 +1,7 @@
 # Transição do Hero para os impactos
 
+Atualização de 29/10/2026: a chamada atual é “Descubra os impactos das queimadas ↓”, com o mesmo destino `#impactos`, navegação nativa e transferência de foco. Somente sua redação mudou nesta etapa. Ver [relatorio-home-marcante.md](relatorio-home-marcante.md). Os nomes anteriores da chamada nos relatos abaixo pertencem ao histórico de implementação.
+
 Atualizada em 07/10/2026 após ajustar a chegada ao destino e suavizar a navegação por fragmento. Verificações no Chromium do Playwright 1.63.0 em Windows local. Os registros anteriores do Hero em outros documentos descrevem entregas históricas.
 
 ## Atualização de 19/10/2026 — introdução dos impactos

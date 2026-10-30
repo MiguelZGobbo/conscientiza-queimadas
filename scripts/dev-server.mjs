@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { brotliCompressSync, constants } from 'node:zlib';
 import { publicFiles } from './preparar-publicacao.mjs';
 
-const contentTypes = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp' };
+const contentTypes = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.woff2': 'font/woff2', '.txt': 'text/plain' };
 
 // Somente ferramenta local: permite conferir a mesma distribuição em / e /projeto/.
 export function createStaticServer({ root = fileURLToPath(new URL('../', import.meta.url)), prefix = '/', cache = 'no-store', canonicalRedirects = false, compress = false } = {}) {
@@ -20,9 +20,10 @@ export function createStaticServer({ root = fileURLToPath(new URL('../', import.
       if (contained.startsWith('..') || isAbsolute(contained)) throw Object.assign(new Error('Fora da raiz.'), { code: 'ENOENT' });
       const file = await readFile(filePath);
       const extension = extname(path);
+      const binaryAsset = ['.webp', '.woff2'].includes(extension);
       const etag = `"${createHash('sha256').update(file).digest('hex')}"`;
       const headers = {
-        'Content-Type': `${contentTypes[extension]}${extension === '.webp' ? '' : '; charset=utf-8'}`,
+        'Content-Type': `${contentTypes[extension]}${binaryAsset ? '' : '; charset=utf-8'}`,
         'Cache-Control': cache === 'revalidate' ? 'public, max-age=0, must-revalidate' : 'no-store',
         'X-Content-Type-Options': 'nosniff',
       };
@@ -33,7 +34,7 @@ export function createStaticServer({ root = fileURLToPath(new URL('../', import.
           return;
         }
       }
-      const useBrotli = compress && extension !== '.webp' && /\bbr\b/.test(request.headers['accept-encoding'] || '');
+      const useBrotli = compress && !binaryAsset && /\bbr\b/.test(request.headers['accept-encoding'] || '');
       if (compress) headers.Vary = 'Accept-Encoding';
       if (useBrotli) headers['Content-Encoding'] = 'br';
       const body = useBrotli ? brotliCompressSync(file, { params: { [constants.BROTLI_PARAM_QUALITY]: 4 } }) : file;
